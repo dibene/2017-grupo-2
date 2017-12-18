@@ -6,7 +6,6 @@
     <table>
         <thead>
             <tr>
-                <th>Numero de Identificacin</th>
                 <th>Nombre</th>
                 <th>Observacion</th>
                 <th>Acciones</th>
@@ -15,8 +14,7 @@
         <tbody>
         {% for especialidad in especialidads %}
             <tr>
-                <td><a href="{{ path('especialidad_show', { 'id': especialidad.id }) }}">{{ especialidad.id }}</a></td>
-                <td>{{ especialidad.nombre }}</td>
+                <td>{{ especialidad.nombre }}</a></td>
                 <td>{{ especialidad.observacion }}</td>
                 <td>
                     <ul>
