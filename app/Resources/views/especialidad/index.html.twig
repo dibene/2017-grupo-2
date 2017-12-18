@@ -1,15 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Especialidads list</h1>
+    <h1>Lista de Especialidades</h1>
 
     <table>
         <thead>
             <tr>
-                <th>Id</th>
+                <th>Numero de Identificacin</th>
                 <th>Nombre</th>
                 <th>Observacion</th>
-                <th>Actions</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -21,10 +21,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('especialidad_show', { 'id': especialidad.id }) }}">show</a>
+                            <a href="{{ path('especialidad_show', { 'id': especialidad.id }) }}">Mostrar</a>
                         </li>
                         <li>
-                            <a href="{{ path('especialidad_edit', { 'id': especialidad.id }) }}">edit</a>
+                            <a href="{{ path('especialidad_edit', { 'id': especialidad.id }) }}">Editar</a>
                         </li>
                     </ul>
                 </td>
@@ -35,7 +35,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('especialidad_new') }}">Create a new especialidad</a>
+            <a href="{{ path('especialidad_new') }}">Crear una Especialidad</a>
         </li>
     </ul>
 {% endblock %}
