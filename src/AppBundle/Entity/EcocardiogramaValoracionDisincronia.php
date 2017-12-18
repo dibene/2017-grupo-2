@@ -59,7 +59,7 @@ class EcocardiogramaValoracionDisincronia
     /**
      * @var integer
      *
-     * @ORM\Column(name="duracion_total_de_r-r", type="integer", nullable=false)
+     * @ORM\Column(name="duracion_total_de_r_r", type="integer", nullable=false)
      */
     private $duracionTotalDeRR;
 
