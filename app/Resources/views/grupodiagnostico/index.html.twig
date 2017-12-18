@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Grupodiagnosticos list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Descripcion</th>
+                <th>Nombre</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for grupoDiagnostico in grupoDiagnosticos %}
+            <tr>
+                <td><a href="{{ path('grupodiagnostico_show', { 'id': grupoDiagnostico.id }) }}">{{ grupoDiagnostico.id }}</a></td>
+                <td>{{ grupoDiagnostico.descripcion }}</td>
+                <td>{{ grupoDiagnostico.nombre }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('grupodiagnostico_show', { 'id': grupoDiagnostico.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('grupodiagnostico_edit', { 'id': grupoDiagnostico.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('grupodiagnostico_new') }}">Create a new grupoDiagnostico</a>
+        </li>
+    </ul>
+{% endblock %}
