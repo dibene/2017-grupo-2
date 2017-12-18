@@ -45,7 +45,7 @@ class Ecocardiograma2d
     /**
      * @var integer
      *
-     * @ORM\Column(name="conexion_ventriculo-arterial", type="integer", nullable=false)
+     * @ORM\Column(name="conexion_ventriculo_arterial", type="integer", nullable=false)
      */
     private $conexionVentriculoArterial;
 

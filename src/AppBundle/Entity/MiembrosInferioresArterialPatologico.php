@@ -45,7 +45,7 @@ class MiembrosInferioresArterialPatologico
     /**
      * @var integer
      *
-     * @ORM\Column(name="indice_pre_estenosis-estenosis", type="integer", nullable=false)
+     * @ORM\Column(name="indice_pre_estenosis_estenosis", type="integer", nullable=false)
      */
     private $indicePreEstenosisEstenosis;
 
