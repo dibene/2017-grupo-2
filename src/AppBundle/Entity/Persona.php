@@ -4,16 +4,15 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Persona
- *
- * @ORM\Table(name="persona", uniqueConstraints={@ORM\UniqueConstraint(name="dni", columns={"dni"})})
- * @ORM\Entity
- * @ORM\InheritanceType("SINGLE_TABLE")
- */
-
-
-class Persona
+ /**
+  * Persona
+  * @ORM\Table(name="persona", uniqueConstraints={@ORM\UniqueConstraint(name="dni", columns={"dni"})})
+  * @ORM\Entity
+  * @ORM\InheritanceType("JOINED")
+  * @ORM\DiscriminatorColumn(name="discr", type="string")
+  *
+  */
+abstract class Persona
 {
     /**
      * @var integer
@@ -79,8 +78,6 @@ class Persona
      * @ORM\Column(name="fecha_nacimiento", type="date", nullable=false)
      */
     private $fechaNacimiento;
-
-
 
     /**
      * Get id

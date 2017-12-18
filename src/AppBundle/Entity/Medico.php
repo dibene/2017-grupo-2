@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="medico")
  * @ORM\Entity
  */
+
 class Medico extends Persona
 {
     /**
@@ -23,17 +24,18 @@ class Medico extends Persona
 
     /**
      * @var integer
-     *
-     * @ORM\Column(name="id_persona", type="integer", nullable=false)
+     * @ORM\OneToOne(targetEntity="Especialidad")
+     * @ORM\JoinColumn(name="especialidad_id", referencedColumnName="id")
      */
-    private $idPersona;
+    private $Especialidad;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id_especialidad", type="integer", nullable=false)
+     * One Medico has One Usuario.
+     * @ORM\OneToOne(targetEntity="Usuario")
+     * @ORM\JoinColumn(name="usuario_id", referencedColumnName="id")
      */
-    private $idEspecialidad;
+    private $Usuario;
+
 
     /**
      * @var string
@@ -49,7 +51,10 @@ class Medico extends Persona
      */
     private $matricula;
 
+    public function __construct()
+    {
 
+    }
 
     /**
      * Get id
@@ -61,28 +66,6 @@ class Medico extends Persona
         return $this->id;
     }
 
-    /**
-     * Set idPersona
-     *
-     * @param integer $idPersona
-     * @return Medico
-     */
-    public function setIdPersona($idPersona)
-    {
-        $this->idPersona = $idPersona;
-
-        return $this;
-    }
-
-    /**
-     * Get idPersona
-     *
-     * @return integer
-     */
-    public function getIdPersona()
-    {
-        return $this->idPersona;
-    }
 
     /**
      * Set idEspecialidad
@@ -90,9 +73,9 @@ class Medico extends Persona
      * @param integer $idEspecialidad
      * @return Medico
      */
-    public function setIdEspecialidad($idEspecialidad)
+    public function setEspecialidad($Especialidad)
     {
-        $this->idEspecialidad = $idEspecialidad;
+        $this->Especialidad = $Especialidad;
 
         return $this;
     }
@@ -102,9 +85,30 @@ class Medico extends Persona
      *
      * @return integer
      */
-    public function getIdEspecialidad()
+    public function getEspecialidad()
     {
-        return $this->idEspecialidad;
+        return $this->Especialidad;
+    }
+    /**
+     * Get usuario
+     *
+     * @return usuario
+     */
+    public function getUsuario()
+    {
+        return $this->Usuario;
+    }
+
+    /**
+     * Get usuario
+     *
+     * @return usuario
+     */
+    public function setUsuario($Usuario)
+    {
+      $this->Usuario = $Usuario;
+
+      return $this;
     }
 
     /**
@@ -152,4 +156,5 @@ class Medico extends Persona
     {
         return $this->matricula;
     }
+
 }
