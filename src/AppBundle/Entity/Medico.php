@@ -56,15 +56,6 @@ class Medico extends Persona
 
     }
 
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
 
     /**

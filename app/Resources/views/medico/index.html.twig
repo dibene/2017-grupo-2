@@ -15,14 +15,16 @@
         <tbody>
         {% for medico in medicos %}
             <tr>
-                <td>{{ medico.id }}</td>
+                <td><a href="{{ path('medico_show', { 'id': medico.id }) }}">{{ medico.id }}</a></td>
                 <td>{{ medico.obraSocial }}</td>
                 <td>{{ medico.matricula }}</td>
                 <td>
                     <ul>
                         <li>
+                            <a href="{{ path('medico_show', { 'id': medico.id }) }}">show</a>
                         </li>
                         <li>
+                            <a href="{{ path('medico_edit', { 'id': medico.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>

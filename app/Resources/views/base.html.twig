@@ -8,9 +8,10 @@
         {% endblock %}
     </head>
     <body>
+      <!-- nav bar -->
       <nav class="pink lighten">
     		<div class="nav-fixed">
-          <a href="#" class="brand-logo">SEGC</a>
+          <a href="/" class="brand-logo">SEGC</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 <li>{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} </li>
@@ -23,11 +24,15 @@
                 <li>
                   <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
                 </li>
+                <li>
+                  <a href="/register"> Registrar </a>
+                </li>
             {% endif %}
 
           </ul>
         </div>
       </nav>
+      <!-- nav bar -->
 
         <div>
 
