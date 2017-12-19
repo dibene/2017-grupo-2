@@ -9,7 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="estudio")
  * @ORM\Entity
- * @ORM\InheritanceType("SINGLE_TABLE")
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="discr", type="string")
  */
 class Estudio
 {
@@ -37,11 +38,19 @@ class Estudio
     private $observacion;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id_medico", type="integer", nullable=false)
+    * Many estudios have One paciente.
+    * @ORM\ManyToOne(targetEntity="Medico", inversedBy="estudios")
+    * @ORM\JoinColumn(name="id_medico", referencedColumnName="id")
+    */
+
+    private $medico;
+
+     /**
+     * Many estudios have One paciente.
+     * @ORM\ManyToOne(targetEntity="Paciente", inversedBy="estudios")
+     * @ORM\JoinColumn(name="id_paciente", referencedColumnName="id")
      */
-    private $idMedico;
+    private $paciente;
 
     /**
      * @var \DateTime
@@ -49,8 +58,6 @@ class Estudio
      * @ORM\Column(name="fecha_alta", type="date", nullable=false)
      */
     private $fechaAlta;
-
-
 
     /**
      * Get id
@@ -109,26 +116,49 @@ class Estudio
     }
 
     /**
-     * Set idMedico
+     * Set Medico
      *
-     * @param integer $idMedico
+     * @param integer $Medico
      * @return Estudio
      */
-    public function setIdMedico($idMedico)
+    public function setMedico($Medico)
     {
-        $this->idMedico = $idMedico;
+        $this->Medico = $Medico;
 
         return $this;
     }
 
     /**
-     * Get idMedico
+     * Get Medico
      *
      * @return integer
      */
-    public function getIdMedico()
+    public function getMedico()
     {
-        return $this->idMedico;
+        return $this->Medico;
+    }
+
+    /**
+     * Set Paciente
+     *
+     * @param integer $Paciente
+     * @return Estudio
+     */
+    public function setPaciente($Paciente)
+    {
+        $this->Paciente = $Paciente;
+
+        return $this;
+    }
+
+    /**
+     * Get Paciente
+     *
+     * @return integer
+     */
+    public function getPaciente()
+    {
+        return $this->Paciente;
     }
 
     /**

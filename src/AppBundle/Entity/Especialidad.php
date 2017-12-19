@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="especialidad")
  * @ORM\Entity
  */
-class Especialidad
+class Especialidad extends Estudio
 {
     /**
      * @var integer
@@ -40,7 +40,7 @@ class Especialidad
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -63,7 +63,7 @@ class Especialidad
     /**
      * Get nombre
      *
-     * @return integer 
+     * @return integer
      */
     public function getNombre()
     {
@@ -86,7 +86,7 @@ class Especialidad
     /**
      * Get observacion
      *
-     * @return integer 
+     * @return integer
      */
     public function getObservacion()
     {

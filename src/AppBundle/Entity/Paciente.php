@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Paciente
@@ -26,7 +27,7 @@ class Paciente extends Persona
      *
      * @ORM\Column(name="id_persona", type="integer", nullable=false)
      */
-    private $idPersona;
+    private $persona;
 
     /**
      * @var string
@@ -38,7 +39,7 @@ class Paciente extends Persona
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="fecha_ingreso", type="date", nullable=false)
+     * @ORM\Column(name="fecha_ingreso", type="date", length=15, nullable=false)
      */
     private $fechaIngreso;
 
@@ -47,16 +48,63 @@ class Paciente extends Persona
      *
      * @ORM\Column(name="id_medico_cabecera", type="integer", nullable=false)
      */
-    private $idMedicoCabecera;
+    private $medicoCabecera;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="id_internacion", type="integer", nullable=false)
+     * @ORM\Column(name="internacion", type="string", length=15, nullable=false)
      */
-    private $idInternacion;
+    private $internacion;
+
+    /**
+     * One paciente has Many estudios.
+     * @ORM\OneToMany(targetEntity="Estudio", mappedBy="paciente")
+     */
+    private $estudios;
 
 
+        public function __construct() {
+            $this->$estudios = new ArrayCollection();
+        }
+        /**
+        * Add estudios
+        *
+        */
+        public function addEstudio(Estudio $estudios)
+        {
+          $this->estudios[] = $estudios;
+        }
+
+        public function setEstudios($estudios) {
+          $this->estudios = $estudios;
+        }
+
+        /**
+        * Get estudios
+        *
+        * @return Doctrine\Common\Collections\Collection
+        */
+        public function getEstudios()
+        {
+          return $this->estudios;
+        }
+
+        // /**
+        // * Get estudios
+        // *
+        // * @return Doctrine\Common\Collections\Collection
+        // */
+        // public function getEstudios()
+        // {
+        //   //return $this->user_roles->toArray(); //IMPORTANTE: el mecanismo de seguridad de Sf2 requiere ésto como un array
+        //   $estudios = array();
+        //   foreach ($this->estudios as $estudio) {
+        //     $estudios[] = $estudio->getEstudio();
+        //   }
+        //
+        //   return $estudios;
+        // }
 
     /**
      * Get id
@@ -69,26 +117,26 @@ class Paciente extends Persona
     }
 
     /**
-     * Set idPersona
+     * Set Persona
      *
-     * @param integer $idPersona
+     * @param integer $Persona
      * @return Paciente
      */
-    public function setIdPersona($idPersona)
+    public function setPersona($Persona)
     {
-        $this->idPersona = $idPersona;
+        $this->Persona = $Persona;
 
         return $this;
     }
 
     /**
-     * Get idPersona
+     * Get Persona
      *
      * @return integer
      */
-    public function getIdPersona()
+    public function getPersona()
     {
-        return $this->idPersona;
+        return $this->Persona;
     }
 
     /**
@@ -138,48 +186,48 @@ class Paciente extends Persona
     }
 
     /**
-     * Set idMedicoCabecera
+     * Set medicoCabecera
      *
-     * @param integer $idMedicoCabecera
+     * @param integer $medicoCabecera
      * @return Paciente
      */
-    public function setIdMedicoCabecera($idMedicoCabecera)
+    public function setMedicoCabecera($medicoCabecera)
     {
-        $this->idMedicoCabecera = $idMedicoCabecera;
+        $this->medicoCabecera = $medicoCabecera;
 
         return $this;
     }
 
     /**
-     * Get idMedicoCabecera
+     * Get medicoCabecera
      *
      * @return integer
      */
-    public function getIdMedicoCabecera()
+    public function getMedicoCabecera()
     {
-        return $this->idMedicoCabecera;
+        return $this->medicoCabecera;
     }
 
     /**
-     * Set idInternacion
+     * Set internacion
      *
-     * @param integer $idInternacion
+     * @param string $internacion
      * @return Paciente
      */
-    public function setIdInternacion($idInternacion)
+    public function setInternacion($internacion)
     {
-        $this->idInternacion = $idInternacion;
+        $this->internacion = $internacion;
 
         return $this;
     }
 
     /**
-     * Get idInternacion
+     * Get internacion
      *
-     * @return integer
+     * @return string
      */
-    public function getIdInternacion()
+    public function getInternacion()
     {
-        return $this->idInternacion;
+        return $this->internacion;
     }
 }

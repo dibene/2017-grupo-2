@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="miembros_superiores_arterial_normal")
  * @ORM\Entity
  */
-class MiembrosSuperioresArterialNormal
+class MiembrosSuperioresArterialNormal extends Estudio
 {
     /**
      * @var integer
@@ -54,7 +54,7 @@ class MiembrosSuperioresArterialNormal
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -77,7 +77,7 @@ class MiembrosSuperioresArterialNormal
     /**
      * Get idEstudio
      *
-     * @return integer 
+     * @return integer
      */
     public function getIdEstudio()
     {
@@ -100,7 +100,7 @@ class MiembrosSuperioresArterialNormal
     /**
      * Get extension
      *
-     * @return integer 
+     * @return integer
      */
     public function getExtension()
     {
@@ -123,7 +123,7 @@ class MiembrosSuperioresArterialNormal
     /**
      * Get velocidadPicoSistolica
      *
-     * @return integer 
+     * @return integer
      */
     public function getVelocidadPicoSistolica()
     {
@@ -146,7 +146,7 @@ class MiembrosSuperioresArterialNormal
     /**
      * Get indiceDePreEstenosis
      *
-     * @return integer 
+     * @return integer
      */
     public function getIndiceDePreEstenosis()
     {

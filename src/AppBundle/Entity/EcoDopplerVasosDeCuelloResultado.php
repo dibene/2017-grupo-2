@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="eco_doppler_vasos_de_cuello_resultado")
  * @ORM\Entity
  */
-class EcoDopplerVasosDeCuelloResultado
+class EcoDopplerVasosDeCuelloResultado extends Estudio
 {
     /**
      * @var integer
@@ -40,7 +40,7 @@ class EcoDopplerVasosDeCuelloResultado
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -63,7 +63,7 @@ class EcoDopplerVasosDeCuelloResultado
     /**
      * Get idEcoDopplerVasosDeCuello
      *
-     * @return integer 
+     * @return integer
      */
     public function getIdEcoDopplerVasosDeCuello()
     {
@@ -86,7 +86,7 @@ class EcoDopplerVasosDeCuelloResultado
     /**
      * Get resultado
      *
-     * @return integer 
+     * @return integer
      */
     public function getResultado()
     {

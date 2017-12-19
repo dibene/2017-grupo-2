@@ -22,11 +22,11 @@ class Telefono
     private $id;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id_persona", type="integer", nullable=false)
+     * Many Features have One Product.
+     * @ORM\ManyToOne(targetEntity="Persona", inversedBy="telefonos")
+     * @ORM\JoinColumn(name="persona_id", referencedColumnName="id")
      */
-    private $idPersona;
+    private $Persona;
 
     /**
      * @var string
@@ -40,7 +40,7 @@ class Telefono
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -63,7 +63,7 @@ class Telefono
     /**
      * Get idPersona
      *
-     * @return integer 
+     * @return integer
      */
     public function getIdPersona()
     {
@@ -86,7 +86,7 @@ class Telefono
     /**
      * Get numero
      *
-     * @return string 
+     * @return string
      */
     public function getNumero()
     {

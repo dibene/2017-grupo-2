@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
  /**
   * Persona
@@ -78,6 +79,16 @@ abstract class Persona
      * @ORM\Column(name="fecha_nacimiento", type="date", nullable=false)
      */
     private $fechaNacimiento;
+
+    /**
+     * One presona has Many telefonos.
+     * @ORM\OneToMany(targetEntity="Telefono", mappedBy="presona")
+     */
+     private $telefonos;
+
+     public function __construct() {
+         $this->telefonos = new ArrayCollection();
+     }
 
     /**
      * Get id

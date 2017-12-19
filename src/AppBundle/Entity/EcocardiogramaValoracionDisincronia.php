@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="ecocardiograma_valoracion_disincronia")
  * @ORM\Entity
  */
-class EcocardiogramaValoracionDisincronia
+class EcocardiogramaValoracionDisincronia extends Estudio
 {
     /**
      * @var integer
@@ -68,7 +68,7 @@ class EcocardiogramaValoracionDisincronia
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -91,7 +91,7 @@ class EcocardiogramaValoracionDisincronia
     /**
      * Get idEstudio
      *
-     * @return integer 
+     * @return integer
      */
     public function getIdEstudio()
     {
@@ -114,7 +114,7 @@ class EcocardiogramaValoracionDisincronia
     /**
      * Get retrasoSeptalPp
      *
-     * @return integer 
+     * @return integer
      */
     public function getRetrasoSeptalPp()
     {
@@ -137,7 +137,7 @@ class EcocardiogramaValoracionDisincronia
     /**
      * Get tiempoAlPicoSistolico
      *
-     * @return integer 
+     * @return integer
      */
     public function getTiempoAlPicoSistolico()
     {
@@ -160,7 +160,7 @@ class EcocardiogramaValoracionDisincronia
     /**
      * Get tiempoAlPicoDeDeformacion
      *
-     * @return integer 
+     * @return integer
      */
     public function getTiempoAlPicoDeDeformacion()
     {
@@ -183,7 +183,7 @@ class EcocardiogramaValoracionDisincronia
     /**
      * Get diferenciaEntreLosPeriodosPreEyectivos
      *
-     * @return integer 
+     * @return integer
      */
     public function getDiferenciaEntreLosPeriodosPreEyectivos()
     {
@@ -206,7 +206,7 @@ class EcocardiogramaValoracionDisincronia
     /**
      * Get duracionTotalDeRR
      *
-     * @return integer 
+     * @return integer
      */
     public function getDuracionTotalDeRR()
     {

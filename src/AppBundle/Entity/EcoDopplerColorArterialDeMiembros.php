@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="eco_doppler_color_arterial_de_miembros")
  * @ORM\Entity
  */
-class EcoDopplerColorArterialDeMiembros
+class EcoDopplerColorArterialDeMiembros extends Estudio
 {
     /**
      * @var integer
@@ -68,7 +68,7 @@ class EcoDopplerColorArterialDeMiembros
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -91,7 +91,7 @@ class EcoDopplerColorArterialDeMiembros
     /**
      * Get idEstudio
      *
-     * @return integer 
+     * @return integer
      */
     public function getIdEstudio()
     {
@@ -114,7 +114,7 @@ class EcoDopplerColorArterialDeMiembros
     /**
      * Get arteriafemoralComun
      *
-     * @return integer 
+     * @return integer
      */
     public function getArteriafemoralComun()
     {
@@ -137,7 +137,7 @@ class EcoDopplerColorArterialDeMiembros
     /**
      * Get arteriaFemoralSuperficial
      *
-     * @return integer 
+     * @return integer
      */
     public function getArteriaFemoralSuperficial()
     {
@@ -160,7 +160,7 @@ class EcoDopplerColorArterialDeMiembros
     /**
      * Get arteriaPoplitea
      *
-     * @return integer 
+     * @return integer
      */
     public function getArteriaPoplitea()
     {
@@ -183,7 +183,7 @@ class EcoDopplerColorArterialDeMiembros
     /**
      * Get arteriaTibialAnterior
      *
-     * @return integer 
+     * @return integer
      */
     public function getArteriaTibialAnterior()
     {
@@ -206,7 +206,7 @@ class EcoDopplerColorArterialDeMiembros
     /**
      * Get arteriaTibialPosterior
      *
-     * @return integer 
+     * @return integer
      */
     public function getArteriaTibialPosterior()
     {

@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Medico
@@ -27,14 +28,14 @@ class Medico extends Persona
      * @ORM\OneToOne(targetEntity="Especialidad")
      * @ORM\JoinColumn(name="especialidad_id", referencedColumnName="id")
      */
-    private $Especialidad;
+    private $especialidad;
 
     /**
      * One Medico has One Usuario.
      * @ORM\OneToOne(targetEntity="Usuario")
      * @ORM\JoinColumn(name="usuario_id", referencedColumnName="id")
      */
-    private $Usuario;
+    private $usuario;
 
 
     /**
@@ -51,12 +52,15 @@ class Medico extends Persona
      */
     private $matricula;
 
-    public function __construct()
-    {
+    /**
+     * One medico has Many estudios.
+     * @ORM\OneToMany(targetEntity="Estudio", mappedBy="medico")
+     */
+    private $estudios;
 
+    public function __construct() {
+        $this->$estudios = new ArrayCollection();
     }
-
-
 
     /**
      * Set idEspecialidad

@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="ecocardiograma_2d")
  * @ORM\Entity
  */
-class Ecocardiograma2d
+class Ecocardiograma2d extends Estudio
 {
     /**
      * @var integer
@@ -54,7 +54,7 @@ class Ecocardiograma2d
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -77,7 +77,7 @@ class Ecocardiograma2d
     /**
      * Get idEstudio
      *
-     * @return integer 
+     * @return integer
      */
     public function getIdEstudio()
     {
@@ -100,7 +100,7 @@ class Ecocardiograma2d
     /**
      * Get situs
      *
-     * @return integer 
+     * @return integer
      */
     public function getSitus()
     {
@@ -123,7 +123,7 @@ class Ecocardiograma2d
     /**
      * Get conexionAuriculoventricular
      *
-     * @return integer 
+     * @return integer
      */
     public function getConexionAuriculoventricular()
     {
@@ -146,7 +146,7 @@ class Ecocardiograma2d
     /**
      * Get conexionVentriculoArterial
      *
-     * @return integer 
+     * @return integer
      */
     public function getConexionVentriculoArterial()
     {

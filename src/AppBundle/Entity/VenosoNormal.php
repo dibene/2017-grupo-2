@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="venoso_normal")
  * @ORM\Entity
  */
-class VenosoNormal
+class VenosoNormal extends Estudio
 {
     /**
      * @var integer
@@ -54,7 +54,7 @@ class VenosoNormal
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -77,7 +77,7 @@ class VenosoNormal
     /**
      * Get idEstudio
      *
-     * @return integer 
+     * @return integer
      */
     public function getIdEstudio()
     {
@@ -100,7 +100,7 @@ class VenosoNormal
     /**
      * Get venaSafenaInterna
      *
-     * @return integer 
+     * @return integer
      */
     public function getVenaSafenaInterna()
     {
@@ -123,7 +123,7 @@ class VenosoNormal
     /**
      * Get diametro
      *
-     * @return integer 
+     * @return integer
      */
     public function getDiametro()
     {
@@ -146,7 +146,7 @@ class VenosoNormal
     /**
      * Get venaSafenaExterna
      *
-     * @return integer 
+     * @return integer
      */
     public function getVenaSafenaExterna()
     {
