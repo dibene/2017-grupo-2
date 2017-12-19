@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Listaresultados list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for listaResultado in listaResultados %}
+            <tr>
+                <td><a href="{{ path('listaresultados_show', { 'id': listaResultado.id }) }}">{{ listaResultado.id }}</a></td>
+                <td>{{ listaResultado.nombre }}</td>
+                <td>{{ listaResultado.descripcion }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('listaresultados_show', { 'id': listaResultado.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('listaresultados_edit', { 'id': listaResultado.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('listaresultados_new') }}">Create a new listaResultado</a>
+        </li>
+    </ul>
+{% endblock %}

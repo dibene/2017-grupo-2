@@ -22,16 +22,16 @@ class Especialidad extends Estudio
     private $id;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="nombre", type="integer", nullable=false)
+     * @ORM\Column(name="nombre", type="string", nullable=false)
      */
     private $nombre;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="observacion", type="integer", nullable=false)
+     * @ORM\Column(name="observacion", type="string", nullable=false)
      */
     private $observacion;
 

@@ -6,10 +6,6 @@
     <table>
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ especialidad.id }}</td>
-            </tr>
-            <tr>
                 <th>Nombre</th>
                 <td>{{ especialidad.nombre }}</td>
             </tr>
@@ -22,14 +18,14 @@
 
     <ul>
         <li>
-            <a href="{{ path('especialidad_index') }}">Back to the list</a>
+            <a href="{{ path('especialidad_index') }}">Volver al listado de Especialidades</a>
         </li>
         <li>
-            <a href="{{ path('especialidad_edit', { 'id': especialidad.id }) }}">Edit</a>
+            <a href="{{ path('especialidad_edit', { 'id': especialidad.id }) }}">Editar</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Eliminar">
             {{ form_end(delete_form) }}
         </li>
     </ul>
