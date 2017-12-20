@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Paciente edit</h1>
+    <h1>Editar Paciente</h1>
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
@@ -12,15 +12,6 @@
         <li>
             <a href="{{ path('paciente_index') }}">Volver al listado de Pacientes</a>
         </li>
-        <li>
-            {#
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Borrar">
-            {{ form_end(delete_form) }}
-            #}
-            {{ form_start(delete_form, {'attr': {'onclick': 'return confirm("¿Estas seguro que desea eliminar el Paciente?")'}}) }}
-                <input type="submit" value="Borrar">
-            {{ form_end(delete_form) }}
-        </li>
+
     </ul>
 {% endblock %}
