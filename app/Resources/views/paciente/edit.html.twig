@@ -5,22 +5,11 @@
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <input type="submit" value=" Confirmar Edicion" />
+        <a class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">done</i><input type="submit"></a>Confirmar Edicion
     {{ form_end(edit_form) }}
-
     <ul>
         <li>
-            <a href="{{ path('paciente_index') }}">Volver al listado de Pacientes</a>
-        </li>
-        <li>
-            {#
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Borrar">
-            {{ form_end(delete_form) }}
-            #}
-            {{ form_start(delete_form, {'attr': {'onclick': 'return confirm("¿Estas seguro que desea eliminar el Paciente?")'}}) }}
-                <input type="submit" value="Borrar">
-            {{ form_end(delete_form) }}
+            <a class="btn-floating btn-large waves-effect waves-light yellow" href="{{ path('paciente_index') }}"><i class="material-icons">arrow_back</i></a>Volver al listado de Pacientes
         </li>
     </ul>
 {% endblock %}
