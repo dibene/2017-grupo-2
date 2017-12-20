@@ -25,26 +25,7 @@ class EstudioController extends Controller
         $em = $this->getDoctrine()->getManager();
         $paciente = $em->getRepository('AppBundle:Paciente')->find($id);
 
-        $nombreEstudios = array(
-          array('nombre' => 'ecodoppler vasos del cuello',
-                'pagina' => '' ),
-          array('nombre' => 'ecocardiograma valoracion disincronia',
-                'pagina' => '' ),
-          array('nombre' => 'ecodoppler color arterial de miembros',
-                'pagina' => '' ),
-          array('nombre' => 'cardioresonancia',
-                'pagina' => 'cardioresonancia_new' ),
-          array('nombre' => 'miembros inferiores arterial patologico',
-                'pagina' => '' ),
-          array('nombre' => 'miembros inferiores arterial normal',
-                'pagina' => '' ),
-          array('nombre' => 'ecoestres',
-                'pagina' => '' ),
-          array('nombre' => 'Venoso Normal',
-                'pagina' => '' ),
-          array('nombre' => 'ecocardiograma 2d',
-                'pagina' => '' )
-         );
+        $nombreEstudios = $em->getRepository('AppBundle:EstudioConfiguracion')->findAll();
 
         return $this->render('estudio/index.html.twig', array(
             'paciente' => $paciente,
