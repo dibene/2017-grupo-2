@@ -1,7 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Medico</h1>
+
+    <div>
+        <a class="btn-floating btn-large waves-effect waves-light yellow" href="{{ path('medico_index') }}"><i class="material-icons">arrow_back</i></a>Volver al listado de Médicos
+    </div>
+
+    <h1>Médico</h1>
 
     <table>
         <tbody>
@@ -21,16 +26,10 @@
     </table>
 
     <ul>
+
         <li>
-            <a href="{{ path('medico_index') }}">Back to the list</a>
+            <a class="btn-floating btn-large waves-effect waves-light green" href="{{ path('medico_edit', { 'id': medico.id }) }}"><i class="material-icons">create</i></a> Editar Médico
         </li>
-        <li>
-            <a href="{{ path('medico_edit', { 'id': medico.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
+
     </ul>
 {% endblock %}
