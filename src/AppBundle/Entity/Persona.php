@@ -53,9 +53,9 @@ abstract class Persona
     private $direccion;
 
     /**
-     * @var boolean
+     * @var string
      *
-     * @ORM\Column(name="sexo", type="boolean", nullable=false)
+     * @ORM\Column(name="sexo", type="string", nullable=false)
      */
     private $sexo;
 

@@ -1,16 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Medico creation</h1>
+
+    <div>
+        <a class="btn-floating btn-large waves-effect waves-light yellow" href="{{ path('medico_index') }}"><i class="material-icons">arrow_back</i></a>Volver al listado de Médicos
+    </div>
+
+    <h1>Nuevo Médico</h1>
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
         <input type="submit" value="Create" />
     {{ form_end(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('medico_index') }}">Back to the list</a>
-        </li>
-    </ul>
 {% endblock %}

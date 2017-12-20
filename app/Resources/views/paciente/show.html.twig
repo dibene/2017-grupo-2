@@ -1,20 +1,51 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <div>
+        <a class="btn-floating btn-large waves-effect waves-light yellow" href="{{ path('paciente_index') }}"><i class="material-icons">arrow_back</i></a>Volver al listado de Pacientes
+    </div>
     <h1>Paciente</h1>
 
     <table>
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ paciente.id }}</td>
+                <th>Nombre</th>
+                <td>{{ paciente.nombre }}</td>
             </tr>
             <tr>
-                <th>Obrasocial</th>
+                <th>Apellido</th>
+                <td>{{ paciente.apellido }}</td>
+            </tr>
+            <tr>
+                <th>DNI</th>
+                <td>{{ paciente.dni }}</td>
+            </tr>
+            <tr>
+                <th>Direccion</th>
+                <td>{{ paciente.direccion }}</td>
+            </tr>
+            <tr>
+                <th>Sexo</th>
+                <td>{{ paciente.sexo }}</td>
+            </tr>
+            <tr>
+                <th>Nacionalidad</th>
+                <td>{{ paciente.nacionalidad }}</td>
+            </tr>
+            <tr>
+                <th>Localidad</th>
+                <td>{{ paciente.localidad}}</td>
+            </tr>
+            <tr>
+                <th>Fecha de Nacimiento</th>
+                <td>{% if paciente.fechanacimiento %}{{ paciente.fechanacimiento|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Obra Social</th>
                 <td>{{ paciente.obraSocial }}</td>
             </tr>
             <tr>
-                <th>Fechaingreso</th>
+                <th>Fecha de Ingreso</th>
                 <td>{% if paciente.fechaIngreso %}{{ paciente.fechaIngreso|date('Y-m-d') }}{% endif %}</td>
             </tr>
             <tr>
@@ -26,15 +57,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('paciente_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('paciente_edit', { 'id': paciente.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
+            <a class="btn-floating btn-large waves-effect waves-light green" href="{{ path('paciente_edit', { 'id': paciente.id }) }}"><i class="material-icons">create</i></a> Editar Paciente
         </li>
     </ul>
 {% endblock %}
