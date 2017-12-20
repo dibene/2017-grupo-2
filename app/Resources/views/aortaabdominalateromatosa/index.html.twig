@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Aortaabdominalateromatosas list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for aortaAbdominalAteromatosa in aortaAbdominalAteromatosas %}
+            <tr>
+                <td><a href="{{ path('aortaabdominalateromatosa_show', { 'id': aortaAbdominalAteromatosa.id }) }}">{{ aortaAbdominalAteromatosa.id }}</a></td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('aortaabdominalateromatosa_show', { 'id': aortaAbdominalAteromatosa.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('aortaabdominalateromatosa_edit', { 'id': aortaAbdominalAteromatosa.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('aortaabdominalateromatosa_new') }}">Create a new aortaAbdominalAteromatosa</a>
+        </li>
+    </ul>
+{% endblock %}

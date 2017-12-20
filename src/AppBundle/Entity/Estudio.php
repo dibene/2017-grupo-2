@@ -31,11 +31,11 @@ abstract class Estudio
     private $motivoSolicitud;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="nombre", type="string", length=30, nullable=false)
+     * One estudio has One estudioconfiguracion.
+     * @ORM\OneToOne(targetEntity="EstudioConfiguracion")
+     * @ORM\JoinColumn(name="estudios_configuracion_id", referencedColumnName="id")
      */
-    private $nombre;
+    private $estudioConfiguracion;
 
     /**
      * @var string
@@ -49,7 +49,6 @@ abstract class Estudio
     * @ORM\ManyToOne(targetEntity="Medico", inversedBy="estudios")
     * @ORM\JoinColumn(name="id_medico", referencedColumnName="id")
     */
-
     private $medico;
 
      /**
@@ -67,6 +66,13 @@ abstract class Estudio
     private $fechaAlta;
 
     /**
+     * @var \string
+     *
+     * @ORM\Column(name="diagnostico", type="text", length=65535, nullable=false)
+     */
+    private $diagnostico;
+
+    /**
      * Get id
      *
      * @return integer
@@ -77,26 +83,47 @@ abstract class Estudio
     }
 
     /**
-     * Set nombre
+     * Set $motivoSolicitud
      *
-     * @param string $nombre
      * @return Estudio
      */
-    public function setNombre($nombre)
+    public function setMotivoSolicitud($motivoSolicitud)
     {
-        $this->nombre = $nombre;
+        $this->motivoSolicitud = $motivoSolicitud;
 
         return $this;
     }
 
     /**
-     * Get nombre
+     * Get $motivoSolicitud
      *
-     * @return string
+
      */
-    public function getNombre()
+    public function getMotivoSolicitud()
     {
-        return $this->nombre;
+        return $this->motivoSolicitud;
+    }
+
+    /**
+     * Set $estudioConfiguracion
+     *
+     * @return Estudio
+     */
+    public function setEstudioConfiguracion($estudioConfiguracion)
+    {
+        $this->estudioConfiguracion = $estudioConfiguracion;
+
+        return $this;
+    }
+
+    /**
+     * Get $estudioConfiguracion
+     *
+
+     */
+    public function getEstudioConfiguracion()
+    {
+        return $this->estudioConfiguracion;
     }
 
     /**
@@ -120,6 +147,29 @@ abstract class Estudio
     public function getObservacion()
     {
         return $this->observacion;
+    }
+
+    /**
+     * Set observacion
+     *
+     * @param string $diagnostico
+     * @return Estudio
+     */
+    public function setDiagnostico($diagnostico)
+    {
+        $this->diagnostico = $diagnostico;
+
+        return $this;
+    }
+
+    /**
+     * Get diagnostico
+     *
+     * @return string
+     */
+    public function getDiagnostico()
+    {
+        return $this->diagnostico;
     }
 
     /**

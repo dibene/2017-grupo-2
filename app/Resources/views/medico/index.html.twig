@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Medicos list</h1>
+    <h1>Médicos</h1>
 
     <table>
         <thead>
@@ -16,7 +16,8 @@
               <th>Fechanacimiento</th>
                 <th>Obrasocial</th>
                 <th>Matricula</th>
-                <th>Actions</th>
+                <th>Ver</th>
+                <th>Editar</th>
             </tr>
         </thead>
         <tbody>
@@ -32,16 +33,10 @@
               <td>{% if medico.fechaNacimiento %}{{ medico.fechaNacimiento|date('Y-m-d') }}{% endif %}</td>
                 <td>{{ medico.obraSocial }}</td>
                 <td>{{ medico.matricula }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('medico_show', { 'id': medico.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('medico_edit', { 'id': medico.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
+                
+                <td><a class="btn-floating btn-small waves-effect waves-light blue" href="{{ path('medico_show', { 'id': medico.id }) }}"><i class="material-icons">zoom_in</i></a></td>
+                <td><a class="btn-floating btn-small waves-effect waves-light yellow" href="{{ path('medico_edit', { 'id': medico.id }) }}"><i class="material-icons">create</i></a> </td>
+                
             </tr>
         {% endfor %}
         </tbody>
@@ -49,7 +44,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('medico_new') }}">Create a new medico</a>
+            <a class="btn-floating btn-large waves-effect waves-light green" href="{{ path('medico_new') }}"><i class="material-icons">person_add</i></a>Crear Nuevo Médico
         </li>
     </ul>
 {% endblock %}
