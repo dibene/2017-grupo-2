@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <div>
+        <a class="btn-floating btn-large waves-effect waves-light yellow" href="{{ path('paciente_index') }}"><i class="material-icons">arrow_back</i></a>Volver al listado de Pacientes
+    </div>
     <h1>Paciente</h1>
 
     <table>
@@ -55,9 +58,6 @@
     <ul>
         <li>
             <a class="btn-floating btn-large waves-effect waves-light green" href="{{ path('paciente_edit', { 'id': paciente.id }) }}"><i class="material-icons">create</i></a> Editar Paciente
-        </li>
-        <li>
-            <a class="btn-floating btn-large waves-effect waves-light yellow" href="{{ path('paciente_index') }}"><i class="material-icons">arrow_back</i></a>Volver al listado de Pacientes
         </li>
     </ul>
 {% endblock %}
