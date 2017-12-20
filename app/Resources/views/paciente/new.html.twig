@@ -5,10 +5,9 @@
         <a class="btn-floating btn-large waves-effect waves-light yellow" href="{{ path('paciente_index') }}"><i class="material-icons">arrow_back</i></a>Volver al listado de Pacientes
     </div>
     <h1>Nuevo Paciente</h1>
-
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Crear" />
-    {{ form_end(form) }}
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <input type="submit" value="Crear" />
+        {{ form_end(form) }}
 
 {% endblock %}
