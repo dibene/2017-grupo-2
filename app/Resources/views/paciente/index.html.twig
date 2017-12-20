@@ -32,9 +32,9 @@
               <th>Sexo</th>
               <th>Nacionalidad</th>
               <th>Localidad</th>
-              <th>Fechanacimiento</th>
-                <th>Obrasocial</th>
-                <th>Fechaingreso</th>
+              <th>Fecha de Nacimiento</th>
+                <th>Obra Social</th>
+                <th>Fecha de Ingreso</th>
                 <th>Internacion</th>
                 <th>Ver</th>
                 <th>Editar</th>
@@ -48,7 +48,7 @@
               <td>{{ paciente.apellido }}</td>
               <td>{{ paciente.dni }}</td>
               <td>{{ paciente.direccion }}</td>
-              <td>{% if paciente.sexo %}Yes{% else %}No{% endif %}</td>
+              <td>{{ paciente.sexo }}</td>
               <td>{{ paciente.nacionalidad }}</td>
               <td>{{ paciente.localidad }}</td>
               <td>{% if paciente.fechaNacimiento %}{{ paciente.fechaNacimiento|date('Y-m-d') }}{% endif %}</td>
