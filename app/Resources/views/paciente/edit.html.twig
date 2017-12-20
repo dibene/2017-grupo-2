@@ -1,17 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
+    <div>
+        <a class="btn-floating btn-large waves-effect waves-light yellow" href="{{ path('paciente_index') }}"><i class="material-icons">arrow_back</i></a>Volver al listado de Pacientes
+    </div>
+
     <h1>Editar Paciente</h1>
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <input type="submit" value=" Confirmar Edicion" />
+        <input  type="submit" value="Confirmar Edicion" />
     {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('paciente_index') }}">Volver al listado de Pacientes</a>
-        </li>
-
-    </ul>
 {% endblock %}

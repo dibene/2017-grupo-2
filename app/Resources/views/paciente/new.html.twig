@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <div>
+        <a class="btn-floating btn-large waves-effect waves-light yellow" href="{{ path('paciente_index') }}"><i class="material-icons">arrow_back</i></a>Volver al listado de Pacientes
+    </div>
     <h1>Nuevo Paciente</h1>
 
     {{ form_start(form) }}
@@ -8,9 +11,4 @@
         <input type="submit" value="Crear" />
     {{ form_end(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('paciente_index') }}">Volver al listado de Pacientes</a>
-        </li>
-    </ul>
 {% endblock %}
