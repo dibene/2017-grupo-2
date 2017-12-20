@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Pacientes list</h1>
+    <h1>Pacientes</h1>
     <div class="row">
       <div class="input-field col s3">
         <input id="firstName" type="text" name='firstName' class="validate" pattern="[A-Za-z]+" >
@@ -16,7 +16,7 @@
         <label for="docNumber">DNI</label>
       </div>
       <div class="col s3">
-        <button class="btn waves-effect waves-light red" type="submit" style="margin-top: 25px" >buscar
+        <button class="btn waves-effect waves-light red" type="submit" style="margin-top: 25px" >Buscar
           <i class="material-icons right">search</i>
         </button>
       </div>
@@ -36,7 +36,7 @@
                 <th>Obrasocial</th>
                 <th>Fechaingreso</th>
                 <th>Internacion</th>
-                <th>Actions</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -56,10 +56,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('paciente_edit', { 'id': paciente.id }) }}">editar</a>
+                            <a href="{{ path('paciente_edit', { 'id': paciente.id }) }}">Editar</a>
                         </li>
                         <li>
-                            <a href="{{ path('estudio_index', { 'id': paciente.id }) }}">agregar estudio</a>
+                            <a href="{{ path('estudio_index', { 'id': paciente.id }) }}">Agregar estudio</a>
                         </li>
                     </ul>
                 </td>
@@ -70,7 +70,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('paciente_new') }}">Create a new paciente</a>
+            <a href="{{ path('paciente_new') }}">Crear un nuevo Paciente</a>
         </li>
     </ul>
 {% endblock %}

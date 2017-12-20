@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class PacienteType extends AbstractType
 {
@@ -18,7 +19,7 @@ class PacienteType extends AbstractType
                 ->add('apellido')
                 ->add('dni')
                 ->add('direccion')
-                ->add('sexo')
+                ->add('sexo', ChoiceType::class, array('choices'  => array('Masculino' => 'Masculino', 'Femenino' => 'Femenino', 'Otros' => 'Otros')))
                 ->add('nacionalidad')
                 ->add('fechaNacimiento', DateType::class , array('widget' => 'single_text','attr' => array('class'=>'datepicker')))
                 ->add('localidad')
