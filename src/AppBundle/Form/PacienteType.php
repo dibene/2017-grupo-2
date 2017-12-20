@@ -5,6 +5,7 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class PacienteType extends AbstractType
 {
@@ -13,9 +14,19 @@ class PacienteType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('idPersona')->add('obraSocial')->add('fechaIngreso')->add('idMedicoCabecera')->add('idInternacion');
+        $builder->add('nombre')
+                ->add('apellido')
+                ->add('dni')
+                ->add('direccion')
+                ->add('sexo')
+                ->add('nacionalidad')
+                ->add('fechaNacimiento', DateType::class , array('widget' => 'single_text','attr' => array('class'=>'datepicker')))
+                ->add('localidad')
+                ->add('obraSocial')
+                ->add('fechaIngreso', DateType::class , array('widget' => 'single_text','attr' => array('class'=>'datepicker')))
+                ->add('internacion');
     }
-    
+
     /**
      * {@inheritdoc}
      */

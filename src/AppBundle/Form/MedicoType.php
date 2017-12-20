@@ -14,8 +14,16 @@ class MedicoType extends AbstractType
      */
      public function buildForm(FormBuilderInterface $builder, array $options)
      {
-         $builder->add('obraSocial')->add('matricula')->add('nombre')->add('apellido')->add('dni')->add('direccion')->add('sexo')->add('nacionalidad')
-         ->add('fechaNacimiento', DateType::class , array('widget' => 'single_text','attr' => array('class'=>'datepicker')))->add('localidad');
+         $builder->add('nombre')
+         ->add('apellido')
+         ->add('dni')
+         ->add('direccion')
+         ->add('sexo')
+         ->add('nacionalidad')
+         ->add('fechaNacimiento', DateType::class , array('widget' => 'single_text','attr' => array('class'=>'datepicker')))
+         ->add('localidad')
+         ->add('obraSocial')
+         ->add('matricula');
      }
 
 

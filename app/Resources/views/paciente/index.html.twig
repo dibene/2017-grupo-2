@@ -2,35 +2,64 @@
 
 {% block body %}
     <h1>Pacientes list</h1>
+    <div class="row">
+      <div class="input-field col s3">
+        <input id="firstName" type="text" name='firstName' class="validate" pattern="[A-Za-z]+" >
+        <label for="firstName">Nombre</label>
+      </div>
+      <div class="input-field col s3">
+        <input  id="lastName" type="text" name='lastName' class="validate" pattern="[A-Za-z]+" >
+        <label for="lastName">Apellido</label>
+      </div>
+      <div class="input-field col s3">
+        <input id="docNumber" type="number" name='docNumber' class="validate" min="1000000" max="1000000000" >
+        <label for="docNumber">DNI</label>
+      </div>
+      <div class="col s3">
+        <button class="btn waves-effect waves-light red" type="submit" style="margin-top: 25px" >buscar
+          <i class="material-icons right">search</i>
+        </button>
+      </div>
+    </div>
 
-    <table>
+    <table class="highlight">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Idpersona</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Dni</th>
+              <th>Direccion</th>
+              <th>Sexo</th>
+              <th>Nacionalidad</th>
+              <th>Localidad</th>
+              <th>Fechanacimiento</th>
                 <th>Obrasocial</th>
                 <th>Fechaingreso</th>
-                <th>Idmedicocabecera</th>
-                <th>Idinternacion</th>
+                <th>Internacion</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for paciente in pacientes %}
             <tr>
-                <td><a href="{{ path('paciente_show', { 'id': paciente.id }) }}">{{ paciente.id }}</a></td>
-                <td>{{ paciente.idPersona }}</td>
+              <td><a href="{{ path('paciente_show', { 'id': paciente.id }) }}">{{ paciente.nombre }}</a></td>
+              <td>{{ paciente.apellido }}</td>
+              <td>{{ paciente.dni }}</td>
+              <td>{{ paciente.direccion }}</td>
+              <td>{% if paciente.sexo %}Yes{% else %}No{% endif %}</td>
+              <td>{{ paciente.nacionalidad }}</td>
+              <td>{{ paciente.localidad }}</td>
+              <td>{% if paciente.fechaNacimiento %}{{ paciente.fechaNacimiento|date('Y-m-d') }}{% endif %}</td>
                 <td>{{ paciente.obraSocial }}</td>
                 <td>{% if paciente.fechaIngreso %}{{ paciente.fechaIngreso|date('Y-m-d') }}{% endif %}</td>
-                <td>{{ paciente.idMedicoCabecera }}</td>
-                <td>{{ paciente.idInternacion }}</td>
+                <td>{{ paciente.internacion }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('paciente_show', { 'id': paciente.id }) }}">show</a>
+                            <a href="{{ path('paciente_edit', { 'id': paciente.id }) }}">editar</a>
                         </li>
                         <li>
-                            <a href="{{ path('paciente_edit', { 'id': paciente.id }) }}">edit</a>
+                            <a href="{{ path('estudio_index', { 'id': paciente.id }) }}">agregar estudio</a>
                         </li>
                     </ul>
                 </td>

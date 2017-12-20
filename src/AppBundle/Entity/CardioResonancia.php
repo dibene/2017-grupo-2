@@ -21,12 +21,6 @@ class CardioResonancia extends Estudio
      */
     private $id;
 
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="id_estudio", type="integer", nullable=false)
-     */
-    private $idEstudio;
 
     /**
      * @var integer
@@ -55,41 +49,6 @@ class CardioResonancia extends Estudio
      * @ORM\Column(name="vfs", type="integer", nullable=false)
      */
     private $vfs;
-
-
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set idEstudio
-     *
-     * @param integer $idEstudio
-     * @return CardioResonancia
-     */
-    public function setIdEstudio($idEstudio)
-    {
-        $this->idEstudio = $idEstudio;
-
-        return $this;
-    }
-
-    /**
-     * Get idEstudio
-     *
-     * @return integer
-     */
-    public function getIdEstudio()
-    {
-        return $this->idEstudio;
-    }
 
     /**
      * Set dtdvi

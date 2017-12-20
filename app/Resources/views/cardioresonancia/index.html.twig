@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Cardioresonancias list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Dtdvi</th>
+                <th>Dtsvi</th>
+                <th>Vfd</th>
+                <th>Vfs</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cardioResonancium in cardioResonancias %}
+            <tr>
+                <td><a href="{{ path('cardioresonancia_show', { 'id': cardioResonancium.id }) }}">{{ cardioResonancium.id }}</a></td>
+                <td>{{ cardioResonancium.dtdvi }}</td>
+                <td>{{ cardioResonancium.dtsvi }}</td>
+                <td>{{ cardioResonancium.vfd }}</td>
+                <td>{{ cardioResonancium.vfs }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('cardioresonancia_show', { 'id': cardioResonancium.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('cardioresonancia_edit', { 'id': cardioResonancium.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('cardioresonancia_new') }}">Create a new cardioResonancium</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -6,7 +6,14 @@
     <table>
         <thead>
             <tr>
-                <th>Id</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Dni</th>
+              <th>Direccion</th>
+              <th>Sexo</th>
+              <th>Nacionalidad</th>
+              <th>Localidad</th>
+              <th>Fechanacimiento</th>
                 <th>Obrasocial</th>
                 <th>Matricula</th>
                 <th>Actions</th>
@@ -15,7 +22,14 @@
         <tbody>
         {% for medico in medicos %}
             <tr>
-                <td><a href="{{ path('medico_show', { 'id': medico.id }) }}">{{ medico.id }}</a></td>
+              <td><a href="{{ path('medico_show', { 'id': medico.id }) }}">{{ medico.nombre }}</a></td>
+              <td>{{ medico.apellido }}</td>
+              <td>{{ medico.dni }}</td>
+              <td>{{ medico.direccion }}</td>
+              <td>{% if medico.sexo %}Yes{% else %}No{% endif %}</td>
+              <td>{{ medico.nacionalidad }}</td>
+              <td>{{ medico.localidad }}</td>
+              <td>{% if medico.fechaNacimiento %}{{ medico.fechaNacimiento|date('Y-m-d') }}{% endif %}</td>
                 <td>{{ medico.obraSocial }}</td>
                 <td>{{ medico.matricula }}</td>
                 <td>

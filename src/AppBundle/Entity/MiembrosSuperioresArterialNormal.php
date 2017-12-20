@@ -24,13 +24,6 @@ class MiembrosSuperioresArterialNormal extends Estudio
     /**
      * @var integer
      *
-     * @ORM\Column(name="id_estudio", type="integer", nullable=false)
-     */
-    private $idEstudio;
-
-    /**
-     * @var integer
-     *
      * @ORM\Column(name="extension", type="integer", nullable=false)
      */
     private $extension;
@@ -48,41 +41,6 @@ class MiembrosSuperioresArterialNormal extends Estudio
      * @ORM\Column(name="indice_de_pre_estenosis", type="integer", nullable=false)
      */
     private $indiceDePreEstenosis;
-
-
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set idEstudio
-     *
-     * @param integer $idEstudio
-     * @return MiembrosSuperioresArterialNormal
-     */
-    public function setIdEstudio($idEstudio)
-    {
-        $this->idEstudio = $idEstudio;
-
-        return $this;
-    }
-
-    /**
-     * Get idEstudio
-     *
-     * @return integer
-     */
-    public function getIdEstudio()
-    {
-        return $this->idEstudio;
-    }
 
     /**
      * Set extension

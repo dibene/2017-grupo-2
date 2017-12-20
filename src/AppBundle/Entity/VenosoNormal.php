@@ -24,13 +24,6 @@ class VenosoNormal extends Estudio
     /**
      * @var integer
      *
-     * @ORM\Column(name="id_estudio", type="integer", nullable=false)
-     */
-    private $idEstudio;
-
-    /**
-     * @var integer
-     *
      * @ORM\Column(name="vena_safena_interna", type="integer", nullable=false)
      */
     private $venaSafenaInterna;
@@ -49,40 +42,6 @@ class VenosoNormal extends Estudio
      */
     private $venaSafenaExterna;
 
-
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set idEstudio
-     *
-     * @param integer $idEstudio
-     * @return VenosoNormal
-     */
-    public function setIdEstudio($idEstudio)
-    {
-        $this->idEstudio = $idEstudio;
-
-        return $this;
-    }
-
-    /**
-     * Get idEstudio
-     *
-     * @return integer
-     */
-    public function getIdEstudio()
-    {
-        return $this->idEstudio;
-    }
 
     /**
      * Set venaSafenaInterna
