@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="discr", type="string")
  */
-class Estudio
+abstract class Estudio
 {
     /**
      * @var integer
@@ -22,6 +22,13 @@ class Estudio
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
+
+    /**
+     * One estudio has One motivosolicitud.
+     * @ORM\OneToOne(targetEntity="MotivoSolicitud")
+     * @ORM\JoinColumn(name="motivo_solicitud_id", referencedColumnName="id")
+     */
+    private $motivoSolicitud;
 
     /**
      * @var string

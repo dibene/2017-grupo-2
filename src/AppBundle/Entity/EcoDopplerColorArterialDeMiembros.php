@@ -24,13 +24,6 @@ class EcoDopplerColorArterialDeMiembros extends Estudio
     /**
      * @var integer
      *
-     * @ORM\Column(name="id_estudio", type="integer", nullable=false)
-     */
-    private $idEstudio;
-
-    /**
-     * @var integer
-     *
      * @ORM\Column(name="arteriafemoral_comun", type="integer", nullable=false)
      */
     private $arteriafemoralComun;
@@ -63,40 +56,6 @@ class EcoDopplerColorArterialDeMiembros extends Estudio
      */
     private $arteriaTibialPosterior;
 
-
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set idEstudio
-     *
-     * @param integer $idEstudio
-     * @return EcoDopplerColorArterialDeMiembros
-     */
-    public function setIdEstudio($idEstudio)
-    {
-        $this->idEstudio = $idEstudio;
-
-        return $this;
-    }
-
-    /**
-     * Get idEstudio
-     *
-     * @return integer
-     */
-    public function getIdEstudio()
-    {
-        return $this->idEstudio;
-    }
 
     /**
      * Set arteriafemoralComun

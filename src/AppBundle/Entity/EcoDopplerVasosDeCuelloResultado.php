@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="eco_doppler_vasos_de_cuello_resultado")
  * @ORM\Entity
  */
-class EcoDopplerVasosDeCuelloResultado extends Estudio
+class EcoDopplerVasosDeCuelloResultado
 {
     /**
      * @var integer
@@ -22,21 +22,18 @@ class EcoDopplerVasosDeCuelloResultado extends Estudio
     private $id;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id_eco_doppler_vasos_de_cuello", type="integer", nullable=false)
+     * Many Resultados have One ecodopler.
+     * @ORM\ManyToOne(targetEntity="EcoDopplerVasosDeCuello", inversedBy="resultados")
+     * @ORM\JoinColumn(name="eco_doppler_id", referencedColumnName="id")
      */
-    private $idEcoDopplerVasosDeCuello;
+    private $ecoDopplerVasosDeCuello;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="resultado", type="integer", nullable=false)
+     * @ORM\Column(name="resultado", type="string", nullable=false)
      */
     private $resultado;
-
-
-
     /**
      * Get id
      *
@@ -46,16 +43,15 @@ class EcoDopplerVasosDeCuelloResultado extends Estudio
     {
         return $this->id;
     }
-
     /**
-     * Set idEcoDopplerVasosDeCuello
+     * Set EcoDopplerVasosDeCuello
      *
-     * @param integer $idEcoDopplerVasosDeCuello
+     * @param integer $ecoDopplerVasosDeCuello
      * @return EcoDopplerVasosDeCuelloResultado
      */
-    public function setIdEcoDopplerVasosDeCuello($idEcoDopplerVasosDeCuello)
+    public function setEcoDopplerVasosDeCuello($ecoDopplerVasosDeCuello)
     {
-        $this->idEcoDopplerVasosDeCuello = $idEcoDopplerVasosDeCuello;
+        $this->ecoDopplerVasosDeCuello = $ecoDopplerVasosDeCuello;
 
         return $this;
     }
@@ -65,15 +61,15 @@ class EcoDopplerVasosDeCuelloResultado extends Estudio
      *
      * @return integer
      */
-    public function getIdEcoDopplerVasosDeCuello()
+    public function getEcoDopplerVasosDeCuello()
     {
-        return $this->idEcoDopplerVasosDeCuello;
+        return $this->ecoDopplerVasosDeCuello;
     }
 
     /**
      * Set resultado
      *
-     * @param integer $resultado
+     * @param string $resultado
      * @return EcoDopplerVasosDeCuelloResultado
      */
     public function setResultado($resultado)
@@ -86,7 +82,7 @@ class EcoDopplerVasosDeCuelloResultado extends Estudio
     /**
      * Get resultado
      *
-     * @return integer
+     * @return string
      */
     public function getResultado()
     {

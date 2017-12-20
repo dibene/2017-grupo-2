@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Cardioresonancium</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ cardioResonancium.id }}</td>
+            </tr>
+            <tr>
+                <th>Dtdvi</th>
+                <td>{{ cardioResonancium.dtdvi }}</td>
+            </tr>
+            <tr>
+                <th>Dtsvi</th>
+                <td>{{ cardioResonancium.dtsvi }}</td>
+            </tr>
+            <tr>
+                <th>Vfd</th>
+                <td>{{ cardioResonancium.vfd }}</td>
+            </tr>
+            <tr>
+                <th>Vfs</th>
+                <td>{{ cardioResonancium.vfs }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('cardioresonancia_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('cardioresonancia_edit', { 'id': cardioResonancium.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

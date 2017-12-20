@@ -23,13 +23,6 @@ class Paciente extends Persona
     private $id;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id_persona", type="integer", nullable=false)
-     */
-    private $persona;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="obra_social", type="string", length=15, nullable=false)
@@ -45,8 +38,8 @@ class Paciente extends Persona
 
     /**
      * @var integer
-     *
-     * @ORM\Column(name="id_medico_cabecera", type="integer", nullable=false)
+     * @ORM\OneToOne(targetEntity="Medico")
+     * @ORM\JoinColumn(name="medico_id", referencedColumnName="id")
      */
     private $medicoCabecera;
 
@@ -65,7 +58,7 @@ class Paciente extends Persona
 
 
         public function __construct() {
-            $this->$estudios = new ArrayCollection();
+            $this->estudios = new ArrayCollection();
         }
         /**
         * Add estudios
@@ -106,38 +99,6 @@ class Paciente extends Persona
         //   return $estudios;
         // }
 
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set Persona
-     *
-     * @param integer $Persona
-     * @return Paciente
-     */
-    public function setPersona($Persona)
-    {
-        $this->Persona = $Persona;
-
-        return $this;
-    }
-
-    /**
-     * Get Persona
-     *
-     * @return integer
-     */
-    public function getPersona()
-    {
-        return $this->Persona;
-    }
 
     /**
      * Set obraSocial

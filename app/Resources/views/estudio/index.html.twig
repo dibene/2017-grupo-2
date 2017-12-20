@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h2>Estudios para agregar</h2>
+<ul>
+{% for estudio in nombreEstudios %}
+<li>
+<a href="{{estudio.pagina}}">{{estudio.nombre}}</a>
+</li>
+{% endfor %}
+</ul>
+    <h2>
+      Estudios del paciente:
+      <a href="{{ path('paciente_show', { 'id': paciente.id }) }}">{{ paciente.nombre }}</a>
+    </h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Observacion</th>
+                <th>Fecha alta</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for estudio in paciente.getEstudios() %}
+            <tr>
+                <td><a href="{{ path('estudio_show', { 'id': estudio.id }) }}">{{ estudio.nombre }}</a></td>
+                <td>{{ estudio.observacion }}</td>
+                <td>{% if estudio.fechaAlta %}{{ estudio.fechaAlta|date('Y-m-d') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('estudio_show', { 'id': estudio.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('estudio_edit', { 'id': estudio.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

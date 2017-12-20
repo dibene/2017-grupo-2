@@ -28,17 +28,16 @@ class EcoDopplerVasosDeCuello extends Estudio
      */
     private $nombre;
 
-
-
     /**
-     * Get id
-     *
-     * @return integer
+     * One Product has Many Features.
+     * @ORM\OneToMany(targetEntity="EcoDopplerVasosDeCuelloResultado", mappedBy="ecoDopplerVasosDeCuello")
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+     private $resultados;
+
+     public function __construct() {
+         $this->resultados = new ArrayCollection();
+     }
+
 
     /**
      * Set nombre

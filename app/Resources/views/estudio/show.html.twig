@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Estudio</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ estudio.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ estudio.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Observacion</th>
+                <td>{{ estudio.observacion }}</td>
+            </tr>
+            <tr>
+                <th>Fechaalta</th>
+                <td>{% if estudio.fechaAlta %}{{ estudio.fechaAlta|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('estudio_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('estudio_edit', { 'id': estudio.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

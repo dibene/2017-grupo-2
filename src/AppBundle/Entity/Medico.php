@@ -59,7 +59,7 @@ class Medico extends Persona
     private $estudios;
 
     public function __construct() {
-        $this->$estudios = new ArrayCollection();
+        $this->estudios = new ArrayCollection();
     }
 
     /**

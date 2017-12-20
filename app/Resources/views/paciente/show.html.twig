@@ -10,10 +10,6 @@
                 <td>{{ paciente.id }}</td>
             </tr>
             <tr>
-                <th>Idpersona</th>
-                <td>{{ paciente.idPersona }}</td>
-            </tr>
-            <tr>
                 <th>Obrasocial</th>
                 <td>{{ paciente.obraSocial }}</td>
             </tr>
@@ -22,12 +18,8 @@
                 <td>{% if paciente.fechaIngreso %}{{ paciente.fechaIngreso|date('Y-m-d') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Idmedicocabecera</th>
-                <td>{{ paciente.idMedicoCabecera }}</td>
-            </tr>
-            <tr>
-                <th>Idinternacion</th>
-                <td>{{ paciente.idInternacion }}</td>
+                <th>Internacion</th>
+                <td>{{ paciente.internacion }}</td>
             </tr>
         </tbody>
     </table>
