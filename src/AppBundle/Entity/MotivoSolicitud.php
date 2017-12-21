@@ -35,11 +35,16 @@ class MotivoSolicitud
      */
     private $nombre;
 
+    /**
+     * One Product has Many Features.
+     * @ORM\OneToMany(targetEntity="Estudio", mappedBy="motivoSolicitud")
+     */
+    private $estudios;
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -62,7 +67,7 @@ class MotivoSolicitud
     /**
      * Get observacion
      *
-     * @return string 
+     * @return string
      */
     public function getObservacion()
     {
@@ -85,7 +90,7 @@ class MotivoSolicitud
     /**
      * Get nombre
      *
-     * @return string 
+     * @return string
      */
     public function getNombre()
     {

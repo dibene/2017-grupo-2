@@ -5,6 +5,8 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class AortaAbdominalAteromatosaType extends AbstractType
 {
@@ -14,7 +16,15 @@ class AortaAbdominalAteromatosaType extends AbstractType
    */
   public function buildForm(FormBuilderInterface $builder, array $options)
   {
-      $builder->add('observacion')->add('motivoSolicitud')->add('diagnostico');
+      $builder
+      ->add('observacion')
+      ->add('motivoSolicitud', EntityType::class, array(
+        'class' => 'AppBundle:MotivoSolicitud',
+        'choice_label' => 'nombre'))
+      ->add('diagnostico');
+
+    //  $builder->add('motivoSolicitud', new MotivoSolicitudType());
+
       //->add('medico')->add('paciente');
   }
 

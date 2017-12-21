@@ -1,20 +1,21 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<h2>Estudios para agregar</h2>
+<h3>Estudios para agregar</h3>
 <ul>
 {% for estudio in nombreEstudios %}
 <li>
-<a href="{{estudio.link}}">{{estudio.nombre}}</a>
+<a href="/{{estudio.link}}/new/{{paciente.id}}">{{estudio.nombre}}</a>
 </li>
 {% endfor %}
 </ul>
-    <h2>
+buscar por fecha y por estudio?
+    <h3>
       Estudios del paciente:
       <a href="{{ path('paciente_show', { 'id': paciente.id }) }}">{{ paciente.nombre }}</a>
-    </h2>
+    </h3>
 
-    <table>
+    <table class="highlight">
         <thead>
             <tr>
                 <th>Nombre</th>
@@ -26,16 +27,16 @@
         <tbody>
         {% for estudio in paciente.getEstudios() %}
             <tr>
-                <td><a href="{{ path('estudio_show', { 'id': estudio.id }) }}">{{ estudio.nombre }}</a></td>
+                <td><a href="{{ path(estudio.getEstudioConfiguracion().link~'_show', { 'id': estudio.id }) }}">{{ estudio.getEstudioConfiguracion().nombre }}</a></td>
                 <td>{{ estudio.observacion }}</td>
                 <td>{% if estudio.fechaAlta %}{{ estudio.fechaAlta|date('Y-m-d') }}{% endif %}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('estudio_show', { 'id': estudio.id }) }}">show</a>
+                            <a href="{{ path(estudio.getEstudioConfiguracion().link~'_show', { 'id': estudio.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('estudio_edit', { 'id': estudio.id }) }}">edit</a>
+                            <a href="{{ path(estudio.getEstudioConfiguracion().link~'_edit', { 'id': estudio.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>

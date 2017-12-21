@@ -24,16 +24,16 @@ abstract class Estudio
     private $id;
 
     /**
-     * One estudio has One motivosolicitud.
-     * @ORM\OneToOne(targetEntity="MotivoSolicitud")
+     * Many Features have One Product.
+     * @ORM\ManyToOne(targetEntity="MotivoSolicitud", inversedBy="estudios")
      * @ORM\JoinColumn(name="motivo_solicitud_id", referencedColumnName="id")
      */
     private $motivoSolicitud;
 
     /**
-     * One estudio has One estudioconfiguracion.
-     * @ORM\OneToOne(targetEntity="EstudioConfiguracion")
-     * @ORM\JoinColumn(name="estudios_configuracion_id", referencedColumnName="id")
+     * Many Features have One Product.
+     * @ORM\ManyToOne(targetEntity="EstudioConfiguracion", inversedBy="estudios")
+     * @ORM\JoinColumn(name="estudio_configuracion_id", referencedColumnName="id")
      */
     private $estudioConfiguracion;
 
@@ -180,7 +180,7 @@ abstract class Estudio
      */
     public function setMedico($Medico)
     {
-        $this->Medico = $Medico;
+        $this->medico = $Medico;
 
         return $this;
     }
@@ -192,18 +192,17 @@ abstract class Estudio
      */
     public function getMedico()
     {
-        return $this->Medico;
+        return $this->medico;
     }
 
     /**
      * Set Paciente
      *
-     * @param integer $Paciente
      * @return Estudio
      */
     public function setPaciente($Paciente)
     {
-        $this->Paciente = $Paciente;
+        $this->paciente = $Paciente;
 
         return $this;
     }
@@ -211,11 +210,10 @@ abstract class Estudio
     /**
      * Get Paciente
      *
-     * @return integer
      */
     public function getPaciente()
     {
-        return $this->Paciente;
+        return $this->paciente;
     }
 
     /**

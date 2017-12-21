@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
 
+
 /**
  * Estudio controller.
  *
@@ -42,6 +43,11 @@ class EstudioController extends Controller
     public function newAction(Request $request)
     {
         $estudio = new Estudio();
+        $estudio.setFechaAlta(date("Y-m-d"));
+        $paciente=$this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($id);
+        $estudio.setPaciente($paciente);
+        //$medico=$this->getDoctrine()->getManager()->getRepository('AppBundle:Medico')->find();
+        //$estudio.setMedico($medico);
         $form = $this->createForm('AppBundle\Form\EstudioType', $estudio);
         $form->handleRequest($request);
 
