@@ -4,7 +4,7 @@
 {% endif %}
 <div class="container center-align" >
   <div class="z-depth-1 grey lighten-4 row left-align" style="display: inline-block; margin: 50px; padding: 32px 48px 50px 48px; border: 1px solid #EEE;">
-      <h5 class="pink-text center-align ">Login</h5>
+      <h5 class="red-text center-align ">Login</h5>
         <form action="{{ path("fos_user_security_check") }}" method="post">
             {% if csrf_token %}
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
@@ -20,7 +20,7 @@
             <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
             <center>
               <div class='row'>
-                <button class='col s12 btn btn-large waves-effect pink' style="margin-top:20px;"type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}">Entrar</button>
+                <button class='col s12 btn btn-large waves-effect red' style="margin-top:20px;"type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}">Entrar</button>
               </div>
             </center>
         </form>

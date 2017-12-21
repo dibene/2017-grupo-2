@@ -1,0 +1,19 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="row col s12">
+  <div class="container col s12 center-align" >
+    <div class="z-depth-1 grey lighten-4 row left-align col s12" style="display: inline-block; margin: 50px; padding: 32px 48px 50px 48px; border: 1px solid #EEE;">
+        <h5 class="red-text center-align ">Registrar Usuario</h5>
+          {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+              {{ form_widget(form) }}
+              <div>
+                  <button class="btn waves-effect waves-light red" type="submit" value="{{ 'registration.submit'|trans }}" />
+                  {{ 'registration.submit'|trans }}
+                  <i class="material-icons right">send</i>
+                </button>
+              </div>
+          {{ form_end(form) }}
+    </div>
+  </div>
+
+</div>
