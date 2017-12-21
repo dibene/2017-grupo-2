@@ -1,23 +1,32 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Aortaabdominalateromatosa</h1>
+    <h1>Estudio: {{ aortaAbdominalAteromatosa.estudioConfiguracion.nombre }} </h1>
 
     <table>
         <tbody>
+
             <tr>
-                <th>Id</th>
-                <td>{{ aortaAbdominalAteromatosa.id }}</td>
+                <th>Observacion</th>
+                <td>{{ aortaAbdominalAteromatosa.observacion }}</td>
+            </tr>
+            <tr>
+                <th>Fechaalta</th>
+                <td>{% if aortaAbdominalAteromatosa.fechaAlta %}{{ aortaAbdominalAteromatosa.fechaAlta|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Diagnostico</th>
+                <td>{{   aortaAbdominalAteromatosa.diagnostico  }}</td>
             </tr>
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('aortaabdominalateromatosa_index') }}">Back to the list</a>
+            <a href="{{ path('estudio_index', { 'id': aortaAbdominalAteromatosa.paciente.id }) }}">volver al paciente</a>
         </li>
         <li>
-            <a href="{{ path('aortaabdominalateromatosa_edit', { 'id': aortaAbdominalAteromatosa.id }) }}">Edit</a>
+            <a href="{{ path('estudio_edit', { 'id': aortaAbdominalAteromatosa.id }) }}">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

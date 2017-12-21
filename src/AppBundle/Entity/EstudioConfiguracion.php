@@ -35,6 +35,12 @@ class EstudioConfiguracion
     private $link;
 
     /**
+     * One Product has Many Features.
+     * @ORM\OneToMany(targetEntity="Estudio", mappedBy="estudioConfiguracion")
+     */
+    private $estudios;
+
+    /**
      * Get id
      *
      * @return integer
