@@ -10,7 +10,7 @@ php app/console generate:doctrine:crud AppBundle:nombre_de_la_entidad
 
 
 // consideraciones
-
+falta agregar medico cuando se guarde por fos user
 //pacientes
 medico cabecera  -> string
 20/12 21:22 modificar -> donde dice agregar estudio, hay q ver si con ese link muestra los estudios a agregar y los estudios q se hizo el paciente o solo los estudios a agregar entonces hay q agregar otro link q diga estudios echos,

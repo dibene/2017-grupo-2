@@ -43,10 +43,10 @@ class AortaAbdominalAteromatosaController extends Controller
       $configuracion = $this->getDoctrine()->getManager()->getRepository('AppBundle:EstudioConfiguracion')->find($id);
       $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($id);
       $fecha = new Datetime(date("Y-m-d"));
-        $aortaAbdominalAteromatosa = new AortaAbdominalAteromatosa($configuracion,$fecha,$paciente);
-        $aortaAbdominalAteromatosa->setPaciente($paciente);
-        $aortaAbdominalAteromatosa->setFechaAlta($fecha);
-        $aortaAbdominalAteromatosa->setEstudioConfiguracion($configuracion);
+        $aortaAbdominalAteromatosa = new AortaAbdominalAteromatosa($configuracion,$paciente,$fecha);
+        // $aortaAbdominalAteromatosa->setPaciente($paciente);
+        // $aortaAbdominalAteromatosa->setFechaAlta($fecha);
+        // $aortaAbdominalAteromatosa->setEstudioConfiguracion($configuracion);
 
         //$medico=$this->getDoctrine()->getManager()->getRepository('AppBundle:Medico')->find();
         //$estudio.setMedico($medico);

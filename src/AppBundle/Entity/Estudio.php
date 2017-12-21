@@ -24,16 +24,16 @@ abstract class Estudio
     private $id;
 
     /**
-     * One estudio has One motivosolicitud.
-     * @ORM\OneToOne(targetEntity="MotivoSolicitud")
+     * Many Features have One Product.
+     * @ORM\ManyToOne(targetEntity="MotivoSolicitud", inversedBy="estudios")
      * @ORM\JoinColumn(name="motivo_solicitud_id", referencedColumnName="id")
      */
     private $motivoSolicitud;
 
     /**
-     * One estudio has One estudioconfiguracion.
-     * @ORM\OneToOne(targetEntity="EstudioConfiguracion")
-     * @ORM\JoinColumn(name="estudios_configuracion_id", referencedColumnName="id")
+     * Many Features have One Product.
+     * @ORM\ManyToOne(targetEntity="EstudioConfiguracion", inversedBy="estudios")
+     * @ORM\JoinColumn(name="estudio_configuracion_id", referencedColumnName="id")
      */
     private $estudioConfiguracion;
 

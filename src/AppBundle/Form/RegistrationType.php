@@ -10,7 +10,8 @@ class RegistrationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name');
+        $builder->add('profile', new MedicoType(), array(
+    'attr' => array('class' => 'well')));
     }
 
     public function getParent()
