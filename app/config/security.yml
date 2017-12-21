@@ -28,7 +28,7 @@ security:
 
     role_hierarchy:
         ROLE_MEDICO: ROLE_USER
-        ROLE_ADMIN: ROLE_MEDICO
+        ROLE_ADMIN: [ROLE_MEDICO, ROLE_USER, ROLE_ADMIN]
 
     providers:
         fos_userbundle:
@@ -45,8 +45,12 @@ security:
             anonymous:    true
 
     access_control:
-        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY}
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
         - { path: ^/panel_medico/, role: ROLE_MEDICO }
+        - { path: ^/paciente/, role: ROLE_MEDICO }
+        - { path: ^/medico/, role: ROLE_MEDICO }
+
+    access_denied_url: /login
