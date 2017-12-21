@@ -39,7 +39,11 @@ class AortaAbdominalController extends Controller
      */
     public function newAction(Request $request)
     {
-        $aortaAbdominal = new Aortaabdominal();
+        $configuracion = $this->getDoctrine()->getManager()->getRepository('AppBundle:EstudioConfiguracion')->find($id);
+        $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($id);
+        $fecha = new Datetime(date("Y-m-d"));
+
+        $aortaAbdominal = new AortaAbdominal($configuracion,$paciente,$fecha);
         $form = $this->createForm('AppBundle\Form\AortaAbdominalType', $aortaAbdominal);
         $form->handleRequest($request);
 

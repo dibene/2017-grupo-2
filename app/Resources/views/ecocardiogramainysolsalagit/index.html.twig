@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Ecocardiogramainysolsalagits list</h1>
+    <h1>Ecocardiograma Con Inyección de Solución Salina Agitada</h1>
 
     <table>
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Actions</th>
+                <th>Paciente</th>
+                <th>Accciones</th>
             </tr>
         </thead>
         <tbody>
@@ -17,10 +17,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('ecocardiogramainysolsalagit_show', { 'id': ecoCardiogramaInySolSalAgit.id }) }}">show</a>
+                            <a href="{{ path('ecocardiogramainysolsalagit_show', { 'id': ecoCardiogramaInySolSalAgit.id }) }}">Ver</a>
                         </li>
                         <li>
-                            <a href="{{ path('ecocardiogramainysolsalagit_edit', { 'id': ecoCardiogramaInySolSalAgit.id }) }}">edit</a>
+                            <a href="{{ path('ecocardiogramainysolsalagit_edit', { 'id': ecoCardiogramaInySolSalAgit.id }) }}">Modificar</a>
                         </li>
                     </ul>
                 </td>
@@ -31,7 +31,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('ecocardiogramainysolsalagit_new') }}">Create a new ecoCardiogramaInySolSalAgit</a>
+            <a class="btn-floating btn-large waves-effect waves-light green" href="{{ path('ecocardiogramainysolsalagit_new') }}"><i class="material-icons">library_add</i></a>Nuevo Estudio
         </li>
     </ul>
 {% endblock %}

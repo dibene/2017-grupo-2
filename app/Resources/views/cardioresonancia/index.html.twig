@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Cardioresonancias list</h1>
+    <h1>Cardio Resonancia</h1>
 
     <table>
         <thead>
             <tr>
-                <th>Id</th>
+                <th>Paciente</th>
                 <th>Dtdvi</th>
                 <th>Dtsvi</th>
                 <th>Vfd</th>
@@ -25,10 +25,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('cardioresonancia_show', { 'id': cardioResonancium.id }) }}">show</a>
+                            <a href="{{ path('cardioresonancia_show', { 'id': cardioResonancium.id }) }}">Ver</a>
                         </li>
                         <li>
-                            <a href="{{ path('cardioresonancia_edit', { 'id': cardioResonancium.id }) }}">edit</a>
+                            <a href="{{ path('cardioresonancia_edit', { 'id': cardioResonancium.id }) }}">Modificar</a>
                         </li>
                     </ul>
                 </td>
@@ -39,7 +39,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('cardioresonancia_new') }}">Create a new cardioResonancium</a>
+            <a class="btn-floating btn-large waves-effect waves-light green" href="{{ path('cardioresonancia_new') }}"><i class="material-icons">library_add</i></a>Nuevo Estudio
         </li>
     </ul>
 {% endblock %}

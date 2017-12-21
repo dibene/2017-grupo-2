@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Aortaabdominals list</h1>
+    <h1>Aorta Abdominal</h1>
 
     <table>
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Actions</th>
+                <th>Paciente</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -17,10 +17,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('aortaabdominal_show', { 'id': aortaAbdominal.id }) }}">show</a>
+                            <a href="{{ path('aortaabdominal_show', { 'id': aortaAbdominal.id }) }}">Ver</a>
                         </li>
                         <li>
-                            <a href="{{ path('aortaabdominal_edit', { 'id': aortaAbdominal.id }) }}">edit</a>
+                            <a href="{{ path('aortaabdominal_edit', { 'id': aortaAbdominal.id }) }}">Modificar</a>
                         </li>
                     </ul>
                 </td>
@@ -31,7 +31,8 @@
 
     <ul>
         <li>
-            <a href="{{ path('aortaabdominal_new') }}">Create a new aortaAbdominal</a>
+
+            <a class="btn-floating btn-large waves-effect waves-light green" href="{{ path('aortaabdominal_new') }}"><i class="material-icons">library_add</i></a>Nuevo Estudio
         </li>
     </ul>
 {% endblock %}
