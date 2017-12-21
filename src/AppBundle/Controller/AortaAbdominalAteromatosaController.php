@@ -6,6 +6,7 @@ use AppBundle\Entity\AortaAbdominalAteromatosa;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use \Datetime;
 
 /**
  * Aortaabdominalateromatosa controller.
@@ -34,13 +35,21 @@ class AortaAbdominalAteromatosaController extends Controller
     /**
      * Creates a new aortaAbdominalAteromatosa entity.
      *
-     * @Route("/new", name="aortaabdominalateromatosa_new")
+     * @Route("/new/{id}", name="aortaabdominalateromatosa_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request,$id)
     {
-      $configuracion=$this->getDoctrine()->getManager()->getRepository('AppBundle:EstudioConfiguracion')->find(1);
-        $aortaAbdominalAteromatosa = new AortaAbdominalAteromatosa($configuracion);
+      $configuracion = $this->getDoctrine()->getManager()->getRepository('AppBundle:EstudioConfiguracion')->find($id);
+      $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($id);
+      $fecha = new Datetime(date("Y-m-d"));
+        $aortaAbdominalAteromatosa = new AortaAbdominalAteromatosa($configuracion,$fecha,$paciente);
+        $aortaAbdominalAteromatosa->setPaciente($paciente);
+        $aortaAbdominalAteromatosa->setFechaAlta($fecha);
+        $aortaAbdominalAteromatosa->setEstudioConfiguracion($configuracion);
+
+        //$medico=$this->getDoctrine()->getManager()->getRepository('AppBundle:Medico')->find();
+        //$estudio.setMedico($medico);
         $form = $this->createForm('AppBundle\Form\AortaAbdominalAteromatosaType', $aortaAbdominalAteromatosa);
         $form->handleRequest($request);
 

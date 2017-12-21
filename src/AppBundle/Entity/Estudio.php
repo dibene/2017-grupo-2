@@ -180,7 +180,7 @@ abstract class Estudio
      */
     public function setMedico($Medico)
     {
-        $this->Medico = $Medico;
+        $this->medico = $Medico;
 
         return $this;
     }
@@ -192,18 +192,17 @@ abstract class Estudio
      */
     public function getMedico()
     {
-        return $this->Medico;
+        return $this->medico;
     }
 
     /**
      * Set Paciente
      *
-     * @param integer $Paciente
      * @return Estudio
      */
     public function setPaciente($Paciente)
     {
-        $this->Paciente = $Paciente;
+        $this->paciente = $Paciente;
 
         return $this;
     }
@@ -211,11 +210,10 @@ abstract class Estudio
     /**
      * Get Paciente
      *
-     * @return integer
      */
     public function getPaciente()
     {
-        return $this->Paciente;
+        return $this->paciente;
     }
 
     /**
