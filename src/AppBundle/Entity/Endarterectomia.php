@@ -1,15 +1,16 @@
 <?php
+
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * EcoDopplerColorArterialDeMiembros
+ * Endarterectomia
  *
- * @ORM\Table(name="aorta_abdominal_ateromatosa")
+ * @ORM\Table(name="Endarterectomia")
  * @ORM\Entity
  */
-class AortaAbdominalAteromatosa extends Estudio
+class Endarterectomia extends Estudio
 {
     /**
      * @var integer

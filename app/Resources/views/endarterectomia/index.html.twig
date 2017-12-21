@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Endarterectomias list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for endarterectomium in endarterectomias %}
+            <tr>
+                <td><a href="{{ path('endarterectomia_show', { 'id': endarterectomium.id }) }}">{{ endarterectomium.id }}</a></td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('endarterectomia_show', { 'id': endarterectomium.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('endarterectomia_edit', { 'id': endarterectomium.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('endarterectomia_new') }}">Create a new endarterectomium</a>
+        </li>
+    </ul>
+{% endblock %}
