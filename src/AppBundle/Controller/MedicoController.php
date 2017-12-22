@@ -38,9 +38,11 @@ class MedicoController extends Controller
      */
     public function newAction(Request $request)
     {
-        $medico = new Medico();
-        $form = $this->createForm('AppBundle\Form\MedicoType', $medico);
-        $form->handleRequest($request);
+      $user = $this->container->get('security.context')->getToken()->getUser();
+      $medico = new Medico();
+      $medico->setUsuario($user);
+      $form = $this->createForm('AppBundle\Form\MedicoType', $medico);
+      $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();

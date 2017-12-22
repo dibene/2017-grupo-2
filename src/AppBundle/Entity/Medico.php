@@ -24,8 +24,8 @@ class Medico extends Persona
     private $id;
 
     /**
-     * @var integer
-     * @ORM\OneToOne(targetEntity="Especialidad")
+     * Many epecialidades have One medico.
+     * @ORM\ManyToOne(targetEntity="Especialidad", inversedBy="medicos")
      * @ORM\JoinColumn(name="especialidad_id", referencedColumnName="id")
      */
     private $especialidad;
@@ -70,7 +70,7 @@ class Medico extends Persona
      */
     public function setEspecialidad($Especialidad)
     {
-        $this->Especialidad = $Especialidad;
+        $this->especialidad = $especialidad;
 
         return $this;
     }
@@ -82,7 +82,7 @@ class Medico extends Persona
      */
     public function getEspecialidad()
     {
-        return $this->Especialidad;
+        return $this->especialidad;
     }
     /**
      * Get usuario
@@ -91,7 +91,7 @@ class Medico extends Persona
      */
     public function getUsuario()
     {
-        return $this->Usuario;
+        return $this->usuario;
     }
 
     /**
@@ -101,7 +101,7 @@ class Medico extends Persona
      */
     public function setUsuario($Usuario)
     {
-      $this->Usuario = $Usuario;
+      $this->usuario = $usuario;
 
       return $this;
     }

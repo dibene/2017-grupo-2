@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Especialidad
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="especialidad")
  * @ORM\Entity
  */
-class Especialidad extends Estudio
+class Especialidad
 {
     /**
      * @var integer
@@ -35,7 +36,15 @@ class Especialidad extends Estudio
      */
     private $observacion;
 
+    /**
+     * One medico has Many especialidades.
+     * @ORM\OneToMany(targetEntity="Medico", mappedBy="especialidad")
+     */
+    private $medicos;
 
+    public function __construct() {
+        $this->medicos = new ArrayCollection();
+    }
 
     /**
      * Get id

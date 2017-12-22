@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use FOS\UserBundle\Controller\RegistrationController as BaseController;
 use FOS\UserBundle\Event\GetResponseUserEvent;
 use Symfony\Component\HttpFoundation\Request;
-
+use AppBundle\Entity\Medico;
 class RegistrationController extends BaseController
 {
     public function registerAction(Request $request)
@@ -54,13 +54,20 @@ class RegistrationController extends BaseController
                     $url = $this->generateUrl('fos_user_registration_confirmed');
                     $response = new RedirectResponse($url);
                 }
+                // return new RedirectResponse('/medico/new');
+                // MedicoController::newAction(new Request);
 
-                //$dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
-                //return $response;
+                // $medico = new Medico();
+                // $form = $this->createForm('AppBundle\Form\MedicoType', $medico);
+                // $form->handleRequest($request);
+                //
+                // return $this->render('medico/new.html.twig', array(
+                //     'form' => $form->createView(),
+                // ));
 
-                return $this->render('medico/new.html.twig', array(
-                    'user' => $user
-                ));
+
+                $dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
+                return $response;
             }
 
             $event = new FormEvent($form, $request);
@@ -75,4 +82,5 @@ class RegistrationController extends BaseController
             'form' => $form->createView(),
         ));
     }
+    
 }
