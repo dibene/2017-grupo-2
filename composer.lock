@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9865364927e96861c7288c29c0d7690e",
-    "content-hash": "d18dbc50abd55acd24bf526e75c0e63d",
+    "hash": "d63904eb91e46eb2aede528fc954badd",
+    "content-hash": "7bdbfde021d42abf38db9cfbbd5aa34b",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -817,7 +817,7 @@
                 }
             ],
             "description": "Base library for a lexer that can be used in Top-Down, Recursive Descent Parsers.",
-            "homepage": "https://www.doctrine-project.org",
+            "homepage": "http://www.doctrine-project.org",
             "keywords": [
                 "lexer",
                 "parser"
