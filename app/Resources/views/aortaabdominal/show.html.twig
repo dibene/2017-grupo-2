@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Estudio: {{ aortaAbdominal.estudioConfiguracion.nombre }} </h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Observacion</th>
+                <td>{{ aortaAbdominal.observacion }}</td>
+            </tr>
+            <tr>
+                <th>Fechaalta</th>
+                <td>{% if aortaAbdominal.fechaAlta %}{{ aortaAbdominal.fechaAlta|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Diagnostico</th>
+                <td>{{   aortaAbdominal.diagnostico  }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('estudio_index', { 'id': aortaAbdominal.paciente.id }) }}">Volver al Paciente</a>
+
+            <a class="btn-floating btn-large waves-effect waves-light green" href="{{ path('estudio_index', { 'id': aortaAbdominal.paciente.id } )}}"><i class="material-icons">library_add</i></a>Volver al Paciente
+
+        </li>
+        <li>
+            <a href="{{ path('estudio_edit', { 'id': aortaAbdominal.id }) }}">Modificar</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

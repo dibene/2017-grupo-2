@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Estudio: {{ ecoCardiogramaInySolSalAgit.estudioConfiguracion.nombre }}</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Observacion</th>
+                <td>{{ ecoCardiogramaInySolSalAgit.observacion }}</td>
+            </tr>
+            <tr>
+                <th>Fechaalta</th>
+                <td>{% if ecoCardiogramaInySolSalAgit.fechaAlta %}{{ ecoCardiogramaInySolSalAgit.fechaAlta|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Diagnostico</th>
+                <td>{{   ecoCardiogramaInySolSalAgit.diagnostico  }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('ecocardiogramainysolsalagit_index') }}">Volver al Paciente</a>
+        </li>
+        <li>
+            <a href="{{ path('ecocardiogramainysolsalagit_edit', { 'id': ecoCardiogramaInySolSalAgit.id }) }}">Modificar</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

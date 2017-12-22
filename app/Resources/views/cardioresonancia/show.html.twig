@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Cardioresonancium</h1>
+    <h1>Estudio: {{ cardioresonancia.estudioConfiguracion.nombre }}</h1>
 
     <table>
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>Paciente</th>
                 <td>{{ cardioResonancium.id }}</td>
             </tr>
             <tr>
@@ -29,12 +29,15 @@
     </table>
 
     <ul>
+
         <li>
-            <a href="{{ path('cardioresonancia_index') }}">Back to the list</a>
+            <a href="{{ path('estudio_index', { 'id': cardioresonancia_index.paciente.id }) }}">Volver al Paciente</a>
         </li>
         <li>
-            <a href="{{ path('cardioresonancia_edit', { 'id': cardioResonancium.id }) }}">Edit</a>
+            <a href="{{ path('estudio_edit', { 'id': cardioresonancia_index.id }) }}">Modificar</a>
         </li>
+
+
         <li>
             {{ form_start(delete_form) }}
                 <input type="submit" value="Delete">

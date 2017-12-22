@@ -4,9 +4,9 @@ SEGC
 A Symfony project created on December 3, 2017, 5:01 pm.
 
 // comandos
-php app/console server:run
-php app/console doctrine:schema:update --force
-php app/console generate:doctrine:crud AppBundle:nombre_de_la_entidad
+php app/console server:run														  //ejecutar siempre antes y despues de los update para que corra la base
+php app/console doctrine:schema:update --force									  //update para traer los cambios de la base de datos global
+php app/console generate:doctrine:crud AppBundle:nombre_de_la_entidad             //creacion de cruds una vez creadas las entidades
 
 
 // consideraciones
@@ -29,14 +29,14 @@ git clone https://github.com/unlp-taller-tecnologias/2017-grupo-2
 BASICOS -> SOLO TIENEN LOS SIGUIENTES ATRIBUTOS: PACIENTE (ID) - FECHA_ALTA (SYSDATE) - OBSERVACIÓN (STRING) - DIAGNOSTICO_FINAL (STRING)
 -Aorta Abdominal Ateromatosa  ->
 -Aorta Abdominal.
--Eco Doppler Color Arterial de Miembros Superiores. (base)
--Eco Doppler Color de Miembro Inferior Derecho.
--Eco Doppler Color de Arterias Renales.
--Eco Doppler Color Venoso de Miembros Superiores.
--EcoCardiograma con Inyección de Solución Salina Agitada.
--EcoCardiograma Transesofágico.
--Eco Doppler Color Arterial de Miembro Inferior Derecho.
--Eco Doppler Color Arterial de Miembro Inferior Izquierdo.
+-Eco Doppler Color Arterial de Miembros Superiores. (base)    -Eco_Dopp_Color_Art_Miem_Sup
+-Eco Doppler Color de Miembro Inferior Derecho.			      -Eco_Dopp_Color_Miem_Inf_Der
+-Eco Doppler Color de Arterias Renales.						  -Eco_Doppler_Color_Art_Renales
+-Eco Doppler Color Venoso de Miembros Superiores.             -Eco_Doppler_Color_Ven_Miem_Sup
+-EcoCardiograma con Inyección de Solución Salina Agitada.     -EcoCardiograma_Iny_Sol_Sal_Agit.
+-EcoCardiograma Transesofágico.								  -EcoCardiograma_Transesofágico
+-Eco Doppler Color Arterial de Miembro Inferior Derecho.      -Eco_Doppler_Color_Art_Miem_Inf_Der
+-Eco Doppler Color Arterial de Miembro Inferior Izquierdo.    -Eco_Doppler_Color_Art_Miem_Inf_Izq
 -Endarterectomia.
 
 

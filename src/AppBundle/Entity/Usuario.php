@@ -22,7 +22,8 @@ class Usuario extends BaseUser{
   /* Es posible agregar más atributos además de los que vienen en BaseUser */
   public function __construct(){
     parent::__construct();
-    // your own logic
+    // your own logic\
+    $this->roles = array('ROLE_MEDICO');
   }
 
   /**
