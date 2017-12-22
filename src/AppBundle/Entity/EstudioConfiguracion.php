@@ -23,14 +23,14 @@ class EstudioConfiguracion
     /**
      * @var string
      *
-     * @ORM\Column(name="nombre", type="string", length=30, nullable=false)
+     * @ORM\Column(name="nombre", type="string", length=60, nullable=false)
      */
     private $nombre;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="link", type="string", length=35, nullable=false)
+     * @ORM\Column(name="link", type="string", length=60, nullable=false)
      */
     private $link;
 

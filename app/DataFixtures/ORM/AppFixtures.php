@@ -21,7 +21,27 @@ class AppFixtures extends Fixture
 
         $estudiosconfiguraciones = array(
           array('nombre' => 'Aorta Abdominal Ateromatosa' ,
-                'link' => 'aortaabdominalateromatosa')
+          'link' => 'aortaabdominalateromatosa'),
+          array('nombre' => 'Aorta Abdominal' ,
+          'link' => 'aortaabdominal'),
+          array('nombre' => 'EcoCardiograma con Inyección de Solución Salina Agitada' ,
+          'link' => 'ecocardiogramainysolsalagit'),
+          array('nombre' => 'EcoCardiograma Transesofágico' ,
+          'link' => 'ecocardiogramatransesofagico'),
+          array('nombre' => 'Eco Doppler Color Arterial de Miembros Superiores' ,
+          'link' => 'ecodoppcolorartmiemsup'),
+          array('nombre' => 'Eco Doppler Color de Miembro Inferior Derecho' ,
+          'link' => 'ecodoppcolormieminfder'),
+          array('nombre' => 'Eco Doppler Color Arterial de Miembro Inferior Derecho' ,
+          'link' => 'ecodopplercolorartmieminfder'),
+          array('nombre' => 'Eco Doppler Color Arterial de Miembro Inferior Izquierdo' ,
+          'link' => 'ecodopplercolorartmieminfizq'),
+          array('nombre' => 'Eco Doppler Color de Arterias Renales' ,
+          'link' => 'ecodopplercolorartrenales'),
+          array('nombre' => 'Eco Doppler Color Venoso de Miembros Superiores' ,
+          'link' => 'ecodopplercolorvenmiemsup'),
+          array('nombre' => 'Endarterectomia' ,
+          'link' => 'endarterectomia')
         );
 
         foreach ($estudiosconfiguraciones as $configuracion) {
@@ -32,17 +52,35 @@ class AppFixtures extends Fixture
         }
 
         $manager->flush();
-        // (1, 'Aorta Abdominal Ateromatosa', 'aortaabdominalateromatosa'),
-        // (2, 'Aorta Abdominal', ''),
-        // (4, 'Eco Doppler Color de Miembro I', ''),
-        // (5, 'Eco Doppler Color de Arterias ', ''),
-        // (6, 'Eco Doppler Color Venoso de Mi', ''),
-        // (8, 'EcoCardiograma con Inyección d', ''),
-        // (9, 'EcoCardiograma Transesofágico', ''),
-        // (10, 'Eco Doppler Color Arterial de ', ''),
-        // (11, 'Eco Doppler Color Arterial de ', ''),
-        // (12, 'Endarterectomia', '');
+        // Aorta Abdominal Ateromatosa
+        // aortaabdominalateromatosa
+        // Aorta Abdominal
+        // aortaabdominal
 
+        // EcoCardiograma con Inyección de Solución Salina Agitada
+        // ecocardiogramainysolsalagit
+        // EcoCardiograma Transesofágico
+        // ecocardiogramatransesofagico
+
+        // Eco Doppler Color Arterial de Miembros Superiores
+        // ecodoppcolorartmiemsup
+
+        // Eco Doppler Color de Miembro Inferior Derecho
+        // ecodoppcolormieminfder
+
+        // Eco Doppler Color Arterial de Miembro Inferior Derecho
+        // ecodopplercolorartmieminfder
+        // Eco Doppler Color Arterial de Miembro Inferior Izquierdo
+        // ecodopplercolorartmieminfizq
+
+        // Eco Doppler Color de Arterias Renales
+        // ecodopplercolorartrenales
+
+        // Eco Doppler Color Venoso de Miembros Superiores
+        // ecodopplercolorvenmiemsup
+
+        // Endarterectomia
+        // endarterectomia
 
     }
 }

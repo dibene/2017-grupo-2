@@ -27,17 +27,17 @@ git clone https://github.com/unlp-taller-tecnologias/2017-grupo-2
 //ESTUDIOS
 
 BASICOS -> SOLO TIENEN LOS SIGUIENTES ATRIBUTOS: PACIENTE (ID) - FECHA_ALTA (SYSDATE) - OBSERVACIÓN (STRING) - DIAGNOSTICO_FINAL (STRING)
--Aorta Abdominal Ateromatosa  ->
--Aorta Abdominal.
--Eco Doppler Color Arterial de Miembros Superiores. (base)    -Eco_Dopp_Color_Art_Miem_Sup
--Eco Doppler Color de Miembro Inferior Derecho.			      -Eco_Dopp_Color_Miem_Inf_Der
--Eco Doppler Color de Arterias Renales.						  -Eco_Doppler_Color_Art_Renales
--Eco Doppler Color Venoso de Miembros Superiores.             -Eco_Doppler_Color_Ven_Miem_Sup
--EcoCardiograma con Inyección de Solución Salina Agitada.     -EcoCardiograma_Iny_Sol_Sal_Agit.
--EcoCardiograma Transesofágico.								  -EcoCardiograma_Transesofágico
--Eco Doppler Color Arterial de Miembro Inferior Derecho.      -Eco_Doppler_Color_Art_Miem_Inf_Der
--Eco Doppler Color Arterial de Miembro Inferior Izquierdo.    -Eco_Doppler_Color_Art_Miem_Inf_Izq
--Endarterectomia.
+Aorta Abdominal Ateromatosa  ->
+Aorta Abdominal.
+Eco Doppler Color Arterial de Miembros Superiores. (base)    -Eco_Dopp_Color_Art_Miem_Sup
+Eco Doppler Color de Miembro Inferior Derecho.			      -Eco_Dopp_Color_Miem_Inf_Der
+Eco Doppler Color de Arterias Renales.						  -Eco_Doppler_Color_Art_Renales
+Eco Doppler Color Venoso de Miembros Superiores.             -Eco_Doppler_Color_Ven_Miem_Sup
+EcoCardiograma con Inyección de Solución Salina Agitada.     -EcoCardiograma_Iny_Sol_Sal_Agit.
+EcoCardiograma Transesofágico.								  -EcoCardiograma_Transesofágico
+Eco Doppler Color Arterial de Miembro Inferior Derecho.      -Eco_Doppler_Color_Art_Miem_Inf_Der
+Eco Doppler Color Arterial de Miembro Inferior Izquierdo.    -Eco_Doppler_Color_Art_Miem_Inf_Izq
+Endarterectomia.
 
 
 //DATOS DE TABLAS DE REFERENCIA
