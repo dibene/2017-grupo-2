@@ -26,9 +26,11 @@ security:
     encoders:
         FOS\UserBundle\Model\UserInterface: bcrypt
 
+        # lo que significa es que role_medico puede hacer lo de ROLE_USER
+        # role_admin puede hacer lo de role_medico y por herencia tambien lo de role_user
     role_hierarchy:
         ROLE_MEDICO: ROLE_USER
-        ROLE_ADMIN: [ROLE_MEDICO, ROLE_USER, ROLE_ADMIN]
+        ROLE_ADMIN: ROLE_MEDICO
 
     providers:
         fos_userbundle:
@@ -51,6 +53,8 @@ security:
         - { path: ^/admin/, role: ROLE_ADMIN }
         - { path: ^/panel_medico/, role: ROLE_MEDICO }
         - { path: ^/paciente/, role: ROLE_MEDICO }
-        - { path: ^/medico/, role: ROLE_MEDICO }
+        - { path: ^/medico/new, role: IS_AUTHENTICATED_FULLY }
+        
+        - { path: ^/medico/, role: ROLE_ADMIN }
 
     access_denied_url: /login

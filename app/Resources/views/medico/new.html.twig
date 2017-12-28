@@ -1,20 +1,19 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    {% if is_granted('ROLE_ADMIN') %}
+      <div>
+          <a class="btn-floating btn-large waves-effect waves-light yellow" href="{{ path('medico_index') }}"><i class="material-icons">arrow_back</i></a>Volver al listado de Médicos
+      </div>
+    {% endif %}
 
-    <div>
-        <a class="btn-floating btn-large waves-effect waves-light yellow" href="{{ path('medico_index') }}"><i class="material-icons">arrow_back</i></a>Volver al listado de Médicos
-    </div>
-
-    <h1>Nuevo Médico</h1>
-
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Crear" />
-    {{ form_end(form) }}
-
+    {% if is_granted('ROLE_MEDICO') %}
+      <h1>Datos Médicos ya accesados</h1>
+    {% else %}
+      <h1>Datos Médicos</h1>
+      {{ form_start(form) }}
+          {{ form_widget(form) }}
+          <input type="submit" value="Crear" />
+      {{ form_end(form) }}
+    {% endif %}
 {% endblock %}
-
-
-
-

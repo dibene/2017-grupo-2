@@ -99,7 +99,7 @@ class Medico extends Persona
      *
      * @return usuario
      */
-    public function setUsuario($Usuario)
+    public function setUsuario($usuario)
     {
       $this->usuario = $usuario;
 

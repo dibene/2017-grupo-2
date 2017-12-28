@@ -7,10 +7,15 @@ A Symfony project created on December 3, 2017, 5:01 pm.
 php app/console server:run														  //ejecutar siempre antes y despues de los update para que corra la base
 php app/console doctrine:schema:update --force									  //update para traer los cambios de la base de datos global
 php app/console generate:doctrine:crud AppBundle:nombre_de_la_entidad             //creacion de cruds una vez creadas las entidades
-
+cargar fixtures
+php app/console doctrine:fixtures:load
 
 // consideraciones
-falta agregar medico cuando se guarde por fos user
+X falta agregar medico cuando se guarde por fos user
+cuando se registra un usuario no tiene rol, no puede ver nada mas q agregar los datos del medico
+al agregar los datos del medico se le asigna rol medico y puede tener las opciones,
+si sale del sistema y vuelve a entrar solo tiene la posibilidad de entrar a su perfil para cargar los datos personales de medico.
+
 //pacientes
 medico cabecera  -> string
 20/12 21:22 modificar -> donde dice agregar estudio, hay q ver si con ese link muestra los estudios a agregar y los estudios q se hizo el paciente o solo los estudios a agregar entonces hay q agregar otro link q diga estudios echos,

@@ -54,17 +54,7 @@ class RegistrationController extends BaseController
                     $url = $this->generateUrl('fos_user_registration_confirmed');
                     $response = new RedirectResponse($url);
                 }
-                // return new RedirectResponse('/medico/new');
-                // MedicoController::newAction(new Request);
-
-                // $medico = new Medico();
-                // $form = $this->createForm('AppBundle\Form\MedicoType', $medico);
-                // $form->handleRequest($request);
-                //
-                // return $this->render('medico/new.html.twig', array(
-                //     'form' => $form->createView(),
-                // ));
-
+                // path en confirmedAction en registration controller en fosbundle
 
                 $dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
                 return $response;
@@ -82,5 +72,5 @@ class RegistrationController extends BaseController
             'form' => $form->createView(),
         ));
     }
-    
+
 }

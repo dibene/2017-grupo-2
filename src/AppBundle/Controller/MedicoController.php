@@ -6,7 +6,7 @@ use AppBundle\Entity\Medico;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
-
+use Symfony\Component\HttpFoundation\RedirectResponse;
 /**
  * Medico controller.
  *
@@ -39,6 +39,7 @@ class MedicoController extends Controller
     public function newAction(Request $request)
     {
       $user = $this->container->get('security.context')->getToken()->getUser();
+      $user->addRole(2);
       $medico = new Medico();
       $medico->setUsuario($user);
       $form = $this->createForm('AppBundle\Form\MedicoType', $medico);
@@ -48,8 +49,8 @@ class MedicoController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($medico);
             $em->flush();
-
-            return $this->redirectToRoute('medico_show', array('id' => $medico->getId()));
+            return new RedirectResponse('/profile');
+            //return $this->redirectToRoute('medico_show', array('id' => $medico->getId()));
         }
 
         return $this->render('medico/new.html.twig', array(

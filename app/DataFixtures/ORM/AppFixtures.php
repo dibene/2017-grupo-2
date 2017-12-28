@@ -6,6 +6,8 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use AppBundle\Entity\Usuario;
 use AppBundle\Entity\EstudioConfiguracion;
+use AppBundle\Entity\Medico;
+use \Datetime;
 
 class AppFixtures extends Fixture
 {
@@ -51,36 +53,44 @@ class AppFixtures extends Fixture
           $manager->persist($estudioConfiguracion);
         }
 
+        $user = new Usuario();
+        $user->setUsername('sinrol');
+        $user->setEmail('sinrol@123.com');
+        $user->setPlainPassword('123');
+        $user->setEnabled(true);
+        $manager->persist($user);
+
+        $user = new Usuario();
+        $user->setUsername('rolmedico');
+        $user->setEmail('rolmedico@123.com');
+        $user->setPlainPassword('123');
+        $user->addRole(2);
+        $user->setEnabled(true);
+        $manager->persist($user);
+          $medico = new Medico();
+          $medico->setObraSocial('obraSocial');
+          $medico->setMatricula(123123);
+          $medico->setNombre('nombre');
+          $medico->setApellido('apellido');
+          $medico->setDni(123123);
+          $medico->setSexo('masculino');
+          $medico->setNacionalidad('nac');
+          $medico->setLocalidad('loc');
+          $medico->setDireccion('dir');
+          $medico->setFechaNacimiento(new DateTime('2017-09-05'));
+          $medico->setUsuario($user);
+          $manager->persist($medico);
+
+        $user = new Usuario();
+        $user->setUsername('roladmin');
+        $user->setEmail('roladmin@123.com');
+        $user->setPlainPassword('123');
+        $user->addRole(1);
+        $user->setEnabled(true);
+        $manager->persist($user);
+
         $manager->flush();
-        // Aorta Abdominal Ateromatosa
-        // aortaabdominalateromatosa
-        // Aorta Abdominal
-        // aortaabdominal
 
-        // EcoCardiograma con Inyección de Solución Salina Agitada
-        // ecocardiogramainysolsalagit
-        // EcoCardiograma Transesofágico
-        // ecocardiogramatransesofagico
-
-        // Eco Doppler Color Arterial de Miembros Superiores
-        // ecodoppcolorartmiemsup
-
-        // Eco Doppler Color de Miembro Inferior Derecho
-        // ecodoppcolormieminfder
-
-        // Eco Doppler Color Arterial de Miembro Inferior Derecho
-        // ecodopplercolorartmieminfder
-        // Eco Doppler Color Arterial de Miembro Inferior Izquierdo
-        // ecodopplercolorartmieminfizq
-
-        // Eco Doppler Color de Arterias Renales
-        // ecodopplercolorartrenales
-
-        // Eco Doppler Color Venoso de Miembros Superiores
-        // ecodopplercolorvenmiemsup
-
-        // Endarterectomia
-        // endarterectomia
 
     }
 }

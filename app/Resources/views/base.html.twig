@@ -10,7 +10,6 @@
           <!--Import materialize.css-->
           <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 
-
         {% endblock %}
     </head>
     <body>
@@ -21,10 +20,16 @@
 
 
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            {% if is_granted("IS_AUTHENTICATED_FULLY") %}
+            <!-- ver si tiene permiso para ver pacientes y medicos -->
+              {% if is_granted('ROLE_MEDICO') %}
                 <li><a href="/paciente">Pacientes</a></li>
+              {% endif %}
+              {% if is_granted('ROLE_ADMIN') %}
                 <li><a href="/medico">Medicos</a></li>
-                <li>{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} </li>
+              {% endif %}
+                <!-- link al perfil solo si esta logueado -->
+                <li><a href="/profile"> {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} </a> </li>
                 <li>
                   <a href="{{ path('fos_user_security_logout') }}">
                       {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
