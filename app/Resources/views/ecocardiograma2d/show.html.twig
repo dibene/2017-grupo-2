@@ -1,0 +1,384 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Ecocardiograma2d</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ ecocardiograma2d.id }}</td>
+            </tr>
+            <tr>
+                <th>Situs</th>
+                <td>{{ ecocardiograma2d.situs }}</td>
+            </tr>
+            <tr>
+                <th>Conexionauriculoventricular</th>
+                <td>{{ ecocardiograma2d.conexionAuriculoventricular }}</td>
+            </tr>
+            <tr>
+                <th>Conexionventriculoarterial</th>
+                <td>{{ ecocardiograma2d.conexionVentriculoArterial }}</td>
+            </tr>
+            <tr>
+                <th>Ddvi</th>
+                <td>{{ ecocardiograma2d.ddvi }}</td>
+            </tr>
+            <tr>
+                <th>Dsvi</th>
+                <td>{{ ecocardiograma2d.dsvi }}</td>
+            </tr>
+            <tr>
+                <th>Siv</th>
+                <td>{{ ecocardiograma2d.siv }}</td>
+            </tr>
+            <tr>
+                <th>Pp</th>
+                <td>{{ ecocardiograma2d.pp }}</td>
+            </tr>
+            <tr>
+                <th>Fey</th>
+                <td>{{ ecocardiograma2d.fey }}</td>
+            </tr>
+            <tr>
+                <th>Alarea</th>
+                <td>{{ ecocardiograma2d.alArea }}</td>
+            </tr>
+            <tr>
+                <th>Alvol</th>
+                <td>{{ ecocardiograma2d.alVol }}</td>
+            </tr>
+            <tr>
+                <th>Aorta</th>
+                <td>{{ ecocardiograma2d.aorta }}</td>
+            </tr>
+            <tr>
+                <th>Apvao</th>
+                <td>{{ ecocardiograma2d.apVao }}</td>
+            </tr>
+            <tr>
+                <th>Tsvi</th>
+                <td>{{ ecocardiograma2d.tsvi }}</td>
+            </tr>
+            <tr>
+                <th>Velmaxao</th>
+                <td>{{ ecocardiograma2d.velMaxAo }}</td>
+            </tr>
+            <tr>
+                <th>Gradmaxao</th>
+                <td>{{ ecocardiograma2d.gradMaxAo }}</td>
+            </tr>
+            <tr>
+                <th>Gradmedao</th>
+                <td>{{ ecocardiograma2d.gradMedAo }}</td>
+            </tr>
+            <tr>
+                <th>Insuficiencia</th>
+                <td>{{ ecocardiograma2d.insuficiencia }}</td>
+            </tr>
+            <tr>
+                <th>Thp</th>
+                <td>{{ ecocardiograma2d.thp }}</td>
+            </tr>
+            <tr>
+                <th>Adt</th>
+                <td>{{ ecocardiograma2d.adt }}</td>
+            </tr>
+            <tr>
+                <th>Aa</th>
+                <td>{{ ecocardiograma2d.aa }}</td>
+            </tr>
+            <tr>
+                <th>Velondae</th>
+                <td>{{ ecocardiograma2d.velOndaE }}</td>
+            </tr>
+            <tr>
+                <th>Velondaa</th>
+                <td>{{ ecocardiograma2d.velOndaA }}</td>
+            </tr>
+            <tr>
+                <th>Gradmedioatrasmitral</th>
+                <td>{{ ecocardiograma2d.gradMedioaTrasmitral }}</td>
+            </tr>
+            <tr>
+                <th>Insuficienciatrasmitral</th>
+                <td>{{ ecocardiograma2d.insuficienciaTrasmitral }}</td>
+            </tr>
+            <tr>
+                <th>Ore</th>
+                <td>{{ ecocardiograma2d.ore }}</td>
+            </tr>
+            <tr>
+                <th>Volregurgitante</th>
+                <td>{{ ecocardiograma2d.volRegurgitante }}</td>
+            </tr>
+            <tr>
+                <th>Dpdt</th>
+                <td>{{ ecocardiograma2d.dpdt }}</td>
+            </tr>
+            <tr>
+                <th>Velmaxpulmonar</th>
+                <td>{{ ecocardiograma2d.velMaxPulmonar }}</td>
+            </tr>
+            <tr>
+                <th>Gradmaxpulomonar</th>
+                <td>{{ ecocardiograma2d.gradMaxPulomonar }}</td>
+            </tr>
+            <tr>
+                <th>Insuficiencia_pulmonar</th>
+                <td>{{ ecocardiograma2d.insuficienciapulmonar }}</td>
+            </tr>
+            <tr>
+                <th>Tpopico</th>
+                <td>{{ ecocardiograma2d.tpoPico }}</td>
+            </tr>
+            <tr>
+                <th>Qpqs</th>
+                <td>{{ ecocardiograma2d.qpqs }}</td>
+            </tr>
+            <tr>
+                <th>Insuficienciatricuspide</th>
+                <td>{{ ecocardiograma2d.insuficienciaTricuspide }}</td>
+            </tr>
+            <tr>
+                <th>Velregurgitante</th>
+                <td>{{ ecocardiograma2d.velRegurgitante }}</td>
+            </tr>
+            <tr>
+                <th>Gradpico</th>
+                <td>{{ ecocardiograma2d.gradPico }}</td>
+            </tr>
+            <tr>
+                <th>Pap</th>
+                <td>{{ ecocardiograma2d.pap }}</td>
+            </tr>
+            <tr>
+                <th>Pad</th>
+                <td>{{ ecocardiograma2d.pad }}</td>
+            </tr>
+            <tr>
+                <th>Ondaseptal</th>
+                <td>{{ ecocardiograma2d.ondaSeptal }}</td>
+            </tr>
+            <tr>
+                <th>Ondalateral</th>
+                <td>{{ ecocardiograma2d.ondaLateral }}</td>
+            </tr>
+            <tr>
+                <th>Ondae</th>
+                <td>{{ ecocardiograma2d.ondaE }}</td>
+            </tr>
+            <tr>
+                <th>Ondaa</th>
+                <td>{{ ecocardiograma2d.ondaA }}</td>
+            </tr>
+            <tr>
+                <th>Relacione</th>
+                <td>{{ ecocardiograma2d.relacionE }}</td>
+            </tr>
+            <tr>
+                <th>Ondavd</th>
+                <td>{{ ecocardiograma2d.ondaVd }}</td>
+            </tr>
+            <tr>
+                <th>Ventriculoizql1c1</th>
+                <td>{{ ecocardiograma2d.ventriculoIzqL1C1 }}</td>
+            </tr>
+            <tr>
+                <th>Ventriculoizql1c2</th>
+                <td>{{ ecocardiograma2d.ventriculoIzqL1C2 }}</td>
+            </tr>
+            <tr>
+                <th>Ventriculoizql2c1</th>
+                <td>{{ ecocardiograma2d.ventriculoIzqL2C1 }}</td>
+            </tr>
+            <tr>
+                <th>Ventriculoizql2c2</th>
+                <td>{{ ecocardiograma2d.ventriculoIzqL2C2 }}</td>
+            </tr>
+            <tr>
+                <th>Ventriculoizql3c1</th>
+                <td>{{ ecocardiograma2d.ventriculoIzqL3C1 }}</td>
+            </tr>
+            <tr>
+                <th>Ventriculoizql3c2</th>
+                <td>{{ ecocardiograma2d.ventriculoIzqL3C2 }}</td>
+            </tr>
+            <tr>
+                <th>Ventriculoizql1imvi</th>
+                <td>{{ ecocardiograma2d.ventriculoIzqL1Imvi }}</td>
+            </tr>
+            <tr>
+                <th>Ventriculoizql1epr</th>
+                <td>{{ ecocardiograma2d.ventriculoIzqL1Epr }}</td>
+            </tr>
+            <tr>
+                <th>Ventriculoizql4c1</th>
+                <td>{{ ecocardiograma2d.ventriculoIzqL4C1 }}</td>
+            </tr>
+            <tr>
+                <th>Raizaortal1c1</th>
+                <td>{{ ecocardiograma2d.raizAortaL1C1 }}</td>
+            </tr>
+            <tr>
+                <th>Raizaortal1c2</th>
+                <td>{{ ecocardiograma2d.raizAortaL1C2 }}</td>
+            </tr>
+            <tr>
+                <th>Raizaortal1c3</th>
+                <td>{{ ecocardiograma2d.raizAortaL1C3 }}</td>
+            </tr>
+            <tr>
+                <th>Aortal1c1</th>
+                <td>{{ ecocardiograma2d.aortaL1C1 }}</td>
+            </tr>
+            <tr>
+                <th>Aortal1c2</th>
+                <td>{{ ecocardiograma2d.aortaL1C2 }}</td>
+            </tr>
+            <tr>
+                <th>Aortal2c1</th>
+                <td>{{ ecocardiograma2d.aortaL2C1 }}</td>
+            </tr>
+            <tr>
+                <th>Aortal2c2</th>
+                <td>{{ ecocardiograma2d.aortaL2C2 }}</td>
+            </tr>
+            <tr>
+                <th>Aortal3c1</th>
+                <td>{{ ecocardiograma2d.aortaL3C1 }}</td>
+            </tr>
+            <tr>
+                <th>Aortal3c2</th>
+                <td>{{ ecocardiograma2d.aortaL3C2 }}</td>
+            </tr>
+            <tr>
+                <th>Valvulamitrall1c1</th>
+                <td>{{ ecocardiograma2d.valvulaMitralL1C1 }}</td>
+            </tr>
+            <tr>
+                <th>Valvulamitrall1c2</th>
+                <td>{{ ecocardiograma2d.valvulaMitralL1C2 }}</td>
+            </tr>
+            <tr>
+                <th>Valvulamitrall2c1</th>
+                <td>{{ ecocardiograma2d.valvulaMitralL2C1 }}</td>
+            </tr>
+            <tr>
+                <th>Valvulamitrall2c2</th>
+                <td>{{ ecocardiograma2d.valvulaMitralL2C2 }}</td>
+            </tr>
+            <tr>
+                <th>Valvulamitrall2c3</th>
+                <td>{{ ecocardiograma2d.valvulaMitralL2C3 }}</td>
+            </tr>
+            <tr>
+                <th>Auriculaizql1c1</th>
+                <td>{{ ecocardiograma2d.auriculaIzqL1C1 }}</td>
+            </tr>
+            <tr>
+                <th>Auriculaizql1c2</th>
+                <td>{{ ecocardiograma2d.auriculaIzqL1C2 }}</td>
+            </tr>
+            <tr>
+                <th>Auriculaizql1c3</th>
+                <td>{{ ecocardiograma2d.auriculaIzqL1C3 }}</td>
+            </tr>
+            <tr>
+                <th>Valvulapulmonarl1c1</th>
+                <td>{{ ecocardiograma2d.valvulaPulmonarL1C1 }}</td>
+            </tr>
+            <tr>
+                <th>Valvulapulmonarl1c2</th>
+                <td>{{ ecocardiograma2d.valvulaPulmonarL1C2 }}</td>
+            </tr>
+            <tr>
+                <th>Valvulapulmonarl2c1</th>
+                <td>{{ ecocardiograma2d.valvulaPulmonarL2C1 }}</td>
+            </tr>
+            <tr>
+                <th>Valvulapulmonarl2c2</th>
+                <td>{{ ecocardiograma2d.valvulaPulmonarL2C2 }}</td>
+            </tr>
+            <tr>
+                <th>Valvulapulmonarl2c3</th>
+                <td>{{ ecocardiograma2d.valvulaPulmonarL2C3 }}</td>
+            </tr>
+            <tr>
+                <th>Valvulatricuspidel1c1</th>
+                <td>{{ ecocardiograma2d.valvulatricuspideL1C1 }}</td>
+            </tr>
+            <tr>
+                <th>Valvulatricuspidel1c2</th>
+                <td>{{ ecocardiograma2d.valvulatricuspideL1C2 }}</td>
+            </tr>
+            <tr>
+                <th>Valvulatricuspidel2c1</th>
+                <td>{{ ecocardiograma2d.valvulatricuspideL2C1 }}</td>
+            </tr>
+            <tr>
+                <th>Valvulatricuspidel2c2</th>
+                <td>{{ ecocardiograma2d.valvulatricuspideL2C2 }}</td>
+            </tr>
+            <tr>
+                <th>Valvulatricuspidel2c3</th>
+                <td>{{ ecocardiograma2d.valvulatricuspideL2C3 }}</td>
+            </tr>
+            <tr>
+                <th>Cavidadderechal1c1</th>
+                <td>{{ ecocardiograma2d.cavidadDerechaL1C1 }}</td>
+            </tr>
+            <tr>
+                <th>Cavidadderechal1c2</th>
+                <td>{{ ecocardiograma2d.cavidadDerechaL1C2 }}</td>
+            </tr>
+            <tr>
+                <th>Cavidadderechal1c3</th>
+                <td>{{ ecocardiograma2d.cavidadDerechaL1C3 }}</td>
+            </tr>
+            <tr>
+                <th>Venacavainferiorl1c1</th>
+                <td>{{ ecocardiograma2d.venaCavaInferiorL1C1 }}</td>
+            </tr>
+            <tr>
+                <th>Pericardiol1c1</th>
+                <td>{{ ecocardiograma2d.pericardioL1C1 }}</td>
+            </tr>
+            <tr>
+                <th>Pericardiol1c2</th>
+                <td>{{ ecocardiograma2d.pericardioL1C2 }}</td>
+            </tr>
+            <tr>
+                <th>Pericardiol1c3</th>
+                <td>{{ ecocardiograma2d.pericardioL1C3 }}</td>
+            </tr>
+            <tr>
+                <th>Conclusionlibre</th>
+                <td>{{ ecocardiograma2d.conclusionLibre }}</td>
+            </tr>
+            <tr>
+                <th>Conclusionl1c1</th>
+                <td>{{ ecocardiograma2d.conclusionL1C1 }}</td>
+            </tr>
+            <tr>
+                <th>Conclusionl1c2</th>
+                <td>{{ ecocardiograma2d.conclusionL1C2 }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('ecocardiograma2d_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('ecocardiograma2d_edit', { 'id': ecocardiograma2d.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
