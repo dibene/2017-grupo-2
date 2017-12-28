@@ -14,7 +14,8 @@ php app/console doctrine:fixtures:load
 X falta agregar medico cuando se guarde por fos user
 cuando se registra un usuario no tiene rol, no puede ver nada mas q agregar los datos del medico
 al agregar los datos del medico se le asigna rol medico y puede tener las opciones,
-si sale del sistema y vuelve a entrar solo tiene la posibilidad de entrar a su perfil para cargar los datos personales de medico.
+si sale del sistema y vuelve a entrar solo tiene la posibilidad de entrar a su perfil para cargar los datos personales de medico. HECHO
+- TODO arreglar el sexo como lo hiceron con pacientes
 
 //pacientes
 medico cabecera  -> string

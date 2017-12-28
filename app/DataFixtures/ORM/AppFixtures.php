@@ -7,6 +7,8 @@ use Doctrine\Common\Persistence\ObjectManager;
 use AppBundle\Entity\Usuario;
 use AppBundle\Entity\EstudioConfiguracion;
 use AppBundle\Entity\Medico;
+use AppBundle\Entity\Paciente;
+
 use \Datetime;
 
 class AppFixtures extends Fixture
@@ -52,7 +54,21 @@ class AppFixtures extends Fixture
           $estudioConfiguracion->setLink($configuracion['link']);
           $manager->persist($estudioConfiguracion);
         }
-
+        for ($i=0; $i < 10; $i++) {
+          $paciente = new Paciente();
+          $paciente->setObraSocial('obraSocial');
+          $paciente->setNombre('nombre'.$i);
+          $paciente->setApellido('apellido'.$i);
+          $paciente->setDni($i*13*13);
+          $paciente->setSexo('masculino');
+          $paciente->setNacionalidad('nac');
+          $paciente->setLocalidad('loc');
+          $paciente->setDireccion('dir');
+          $paciente->setFechaNacimiento(new DateTime('2017-09-05'));
+          $paciente->setFechaIngreso(new DateTime('2017-09-05'));
+          $paciente->setInternacion('no');
+          $manager->persist($paciente);
+          }
         $user = new Usuario();
         $user->setUsername('sinrol');
         $user->setEmail('sinrol@123.com');
