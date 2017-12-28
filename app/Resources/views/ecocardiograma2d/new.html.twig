@@ -4,7 +4,110 @@
     <h1>Ecocardiograma2d creation</h1>
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
+    {{ form_row(form.situs) }}
+    {{ form_row(form.conexionAuriculoventricular) }}
+    {{ form_row(form.conexionVentriculoArterial) }}
+
+    tabla 1: valores bidimensionales
+    <table>
+      <thead>
+      </thead>
+      <tbody>
+        <tr>
+          <td> {{ form_row(form.ddvi) }}</td>
+          <td>{{ form_row(form.alArea) }} </td>
+        </tr>
+        <tr>
+          <td> {{ form_row(form.dsvi) }}</td>
+          <td>{{ form_row(form.alVol) }} </td>
+        </tr>
+        <tr>
+          <td> {{ form_row(form.siv) }}</td>
+          <td>{{ form_row(form.aorta) }} </td>
+        </tr>
+        <tr>
+          <td> {{ form_row(form.pp) }}</td>
+          <td>{{ form_row(form.apVao) }} </td>
+        </tr>
+        <tr>
+          <td> {{ form_row(form.fey) }}</td>
+          <td>{{ form_row(form.tsvi) }} </td>
+        </tr>
+      </tbody>
+    </table>
+
+    tabla 2: Valores Doppel
+    <table>
+      <thead>
+      </thead>
+      <tbody>
+        <tr>
+          <td> {{ form_row(form.velMaxAo) }}</td>
+          <td>{{ form_row(form.velOndaE) }} </td>
+          <td> {{ form_row(form.velMaxPulmonar) }}</td>
+          <td>{{ form_row(form.insuficienciaTricuspide) }} </td>
+        </tr>
+        <tr>
+          <td> {{ form_row(form.gradMaxAo) }}</td>
+          <td>{{ form_row(form.velOndaA) }} </td>
+          <td> {{ form_row(form.gradMaxPulomonar) }}</td>
+          <td>{{ form_row(form.velRegurgitante) }} </td>
+        </tr>
+        <tr>
+          <td> {{ form_row(form.gradMedAo) }}</td>
+          <td>{{ form_row(form.gradMedioaTrasmitral) }} </td>
+          <td> {{ form_row(form.insuficiencia_pulmonar) }}</td>
+          <td>{{ form_row(form.gradPico) }} </td>
+        </tr>
+        <tr>
+          <td> {{ form_row(form.insuficiencia) }}</td>
+          <td>{{ form_row(form.insuficienciaTrasmitral) }} </td>
+          <td> {{ form_row(form.tpoPico) }}</td>
+          <td>{{ form_row(form.pap) }} </td>
+        </tr>
+        <tr>
+          <td> {{ form_row(form.thp) }}</td>
+          <td>{{ form_row(form.ore) }} </td>
+          <td> </td>
+          <td> </td>
+        </tr>
+        <tr>
+          <td> {{ form_row(form.adt) }}</td>
+          <td>{{ form_row(form.volRegurgitante) }} </td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td> {{ form_row(form.aa) }}</td>
+          <td>{{ form_row(form.dpdt) }} </td>
+          <td> {{ form_row(form.qpqs) }}</td>
+          <td>{{ form_row(form.pad) }} </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    tabla 3: Valores Doppler Tisular
+    <table>
+      <thead>
+      </thead>
+      <tbody>
+        <tr>
+          <td> {{ form_row(form.ondaSeptal) }}</td>
+          <td>{{ form_row(form.ondaLateral) }} </td>
+        </tr>
+        <tr>
+          <td> {{ form_row(form.ondaE) }}</td>
+          <td>{{ form_row(form.ondaA) }} </td>
+        </tr>
+        <tr>
+          <td> {{ form_row(form.relacionE) }}</td>
+          <td>{{ form_row(form.ondaVd) }} </td>
+        </tr>
+    
+      </tbody>
+    </table>
+
         <input type="submit" value="Create" />
     {{ form_end(form) }}
 

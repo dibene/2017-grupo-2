@@ -34,12 +34,16 @@ class Ecocardiograma2dController extends Controller
     /**
      * Creates a new ecocardiograma2d entity.
      *
-     * @Route("/new", name="ecocardiograma2d_new")
+     * @Route("/new/{id}", name="ecocardiograma2d_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request , $id)
     {
-        $ecocardiograma2d = new Ecocardiograma2d();
+      $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($id);
+      $user = $this->container->get('security.context')->getToken()->getUser();
+      $medico = $this->getDoctrine()->getManager()->getRepository('AppBundle:Medico')->findOneByUsuario($user->getId());
+
+        $ecocardiograma2d = new Ecocardiograma2d($medico, $paciente,$this->getDoctrine()->getManager());
         $form = $this->createForm('AppBundle\Form\Ecocardiograma2dType', $ecocardiograma2d);
         $form->handleRequest($request);
 

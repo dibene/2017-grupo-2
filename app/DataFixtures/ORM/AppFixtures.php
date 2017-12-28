@@ -51,7 +51,10 @@ class AppFixtures extends Fixture
           'link' => 'ecodopplercolorvenmiemsup'),
           array('id' => 11 ,
             'nombre' => 'Endarterectomia' ,
-          'link' => 'endarterectomia')
+          'link' => 'endarterectomia'),
+          array('id' => 12 ,
+            'nombre' => 'Ecocardiograma 2D y Doppler Color' ,
+          'link' => 'ecocardiograma2d')
         );
 
         foreach ($estudiosconfiguraciones as $configuracion) {
