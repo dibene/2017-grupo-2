@@ -6,7 +6,7 @@ use AppBundle\Entity\EcoCardiogramaInySolSalAgit;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
-
+use \Datetime;
 /**
  * Ecocardiogramainysolsalagit controller.
  *
@@ -34,12 +34,15 @@ class EcoCardiogramaInySolSalAgitController extends Controller
     /**
      * Creates a new ecoCardiogramaInySolSalAgit entity.
      *
-     * @Route("/new", name="ecocardiogramainysolsalagit_new")
+     * @Route("/new/{id}", name="ecocardiogramainysolsalagit_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, $id)
     {
-        $ecoCardiogramaInySolSalAgit = new Ecocardiogramainysolsalagit();
+      $configuracion = $this->getDoctrine()->getManager()->getRepository('AppBundle:EstudioConfiguracion')->find($id);
+      $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($id);
+      $fecha = new Datetime(date("Y-m-d"));
+        $ecoCardiogramaInySolSalAgit = new EcoCardiogramaInySolSalAgit($configuracion,$paciente,$fecha);
         $form = $this->createForm('AppBundle\Form\EcoCardiogramaInySolSalAgitType', $ecoCardiogramaInySolSalAgit);
         $form->handleRequest($request);
 

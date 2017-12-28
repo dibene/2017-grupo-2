@@ -6,7 +6,7 @@ use AppBundle\Entity\EcoDopplerColorArtRenales;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
-
+use \Datetime;
 /**
  * Ecodopplercolorartrenale controller.
  *
@@ -34,10 +34,10 @@ class EcoDopplerColorArtRenalesController extends Controller
     /**
      * Creates a new ecoDopplerColorArtRenale entity.
      *
-     * @Route("/new", name="ecodopplercolorartrenales_new")
+     * @Route("/new/{id}", name="ecodopplercolorartrenales_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, $id)
     {
         $ecoDopplerColorArtRenale = new Ecodopplercolorartrenale();
         $form = $this->createForm('AppBundle\Form\EcoDopplerColorArtRenalesType', $ecoDopplerColorArtRenale);

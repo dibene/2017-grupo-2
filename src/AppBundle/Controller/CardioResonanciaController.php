@@ -6,7 +6,7 @@ use AppBundle\Entity\CardioResonancia;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
-
+use \Datetime;
 /**
  * Cardioresonancium controller.
  *
@@ -34,10 +34,10 @@ class CardioResonanciaController extends Controller
     /**
      * Creates a new cardioResonancium entity.
      *
-     * @Route("/new", name="cardioresonancia_new")
+     * @Route("/new/{id}", name="cardioresonancia_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, $id)
     {
         $cardioResonancia = new CardioResonancia();
         $form = $this->createForm('AppBundle\Form\CardioResonanciaType', $cardioResonancia);

@@ -6,7 +6,7 @@ use AppBundle\Entity\EcoDoppColorMiemInfDer;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
-
+use \Datetime;
 /**
  * Ecodoppcolormieminfder controller.
  *
@@ -34,10 +34,10 @@ class EcoDoppColorMiemInfDerController extends Controller
     /**
      * Creates a new ecoDoppColorMiemInfDer entity.
      *
-     * @Route("/new", name="ecodoppcolormieminfder_new")
+     * @Route("/new/{id}", name="ecodoppcolormieminfder_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, $id)
     {
         $ecoDoppColorMiemInfDer = new Ecodoppcolormieminfder();
         $form = $this->createForm('AppBundle\Form\EcoDoppColorMiemInfDerType', $ecoDoppColorMiemInfDer);

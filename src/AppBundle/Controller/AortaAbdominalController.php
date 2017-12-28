@@ -6,6 +6,7 @@ use AppBundle\Entity\AortaAbdominal;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use \Datetime;
 
 /**
  * Aortaabdominal controller.
@@ -34,10 +35,10 @@ class AortaAbdominalController extends Controller
     /**
      * Creates a new aortaAbdominal entity.
      *
-     * @Route("/new", name="aortaabdominal_new")
+     * @Route("/new/{id}", name="aortaabdominal_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request , $id)
     {
         $configuracion = $this->getDoctrine()->getManager()->getRepository('AppBundle:EstudioConfiguracion')->find($id);
         $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($id);

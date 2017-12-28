@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * EcoCardiogramaInyecciónSoluciónSalinaAgitada
+ * EcoCardiogramaInySolSalAgit
  *
  * @ORM\Table(name="EcoCardiograma_Iny_Sol_Sal_Agit")
  * @ORM\Entity

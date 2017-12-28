@@ -6,7 +6,7 @@ use AppBundle\Entity\EcoCardiogramaTransesofagico;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
-
+use \Datetime;
 /**
  * Ecocardiogramatransesofagico controller.
  *
@@ -34,10 +34,10 @@ class EcoCardiogramaTransesofagicoController extends Controller
     /**
      * Creates a new ecoCardiogramaTransesofagico entity.
      *
-     * @Route("/new", name="ecocardiogramatransesofagico_new")
+     * @Route("/new/{id}", name="ecocardiogramatransesofagico_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, $id)
     {
         $ecoCardiogramaTransesofagico = new Ecocardiogramatransesofagico();
         $form = $this->createForm('AppBundle\Form\EcoCardiogramaTransesofagicoType', $ecoCardiogramaTransesofagico);

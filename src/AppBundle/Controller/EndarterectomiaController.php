@@ -6,7 +6,7 @@ use AppBundle\Entity\Endarterectomia;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
-
+use \Datetime;
 /**
  * Endarterectomium controller.
  *
@@ -34,10 +34,10 @@ class EndarterectomiaController extends Controller
     /**
      * Creates a new endarterectomium entity.
      *
-     * @Route("/new", name="endarterectomia_new")
+     * @Route("/new/{id}", name="endarterectomia_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, $id)
     {
         $endarterectomium = new Endarterectomium();
         $form = $this->createForm('AppBundle\Form\EndarterectomiaType', $endarterectomium);
