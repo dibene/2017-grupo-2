@@ -39,7 +39,10 @@ class EcoDopplerColorVenMiemSupController extends Controller
      */
     public function newAction(Request $request, $id)
     {
-        $ecoDopplerColorVenMiemSup = new Ecodopplercolorvenmiemsup();
+      $configuracion = $this->getDoctrine()->getManager()->getRepository('AppBundle:EstudioConfiguracion')->find($id);
+      $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($id);
+      $fecha = new Datetime(date("Y-m-d"));
+        $ecoDopplerColorVenMiemSup = new Ecodopplercolorvenmiemsup($configuracion,$paciente,$fecha);
         $form = $this->createForm('AppBundle\Form\EcoDopplerColorVenMiemSupType', $ecoDopplerColorVenMiemSup);
         $form->handleRequest($request);
 

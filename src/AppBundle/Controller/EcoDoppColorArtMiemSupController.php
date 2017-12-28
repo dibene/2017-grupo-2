@@ -39,7 +39,10 @@ class EcoDoppColorArtMiemSupController extends Controller
      */
     public function newAction(Request $request, $id)
     {
-        $ecoDoppColorArtMiemSup = new Ecodoppcolorartmiemsup();
+      $configuracion = $this->getDoctrine()->getManager()->getRepository('AppBundle:EstudioConfiguracion')->find($id);
+      $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($id);
+      $fecha = new Datetime(date("Y-m-d"));
+        $ecoDoppColorArtMiemSup = new Ecodoppcolorartmiemsup($configuracion,$paciente,$fecha);
         $form = $this->createForm('AppBundle\Form\EcoDoppColorArtMiemSupType', $ecoDoppColorArtMiemSup);
         $form->handleRequest($request);
 

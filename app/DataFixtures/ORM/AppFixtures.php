@@ -8,6 +8,8 @@ use AppBundle\Entity\Usuario;
 use AppBundle\Entity\EstudioConfiguracion;
 use AppBundle\Entity\Medico;
 use AppBundle\Entity\Paciente;
+use AppBundle\Entity\Especialidad;
+use AppBundle\Entity\MotivoSolicitud;
 
 use \Datetime;
 
@@ -15,45 +17,69 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        // // create 20 products! Bam!
-        // for ($i = 0; $i < 20; $i++) {
-        //     $product = new Product();
-        //     $product->setName('product '.$i);
-        //     $product->setPrice(mt_rand(10, 100));
-        //     $manager->persist($product);
-        // }
-
+          // estudios
         $estudiosconfiguraciones = array(
-          array('nombre' => 'Aorta Abdominal Ateromatosa' ,
-          'link' => 'aortaabdominalateromatosa'),
-          array('nombre' => 'Aorta Abdominal' ,
+          array('id' => 1 ,
+                'nombre' => 'Aorta Abdominal Ateromatosa' ,
+                'link' => 'aortaabdominalateromatosa'),
+          array('id' => 2 ,
+            'nombre' => 'Aorta Abdominal' ,
           'link' => 'aortaabdominal'),
-          array('nombre' => 'EcoCardiograma con Inyección de Solución Salina Agitada' ,
+          array('id' => 3 ,
+            'nombre' => 'EcoCardiograma con Inyección de Solución Salina Agitada' ,
           'link' => 'ecocardiogramainysolsalagit'),
-          array('nombre' => 'EcoCardiograma Transesofágico' ,
+          array('id' => 4 ,
+            'nombre' => 'EcoCardiograma Transesofágico' ,
           'link' => 'ecocardiogramatransesofagico'),
-          array('nombre' => 'Eco Doppler Color Arterial de Miembros Superiores' ,
+          array('id' => 5 ,
+            'nombre' => 'Eco Doppler Color Arterial de Miembros Superiores' ,
           'link' => 'ecodoppcolorartmiemsup'),
-          array('nombre' => 'Eco Doppler Color de Miembro Inferior Derecho' ,
+          array('id' => 6 ,
+            'nombre' => 'Eco Doppler Color de Miembro Inferior Derecho' ,
           'link' => 'ecodoppcolormieminfder'),
-          array('nombre' => 'Eco Doppler Color Arterial de Miembro Inferior Derecho' ,
+          array('id' => 7 ,
+            'nombre' => 'Eco Doppler Color Arterial de Miembro Inferior Derecho' ,
           'link' => 'ecodopplercolorartmieminfder'),
-          array('nombre' => 'Eco Doppler Color Arterial de Miembro Inferior Izquierdo' ,
+          array('id' => 8 ,
+            'nombre' => 'Eco Doppler Color Arterial de Miembro Inferior Izquierdo' ,
           'link' => 'ecodopplercolorartmieminfizq'),
-          array('nombre' => 'Eco Doppler Color de Arterias Renales' ,
+          array('id' => 9 ,
+            'nombre' => 'Eco Doppler Color de Arterias Renales' ,
           'link' => 'ecodopplercolorartrenales'),
-          array('nombre' => 'Eco Doppler Color Venoso de Miembros Superiores' ,
+          array('id' => 10 ,
+            'nombre' => 'Eco Doppler Color Venoso de Miembros Superiores' ,
           'link' => 'ecodopplercolorvenmiemsup'),
-          array('nombre' => 'Endarterectomia' ,
+          array('id' => 11 ,
+            'nombre' => 'Endarterectomia' ,
           'link' => 'endarterectomia')
         );
 
         foreach ($estudiosconfiguraciones as $configuracion) {
           $estudioConfiguracion =  new EstudioConfiguracion ();
+          $estudioConfiguracion->setId( $configuracion['id'] );
           $estudioConfiguracion->setNombre( $configuracion['nombre'] );
           $estudioConfiguracion->setLink($configuracion['link']);
           $manager->persist($estudioConfiguracion);
         }
+
+        //especialidades de medico
+        $especialidades = array(
+          array('nombre' => 'cardiologo' ,
+          'observacion' => 'cosas q hace '),
+          array('nombre' => 'cardiologo pediatrico' ,
+          'observacion' => 'cosas q hace '),
+          array('nombre' => 'especialidad N' ,
+          'observacion' => 'cosas q hace ')
+
+        );
+
+        foreach ($especialidades as $especialidad) {
+          $esp =  new Especialidad ();
+          $esp->setNombre( $especialidad['nombre'] );
+          $esp->setObservacion($especialidad['observacion']);
+          $manager->persist($esp);
+        }
+        //pacientes
         for ($i=0; $i < 10; $i++) {
           $paciente = new Paciente();
           $paciente->setObraSocial('obraSocial');
@@ -69,13 +95,16 @@ class AppFixtures extends Fixture
           $paciente->setInternacion('no');
           $manager->persist($paciente);
           }
+
+        // usuarios
+        //usuario sin rol
         $user = new Usuario();
         $user->setUsername('sinrol');
         $user->setEmail('sinrol@123.com');
         $user->setPlainPassword('123');
         $user->setEnabled(true);
         $manager->persist($user);
-
+        //usuario con rol medico, medico asociado a un usuario
         $user = new Usuario();
         $user->setUsername('rolmedico');
         $user->setEmail('rolmedico@123.com');
@@ -97,6 +126,7 @@ class AppFixtures extends Fixture
           $medico->setUsuario($user);
           $manager->persist($medico);
 
+        // usuario con rol admin sin medico asociado
         $user = new Usuario();
         $user->setUsername('roladmin');
         $user->setEmail('roladmin@123.com');
@@ -105,8 +135,35 @@ class AppFixtures extends Fixture
         $user->setEnabled(true);
         $manager->persist($user);
 
-        $manager->flush();
 
+//motivos SOLICITUD
+$motivos = array(
+  array('nombre' => 'Control' ),
+  array('nombre' => 'Factores de riesgo CV' ),
+  array('nombre' => 'Cardiopatía isquémica' ),
+  array('nombre' => 'Insuficiencia cardiaca' ),
+  array('nombre' => 'Cardiopatías congénitas' ),
+  array('nombre' => 'Endocarditis infecciosa' ),
+  array('nombre' => 'Arritmia' ),
+  array('nombre' => 'Enfermedad de Chagas' ),
+  array('nombre' => 'Hipertensión pulmonar' ),
+  array('nombre' => 'Tratamiento oncológico' ),
+  array('nombre' => 'Insuficiencia renal' ),
+  array('nombre' => 'Enfermedades autoinmunes' ),
+  array('nombre' => 'Enfermedades respiratorias' ),
+  array('nombre' => 'Accidente Cerebro vascular' ),
+  array('nombre' => 'Sindrome febril prolongado' ),
+  array('nombre' => 'Enfermedad vascular periférica' ),
+  array('nombre' => 'FOP' ),
+  array('nombre' => 'Otro' )
+);
+
+foreach ($motivos as $motivo) {
+  $m =  new MotivoSolicitud();
+  $m->setNombre( $motivo['nombre'] );
+  $manager->persist($m);
+}
+        $manager->flush();
 
     }
 }

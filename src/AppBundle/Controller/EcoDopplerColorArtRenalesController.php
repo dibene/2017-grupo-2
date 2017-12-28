@@ -39,7 +39,10 @@ class EcoDopplerColorArtRenalesController extends Controller
      */
     public function newAction(Request $request, $id)
     {
-        $ecoDopplerColorArtRenale = new Ecodopplercolorartrenale();
+      $configuracion = $this->getDoctrine()->getManager()->getRepository('AppBundle:EstudioConfiguracion')->find($id);
+      $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($id);
+      $fecha = new Datetime(date("Y-m-d"));
+        $ecoDopplerColorArtRenale = new Ecodopplercolorartrenales($configuracion,$paciente,$fecha);
         $form = $this->createForm('AppBundle\Form\EcoDopplerColorArtRenalesType', $ecoDopplerColorArtRenale);
         $form->handleRequest($request);
 

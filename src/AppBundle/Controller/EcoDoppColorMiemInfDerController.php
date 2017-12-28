@@ -39,7 +39,10 @@ class EcoDoppColorMiemInfDerController extends Controller
      */
     public function newAction(Request $request, $id)
     {
-        $ecoDoppColorMiemInfDer = new Ecodoppcolormieminfder();
+      $configuracion = $this->getDoctrine()->getManager()->getRepository('AppBundle:EstudioConfiguracion')->find($id);
+      $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($id);
+      $fecha = new Datetime(date("Y-m-d"));
+        $ecoDoppColorMiemInfDer = new Ecodoppcolormieminfder($configuracion,$paciente,$fecha);
         $form = $this->createForm('AppBundle\Form\EcoDoppColorMiemInfDerType', $ecoDoppColorMiemInfDer);
         $form->handleRequest($request);
 

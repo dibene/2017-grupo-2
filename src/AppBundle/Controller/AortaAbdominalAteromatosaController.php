@@ -40,11 +40,11 @@ class AortaAbdominalAteromatosaController extends Controller
      */
     public function newAction(Request $request,$id)
     {
-      $configuracion = $this->getDoctrine()->getManager()->getRepository('AppBundle:EstudioConfiguracion')->find($id);
-      $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($id);
-      $fecha = new Datetime(date("Y-m-d"));
-      
-        $aortaAbdominalAteromatosa = new AortaAbdominalAteromatosa($configuracion,$paciente,$fecha);
+
+        $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($id);
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        $medico = $this->getDoctrine()->getManager()->getRepository('AppBundle:Medico')->findOneByUsuario($user->getId());
+        $aortaAbdominalAteromatosa = new AortaAbdominalAteromatosa($medico, $paciente,$this->getDoctrine()->getManager());
 
         $form = $this->createForm('AppBundle\Form\AortaAbdominalAteromatosaType', $aortaAbdominalAteromatosa);
         $form->handleRequest($request);
@@ -54,11 +54,13 @@ class AortaAbdominalAteromatosaController extends Controller
             $em->persist($aortaAbdominalAteromatosa);
             $em->flush();
 
-            return $this->redirectToRoute('aortaabdominalateromatosa_show', array('id' => $aortaAbdominalAteromatosa->getId()));
+            return $this->redirectToRoute('aortaabdominalateromatosa_show', array('id' => $aortaAbdominalAteromatosa->getId(),
+          'idPaciente' => $paciente->getId(),
+          'estudio' => $aortaAbdominalAteromatosa));
         }
 
         return $this->render('aortaabdominalateromatosa/new.html.twig', array(
-            'aortaAbdominalAteromatosa' => $aortaAbdominalAteromatosa,
+            'estudio' => $aortaAbdominalAteromatosa,
             'form' => $form->createView(),
         ));
     }
@@ -66,15 +68,20 @@ class AortaAbdominalAteromatosaController extends Controller
     /**
      * Finds and displays a aortaAbdominalAteromatosa entity.
      *
-     * @Route("/{id}", name="aortaabdominalateromatosa_show")
+     * @Route("/{id}/{idPaciente}", name="aortaabdominalateromatosa_show")
      * @Method("GET")
      */
-    public function showAction(AortaAbdominalAteromatosa $aortaAbdominalAteromatosa)
+    public function showAction(AortaAbdominalAteromatosa $aortaAbdominalAteromatosa , $idPaciente)
     {
         $deleteForm = $this->createDeleteForm($aortaAbdominalAteromatosa);
+        $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($idPaciente);
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        $medico = $this->getDoctrine()->getManager()->getRepository('AppBundle:Medico')->findOneByUsuario($user->getId());
 
         return $this->render('aortaabdominalateromatosa/show.html.twig', array(
-            'aortaAbdominalAteromatosa' => $aortaAbdominalAteromatosa,
+            'estudio' => $aortaAbdominalAteromatosa,
+            'paciente' => $paciente,
+            'medico' => $medico,
             'delete_form' => $deleteForm->createView(),
         ));
     }

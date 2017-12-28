@@ -39,7 +39,10 @@ class EcoDopplerColorArtMiemInfIzqController extends Controller
      */
     public function newAction(Request $request, $id)
     {
-        $ecoDopplerColorArtMiemInfIzq = new Ecodopplercolorartmieminfizq();
+      $configuracion = $this->getDoctrine()->getManager()->getRepository('AppBundle:EstudioConfiguracion')->find($id);
+      $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($id);
+      $fecha = new Datetime(date("Y-m-d"));
+        $ecoDopplerColorArtMiemInfIzq = new Ecodopplercolorartmieminfizq($configuracion,$paciente,$fecha);
         $form = $this->createForm('AppBundle\Form\EcoDopplerColorArtMiemInfIzqType', $ecoDopplerColorArtMiemInfIzq);
         $form->handleRequest($request);
 

@@ -24,13 +24,6 @@ class MotivoSolicitud
     /**
      * @var string
      *
-     * @ORM\Column(name="observacion", type="string", length=255)
-     */
-    private $observacion;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="nombre", type="string", length=255)
      */
     private $nombre;

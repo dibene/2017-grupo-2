@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Nuevo Estudio Aorta Abdominal Lateromatosa</h1>
+    <h1>Nuevo Estudio {{ estudio.estudioConfiguracion.nombre }}</h1>
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
@@ -10,7 +10,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('aortaabdominalateromatosa_index') }}">Volver</a>
+            <a href="/paciente">Volver al paciente</a>
         </li>
     </ul>
 {% endblock %}

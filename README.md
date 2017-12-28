@@ -31,7 +31,7 @@ git clone https://github.com/unlp-taller-tecnologias/2017-grupo-2
 
 
 //ESTUDIOS
-
+- TODO seguridad poner todos los estudios en /estudio/nombre del estudio asi se puede restringir el /estudio
 BASICOS -> SOLO TIENEN LOS SIGUIENTES ATRIBUTOS: PACIENTE (ID) - FECHA_ALTA (SYSDATE) - OBSERVACIÓN (STRING) - DIAGNOSTICO_FINAL (STRING)
 Aorta Abdominal Ateromatosa  ->
 Aorta Abdominal.

@@ -17,7 +17,6 @@ class EstudioConfiguracion
      *
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
     /**
@@ -39,6 +38,18 @@ class EstudioConfiguracion
      * @ORM\OneToMany(targetEntity="Estudio", mappedBy="estudioConfiguracion")
      */
     private $estudios;
+
+    /**
+     * Get id
+     *
+     * @return estudio
+     */
+    public function setId($id)
+    {
+      $this->id = $id;
+
+      return $this;
+    }
 
     /**
      * Get id

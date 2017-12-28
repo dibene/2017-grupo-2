@@ -1,32 +1,83 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Estudio: {{ aortaAbdominalAteromatosa.estudioConfiguracion.nombre }} </h1>
+<h3> Datos del Medico </h3>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Matricula</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ medico.nombre }}</td>
+      <td>{{ medico.apellido }}</td>
+      <td>{{ medico.matricula }}</td>
+    </tr>
+  </tbody>
+</table>
 
+<h3> Datos del Paciente </h3>
+<table class="stripped">
+    <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Dni</th>
+          <th>Direccion</th>
+          <th>Sexo</th>
+          <th>Nacionalidad</th>
+          <th>Localidad</th>
+          <th>Fecha de Nacimiento</th>
+            <th>Obra Social</th>
+            <th>Fecha de Ingreso</th>
+            <th>Internacion</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>{{ paciente.nombre }}</td>
+          <td>{{ paciente.apellido }}</td>
+          <td>{{ paciente.dni }}</td>
+          <td>{{ paciente.direccion }}</td>
+          <td>{{ paciente.sexo }}</td>
+          <td>{{ paciente.nacionalidad }}</td>
+          <td>{{ paciente.localidad }}</td>
+          <td>{% if paciente.fechaNacimiento %}{{ paciente.fechaNacimiento|date('Y-m-d') }}{% endif %}</td>
+            <td>{{ paciente.obraSocial }}</td>
+            <td>{% if paciente.fechaIngreso %}{{ paciente.fechaIngreso|date('Y-m-d') }}{% endif %}</td>
+            <td>{{ paciente.internacion }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3> Estudio {{ estudio.estudioConfiguracion.nombre }}</h3>
     <table>
         <tbody>
 
             <tr>
                 <th>Observacion</th>
-                <td>{{ aortaAbdominalAteromatosa.observacion }}</td>
+                <td>{{ estudio.observacion }}</td>
             </tr>
             <tr>
                 <th>Fechaalta</th>
-                <td>{% if aortaAbdominalAteromatosa.fechaAlta %}{{ aortaAbdominalAteromatosa.fechaAlta|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if estudio.fechaAlta %}{{ estudio.fechaAlta|date('Y-m-d') }}{% endif %}</td>
             </tr>
             <tr>
                 <th>Diagnostico</th>
-                <td>{{   aortaAbdominalAteromatosa.diagnostico  }}</td>
+                <td>{{   estudio.diagnostico  }}</td>
             </tr>
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('estudio_index', { 'id': aortaAbdominalAteromatosa.paciente.id }) }}">Volver al Paciente</a>
+            <a href="{{ path('estudio_index', { 'id': estudio.paciente.id }) }}">Volver al Paciente</a>
         </li>
         <li>
-            <a href="{{ path('estudio_edit', { 'id': aortaAbdominalAteromatosa.id }) }}">Modificar</a>
+            <a href="{{ path('estudio_edit', { 'id': estudio.id }) }}">Modificar</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

@@ -39,7 +39,10 @@ class CardioResonanciaController extends Controller
      */
     public function newAction(Request $request, $id)
     {
-        $cardioResonancia = new CardioResonancia();
+      $configuracion = $this->getDoctrine()->getManager()->getRepository('AppBundle:EstudioConfiguracion')->find($id);
+      $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($id);
+      $fecha = new Datetime(date("Y-m-d"));
+        $cardioResonancia = new CardioResonancia($configuracion,$paciente,$fecha);
         $form = $this->createForm('AppBundle\Form\CardioResonanciaType', $cardioResonancia);
         $form->handleRequest($request);
 

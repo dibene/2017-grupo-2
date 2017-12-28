@@ -20,11 +20,14 @@ class AortaAbdominalAteromatosa extends Estudio
      */
     private $id;
 
-    public function __construct($configuracion,$paciente,$fecha) {
-      parent::setEstudioConfiguracion($configuracion);
-      parent::setFechaAlta($fecha);
-      parent::setPaciente($paciente);
 
+    public function __construct($medico,$paciente , $entityManager) {
+      parent::__construct();
+    //  $entityManager = $event->getEntityManager();
+      $configuracion = $entityManager->getRepository('AppBundle:EstudioConfiguracion')->find(1);
+      parent::setEstudioConfiguracion($configuracion);
+      parent::setPaciente($paciente);
+      parent::setMedico($medico);
     }
 
 }

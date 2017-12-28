@@ -39,7 +39,10 @@ class EcoCardiogramaTransesofagicoController extends Controller
      */
     public function newAction(Request $request, $id)
     {
-        $ecoCardiogramaTransesofagico = new Ecocardiogramatransesofagico();
+      $configuracion = $this->getDoctrine()->getManager()->getRepository('AppBundle:EstudioConfiguracion')->find($id);
+      $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($id);
+      $fecha = new Datetime(date("Y-m-d"));
+        $ecoCardiogramaTransesofagico = new Ecocardiogramatransesofagico($configuracion,$paciente,$fecha);
         $form = $this->createForm('AppBundle\Form\EcoCardiogramaTransesofagicoType', $ecoCardiogramaTransesofagico);
         $form->handleRequest($request);
 

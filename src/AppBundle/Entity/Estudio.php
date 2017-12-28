@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use \Datetime;
 
 /**
  * Estudio
@@ -71,6 +72,14 @@ abstract class Estudio
      * @ORM\Column(name="diagnostico", type="text", length=65535, nullable=false)
      */
     private $diagnostico;
+
+    public function __construct() {
+
+      $fecha = new Datetime(date("Y-m-d"));
+      $this->setFechaAlta($fecha);
+
+    }
+
 
     /**
      * Get id

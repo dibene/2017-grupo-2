@@ -27,13 +27,13 @@ buscar por fecha y por estudio?
         <tbody>
         {% for estudio in paciente.getEstudios() %}
             <tr>
-                <td><a href="{{ path(estudio.getEstudioConfiguracion().link~'_show', { 'id': estudio.id }) }}">{{ estudio.getEstudioConfiguracion().nombre }}</a></td>
+                <td><a href="{{ path(estudio.getEstudioConfiguracion().link~'_show', { 'id': estudio.id , 'idPaciente': paciente.id }) }}">{{ estudio.getEstudioConfiguracion().nombre }}</a></td>
                 <td>{{ estudio.observacion }}</td>
                 <td>{% if estudio.fechaAlta %}{{ estudio.fechaAlta|date('Y-m-d') }}{% endif %}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path(estudio.getEstudioConfiguracion().link~'_show', { 'id': estudio.id }) }}">show</a>
+                            <a href="{{ path(estudio.getEstudioConfiguracion().link~'_show', { 'id': estudio.id , 'idPaciente': paciente.id}) }}">show</a>
                         </li>
                         <li>
                             <a href="{{ path(estudio.getEstudioConfiguracion().link~'_edit', { 'id': estudio.id }) }}">edit</a>
