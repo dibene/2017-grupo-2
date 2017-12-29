@@ -24,301 +24,301 @@ class Ecocardiograma2d extends Estudio
     /**
      * @var text
      *
-     * @ORM\Column(name="situs", type="text", nullable=false)
+     * @ORM\Column(name="situs", type="text", nullable=true)
      */
     private $situs;
 
     /**
      * @var text
      *
-     * @ORM\Column(name="conexion_auriculoventricular", type="text", nullable=false)
+     * @ORM\Column(name="conexion_auriculoventricular", type="text", nullable=true)
      */
     private $conexionAuriculoventricular;
 
     /**
      * @var text
      *
-     * @ORM\Column(name="conexion_ventriculo_arterial", type="text", nullable=false)
+     * @ORM\Column(name="conexion_ventriculo_arterial", type="text", nullable=true)
      */
     private $conexionVentriculoArterial;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="ddvi", type="integer", nullable=false)
+     * @ORM\Column(name="ddvi", type="integer", nullable=true)
      */
     private $ddvi;
 
         /**
      * @var integer
      *
-     * @ORM\Column(name="dsvi", type="integer", nullable=false)
+     * @ORM\Column(name="dsvi", type="integer", nullable=true)
      */
     private $dsvi;
 
         /**
      * @var integer
      *
-     * @ORM\Column(name="siv", type="integer", nullable=false)
+     * @ORM\Column(name="siv", type="integer", nullable=true)
      */
     private $siv;
 
         /**
      * @var integer
      *
-     * @ORM\Column(name="pp", type="integer", nullable=false)
+     * @ORM\Column(name="pp", type="integer", nullable=true)
      */
     private $pp;
 
         /**
      * @var integer
      *
-     * @ORM\Column(name="fey", type="integer", nullable=false)
+     * @ORM\Column(name="fey", type="integer", nullable=true)
      */
     private $fey;
 
         /**
      * @var integer
      *
-     * @ORM\Column(name="al_area", type="integer", nullable=false)
+     * @ORM\Column(name="al_area", type="integer", nullable=true)
      */
     private $alArea;
 
         /**
      * @var integer
      *
-     * @ORM\Column(name="al_vol", type="integer", nullable=false)
+     * @ORM\Column(name="al_vol", type="integer", nullable=true)
      */
     private $alVol;
 
         /**
      * @var integer
      *
-     * @ORM\Column(name="aorta", type="integer", nullable=false)
+     * @ORM\Column(name="aorta", type="integer", nullable=true)
      */
     private $aorta;
 
         /**
      * @var integer
      *
-     * @ORM\Column(name="ap_vao", type="integer", nullable=false)
+     * @ORM\Column(name="ap_vao", type="integer", nullable=true)
      */
     private $apVao;
 
         /**
      * @var integer
      *
-     * @ORM\Column(name="tsvi", type="integer", nullable=false)
+     * @ORM\Column(name="tsvi", type="integer", nullable=true)
      */
     private $tsvi;
 
         /**
      * @var integer
      *
-     * @ORM\Column(name="vel_max_ao", type="integer", nullable=false)
+     * @ORM\Column(name="vel_max_ao", type="integer", nullable=true)
      */
     private $velMaxAo;
 
             /**
      * @var integer
      *
-     * @ORM\Column(name="grad_max_ao", type="integer", nullable=false)
+     * @ORM\Column(name="grad_max_ao", type="integer", nullable=true)
      */
     private $gradMaxAo;
 
             /**
      * @var integer
      *
-     * @ORM\Column(name="grad_med_ao", type="integer", nullable=false)
+     * @ORM\Column(name="grad_med_ao", type="integer", nullable=true)
      */
     private $gradMedAo;
 
             /**
      * @var integer
      *
-     * @ORM\Column(name="insuficiencia", type="integer", nullable=false)
+     * @ORM\Column(name="insuficiencia", type="integer", nullable=true)
      */
     private $insuficiencia;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="thp", type="integer", nullable=false)
+     * @ORM\Column(name="thp", type="integer", nullable=true)
      */
     private $thp;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="adt", type="integer", nullable=false)
+     * @ORM\Column(name="adt", type="integer", nullable=true)
      */
     private $adt;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="aa", type="integer", nullable=false)
+     * @ORM\Column(name="aa", type="integer", nullable=true)
      */
     private $aa;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="vel_onda_e", type="integer", nullable=false)
+     * @ORM\Column(name="vel_onda_e", type="integer", nullable=true)
      */
     private $velOndaE;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="vel_onda_a", type="integer", nullable=false)
+     * @ORM\Column(name="vel_onda_a", type="integer", nullable=true)
      */
     private $velOndaA;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="grad_medio_trasmitral", type="integer", nullable=false)
+     * @ORM\Column(name="grad_medio_trasmitral", type="integer", nullable=true)
      */
     private $gradMedioaTrasmitral;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="insuficiencia_trasmitral", type="integer", nullable=false)
+     * @ORM\Column(name="insuficiencia_trasmitral", type="integer", nullable=true)
      */
     private $insuficienciaTrasmitral;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="ore", type="integer", nullable=false)
+     * @ORM\Column(name="ore", type="integer", nullable=true)
      */
     private $ore;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="vol_regurgitante", type="integer", nullable=false)
+     * @ORM\Column(name="vol_regurgitante", type="integer", nullable=true)
      */
     private $volRegurgitante;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="dpdt", type="integer", nullable=false)
+     * @ORM\Column(name="dpdt", type="integer", nullable=true)
      */
     private $dpdt;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="vel_max_pulmonar", type="integer", nullable=false)
+     * @ORM\Column(name="vel_max_pulmonar", type="integer", nullable=true)
      */
     private $velMaxPulmonar;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="grad_max_pulmonar", type="integer", nullable=false)
+     * @ORM\Column(name="grad_max_pulmonar", type="integer", nullable=true)
      */
     private $gradMaxPulomonar;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="insuficiencia_pulmonar", type="integer", nullable=false)
+     * @ORM\Column(name="insuficiencia_pulmonar", type="integer", nullable=true)
      */
     private $insuficiencia_pulmonar;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="tpo_pico", type="integer", nullable=false)
+     * @ORM\Column(name="tpo_pico", type="integer", nullable=true)
      */
     private $tpoPico;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="qpqs", type="integer", nullable=false)
+     * @ORM\Column(name="qpqs", type="integer", nullable=true)
      */
     private $qpqs;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="insuficiencia_tricuspide", type="integer", nullable=false)
+     * @ORM\Column(name="insuficiencia_tricuspide", type="integer", nullable=true)
      */
     private $insuficienciaTricuspide;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="vel_regurgitante", type="integer", nullable=false)
+     * @ORM\Column(name="vel_regurgitante", type="integer", nullable=true)
      */
     private $velRegurgitante;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="grad_pico", type="integer", nullable=false)
+     * @ORM\Column(name="grad_pico", type="integer", nullable=true)
      */
     private $gradPico;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="pap", type="integer", nullable=false)
+     * @ORM\Column(name="pap", type="integer", nullable=true)
      */
-    private $pap; 
+    private $pap;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="pad", type="integer", nullable=false)
+     * @ORM\Column(name="pad", type="integer", nullable=true)
      */
     private $pad;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="onda_septal", type="integer", nullable=false)
+     * @ORM\Column(name="onda_septal", type="integer", nullable=true)
      */
     private $ondaSeptal;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="onda_lateral", type="integer", nullable=false)
+     * @ORM\Column(name="onda_lateral", type="integer", nullable=true)
      */
     private $ondaLateral;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="onda_e", type="integer", nullable=false)
+     * @ORM\Column(name="onda_e", type="integer", nullable=true)
      */
     private $ondaE;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="onda_a", type="integer", nullable=false)
+     * @ORM\Column(name="onda_a", type="integer", nullable=true)
      */
     private $ondaA;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="relacion_e", type="integer", nullable=false)
+     * @ORM\Column(name="relacion_e", type="integer", nullable=true)
      */
     private $relacionE;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="onda_vd", type="integer", nullable=false)
+     * @ORM\Column(name="onda_vd", type="integer", nullable=true)
      */
     private $ondaVd;
 
@@ -328,70 +328,40 @@ class Ecocardiograma2d extends Estudio
     /**
      * @var text
      *
-     * @ORM\Column(name="ventriculoIzq_l1_c1", type="text", nullable=false)
+     * @ORM\Column(name="ventriculoIzq_l1", type="array", nullable=true)
      */
-    private $ventriculoIzqL1C1;
+    private $ventriculoIzqL1;
 
 
 
     /**
      * @var text
      *
-     * @ORM\Column(name="ventriculoIzq_l1_c2", type="text", nullable=false)
+     * @ORM\Column(name="ventriculoIzq_l2", type="array", nullable=true)
      */
-    private $ventriculoIzqL1C2;
-
+    private $ventriculoIzqL2;
 
 
     /**
      * @var text
      *
-     * @ORM\Column(name="ventriculoIzq_l2_c1", type="text", nullable=false)
+     * @ORM\Column(name="ventriculoIzq_l3", type="array", nullable=true)
      */
-    private $ventriculoIzqL2C1;
-
+    private $ventriculoIzqL3;
 
 
     /**
      * @var text
      *
-     * @ORM\Column(name="ventriculoIzq_l2_c2", type="text", nullable=false)
-     */
-    private $ventriculoIzqL2C2;
-
-        
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="ventriculoIzq_l3_c1", type="text", nullable=false)
-     */
-    private $ventriculoIzqL3C1;
-
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="ventriculoIzq_l3_c2", type="text", nullable=false)
-     */
-    private $ventriculoIzqL3C2;
-
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="ventriculoIzq_l1_imvi", type="text", nullable=false)
+     * @ORM\Column(name="ventriculoIzq_l1_imvi", type="text", nullable=true)
      */
       private $ventriculoIzqL1Imvi;
 
 
-
     /**
      * @var text
      *
-     * @ORM\Column(name="ventriculoIzq_l1_epr", type="text", nullable=false)
+     * @ORM\Column(name="ventriculoIzq_l1_epr", type="text", nullable=true)
      */
     private $ventriculoIzqL1Epr;
 
@@ -400,7 +370,7 @@ class Ecocardiograma2d extends Estudio
     /**
      * @var text
      *
-     * @ORM\Column(name="ventriculoIzq_l4_c1", type="text", nullable=false)
+     * @ORM\Column(name="ventriculoIzq_l4_c1", type="text", nullable=true)
      */
     private $ventriculoIzqL4C1;
 
@@ -409,235 +379,97 @@ class Ecocardiograma2d extends Estudio
     /**
      * @var text
      *
-     * @ORM\Column(name="raizAorta_l1_c1", type="text", nullable=false)
+     * @ORM\Column(name="raizAorta_l1", type="array", nullable=true)
      */
-    private $raizAortaL1C1;
+    private $raizAortaL1;
 
 
 
     /**
      * @var text
      *
-     * @ORM\Column(name="raizAorta_l1_c2", type="text", nullable=false)
+     * @ORM\Column(name="aorta_l1", type="array", nullable=true)
      */
-    private $raizAortaL1C2;
+    private $aortaL1;
+
+
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="aorta_l2", type="array", nullable=true)
+     */
+    private $aortaL2;
+
+
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="aorta_l3", type="array", nullable=true)
+     */
+    private $aortaL3;
+
+
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="valvula_mitral_l1", type="array", nullable=true)
+     */
+    private $valvulaMitralL1;
+
+
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="valvula_mitral_l2", type="array", nullable=true)
+     */
+    private $valvulaMitralL2;
 
 
 
     /**
      * @var text
      *
-     * @ORM\Column(name="raizAorta_l1_c3", type="text", nullable=false)
+     * @ORM\Column(name="auricula_izq_l1", type="array", nullable=true)
      */
-    private $raizAortaL1C3;
+    private $auriculaIzqL1;
+
+
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="valvula_pulmonar_l1", type="array", nullable=true)
+     */
+    private $valvulaPulmonarL1;
+
+
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="valvula_pulmonar_l2", type="array", nullable=true)
+     */
+    private $valvulaPulmonarL2;
+
+
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="valvula_tricupside_l1", type="array", nullable=true)
+     */
+    private $valvulatricuspideL1;
+
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="valvula_tricupside_l2", type="array", nullable=true)
+     */
+    private $valvulatricuspideL2;
 
 
 
     /**
      * @var text
      *
-     * @ORM\Column(name="aorta_l1_c1", type="text", nullable=false)
-     */
-    private $aortaL1C1;
-
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="aorta_l1_c2", type="text", nullable=false)
-     */
-    private $aortaL1C2;
-
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="aorta_l2_c1", type="text", nullable=false)
-     */
-    private $aortaL2C1;
-
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="aorta_l2_c2", type="text", nullable=false)
-     */
-    private $aortaL2C2;
-
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="aorta_l3_c1", type="text", nullable=false)
-     */
-    private $aortaL3C1;
-
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="aorta_l3_c2", type="text", nullable=false)
-     */
-    private $aortaL3C2;
-
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="valvula_mitral_l1_c1", type="text", nullable=false)
-     */
-    private $valvulaMitralL1C1;
-
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="valvula_mitral_l1_c2", type="text", nullable=false)
-     */
-    private $valvulaMitralL1C2;
-
-    
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="valvula_mitral_l2_c1", type="text", nullable=false)
-     */
-    private $valvulaMitralL2C1;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="valvula_mitral_l2_c2", type="text", nullable=false)
-     */
-    private $valvulaMitralL2C2;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="valvula_mitral_l2_c3", type="text", nullable=false)
-     */
-    private $valvulaMitralL2C3;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="auricula_izq_l1_c1", type="text", nullable=false)
-     */
-    private $auriculaIzqL1C1;
-
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="auricula_izq_l1_c2", type="text", nullable=false)
-     */
-    private $auriculaIzqL1C2;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="auricula_izq_l1_c3", type="text", nullable=false)
-     */
-    private $auriculaIzqL1C3;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="valvula_pulmonar_l1_c1", type="text", nullable=false)
-     */
-    private $valvulaPulmonarL1C1;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="valvula_pulmonar_l1_c2", type="text", nullable=false)
-     */
-    private $valvulaPulmonarL1C2;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="valvula_pulmonar_l2_c1", type="text", nullable=false)
-     */
-    private $valvulaPulmonarL2C1;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="valvula_pulmonar_l2_c2", type="text", nullable=false)
-     */
-    private $valvulaPulmonarL2C2;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="valvula_pulmonar_l2_c3", type="text", nullable=false)
-     */
-    private $valvulaPulmonarL2C3;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="valvula_tricupside_l1_c1", type="text", nullable=false)
-     */
-    private $valvulatricuspideL1C1;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="valvula_tricupside_l1_c2", type="text", nullable=false)
-     */
-    private $valvulatricuspideL1C2;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="valvula_tricupside_l2_c1", type="text", nullable=false)
-     */
-    private $valvulatricuspideL2C1;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="valvula_tricupside_l2_c2", type="text", nullable=false)
-     */
-    private $valvulatricuspideL2C2;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="valvula_tricupside_l2_c3", type="text", nullable=false)
-     */
-    private $valvulatricuspideL2C3;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="cavidad_derecha_l1_c1", type="text", nullable=false)
+     * @ORM\Column(name="cavidad_derecha_l1_c1", type="text", nullable=true)
      */
     private $cavidadDerechaL1C1;
 
@@ -645,7 +477,7 @@ class Ecocardiograma2d extends Estudio
     /**
      * @var text
      *
-     * @ORM\Column(name="cavidad_derecha_l1_c2", type="text", nullable=false)
+     * @ORM\Column(name="cavidad_derecha_l1_c2", type="text", nullable=true)
      */
     private $cavidadDerechaL1C2;
 
@@ -653,7 +485,7 @@ class Ecocardiograma2d extends Estudio
     /**
      * @var text
      *
-     * @ORM\Column(name="cavidad_derecha_l1_c3", type="text", nullable=false)
+     * @ORM\Column(name="cavidad_derecha_l1_c3", type="text", nullable=true)
      */
     private $cavidadDerechaL1C3;
 
@@ -661,57 +493,32 @@ class Ecocardiograma2d extends Estudio
     /**
      * @var text
      *
-     * @ORM\Column(name="vena_cava_inferior_l1_c1", type="text", nullable=false)
+     * @ORM\Column(name="vena_cava_inferior_l1", type="array", nullable=true)
      */
-    private $venaCavaInferiorL1C1;
+    private $venaCavaInferiorL1;
 
 
     /**
      * @var text
      *
-     * @ORM\Column(name="pericardio_l1_c1", type="text", nullable=false)
+     * @ORM\Column(name="pericardio_l1", type="array", nullable=true)
      */
-    private $pericardioL1C1;
-
+    private $pericardioL1;
 
     /**
      * @var text
      *
-     * @ORM\Column(name="pericardio_l1_c2", type="text", nullable=false)
+     * @ORM\Column(name="conclusion_l1", type="array", nullable=true)
      */
-    private $pericardioL1C2;
+    private $conclusionL1;
 
 
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="pericardio_l1_c3", type="text", nullable=false)
-     */
-    private $pericardioL1C3;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="conclusion_libre", type="text", nullable=false)
-     */
-    private $conclusionLibre;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="conclusion_l1_c1", type="text", nullable=false)
-     */
-    private $conclusionL1C1;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="conclusion_l1_c2", type="text", nullable=false)
-     */
-    private $conclusionL1C2;
-
-
-}
+    public function __construct($medico,$paciente , $entityManager) {
+      parent::__construct();
+    //  $entityManager = $event->getEntityManager();
+      $configuracion = $entityManager->getRepository('AppBundle:EstudioConfiguracion')->find(12);
+      parent::setEstudioConfiguracion($configuracion);
+      parent::setPaciente($paciente);
+      parent::setMedico($medico);
+    }
+  }

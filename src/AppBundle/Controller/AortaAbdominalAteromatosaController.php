@@ -56,6 +56,8 @@ class AortaAbdominalAteromatosaController extends Controller
 
             return $this->redirectToRoute('aortaabdominalateromatosa_show', array('id' => $aortaAbdominalAteromatosa->getId(),
           'idPaciente' => $paciente->getId(),
+          'medico' => $medico,
+          'paciente' => $paciente,
           'estudio' => $aortaAbdominalAteromatosa));
         }
 
