@@ -54,9 +54,6 @@ class PacienteController extends Controller
           }else {
             $pacientes = array();
           }
-
-
-
         }
 
         return $this->render('paciente/index.html.twig', array(

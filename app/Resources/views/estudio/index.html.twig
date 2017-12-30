@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<h3>Estudios para agregar</h3>
+<h4 class="red-text">Estudios para agregar</h4>
 <ul>
 {% for estudio in nombreEstudios %}
 <li>
@@ -9,11 +9,28 @@
 </li>
 {% endfor %}
 </ul>
-buscar por fecha y por estudio?
-    <h3>
+<h4 class="red-text">
       Estudios del paciente:
       <a href="{{ path('paciente_show', { 'id': paciente.id }) }}">{{ paciente.nombre }}</a>
-    </h3>
+    </h4>
+{{ form_start(form) }}
+
+<div class="row">
+
+  <div class="input-field col s3">
+    {{ form_row(form.fechaAlta) }}
+  </div>
+  <div class="input-field col s3">
+    {{ form_row(form.nombre) }}
+  </div>
+  <div class="col s3">
+    {{ form_row(form.buscar) }}
+  </div>
+</div>
+
+{{ form_end(form) }}
+
+
 
     <table class="highlight">
         <thead>
@@ -21,25 +38,18 @@ buscar por fecha y por estudio?
                 <th>Nombre</th>
                 <th>Observacion</th>
                 <th>Fecha alta</th>
-                <th>Actions</th>
+                <th>Ver</th>
+                <th>Editar</th>
             </tr>
         </thead>
         <tbody>
-        {% for estudio in paciente.getEstudios() %}
+        {% for estudio in estudios %}
             <tr>
                 <td><a href="{{ path(estudio.getEstudioConfiguracion().link~'_show', { 'id': estudio.id , 'idPaciente': paciente.id }) }}">{{ estudio.getEstudioConfiguracion().nombre }}</a></td>
                 <td>{{ estudio.observacion }}</td>
                 <td>{% if estudio.fechaAlta %}{{ estudio.fechaAlta|date('Y-m-d') }}{% endif %}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path(estudio.getEstudioConfiguracion().link~'_show', { 'id': estudio.id , 'idPaciente': paciente.id}) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path(estudio.getEstudioConfiguracion().link~'_edit', { 'id': estudio.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
+                <td><a class="btn-floating btn-small waves-effect waves-light blue" href="{{ path(estudio.getEstudioConfiguracion().link~'_show', { 'id': estudio.id , 'idPaciente': estudio.getPaciente().id}) }}"><i class="material-icons">zoom_in</i></a></td>
+                <td><a class="btn-floating btn-small waves-effect waves-light yellow" href="{{ path(estudio.getEstudioConfiguracion().link~'_edit', { 'id': estudio.id }) }}"><i class="material-icons">create</i></a> </td>
             </tr>
         {% endfor %}
         </tbody>

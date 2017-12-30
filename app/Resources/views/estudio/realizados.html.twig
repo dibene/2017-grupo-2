@@ -2,10 +2,27 @@
 
 {% block body %}
 
-<h3>
+<h3 class="red-text">
   Estudios realizados por el medico:
-  <a href="/profile">{{ medico.nombre }}</a>
+  <b><a href="/profile">{{ medico.nombre }}</a></b>
 </h3>
+
+{{ form_start(form) }}
+
+<div class="row">
+
+  <div class="input-field col s3">
+    {{ form_row(form.fechaAlta) }}
+  </div>
+  <div class="input-field col s3">
+    {{ form_row(form.nombre) }}
+  </div>
+  <div class="col s3">
+    {{ form_row(form.buscar) }}
+  </div>
+</div>
+
+{{ form_end(form) }}
 
 <table class="highlight">
     <thead>
@@ -13,25 +30,18 @@
             <th>Nombre</th>
             <th>Observacion</th>
             <th>Fecha alta</th>
-            <th>Actions</th>
+            <th>Ver</th>
+            <th>Editar</th>
         </tr>
     </thead>
     <tbody>
-    {% for estudio in medico.getEstudios() %}
+    {% for estudio in estudios %}
         <tr>
             <td><a href="{{ path(estudio.getEstudioConfiguracion().link~'_show', { 'id': estudio.id , 'idPaciente': estudio.getPaciente().id }) }}">{{ estudio.getEstudioConfiguracion().nombre }}</a></td>
             <td>{{ estudio.observacion }}</td>
             <td>{% if estudio.fechaAlta %}{{ estudio.fechaAlta|date('Y-m-d') }}{% endif %}</td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="{{ path(estudio.getEstudioConfiguracion().link~'_show', { 'id': estudio.id , 'idPaciente': estudio.getPaciente().id}) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path(estudio.getEstudioConfiguracion().link~'_edit', { 'id': estudio.id }) }}">edit</a>
-                    </li>
-                </ul>
-            </td>
+            <td><a class="btn-floating btn-small waves-effect waves-light blue" href="{{ path(estudio.getEstudioConfiguracion().link~'_show', { 'id': estudio.id , 'idPaciente': estudio.getPaciente().id}) }}"><i class="material-icons">zoom_in</i></a></td>
+            <td><a class="btn-floating btn-small waves-effect waves-light yellow" href="{{ path(estudio.getEstudioConfiguracion().link~'_edit', { 'id': estudio.id }) }}"><i class="material-icons">create</i></a> </td>
         </tr>
     {% endfor %}
     </tbody>
