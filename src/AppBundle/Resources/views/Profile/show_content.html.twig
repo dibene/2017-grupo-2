@@ -1,45 +1,56 @@
 {% trans_default_domain 'FOSUserBundle' %}
+<div class="row col s12">
+  <div class="container col s12 center-align" >
+    <div class="z-depth-1 grey lighten-4 row left-align col s12" style="display: inline-block; margin: 50px; padding: 32px 48px 50px 48px; border: 1px solid #EEE;">
+      <h3 class="red-text center-align "> Perfil de {{  user.username }}</h3>
 
-<div class="fos_user_user_show">
-  {% if is_granted('ROLE_MEDICO') %}
-  <!-- datos del medico -->
-  <table>
-      <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Dni</th>
-            <th>Direccion</th>
-            <th>Sexo</th>
-            <th>Nacionalidad</th>
-            <th>Localidad</th>
-            <th>Fecha de nacimiento</th>
-              <th>Obra social</th>
-              <th>Matricula</th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr>
-            <td>{{ medico.nombre }}</td>
-            <td>{{ medico.apellido }}</td>
-            <td>{{ medico.dni }}</td>
-            <td>{{ medico.direccion }}</td>
-            <td>{% if medico.sexo %}Yes{% else %}No{% endif %}</td>
-            <td>{{ medico.nacionalidad }}</td>
-            <td>{{ medico.localidad }}</td>
-            <td>{% if medico.fechaNacimiento %}{{ medico.fechaNacimiento|date('Y-m-d') }}{% endif %}</td>
-              <td>{{ medico.obraSocial }}</td>
-              <td>{{ medico.matricula }}</td>
-          </tr>
-      </tbody>
-  </table>
-  {% else %}
-    <p><a class="btn-floating btn-large waves-effect waves-light green" href="{{ path('medico_new') }}">
-        <i class="material-icons">person_add</i>
-      </a>  Agregar datos peronales de médico  </p>
-  {% endif %}
 
-    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
-    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+        <h4 class="red-text "> Datos del usuario</h4>
+          <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
+          <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
 
+        <div class="fos_user_user_show">
+          {% if is_granted('ROLE_MEDICO') %}
+          <h4 class="red-text "> Datos personales del medico</h4>
+          <!-- datos del medico -->
+          <table>
+              <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Dni</th>
+                    <th>Direccion</th>
+                    <th>Sexo</th>
+                    <th>Nacionalidad</th>
+                    <th>Localidad</th>
+                    <th>Fecha de nacimiento</th>
+                      <th>Obra social</th>
+                      <th>Matricula</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                    <td>{{ medico.nombre }}</td>
+                    <td>{{ medico.apellido }}</td>
+                    <td>{{ medico.dni }}</td>
+                    <td>{{ medico.direccion }}</td>
+                    <td>{% if medico.sexo %}Yes{% else %}No{% endif %}</td>
+                    <td>{{ medico.nacionalidad }}</td>
+                    <td>{{ medico.localidad }}</td>
+                    <td>{% if medico.fechaNacimiento %}{{ medico.fechaNacimiento|date('Y-m-d') }}{% endif %}</td>
+                      <td>{{ medico.obraSocial }}</td>
+                      <td>{{ medico.matricula }}</td>
+                  </tr>
+              </tbody>
+          </table>
+          {% else %}
+            <p><a class="btn-floating btn-large waves-effect waves-light green" href="{{ path('medico_new') }}">
+                <i class="material-icons">person_add</i>
+              </a>  Agregar datos peronales de médico  </p>
+          {% endif %}
+        </div>
+        <h4 class="red-text "> Estudios Realizados</h4>
+
+</div>
+</div>
 </div>

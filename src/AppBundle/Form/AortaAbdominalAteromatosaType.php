@@ -17,10 +17,10 @@ class AortaAbdominalAteromatosaType extends AbstractType
   public function buildForm(FormBuilderInterface $builder, array $options)
   {
       $builder
-      ->add('observacion')
       ->add('motivoSolicitud', EntityType::class, array(
         'class' => 'AppBundle:MotivoSolicitud',
         'choice_label' => 'nombre'))
+      ->add('observacion')
       ->add('diagnostico');
   }
 

@@ -18,7 +18,7 @@ class EstudioController extends Controller
     /**
      * Lists all estudio entities.
      *
-     *  @Route("/{id}", name="estudio_index")
+     *  @Route("/paciente/{id}", name="estudio_index")
      * @Method("GET")
      */
     public function indexAction($id)
@@ -30,6 +30,25 @@ class EstudioController extends Controller
 
         return $this->render('estudio/index.html.twig', array(
             'paciente' => $paciente,
+            'nombreEstudios' => $nombreEstudios
+        ));
+    }
+    /**
+     * Lists all estudios realizados entities.
+     *
+     *  @Route("/realizados", name="estudio_realizados")
+     * @Method("GET")
+     */
+    public function realizadosAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        $medico = $this->getDoctrine()->getManager()->getRepository('AppBundle:Medico')->findOneByUsuario($user->getId());
+
+        $nombreEstudios = $em->getRepository('AppBundle:EstudioConfiguracion')->findAll();
+
+        return $this->render('estudio/realizados.html.twig', array(
+            'medico' => $medico,
             'nombreEstudios' => $nombreEstudios
         ));
     }

@@ -61,6 +61,28 @@ class Medico extends Persona
     public function __construct() {
         $this->estudios = new ArrayCollection();
     }
+    /**
+    * Add estudios
+    *
+    */
+    public function addEstudio(Estudio $estudios)
+    {
+      $this->estudios[] = $estudios;
+    }
+
+    public function setEstudios($estudios) {
+      $this->estudios = $estudios;
+    }
+
+    /**
+    * Get estudios
+    *
+    * @return Doctrine\Common\Collections\Collection
+    */
+    public function getEstudios()
+    {
+      return $this->estudios;
+    }
 
     /**
      * Set idEspecialidad

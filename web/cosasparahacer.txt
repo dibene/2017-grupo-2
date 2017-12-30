@@ -1,5 +1,12 @@
+en general
+ -falta paginar
+
 -sobre usuarios
   -falta
+        - hecho (cuando se registra un usuario no tiene rol, no puede ver nada mas q agregar los datos del medico
+        al agregar los datos del medico se le asigna rol medico y puede tener las opciones,
+        si sale del sistema y vuelve a entrar solo tiene la posibilidad de entrar a su perfil para cargar los datos personales de medico. HECHO)
+   - TODO TOMAS arreglar el sexo como lo hiceron con pacientes
     opciones de administrador(cuales van a ser?)
       perfiles de usuario?
     restringir todas las rutas q falten ( cuando terminen de hacerse todas las paginas)
@@ -11,9 +18,16 @@ duda
 
 
 -sobre paciente
+  medico cabecera  -> string
+  20/12 21:22 modificar -> donde dice agregar estudio, hay q ver si con ese link muestra los estudios a agregar y los estudios q se hizo el paciente o solo los estudios a agregar entonces hay q agregar otro link q diga estudios echos,
+  o mostrar un link de estudios hechos y dnetro de ese tener la posibilidad de agregarle como es ahora
+  aparte seprar como en paciente con botones etc
+
   - dudas
   Ambulatorio/Internado (tildar)
   Fecha
+
+
 
 
 -sobre estudios
@@ -40,7 +54,7 @@ duda
 
     algunas verificaciones en campos
 
-    exportar a pdf para imprimir
+       - TODO TOMAS  exportar a pdf para imprimir
 
 Eco Doppler Vasos de Cuello
       Se debe permitir seleccionar uno de los cinco resultados posible:

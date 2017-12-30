@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h3>
+  Estudios realizados por el medico:
+  <a href="/profile">{{ medico.nombre }}</a>
+</h3>
+
+<table class="highlight">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Observacion</th>
+            <th>Fecha alta</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for estudio in medico.getEstudios() %}
+        <tr>
+            <td><a href="{{ path(estudio.getEstudioConfiguracion().link~'_show', { 'id': estudio.id , 'idPaciente': estudio.getPaciente().id }) }}">{{ estudio.getEstudioConfiguracion().nombre }}</a></td>
+            <td>{{ estudio.observacion }}</td>
+            <td>{% if estudio.fechaAlta %}{{ estudio.fechaAlta|date('Y-m-d') }}{% endif %}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path(estudio.getEstudioConfiguracion().link~'_show', { 'id': estudio.id , 'idPaciente': estudio.getPaciente().id}) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path(estudio.getEstudioConfiguracion().link~'_edit', { 'id': estudio.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

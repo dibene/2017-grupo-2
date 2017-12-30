@@ -16,17 +16,18 @@
       <!-- nav bar -->
       <nav class="red lighten">
     		<div class="nav-fixed">
-          <a href="/" class="brand-logo">   <img src="/image/logo.jpeg" alt="" height="65" width="90">SEGC</a>
-
+          <a href="/" class="brand-logo" >   <img src="/image/logo.jpeg" alt="" height="65" width="90"></a>
+          <a href="/" class="brand-logo" style="margin-left:100px"> SEGC </a>
 
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             {% if is_granted("IS_AUTHENTICATED_FULLY") %}
             <!-- ver si tiene permiso para ver pacientes y medicos -->
-              {% if is_granted('ROLE_MEDICO') %}
-                <li><a href="/paciente">Pacientes</a></li>
-              {% endif %}
               {% if is_granted('ROLE_ADMIN') %}
                 <li><a href="/medico">Medicos</a></li>
+              {% endif %}
+              {% if is_granted('ROLE_MEDICO') %}
+                <li><a href="/paciente">Pacientes</a></li>
+                <li><a href="/estudio/realizados">Estudios Realizados</a></li>
               {% endif %}
                 <!-- link al perfil solo si esta logueado -->
                 <li><a href="/profile"> {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} </a> </li>
@@ -75,7 +76,9 @@
         <footer class="page-footer red lighten-1">
           <div class="footer-copyright red lighten">
             <div class="container">
-              <a class="grey-text text-lighten-4 right"> Hospital San Martin</a>
+              Sistema de Gestión de Estudios Cardiológicos Ingenieria de Software Aplicada 2018 cr
+
+              <a class="grey-text text-lighten-4 right"> Hospital  San Martín.</a>
             </div>
           </div>
         </footer>

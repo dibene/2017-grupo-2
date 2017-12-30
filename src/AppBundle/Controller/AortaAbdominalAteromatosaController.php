@@ -64,6 +64,7 @@ class AortaAbdominalAteromatosaController extends Controller
 
         return $this->render('aortaabdominalateromatosa/new.html.twig', array(
             'estudio' => $aortaAbdominalAteromatosa,
+            'paciente' => $paciente,
             'form' => $form->createView(),
         ));
     }
