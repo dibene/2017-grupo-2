@@ -83,7 +83,7 @@ class AppFixtures extends Fixture
           $manager->persist($esp);
         }
         //pacientes
-        for ($i=0; $i < 10; $i++) {
+        for ($i=0; $i < 20; $i++) {
           $paciente = new Paciente();
           $paciente->setObraSocial('obraSocial');
           $paciente->setNombre('nombre'.$i);

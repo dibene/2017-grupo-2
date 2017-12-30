@@ -5,8 +5,10 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Paciente;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
-
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\Extension\Core\Type\SearchType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 /**
  * Paciente controller.
  *
@@ -18,16 +20,48 @@ class PacienteController extends Controller
      * Lists all paciente entities.
      *
      * @Route("/", name="paciente_index")
-     * @Method("GET")
+     * @Method({"GET", "POST"})
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
+      $em = $this->getDoctrine()->getManager();
+      $pacientes = $em->getRepository('AppBundle:Paciente')->findAll();
+      $form = $this->createFormBuilder($pacientes)
+        ->add('nombre', SearchType::class , array('required'   => false))
+        ->add('apellido', SearchType::class , array('required'   => false))
+        ->add('dni', SearchType::class , array('required'   => false))
+        ->add('buscar', SubmitType::class ,  array( 'attr' => array('class' => 'btn waves-effect waves-light red' , 'style' => 'margin-top:40px;') ) )
+        ->getForm();
+        $form->handleRequest($request);
 
-        $pacientes = $em->getRepository('AppBundle:Paciente')->findAll();
+        if ($form->isSubmitted() && $form->isValid()) {
+          $nombre = $form->get('nombre')->getData();
+          $apellido = $form->get('apellido')->getData();
+          $dni = $form->get('dni')->getData();
+          $criterios = array();
+          if($nombre!=null || $apellido != null || $dni!=null ){
+            if($nombre != null){
+              $criterios['nombre'] = $nombre;
+            }
+            if($apellido != null){
+              $criterios['apellido'] = $apellido;
+            }
+            if($dni != null){
+              $criterios['dni'] = $dni;
+            }
+            $pacientes = $em->getRepository('AppBundle:Paciente')->findBy($criterios);
+
+          }else {
+            $pacientes = array();
+          }
+
+
+
+        }
 
         return $this->render('paciente/index.html.twig', array(
             'pacientes' => $pacientes,
+            'form' => $form->createView()
         ));
     }
 
