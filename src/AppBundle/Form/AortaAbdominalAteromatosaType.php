@@ -20,8 +20,8 @@ class AortaAbdominalAteromatosaType extends AbstractType
       ->add('motivoSolicitud', EntityType::class, array(
         'class' => 'AppBundle:MotivoSolicitud',
         'choice_label' => 'nombre'))
-      ->add('observacion')
-      ->add('diagnostico');
+      ->add('resultado')
+      ->add('conclusion');
   }
 
     /**

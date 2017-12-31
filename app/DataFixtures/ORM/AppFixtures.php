@@ -54,7 +54,10 @@ class AppFixtures extends Fixture
           'link' => 'endarterectomia'),
           array('id' => 12 ,
             'nombre' => 'Ecocardiograma 2D y Doppler Color' ,
-          'link' => 'ecocardiograma2d')
+          'link' => 'ecocardiograma2d'),
+          array('id' => 17 ,
+            'nombre' => 'Cardio Resonancia' ,
+          'link' => 'cardioresonancia')
         );
 
         //ESTUDIOS

@@ -28,7 +28,7 @@
     <thead>
         <tr>
             <th>Nombre</th>
-            <th>Observacion</th>
+            <th>Paciente <br> nombre/apellido/dni</th>
             <th>Fecha alta</th>
             <th>Ver</th>
             <th>Editar</th>
@@ -38,7 +38,7 @@
     {% for estudio in estudios %}
         <tr>
             <td><a href="{{ path(estudio.getEstudioConfiguracion().link~'_show', { 'id': estudio.id , 'idPaciente': estudio.getPaciente().id }) }}">{{ estudio.getEstudioConfiguracion().nombre }}</a></td>
-            <td>{{ estudio.observacion }}</td>
+            <td>{{ estudio.getPaciente().nombre }} {{ estudio.getPaciente().apellido }} {{ estudio.getPaciente().dni }}</td>
             <td>{% if estudio.fechaAlta %}{{ estudio.fechaAlta|date('Y-m-d') }}{% endif %}</td>
             <td><a class="btn-floating btn-small waves-effect waves-light blue" href="{{ path(estudio.getEstudioConfiguracion().link~'_show', { 'id': estudio.id , 'idPaciente': estudio.getPaciente().id}) }}"><i class="material-icons">zoom_in</i></a></td>
             <td><a class="btn-floating btn-small waves-effect waves-light yellow" href="{{ path(estudio.getEstudioConfiguracion().link~'_edit', { 'id': estudio.id }) }}"><i class="material-icons">create</i></a> </td>

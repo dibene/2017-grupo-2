@@ -5,8 +5,9 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\CardioResonancia;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
-use \Datetime;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
+
 /**
  * Cardioresonancium controller.
  *
@@ -37,25 +38,33 @@ class CardioResonanciaController extends Controller
      * @Route("/new/{id}", name="cardioresonancia_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request, $id)
+    public function newAction(Request $request,$id)
     {
-      $configuracion = $this->getDoctrine()->getManager()->getRepository('AppBundle:EstudioConfiguracion')->find($id);
       $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($id);
-      $fecha = new Datetime(date("Y-m-d"));
-        $cardioResonancia = new CardioResonancia($configuracion,$paciente,$fecha);
-        $form = $this->createForm('AppBundle\Form\CardioResonanciaType', $cardioResonancia);
+      $user = $this->container->get('security.context')->getToken()->getUser();
+      $medico = $this->getDoctrine()->getManager()->getRepository('AppBundle:Medico')->findOneByUsuario($user->getId());
+
+        $cardioResonancium = new Cardioresonancia($medico, $paciente,$this->getDoctrine()->getManager());
+
+        $form = $this->createForm('AppBundle\Form\CardioResonanciaType', $cardioResonancium);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($cardioResonancia);
+            $em->persist($cardioResonancium);
             $em->flush();
 
-            return $this->redirectToRoute('cardioresonancia_show', array('id' => $cardioResonancia->getId()));
+            return $this->redirectToRoute('cardioresonancia_show', array('id' => $cardioResonancium->getId(),
+            'idPaciente' => $paciente->getId(),
+            'medico' => $medico,
+            'paciente' => $paciente,
+            'estudio' => $cardioResonancium
+          ));
         }
 
         return $this->render('cardioresonancia/new.html.twig', array(
-            'cardioResonancium' => $cardioResonancia,
+            'estudio' => $cardioResonancium,
+            'paciente' => $paciente,
             'form' => $form->createView(),
         ));
     }
@@ -63,15 +72,20 @@ class CardioResonanciaController extends Controller
     /**
      * Finds and displays a cardioResonancium entity.
      *
-     * @Route("/{id}", name="cardioresonancia_show")
+     * @Route("/{id}/{idPaciente}", name="cardioresonancia_show")
      * @Method("GET")
      */
-    public function showAction(CardioResonancia $cardioResonancium)
+    public function showAction(CardioResonancia $cardioResonancium , $idPaciente)
     {
         $deleteForm = $this->createDeleteForm($cardioResonancium);
+        $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($idPaciente);
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        $medico = $this->getDoctrine()->getManager()->getRepository('AppBundle:Medico')->findOneByUsuario($user->getId());
 
         return $this->render('cardioresonancia/show.html.twig', array(
-            'cardioResonancium' => $cardioResonancium,
+            'estudio' => $cardioResonancium,
+            'paciente' => $paciente,
+            'medico' => $medico,
             'delete_form' => $deleteForm->createView(),
         ));
     }
