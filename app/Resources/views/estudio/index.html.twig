@@ -37,7 +37,7 @@
                 <td><a href="{{ path(estudio.getEstudioConfiguracion().link~'_show', { 'id': estudio.id , 'idPaciente': paciente.id }) }}">{{ estudio.getEstudioConfiguracion().nombre }}</a></td>
                 <td>{% if estudio.fechaAlta %}{{ estudio.fechaAlta|date('Y-m-d') }}{% endif %}</td>
                 <td><a class="btn-floating btn-small waves-effect waves-light blue" href="{{ path(estudio.getEstudioConfiguracion().link~'_show', { 'id': estudio.id , 'idPaciente': estudio.getPaciente().id}) }}"><i class="material-icons">zoom_in</i></a></td>
-                <td><a class="btn-floating btn-small waves-effect waves-light yellow" href="{{ path(estudio.getEstudioConfiguracion().link~'_edit', { 'id': estudio.id }) }}"><i class="material-icons">create</i></a> </td>
+                <td><a class="btn-floating btn-small waves-effect waves-light yellow" href="{{ path(estudio.getEstudioConfiguracion().link~'_edit', { 'id': estudio.id   , 'idPaciente': estudio.getPaciente().id}) }}"><i class="material-icons">create</i></a> </td>
             </tr>
         {% endfor %}
         </tbody>
@@ -47,7 +47,7 @@
     <ul>
     {% for estudio in nombreEstudios %}
     <li>
-    <a href="/{{estudio.link}}/new/{{paciente.id}}">{{estudio.nombre}}</a>
+    <a href="/{{estudio.link}}/new/paciente/{{paciente.id}}">{{estudio.nombre}}</a>
     </li>
     {% endfor %}
     </ul>

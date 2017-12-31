@@ -119,31 +119,20 @@ class EstudioController extends Controller
     /**
      * Creates a new estudio entity.
      *
-     * @Route("/new", name="estudio_new")
+     * @Route("/new/paciente/{id}", name="estudio_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request , $id)
     {
-        $estudio = new Estudio();
-        $estudio.setFechaAlta(date("Y-m-d"));
-        $paciente=$this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($id);
-        $estudio.setPaciente($paciente);
-        //$medico=$this->getDoctrine()->getManager()->getRepository('AppBundle:Medico')->find();
-        //$estudio.setMedico($medico);
-        $form = $this->createForm('AppBundle\Form\EstudioType', $estudio);
-        $form->handleRequest($request);
+      $em = $this->getDoctrine()->getManager();
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($estudio);
-            $em->flush();
+      $paciente = $em->getRepository('AppBundle:Paciente')->find($id);
 
-            return $this->redirectToRoute('estudio_show', array('id' => $estudio->getId()));
-        }
+      $nombreEstudios = $em->getRepository('AppBundle:EstudioConfiguracion')->findAll();
 
         return $this->render('estudio/new.html.twig', array(
-            'estudio' => $estudio,
-            'form' => $form->createView(),
+            'paciente' => $paciente,
+            'nombreEstudios' => $nombreEstudios,
         ));
     }
 

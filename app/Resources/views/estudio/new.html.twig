@@ -1,16 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Estudio creation</h1>
-
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('estudio_index') }}">Back to the list</a>
-        </li>
-    </ul>
+<h4 class="red-text">Estudios para agregar al paciente: <b> {{paciente.nombre}} </b></h4>
+<ul>
+{% for estudio in nombreEstudios %}
+<li>
+<a href="/{{estudio.link}}/new/paciente/{{paciente.id}}">{{estudio.nombre}}</a>
+</li>
+{% endfor %}
+</ul>
 {% endblock %}

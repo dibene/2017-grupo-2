@@ -1,7 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<br><a class="btn waves-effect waves-light red" style="margin-left:10px"href="/estudio/{{paciente.id}}">Volver a estudios del paciente: <b>{{paciente.nombre}} </b> </a>
+<div class="row col s12">
+  <br><a class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " href="{{ path('estudio_index', { 'id': paciente.id }) }}">Volver a estudios del paciente: <b>{{paciente.nombre}} </b> </a>
+  <div class="container col s12 center-align" >
+    <div class="z-depth-1 grey lighten-4 row left-align col s12" style="display: inline-block; margin: 50px; padding: 32px 48px 50px 48px; border: 1px solid #EEE;">
 
 <h3  class="red-text"> Estudio {{ estudio.estudioConfiguracion.nombre }}</h3>
 
@@ -56,7 +59,25 @@
         </tr>
     </tbody>
 </table>
+<h3  class="red-text"> Resultados </h3>
 
+<table>
+    <tbody>
+
+        <tr>
+            <th>Conclusion</th>
+            <td>{{ estudio.conclusion }}</td>
+        </tr>
+        <tr>
+            <th>Fecha alta</th>
+            <td>{% if estudio.fechaAlta %}{{ estudio.fechaAlta|date('Y-m-d') }}{% endif %}</td>
+        </tr>
+        <tr>
+            <th>Resultado</th>
+            <td>{{   estudio.resultado  }}</td>
+        </tr>
+    </tbody>
+</table>
     <table>
         <tbody>
           <tr >
@@ -193,13 +214,15 @@
             </tr>
         </tbody>
     </table>
-
+</div>
+</div>
+</div>
     <ul>
         <li>
-          <a class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; "href="/estudio/{{paciente.id}}">Volver a estudios del paciente: <b>{{paciente.nombre}} </b> </a>
+          <a class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px;" href="{{ path('estudio_index', { 'id': paciente.id }) }}">Volver a estudios del paciente: <b>{{paciente.nombre}} </b> </a>
         </li>
         <li>
-            <a href="{{ path('estudio_edit', { 'id': estudio.id }) }}">Modificar</a>
+          <a class="btn waves-effect waves-light yellow" style="margin-left:10px; margin-bottom:20px;" href="{{ path('cardioresonancia_edit', { 'id': estudio.id ,'idPaciente': paciente.id }) }}">Modificar</a>
         </li>
 
     </ul>

@@ -72,7 +72,7 @@ class CardioResonanciaController extends Controller
     /**
      * Finds and displays a cardioResonancium entity.
      *
-     * @Route("/{id}/{idPaciente}", name="cardioresonancia_show")
+     * @Route("/{id}/paciente/{idPaciente}", name="cardioresonancia_show")
      * @Method("GET")
      */
     public function showAction(CardioResonancia $cardioResonancium , $idPaciente)
@@ -93,14 +93,15 @@ class CardioResonanciaController extends Controller
     /**
      * Displays a form to edit an existing cardioResonancium entity.
      *
-     * @Route("/{id}/edit", name="cardioresonancia_edit")
+     * @Route("/{id}/edit/paciente/{idPaciente}", name="cardioresonancia_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, CardioResonancia $cardioResonancium)
+    public function editAction(Request $request, CardioResonancia $cardioResonancium, $idPaciente )
     {
         $deleteForm = $this->createDeleteForm($cardioResonancium);
         $editForm = $this->createForm('AppBundle\Form\CardioResonanciaType', $cardioResonancium);
         $editForm->handleRequest($request);
+        $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($idPaciente);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
@@ -109,7 +110,8 @@ class CardioResonanciaController extends Controller
         }
 
         return $this->render('cardioresonancia/edit.html.twig', array(
-            'cardioResonancium' => $cardioResonancium,
+            'estudio' => $cardioResonancium,
+            'paciente' => $paciente,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
