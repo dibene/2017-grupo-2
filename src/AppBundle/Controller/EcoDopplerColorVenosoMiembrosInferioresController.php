@@ -114,6 +114,7 @@ class EcoDopplerColorVenosoMiembrosInferioresController extends Controller
             'estudio' => $ecoDopplerColorVenosoMiembrosInferiore,
             'paciente' => $paciente,
             'idPaciente' => $paciente->getId(),
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
