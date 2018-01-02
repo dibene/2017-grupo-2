@@ -6,14 +6,14 @@ en general
         - hecho (cuando se registra un usuario no tiene rol, no puede ver nada mas q agregar los datos del medico
         al agregar los datos del medico se le asigna rol medico y puede tener las opciones,
         si sale del sistema y vuelve a entrar solo tiene la posibilidad de entrar a su perfil para cargar los datos personales de medico. HECHO)
-   - TODO TOMAS arreglar el sexo como lo hiceron con pacientes (LISTO)
+   - hecho  TOMAS arreglar el sexo como lo hiceron con pacientes (LISTO)
+   -hecho restringir todas las rutas q falten ( cuando terminen de hacerse todas las paginas)
+         `LISTO para estudios... Repasar despues cuales faltarian
     opciones de administrador(cuales van a ser?)
       perfiles de usuario?
-    restringir todas las rutas q falten ( cuando terminen de hacerse todas las paginas)
-          `LISTO para estudios... Repasar despues cuales faltarian
 
 duda
-    7. El sistema debe permitir deshabilitar el acceso al sistema por parte de un Médico. (desahbilitar el sitio?)
+  habria q sacarlo  7. El sistema debe permitir deshabilitar el acceso al sistema por parte de un Médico. (desahbilitar el sitio?)
     listar los Médicos , solo para administrador o los medicos tambien pueden verlo?
      busqueda por fecha de un estudio => en lista de pacientes buscar por fecha de estudios ? medio incoerente, y si fuera en lsita de estudios ? tendria q haber lista de estudios de todos los estudios ? :S
      HECHO - busqueda en estudios por fecha y nombre de estudio
