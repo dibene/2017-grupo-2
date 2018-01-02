@@ -10,7 +10,7 @@ use \Datetime;
 /**
  * Ecodopplercolorartrenale controller.
  *
- * @Route("ecodopplercolorartrenales")
+ * @Route("estudio/ecodopplercolorartrenales")
  */
 class EcoDopplerColorArtRenalesController extends Controller
 {
@@ -34,15 +34,16 @@ class EcoDopplerColorArtRenalesController extends Controller
     /**
      * Creates a new ecoDopplerColorArtRenale entity.
      *
-     * @Route("/new/{id}", name="ecodopplercolorartrenales_new")
+     * @Route("/new/paciente/{id}", name="ecodopplercolorartrenales_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request, $id)
     {
-      $configuracion = $this->getDoctrine()->getManager()->getRepository('AppBundle:EstudioConfiguracion')->find($id);
       $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($id);
-      $fecha = new Datetime(date("Y-m-d"));
-        $ecoDopplerColorArtRenale = new Ecodopplercolorartrenales($configuracion,$paciente,$fecha);
+      $user = $this->container->get('security.context')->getToken()->getUser();
+      $medico = $this->getDoctrine()->getManager()->getRepository('AppBundle:Medico')->findOneByUsuario($user->getId());
+
+        $ecoDopplerColorArtRenale = new Ecodopplercolorartrenales($medico, $paciente,$this->getDoctrine()->getManager());
         $form = $this->createForm('AppBundle\Form\EcoDopplerColorArtRenalesType', $ecoDopplerColorArtRenale);
         $form->handleRequest($request);
 
@@ -51,11 +52,16 @@ class EcoDopplerColorArtRenalesController extends Controller
             $em->persist($ecoDopplerColorArtRenale);
             $em->flush();
 
-            return $this->redirectToRoute('ecodopplercolorartrenales_show', array('id' => $ecoDopplerColorArtRenale->getId()));
+            return $this->redirectToRoute('ecodopplercolorartrenales_show', array('id' => $ecoDopplerColorArtRenale->getId(),
+          'idPaciente' => $paciente->getId(),
+          'medico' => $medico,
+          'paciente' => $paciente,
+          'estudio' => $ecoDopplerColorArtRenale));
         }
 
         return $this->render('ecodopplercolorartrenales/new.html.twig', array(
-            'ecoDopplerColorArtRenale' => $ecoDopplerColorArtRenale,
+            'estudio' => $ecoDopplerColorArtRenale,
+            'paciente' => $paciente,
             'form' => $form->createView(),
         ));
     }
@@ -63,15 +69,20 @@ class EcoDopplerColorArtRenalesController extends Controller
     /**
      * Finds and displays a ecoDopplerColorArtRenale entity.
      *
-     * @Route("/{id}", name="ecodopplercolorartrenales_show")
+     * @Route("/{id}/paciente/{idPaciente}", name="ecodopplercolorartrenales_show")
      * @Method("GET")
      */
-    public function showAction(EcoDopplerColorArtRenales $ecoDopplerColorArtRenale)
+    public function showAction(EcoDopplerColorArtRenales $ecoDopplerColorArtRenale, $idPaciente)
     {
         $deleteForm = $this->createDeleteForm($ecoDopplerColorArtRenale);
+        $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($idPaciente);
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        $medico = $this->getDoctrine()->getManager()->getRepository('AppBundle:Medico')->findOneByUsuario($user->getId());
 
         return $this->render('ecodopplercolorartrenales/show.html.twig', array(
-            'ecoDopplerColorArtRenale' => $ecoDopplerColorArtRenale,
+            'estudio' => $ecoDopplerColorArtRenale,
+            'paciente' => $paciente,
+            'medico' => $medico,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -79,23 +90,30 @@ class EcoDopplerColorArtRenalesController extends Controller
     /**
      * Displays a form to edit an existing ecoDopplerColorArtRenale entity.
      *
-     * @Route("/{id}/edit", name="ecodopplercolorartrenales_edit")
+     * @Route("/{id}/edit/paciente/{idPaciente}", name="ecodopplercolorartrenales_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, EcoDopplerColorArtRenales $ecoDopplerColorArtRenale)
+    public function editAction(Request $request, EcoDopplerColorArtRenales $ecoDopplerColorArtRenale ,  $idPaciente)
     {
         $deleteForm = $this->createDeleteForm($ecoDopplerColorArtRenale);
         $editForm = $this->createForm('AppBundle\Form\EcoDopplerColorArtRenalesType', $ecoDopplerColorArtRenale);
         $editForm->handleRequest($request);
+        $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($idPaciente);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('ecodopplercolorartrenales_edit', array('id' => $ecoDopplerColorArtRenale->getId()));
+            return $this->redirectToRoute('ecodopplercolorartrenales_edit', array('id' => $ecoDopplerColorArtRenale->getId(),
+            'estudio' => $ecoDopplerColorArtRenale,
+            'paciente' => $paciente,
+            'idPaciente' => $paciente->getId()
+          ));
         }
 
         return $this->render('ecodopplercolorartrenales/edit.html.twig', array(
-            'ecoDopplerColorArtRenale' => $ecoDopplerColorArtRenale,
+          'estudio' => $ecoDopplerColorArtRenale,
+          'paciente' => $paciente,
+          'idPaciente' => $paciente->getId(),
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));

@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Ecocardiograma2d controller.
  *
- * @Route("ecocardiograma2d")
+ * @Route("estudio/ecocardiograma2d")
  */
 class Ecocardiograma2dController extends Controller
 {
@@ -35,7 +35,7 @@ class Ecocardiograma2dController extends Controller
     /**
      * Creates a new ecocardiograma2d entity.
      *
-     * @Route("/new/{id}", name="ecocardiograma2d_new")
+     * @Route("/new/paciente/{id}", name="ecocardiograma2d_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request , $id)
@@ -62,6 +62,7 @@ class Ecocardiograma2dController extends Controller
 
         return $this->render('ecocardiograma2d/new.html.twig', array(
             'estudio' => $ecocardiograma2d,
+            'paciente' => $paciente,
             'form' => $form->createView(),
         ));
     }
@@ -69,13 +70,12 @@ class Ecocardiograma2dController extends Controller
     /**
      * Finds and displays a ecocardiograma2d entity.
      *
-     * @Route("/{id}/{idPaciente}", name="ecocardiograma2d_show")
+     * @Route("/{id}/paciente/{idPaciente}", name="ecocardiograma2d_show")
      * @Method("GET")
      */
     public function showAction(Ecocardiograma2d $ecocardiograma2d , $idPaciente)
     {
         $deleteForm = $this->createDeleteForm($ecocardiograma2d);
-
         $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($idPaciente);
         $user = $this->container->get('security.context')->getToken()->getUser();
         $medico = $this->getDoctrine()->getManager()->getRepository('AppBundle:Medico')->findOneByUsuario($user->getId());
@@ -84,30 +84,37 @@ class Ecocardiograma2dController extends Controller
             'estudio' => $ecocardiograma2d,
             'paciente' => $paciente,
             'medico' => $medico,
-            'delete_form' => $deleteForm->createView(),
+            'delete_form' => $deleteForm->createView()
         ));
     }
 
     /**
      * Displays a form to edit an existing ecocardiograma2d entity.
      *
-     * @Route("/{id}/edit", name="ecocardiograma2d_edit")
+     * @Route("/{id}/edit/paciente/{idPaciente}", name="ecocardiograma2d_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, Ecocardiograma2d $ecocardiograma2d)
+    public function editAction(Request $request, Ecocardiograma2d $ecocardiograma2d ,  $idPaciente)
     {
         $deleteForm = $this->createDeleteForm($ecocardiograma2d);
         $editForm = $this->createForm('AppBundle\Form\Ecocardiograma2dType', $ecocardiograma2d);
         $editForm->handleRequest($request);
+        $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($idPaciente);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('ecocardiograma2d_edit', array('id' => $ecocardiograma2d->getId()));
+            return $this->redirectToRoute('ecocardiograma2d_edit', array('id' => $ecocardiograma2d->getId(),
+            'estudio' => $ecocardiograma2d,
+            'paciente' => $paciente,
+            'idPaciente' => $paciente->getId()
+          ));
         }
 
         return $this->render('ecocardiograma2d/edit.html.twig', array(
-            'ecocardiograma2d' => $ecocardiograma2d,
+          'estudio' => $ecocardiograma2d,
+          'paciente' => $paciente,
+          'idPaciente' => $paciente->getId(),
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));

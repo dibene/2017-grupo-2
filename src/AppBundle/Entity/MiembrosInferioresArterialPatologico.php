@@ -41,7 +41,14 @@ class MiembrosInferioresArterialPatologico extends Estudio
      * @ORM\Column(name="indice_pre_estenosis_estenosis", type="integer", nullable=false)
      */
     private $indicePreEstenosisEstenosis;
-
+    public function __construct($medico,$paciente , $entityManager) {
+      parent::__construct();
+    //  $entityManager = $event->getEntityManager();
+      $configuracion = $entityManager->getRepository('AppBundle:EstudioConfiguracion')->find(18);
+      parent::setEstudioConfiguracion($configuracion);
+      parent::setPaciente($paciente);
+      parent::setMedico($medico);
+    }
     /**
      * Set extension
      *

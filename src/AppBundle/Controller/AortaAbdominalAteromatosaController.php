@@ -12,7 +12,7 @@ use \Datetime;
 /**
  * Aortaabdominalateromatosa controller.
  *
- * @Route("aortaabdominalateromatosa")
+ * @Route("estudio/aortaabdominalateromatosa")
  */
 class AortaAbdominalAteromatosaController extends Controller
 {
@@ -106,12 +106,17 @@ class AortaAbdominalAteromatosaController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('aortaabdominalateromatosa_edit', array('id' => $aortaAbdominalAteromatosa->getId()));
+            return $this->redirectToRoute('aortaabdominalateromatosa_edit', array('id' => $aortaAbdominalAteromatosa->getId(),
+            'estudio' => $aortaAbdominalAteromatosa,
+            'paciente' => $paciente,
+            'idPaciente' => $paciente->getId()
+          ));
         }
 
         return $this->render('aortaabdominalateromatosa/edit.html.twig', array(
             'estudio' => $aortaAbdominalAteromatosa,
             'paciente' => $paciente,
+            'idPaciente' => $paciente->getId(),
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));

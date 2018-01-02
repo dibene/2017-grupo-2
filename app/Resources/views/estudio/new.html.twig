@@ -1,12 +1,22 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+<div class="container col s12 center-align" >
+
+  <div class="z-depth-1 grey lighten-4 row left-align col s12" style="display: inline-block; margin: 50px; padding: 32px 48px 50px 48px; border: 1px solid #EEE;">
+
 <h4 class="red-text">Estudios para agregar al paciente: <b> {{paciente.nombre}} </b></h4>
 <ul>
 {% for estudio in nombreEstudios %}
 <li>
-<a href="/{{estudio.link}}/new/paciente/{{paciente.id}}">{{estudio.nombre}}</a>
+
+   <a href="{{ path(estudio.link~'_new', { 'id': paciente.id }) }}">{{estudio.nombre}}</a>
+
 </li>
 {% endfor %}
 </ul>
+
+
+</div>
+</div>
 {% endblock %}

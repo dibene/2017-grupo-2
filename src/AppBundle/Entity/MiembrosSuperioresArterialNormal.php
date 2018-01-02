@@ -41,7 +41,14 @@ class MiembrosSuperioresArterialNormal extends Estudio
      * @ORM\Column(name="indice_de_pre_estenosis", type="integer", nullable=false)
      */
     private $indiceDePreEstenosis;
-
+    public function __construct($medico,$paciente , $entityManager) {
+      parent::__construct();
+    //  $entityManager = $event->getEntityManager();
+      $configuracion = $entityManager->getRepository('AppBundle:EstudioConfiguracion')->find(19);
+      parent::setEstudioConfiguracion($configuracion);
+      parent::setPaciente($paciente);
+      parent::setMedico($medico);
+    }
     /**
      * Set extension
      *

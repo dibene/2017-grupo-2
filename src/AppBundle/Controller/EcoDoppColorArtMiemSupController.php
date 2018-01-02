@@ -10,7 +10,7 @@ use \Datetime;
 /**
  * Ecodoppcolorartmiemsup controller.
  *
- * @Route("ecodoppcolorartmiemsup")
+ * @Route("estudio/ecodoppcolorartmiemsup")
  */
 class EcoDoppColorArtMiemSupController extends Controller
 {
@@ -34,15 +34,16 @@ class EcoDoppColorArtMiemSupController extends Controller
     /**
      * Creates a new ecoDoppColorArtMiemSup entity.
      *
-     * @Route("/new/{id}", name="ecodoppcolorartmiemsup_new")
+     * @Route("/new/paciente/{id}", name="ecodoppcolorartmiemsup_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request, $id)
     {
-      $configuracion = $this->getDoctrine()->getManager()->getRepository('AppBundle:EstudioConfiguracion')->find($id);
       $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($id);
-      $fecha = new Datetime(date("Y-m-d"));
-        $ecoDoppColorArtMiemSup = new Ecodoppcolorartmiemsup($configuracion,$paciente,$fecha);
+      $user = $this->container->get('security.context')->getToken()->getUser();
+      $medico = $this->getDoctrine()->getManager()->getRepository('AppBundle:Medico')->findOneByUsuario($user->getId());
+
+        $ecoDoppColorArtMiemSup = new Ecodoppcolorartmiemsup($medico, $paciente,$this->getDoctrine()->getManager());
         $form = $this->createForm('AppBundle\Form\EcoDoppColorArtMiemSupType', $ecoDoppColorArtMiemSup);
         $form->handleRequest($request);
 
@@ -51,11 +52,16 @@ class EcoDoppColorArtMiemSupController extends Controller
             $em->persist($ecoDoppColorArtMiemSup);
             $em->flush();
 
-            return $this->redirectToRoute('ecodoppcolorartmiemsup_show', array('id' => $ecoDoppColorArtMiemSup->getId()));
+            return $this->redirectToRoute('ecodoppcolorartmiemsup_show', array('id' => $ecoDoppColorArtMiemSup->getId(),
+          'idPaciente' => $paciente->getId(),
+          'medico' => $medico,
+          'paciente' => $paciente,
+          'estudio' => $ecoDoppColorArtMiemSup));
         }
 
         return $this->render('ecodoppcolorartmiemsup/new.html.twig', array(
-            'ecoDoppColorArtMiemSup' => $ecoDoppColorArtMiemSup,
+            'estudio' => $ecoDoppColorArtMiemSup,
+            'paciente' => $paciente,
             'form' => $form->createView(),
         ));
     }
@@ -63,15 +69,20 @@ class EcoDoppColorArtMiemSupController extends Controller
     /**
      * Finds and displays a ecoDoppColorArtMiemSup entity.
      *
-     * @Route("/{id}", name="ecodoppcolorartmiemsup_show")
+     * @Route("/{id}/paciente/{idPaciente}", name="ecodoppcolorartmiemsup_show")
      * @Method("GET")
      */
-    public function showAction(EcoDoppColorArtMiemSup $ecoDoppColorArtMiemSup)
+    public function showAction(EcoDoppColorArtMiemSup $ecoDoppColorArtMiemSup, $idPaciente)
     {
         $deleteForm = $this->createDeleteForm($ecoDoppColorArtMiemSup);
+        $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($idPaciente);
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        $medico = $this->getDoctrine()->getManager()->getRepository('AppBundle:Medico')->findOneByUsuario($user->getId());
 
         return $this->render('ecodoppcolorartmiemsup/show.html.twig', array(
-            'ecoDoppColorArtMiemSup' => $ecoDoppColorArtMiemSup,
+            'estudio' => $ecoDoppColorArtMiemSup,
+            'paciente' => $paciente,
+            'medico' => $medico,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -79,23 +90,30 @@ class EcoDoppColorArtMiemSupController extends Controller
     /**
      * Displays a form to edit an existing ecoDoppColorArtMiemSup entity.
      *
-     * @Route("/{id}/edit", name="ecodoppcolorartmiemsup_edit")
+     * @Route("/{id}/edit/paciente/{idPaciente}", name="ecodoppcolorartmiemsup_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, EcoDoppColorArtMiemSup $ecoDoppColorArtMiemSup)
+    public function editAction(Request $request, EcoDoppColorArtMiemSup $ecoDoppColorArtMiemSup ,  $idPaciente)
     {
         $deleteForm = $this->createDeleteForm($ecoDoppColorArtMiemSup);
         $editForm = $this->createForm('AppBundle\Form\EcoDoppColorArtMiemSupType', $ecoDoppColorArtMiemSup);
         $editForm->handleRequest($request);
+        $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($idPaciente);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('ecodoppcolorartmiemsup_edit', array('id' => $ecoDoppColorArtMiemSup->getId()));
+            return $this->redirectToRoute('ecodoppcolorartmiemsup_edit', array('id' => $ecoDoppColorArtMiemSup->getId(),
+            'estudio' => $ecoDoppColorArtMiemSup,
+            'paciente' => $paciente,
+            'idPaciente' => $paciente->getId()
+          ));
         }
 
         return $this->render('ecodoppcolorartmiemsup/edit.html.twig', array(
-            'ecoDoppColorArtMiemSup' => $ecoDoppColorArtMiemSup,
+          'estudio' => $ecoDoppColorArtMiemSup,
+          'paciente' => $paciente,
+          'idPaciente' => $paciente->getId(),
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));

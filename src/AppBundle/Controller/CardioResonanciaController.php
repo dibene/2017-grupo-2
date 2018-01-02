@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Cardioresonancium controller.
  *
- * @Route("cardioresonancia")
+ * @Route("estudio/cardioresonancia")
  */
 class CardioResonanciaController extends Controller
 {
@@ -35,7 +35,7 @@ class CardioResonanciaController extends Controller
     /**
      * Creates a new cardioResonancium entity.
      *
-     * @Route("/new/{id}", name="cardioresonancia_new")
+     * @Route("/new/paciente/{id}", name="cardioresonancia_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request,$id)
@@ -45,7 +45,6 @@ class CardioResonanciaController extends Controller
       $medico = $this->getDoctrine()->getManager()->getRepository('AppBundle:Medico')->findOneByUsuario($user->getId());
 
         $cardioResonancium = new Cardioresonancia($medico, $paciente,$this->getDoctrine()->getManager());
-
         $form = $this->createForm('AppBundle\Form\CardioResonanciaType', $cardioResonancium);
         $form->handleRequest($request);
 
@@ -106,12 +105,17 @@ class CardioResonanciaController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('cardioresonancia_edit', array('id' => $cardioResonancium->getId()));
+            return $this->redirectToRoute('cardioresonancia_edit', array('id' => $cardioResonancium->getId(),
+            'estudio' => $cardioResonancium,
+            'paciente' => $paciente,
+            'idPaciente' => $paciente->getId()
+          ));
         }
 
         return $this->render('cardioresonancia/edit.html.twig', array(
-            'estudio' => $cardioResonancium,
-            'paciente' => $paciente,
+          'estudio' => $cardioResonancium,
+          'paciente' => $paciente,
+          'idPaciente' => $paciente->getId(),
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));

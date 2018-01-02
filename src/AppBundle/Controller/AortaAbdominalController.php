@@ -5,13 +5,14 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\AortaAbdominal;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 use \Datetime;
 
 /**
  * Aortaabdominal controller.
  *
- * @Route("aortaabdominal")
+ * @Route("estudio/aortaabdominal")
  */
 class AortaAbdominalController extends Controller
 {
@@ -35,16 +36,16 @@ class AortaAbdominalController extends Controller
     /**
      * Creates a new aortaAbdominal entity.
      *
-     * @Route("/new/{id}", name="aortaabdominal_new")
+     * @Route("/new/paciente/{id}", name="aortaabdominal_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request , $id)
     {
-        $configuracion = $this->getDoctrine()->getManager()->getRepository('AppBundle:EstudioConfiguracion')->find($id);
-        $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($id);
-        $fecha = new Datetime(date("Y-m-d"));
+      $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($id);
+      $user = $this->container->get('security.context')->getToken()->getUser();
+      $medico = $this->getDoctrine()->getManager()->getRepository('AppBundle:Medico')->findOneByUsuario($user->getId());
 
-        $aortaAbdominal = new AortaAbdominal($configuracion,$paciente,$fecha);
+        $aortaAbdominal = new AortaAbdominal($medico, $paciente,$this->getDoctrine()->getManager());
         $form = $this->createForm('AppBundle\Form\AortaAbdominalType', $aortaAbdominal);
         $form->handleRequest($request);
 
@@ -53,27 +54,38 @@ class AortaAbdominalController extends Controller
             $em->persist($aortaAbdominal);
             $em->flush();
 
-            return $this->redirectToRoute('aortaabdominal_show', array('id' => $aortaAbdominal->getId()));
+            return $this->redirectToRoute('aortaabdominal_show', array('id' => $aortaAbdominal->getId(),
+          'idPaciente' => $paciente->getId(),
+          'medico' => $medico,
+          'paciente' => $paciente,
+          'estudio' => $aortaAbdominal));
         }
 
         return $this->render('aortaabdominal/new.html.twig', array(
             'aortaAbdominal' => $aortaAbdominal,
+            'paciente' => $paciente,
             'form' => $form->createView(),
-        ));
+            'estudio' => $aortaAbdominal));
+
     }
 
     /**
      * Finds and displays a aortaAbdominal entity.
      *
-     * @Route("/{id}", name="aortaabdominal_show")
+     * @Route("/{id}/paciente/{idPaciente}", name="aortaabdominal_show")
      * @Method("GET")
      */
-    public function showAction(AortaAbdominal $aortaAbdominal)
+    public function showAction(AortaAbdominal $aortaAbdominal, $idPaciente)
     {
         $deleteForm = $this->createDeleteForm($aortaAbdominal);
+        $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($idPaciente);
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        $medico = $this->getDoctrine()->getManager()->getRepository('AppBundle:Medico')->findOneByUsuario($user->getId());
 
         return $this->render('aortaabdominal/show.html.twig', array(
-            'aortaAbdominal' => $aortaAbdominal,
+            'estudio' => $aortaAbdominal,
+            'paciente' => $paciente,
+            'medico' => $medico,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -81,24 +93,30 @@ class AortaAbdominalController extends Controller
     /**
      * Displays a form to edit an existing aortaAbdominal entity.
      *
-     * @Route("/{id}/edit", name="aortaabdominal_edit")
+     * @Route("/{id}/edit/paciente/{idPaciente}", name="aortaabdominal_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, AortaAbdominal $aortaAbdominal)
+    public function editAction(Request $request, AortaAbdominal $aortaAbdominal ,  $idPaciente)
     {
         $deleteForm = $this->createDeleteForm($aortaAbdominal);
         $editForm = $this->createForm('AppBundle\Form\AortaAbdominalType', $aortaAbdominal);
         $editForm->handleRequest($request);
+        $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($idPaciente);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('aortaabdominal_edit', array('id' => $aortaAbdominal->getId()));
+            return $this->redirectToRoute('aortaabdominal_edit', array('id' => $aortaAbdominal->getId(),
+            'estudio' => $aortaAbdominal,
+            'paciente' => $paciente,
+            'idPaciente' => $paciente->getId()
+          ));
         }
 
         return $this->render('aortaabdominal/edit.html.twig', array(
-            'aortaAbdominal' => $aortaAbdominal,
-            'edit_form' => $editForm->createView(),
+          'estudio' => $aortaAbdominal,
+          'paciente' => $paciente,
+          'idPaciente' => $paciente->getId(),
             'delete_form' => $deleteForm->createView(),
         ));
     }

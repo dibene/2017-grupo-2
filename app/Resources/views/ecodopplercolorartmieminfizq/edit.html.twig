@@ -1,21 +1,21 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Ecodopplercolorartmieminfizq edit</h1>
+<div class="row col s12">
+  <br><a class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " href="{{ path('estudio_index', { 'id': paciente.id }) }}">Volver a estudios del paciente: <b>{{paciente.nombre}} </b> </a>
+  <div class="container col s12 center-align" >
+    <div class="z-depth-1 grey lighten-4 row left-align col s12" style="display: inline-block; margin: 50px; padding: 32px 48px 50px 48px; border: 1px solid #EEE;">
+      <h5 class="red-text center-align ">Modificar Estudio {{ estudio.estudioConfiguracion.nombre }}</h5>
+
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+        <input class="btn waves-effect waves-light red" type="submit" value="EDITAR" />
     {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('ecodopplercolorartmieminfizq_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    </div>
+  </div>
+</div>
+<a class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " href="{{ path('estudio_index', { 'id': paciente.id }) }}">Volver a estudios del paciente: <b>{{paciente.nombre}} </b> </a>
+
 {% endblock %}

@@ -48,7 +48,14 @@ class EcoEstres extends Estudio
      * @ORM\Column(name="informe_3_infarto_sin_isquemia", type="integer", nullable=false)
      */
     private $informe3InfartoSinIsquemia;
-
+    public function __construct($medico,$paciente , $entityManager) {
+      parent::__construct();
+    //  $entityManager = $event->getEntityManager();
+      $configuracion = $entityManager->getRepository('AppBundle:EstudioConfiguracion')->find(20);
+      parent::setEstudioConfiguracion($configuracion);
+      parent::setPaciente($paciente);
+      parent::setMedico($medico);
+    }
     /**
      * Set informe1Normal
      *

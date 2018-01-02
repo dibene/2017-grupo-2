@@ -56,6 +56,14 @@ class EcoDopplerColorArterialDeMiembros extends Estudio
      */
     private $arteriaTibialPosterior;
 
+    public function __construct($medico,$paciente , $entityManager) {
+      parent::__construct();
+    //  $entityManager = $event->getEntityManager();
+      $configuracion = $entityManager->getRepository('AppBundle:EstudioConfiguracion')->find(1);
+      parent::setEstudioConfiguracion($configuracion);
+      parent::setPaciente($paciente);
+      parent::setMedico($medico);
+    }
 
     /**
      * Set arteriafemoralComun
