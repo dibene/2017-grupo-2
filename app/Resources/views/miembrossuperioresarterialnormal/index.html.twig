@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Miembrossuperioresarterialnormals list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Extension</th>
+                <th>Velocidadpicosistolica</th>
+                <th>Indicedepreestenosis</th>
+                <th>Flujosdistales</th>
+                <th>Estenosis</th>
+                <th>Caracteristicas</th>
+                <th>Arteria</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for miembrosSuperioresArterialNormal in miembrosSuperioresArterialNormals %}
+            <tr>
+                <td><a href="{{ path('miembrossuperioresarterialnormal_show', { 'id': miembrosSuperioresArterialNormal.id }) }}">{{ miembrosSuperioresArterialNormal.id }}</a></td>
+                <td>{{ miembrosSuperioresArterialNormal.extension }}</td>
+                <td>{{ miembrosSuperioresArterialNormal.velocidadPicoSistolica }}</td>
+                <td>{{ miembrosSuperioresArterialNormal.indiceDePreEstenosis }}</td>
+                <td>{{ miembrosSuperioresArterialNormal.flujosDistales }}</td>
+                <td>{{ miembrosSuperioresArterialNormal.estenosis }}</td>
+                <td>{{ miembrosSuperioresArterialNormal.caracteristicas }}</td>
+                <td>{{ miembrosSuperioresArterialNormal.arteria }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('miembrossuperioresarterialnormal_show', { 'id': miembrosSuperioresArterialNormal.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('miembrossuperioresarterialnormal_edit', { 'id': miembrosSuperioresArterialNormal.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('miembrossuperioresarterialnormal_new') }}">Create a new miembrosSuperioresArterialNormal</a>
+        </li>
+    </ul>
+{% endblock %}

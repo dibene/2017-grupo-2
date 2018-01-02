@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Ecodopplercolorarterialdemiembro</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ ecoDopplerColorArterialDeMiembro.id }}</td>
+            </tr>
+            <tr>
+                <th>Arteriafemoralcomun</th>
+                <td>{{ ecoDopplerColorArterialDeMiembro.arteriafemoralComun }}</td>
+            </tr>
+            <tr>
+                <th>Arteriafemoralsuperficial</th>
+                <td>{{ ecoDopplerColorArterialDeMiembro.arteriaFemoralSuperficial }}</td>
+            </tr>
+            <tr>
+                <th>Arteriapoplitea</th>
+                <td>{{ ecoDopplerColorArterialDeMiembro.arteriaPoplitea }}</td>
+            </tr>
+            <tr>
+                <th>Arteriatibialanterior</th>
+                <td>{{ ecoDopplerColorArterialDeMiembro.arteriaTibialAnterior }}</td>
+            </tr>
+            <tr>
+                <th>Arteriatibialposterior</th>
+                <td>{{ ecoDopplerColorArterialDeMiembro.arteriaTibialPosterior }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('ecodopplercolorarterialdemiembros_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('ecodopplercolorarterialdemiembros_edit', { 'id': ecoDopplerColorArterialDeMiembro.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

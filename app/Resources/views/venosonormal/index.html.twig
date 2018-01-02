@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Venosonormals list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Venasafenainterna</th>
+                <th>Diametrovsi</th>
+                <th>Venasafenaexterna</th>
+                <th>Diametrovse</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for venosoNormal in venosoNormals %}
+            <tr>
+                <td><a href="{{ path('venosonormal_show', { 'id': venosoNormal.id }) }}">{{ venosoNormal.id }}</a></td>
+                <td>{{ venosoNormal.venaSafenaInterna }}</td>
+                <td>{{ venosoNormal.diametroVSI }}</td>
+                <td>{{ venosoNormal.venaSafenaExterna }}</td>
+                <td>{{ venosoNormal.diametroVSE }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('venosonormal_show', { 'id': venosoNormal.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('venosonormal_edit', { 'id': venosoNormal.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('venosonormal_new') }}">Create a new venosoNormal</a>
+        </li>
+    </ul>
+{% endblock %}

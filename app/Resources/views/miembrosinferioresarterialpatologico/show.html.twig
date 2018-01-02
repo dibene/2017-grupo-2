@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Miembrosinferioresarterialpatologico</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ miembrosInferioresArterialPatologico.id }}</td>
+            </tr>
+            <tr>
+                <th>Extension</th>
+                <td>{{ miembrosInferioresArterialPatologico.extension }}</td>
+            </tr>
+            <tr>
+                <th>Velocidades</th>
+                <td>{{ miembrosInferioresArterialPatologico.velocidades }}</td>
+            </tr>
+            <tr>
+                <th>Indicepreestenosisestenosis</th>
+                <td>{{ miembrosInferioresArterialPatologico.indicePreEstenosisEstenosis }}</td>
+            </tr>
+            <tr>
+                <th>Arteriafemoralcomun</th>
+                <td>{{ miembrosInferioresArterialPatologico.arteriaFemoralComun }}</td>
+            </tr>
+            <tr>
+                <th>Arteriafemoralsuperficial</th>
+                <td>{{ miembrosInferioresArterialPatologico.arteriaFemoralSuperficial }}</td>
+            </tr>
+            <tr>
+                <th>Arteriapoplitea</th>
+                <td>{{ miembrosInferioresArterialPatologico.arteriaPoplitea }}</td>
+            </tr>
+            <tr>
+                <th>Arteriatibialanterior</th>
+                <td>{{ miembrosInferioresArterialPatologico.arteriaTibialAnterior }}</td>
+            </tr>
+            <tr>
+                <th>Arteriatibialposterior</th>
+                <td>{{ miembrosInferioresArterialPatologico.arteriaTibialPosterior }}</td>
+            </tr>
+            <tr>
+                <th>Arteriaperonea</th>
+                <td>{{ miembrosInferioresArterialPatologico.arteriaPeronea }}</td>
+            </tr>
+            <tr>
+                <th>Arteria</th>
+                <td>{{ miembrosInferioresArterialPatologico.arteria }}</td>
+            </tr>
+            <tr>
+                <th>Flujosdistales</th>
+                <td>{{ miembrosInferioresArterialPatologico.flujosDistales }}</td>
+            </tr>
+            <tr>
+                <th>Circulacioncolateral</th>
+                <td>{{ miembrosInferioresArterialPatologico.circulacionColateral }}</td>
+            </tr>
+            <tr>
+                <th>Indicetobillobrazoderecho</th>
+                <td>{{ miembrosInferioresArterialPatologico.indiceTobilloBrazoDerecho }}</td>
+            </tr>
+            <tr>
+                <th>Indicetobillobrazoizquierdo</th>
+                <td>{{ miembrosInferioresArterialPatologico.indiceTobilloBrazoIzquierdo }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('miembrosinferioresarterialpatologico_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('miembrosinferioresarterialpatologico_edit', { 'id': miembrosInferioresArterialPatologico.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

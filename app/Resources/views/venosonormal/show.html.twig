@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Venosonormal</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ venosoNormal.id }}</td>
+            </tr>
+            <tr>
+                <th>Venasafenainterna</th>
+                <td>{{ venosoNormal.venaSafenaInterna }}</td>
+            </tr>
+            <tr>
+                <th>Diametrovsi</th>
+                <td>{{ venosoNormal.diametroVSI }}</td>
+            </tr>
+            <tr>
+                <th>Venasafenaexterna</th>
+                <td>{{ venosoNormal.venaSafenaExterna }}</td>
+            </tr>
+            <tr>
+                <th>Diametrovse</th>
+                <td>{{ venosoNormal.diametroVSE }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('venosonormal_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('venosonormal_edit', { 'id': venosoNormal.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

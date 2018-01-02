@@ -1,0 +1,369 @@
+
+<h3  class="red-text"> Estudio {{ estudio.estudioConfiguracion.nombre }}</h3>
+
+<h3> Datos del Medico </h3>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Matricula</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ medico.nombre }}</td>
+      <td>{{ medico.apellido }}</td>
+      <td>{{ medico.matricula }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3> Datos del Paciente </h3>
+<table class="stripped">
+    <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Dni</th>
+          <th>Direccion</th>
+          <th>Sexo</th>
+          <th>Nacionalidad</th>
+          <th>Localidad</th>
+          <th>Fecha de Nacimiento</th>
+            <th>Obra Social</th>
+            <th>Fecha de Ingreso</th>
+            <th>Internacion</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>{{ paciente.nombre }}</td>
+          <td>{{ paciente.apellido }}</td>
+          <td>{{ paciente.dni }}</td>
+          <td>{{ paciente.direccion }}</td>
+          <td>{{ paciente.sexo }}</td>
+          <td>{{ paciente.nacionalidad }}</td>
+          <td>{{ paciente.localidad }}</td>
+          <td>{% if paciente.fechaNacimiento %}{{ paciente.fechaNacimiento|date('Y-m-d') }}{% endif %}</td>
+            <td>{{ paciente.obraSocial }}</td>
+            <td>{% if paciente.fechaIngreso %}{{ paciente.fechaIngreso|date('Y-m-d') }}{% endif %}</td>
+            <td>{{ paciente.internacion }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<table>
+</tr>
+<tr>
+    <th>Situs</th>
+    <td>{{ estudio.situs }}</td>
+</tr>
+<tr>
+    <th>Conexionauriculoventricular</th>
+    <td>{{ estudio.conexionAuriculoventricular }}</td>
+</tr>
+<tr>
+    <th>Conexionventriculoarterial</th>
+    <td>{{ estudio.conexionVentriculoArterial }}</td>
+</tr>
+</table>
+
+
+<table style="width:50%;   border: 1px solid black;">
+  tabla 1: valores bidimensionales
+
+  <thead>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Ddvi</td>
+      <td>{{ estudio.ddvi }}</td>
+      <td>Alarea</td>
+      <td>{{ estudio.alArea }}</td>
+    </tr>
+    <tr>
+      <td>Dsvi</td>
+      <td>{{ estudio.dsvi }}</td>
+      <td>Alvol</td>
+      <td>{{ estudio.alVol }}</td>
+    </tr>
+    <tr>
+      <td>Siv</td>
+      <td>{{ estudio.siv }}</td>
+      <td>Aorta</td>
+      <td>{{ estudio.aorta }}</td>
+    </tr>
+    <tr>
+      <td>Pp</td>
+      <td>{{ estudio.pp }}</td>
+      <td>Apvao</td>
+      <td>{{ estudio.apVao }}</td>
+    </tr>
+    <tr>
+      <td>Fey</td>
+      <td>{{ estudio.fey }}</td>
+      <td>Tsvi</td>
+      <td>{{ estudio.tsvi }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+tabla 2: Valores Doppel
+<table style="width:75%;   border: 1px solid black;">
+  <tr>
+    <td>Velmaxao</td>
+    <td>{{ estudio.velMaxAo }}</td>
+    <td>Velondae</td>
+    <td>{{ estudio.velOndaE }}</td>
+    <td>Velmaxpulmonar</td>
+    <td>{{ estudio.velMaxPulmonar }}</td>
+    <td>Insuficienciatricuspide</td>
+    <td>{{ estudio.insuficienciaTricuspide }}</td>
+  </tr>
+  <tr>
+    <td>Gradmaxao</td>
+    <td>{{ estudio.gradMaxAo }}</td>
+    <td>Velondaa</td>
+    <td>{{ estudio.velOndaA }}</td>
+    <td>Gradmaxpulomonar</td>
+    <td>{{ estudio.gradMaxPulomonar }}</td>
+    <td>Velregurgitante</td>
+    <td>{{ estudio.velRegurgitante }}</td>
+  </tr>
+  <tr>
+    <td>Gradmedao</td>
+    <td>{{ estudio.gradMedAo }}</td>
+    <td>Gradmedioatrasmitral</td>
+    <td>{{ estudio.gradMedioaTrasmitral }}</td>
+    <td>Insuficiencia_pulmonar</td>
+    <td>{{ estudio.insuficienciapulmonar }}</td>
+    <td>Gradpico</td>
+    <td>{{ estudio.gradPico }}</td>
+  </tr>
+  <tr>
+    <td>Insuficiencia</td>
+    <td>{{ estudio.insuficiencia }}</td>
+    <td>Insuficienciatrasmitral</td>
+    <td>{{ estudio.insuficienciaTrasmitral }}</td>
+    <td>Tpopico</td>
+    <td>{{ estudio.tpoPico }}</td>
+    <td>Pap</td>
+    <td>{{ estudio.pap }}</td>
+  </tr>
+  <tr>
+    <td>Thp</td>
+    <td>{{ estudio.thp }}</td>
+    <td>Ore</td>
+    <td>{{ estudio.ore }}</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Adt</td>
+    <td>{{ estudio.adt }}</td>
+    <td>Volregurgitante</td>
+    <td>{{ estudio.volRegurgitante }}</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Aa</td>
+    <td>{{ estudio.aa }}</td>
+    <td>Dpdt</td>
+    <td>{{ estudio.dpdt }}</td>
+    <td>Qpqs</td>
+    <td>{{ estudio.qpqs }}</td>
+    <td>Pad</td>
+    <td>{{ estudio.pad }}</td>
+  </tr>
+</table>
+
+tabla 3: Valores Doppler Tisular
+<table style="width:50%;   border: 1px solid black;">
+            <tr>
+                <td>Onda s septal</td>
+                <td>{{ estudio.ondaSeptal }}</td>
+                <td>Onda s vd</td>
+                <td>{{ estudio.ondaVd }}</td>
+            </tr>
+            <tr>
+                <td>Onda s lateral</td>
+                <td>{{ estudio.ondaLateral }}</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Onda e</td>
+                <td>{{ estudio.ondaE }}</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Onda a</td>
+                <td>{{ estudio.ondaA }}</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Relacion e/e</td>
+                <td>{{ estudio.relacionE }}</td>
+                <td></td>
+                <td></td>
+            </tr>
+</table>
+
+
+<table>
+  <tr>
+    <td>     <p class="red-text  "> VENTRICULO IZQUIERDO </p></td>
+
+  </tr>
+            <tr>
+                <td>Ventriculoizql1</td>
+                <td>{% if estudio.ventriculoIzqL1 %}{{ estudio.ventriculoIzqL1|join(', ') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <td>Ventriculoizql2</td>
+                <td>{% if estudio.ventriculoIzqL2 %}{{ estudio.ventriculoIzqL2|join(', ') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <td>Ventriculoizql3</td>
+                <td>{% if estudio.ventriculoIzqL3 %}{{ estudio.ventriculoIzqL3|join(', ') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <td>Ventriculoizql1imvi</td>
+                <td>{{ estudio.ventriculoIzqL1Imvi }}</td>
+            </tr>
+            <tr>
+                <td>Ventriculoizql1epr</td>
+                <td>{{ estudio.ventriculoIzqL1Epr }}</td>
+            </tr>
+            <tr>
+                <td>Ventriculoizql4c1</td>
+                <td>{{ estudio.ventriculoIzqL4C1 }}</td>
+            </tr>
+            <tr>
+              <td>
+              <p class="red-text  "> RAIZ DE AORTA: </p>
+              </td>
+            </tr>
+
+            <tr>
+                <td>Raizaortal1</td>
+                <td>{% if estudio.raizAortaL1 %}{{ estudio.raizAortaL1|join(', ') }}{% endif %}</td>
+            </tr>
+            <tr>
+              <td>            <p class="red-text  "> AORTA: </p>
+              </td>
+            </tr>
+            <tr>
+                <td>Aortal1</td>
+                <td>{% if estudio.aortaL1 %}{{ estudio.aortaL1|join(', ') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <td>Aortal2</td>
+                <td>{% if estudio.aortaL2 %}{{ estudio.aortaL2|join(', ') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <td>Aortal3</td>
+                <td>{% if estudio.aortaL3 %}{{ estudio.aortaL3|join(', ') }}{% endif %}</td>
+            </tr>
+            <tr>
+              <td>
+            <p class="red-text  "> VALVULA MITRAL:</p>
+          </td>
+        </tr>
+            <tr>
+                <td>Valvulamitrall1</td>
+                <td>{% if estudio.valvulaMitralL1 %}{{ estudio.valvulaMitralL1|join(', ') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <td>Valvulamitrall2</td>
+                <td>{% if estudio.valvulaMitralL2 %}{{ estudio.valvulaMitralL2|join(', ') }}{% endif %}</td>
+            </tr>
+            <tr>
+              <td>
+            <p class="red-text  ">AURICULA IZQUIERDA </p>
+          </td>
+        </tr>
+            <tr>
+                <td>Auriculaizql1</td>
+                <td>{% if estudio.auriculaIzqL1 %}{{ estudio.auriculaIzqL1|join(', ') }}{% endif %}</td>
+            </tr>
+            <tr>
+              <td>
+            <p class="red-text  ">VALVULA PULMONAR </p>
+          </td>
+        </tr>
+            <tr>
+                <td>Valvulapulmonarl1</td>
+                <td>{% if estudio.valvulaPulmonarL1 %}{{ estudio.valvulaPulmonarL1|join(', ') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <td>Valvulapulmonarl2</td>
+                <td>{% if estudio.valvulaPulmonarL2 %}{{ estudio.valvulaPulmonarL2|join(', ') }}{% endif %}</td>
+            </tr>
+            <tr>
+              <td>
+            <p class="red-text  ">VALVULA TRICUSPIDE </p>
+          </td>
+        </tr>
+            <tr>
+                <td>Valvulatricuspidel1</td>
+                <td>{% if estudio.valvulatricuspideL1 %}{{ estudio.valvulatricuspideL1|join(', ') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <td>Valvulatricuspidel2</td>
+                <td>{% if estudio.valvulatricuspideL2 %}{{ estudio.valvulatricuspideL2|join(', ') }}{% endif %}</td>
+            </tr>
+            <tr>
+              <td>
+            <p class="red-text  "> CAVIDADES DERECHAS:</p>
+          </td>
+        </tr>
+            <tr>
+                <td>Cavidadderechal1c1</td>
+                <td>{{ estudio.cavidadDerechaL1C1 }}</td>
+            </tr>
+            <tr>
+                <td>Cavidadderechal1c2</td>
+                <td>{{ estudio.cavidadDerechaL1C2 }}</td>
+            </tr>
+            <tr>
+                <td>Cavidadderechal1c3</td>
+                <td>{{ estudio.cavidadDerechaL1C3 }}</td>
+            </tr>
+            <tr>
+              <td>
+            <p class="red-text  ">VENA CAVA INFERIOR </p>
+          </td>
+        </tr>
+            <tr>
+                <td>Venacavainferiorl1</td>
+                <td>{% if estudio.venaCavaInferiorL1 %}{{ estudio.venaCavaInferiorL1|join(', ') }}{% endif %}</td>
+            </tr>
+            <tr>
+              <td>
+            <p class="red-text  "> PERICARDIO</p>
+          </td>
+        </tr>
+            <tr>
+                <td>Pericardiol1</td>
+                <td>{% if estudio.pericardioL1 %}{{ estudio.pericardioL1|join(', ') }}{% endif %}</td>
+            </tr>
+            <tr>
+              <td>
+            <p class="red-text  "> CONCLUSIONES</p>
+          </td>
+        </tr>
+            <tr>
+                <td>Conclusionl1</td>
+                <td>{% if estudio.conclusionL1 %}{{ estudio.conclusionL1|join(', ') }}{% endif %}</td>
+            </tr>
+    </table>
