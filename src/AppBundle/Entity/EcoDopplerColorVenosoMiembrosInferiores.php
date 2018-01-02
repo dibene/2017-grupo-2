@@ -21,17 +21,6 @@ class EcoDopplerColorVenosoMiembrosInferiores extends Estudio
      */
     private $id;
 
-
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
     public function __construct($medico,$paciente , $entityManager) {
       parent::__construct();
         //  $entityManager = $event->getEntityManager();
