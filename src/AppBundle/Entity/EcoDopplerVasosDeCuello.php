@@ -34,8 +34,15 @@ class EcoDopplerVasosDeCuello extends Estudio
      */
      private $resultados;
 
-     public function __construct() {
-         $this->resultados = new ArrayCollection();
+     public function __construct($medico,$paciente , $entityManager) {
+       parent::__construct();
+       $this->resultados = new ArrayCollection();
+
+     //  $entityManager = $event->getEntityManager();
+       $configuracion = $entityManager->getRepository('AppBundle:EstudioConfiguracion')->find(13);
+       parent::setEstudioConfiguracion($configuracion);
+       parent::setPaciente($paciente);
+       parent::setMedico($medico);
      }
 
 

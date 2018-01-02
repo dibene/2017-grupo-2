@@ -31,9 +31,9 @@ class VenosoNormal extends Estudio
     /**
      * @var integer
      *
-     * @ORM\Column(name="diametro", type="integer", nullable=false)
+     * @ORM\Column(name="diametro_VSI", type="integer", nullable=false)
      */
-    private $diametro;
+    private $diametroVSI;
 
     /**
      * @var integer
@@ -42,7 +42,21 @@ class VenosoNormal extends Estudio
      */
     private $venaSafenaExterna;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="diametro_VSE", type="integer", nullable=false)
+     */
+    private $diametroVSE;
 
+    public function __construct($medico,$paciente , $entityManager) {
+      parent::__construct();
+    //  $entityManager = $event->getEntityManager();
+      $configuracion = $entityManager->getRepository('AppBundle:EstudioConfiguracion')->find(21);
+      parent::setEstudioConfiguracion($configuracion);
+      parent::setPaciente($paciente);
+      parent::setMedico($medico);
+    }
     /**
      * Set venaSafenaInterna
      *

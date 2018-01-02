@@ -1,0 +1,173 @@
+en general
+ -falta paginar
+
+-sobre usuarios
+  -falta
+        - hecho (cuando se registra un usuario no tiene rol, no puede ver nada mas q agregar los datos del medico
+        al agregar los datos del medico se le asigna rol medico y puede tener las opciones,
+        si sale del sistema y vuelve a entrar solo tiene la posibilidad de entrar a su perfil para cargar los datos personales de medico. HECHO)
+   - hecho  TOMAS arreglar el sexo como lo hiceron con pacientes (LISTO)
+   -hecho restringir todas las rutas q falten ( cuando terminen de hacerse todas las paginas)
+         `LISTO para estudios... Repasar despues cuales faltarian
+    opciones de administrador(cuales van a ser?)
+      perfiles de usuario?
+
+duda
+  habria q sacarlo  7. El sistema debe permitir deshabilitar el acceso al sistema por parte de un Médico. (desahbilitar el sitio?)
+    listar los Médicos , solo para administrador o los medicos tambien pueden verlo?
+     busqueda por fecha de un estudio => en lista de pacientes buscar por fecha de estudios ? medio incoerente, y si fuera en lsita de estudios ? tendria q haber lista de estudios de todos los estudios ? :S
+     HECHO - busqueda en estudios por fecha y nombre de estudio
+
+-sobre paciente
+  medico cabecera  -> string
+  20/12 21:22 modificar -> donde dice agregar estudio, hay q ver si con ese link muestra los estudios a agregar y los estudios q se hizo el paciente o solo los estudios a agregar entonces hay q agregar otro link q diga estudios echos,
+  o mostrar un link de estudios hechos y dnetro de ese tener la posibilidad de agregarle como es ahora
+  aparte seprar como en paciente con botones etc
+
+  - dudas
+  Ambulatorio/Internado (tildar)
+  Fecha
+
+
+-sobre estudios
+  - dudas
+  Estadísticas: ( no hay info de nada) solo esto
+                              Fecha  RANGO DE FECHAS
+                              Tipo de estudio    CANTIDAD DE ESTUDIOS POR TIPO
+                              Diagnostico final  DIAGNOSTICOS PRECARGADOS
+                              Edad   RANGO
+                              Ambulatorio o internado   2 OPCIONES
+                              Localidad 2 OPCIONES
+  en un archivo dice ( Al finalizar cualquier tipo de estudio debería existir un deplagable con opciones diagnosticas  (que sirva para estadística pero que NO salga en el informe final), con la opción de tildar 2 :  )
+  15. El sistema debe permitir el Alta y Modificación del listado de Diagnósticos Finales.
+
+  16. El sistema debe permitir Alta y Modificación de diagnósticos por cada parte de Órganos
+
+  - falta
+    (en general ver bien los campos-> ver bien nombres conclusion / observacion  RESULTADO ?)
+    NO HAY CAMPOS OBLIGATORIOS acomodar en todos los estudios, en la base de datos
+
+    estudio ECOCARDIOGRAMA 2D Y DOPPLER COLOR => en general esta, falta acomodar todos los campos (lo mas importante si son muchos estudios de este seria las listas ponerlas en bd por ahora seria solo texto)
+
+    los estudios simples q son todos iguales corregirlos como el de aorta abdominal alteromatosa q es el mas completo e igual al resto
+
+    algunas verificaciones en campos
+
+       - TODO TOMAS  exportar a pdf para imprimir
+
+Eco Doppler Vasos de Cuello
+      Se debe permitir seleccionar uno de los cinco resultados posible:
+      -Carot 0 1 2 3 4 (a q se refiere con esto ) los archivos dicen resultados / conclusiones
+      es probable q solo tenga resultado y conclusiones string
+      la mayoria tienen la siguiente nota
+        Nota:
+          No informamos estenosis menores de 50% debido a su mala repetitividad y pobre
+          correlación con angiografia.
+
+
+
+EcoCardiograma para Valoración de   Disincronía
+  Se debe permitir completar con valores los siguientes atributos:
+    -Retraso septal-PP ( < 130 ms).
+    -Tiempo al pico sistólico (< 65ms).
+    -Tiempo al pico de deformación ( < 130ms).
+    -Diferencia entre los períodos pre eyectivos (ms).
+    -Duración total de R-R (%).
+
+(Eco Doppler Color Venoso de Miembros Inferiores
+    archivo mapeo lado derecho lado izquierdo -> igual q el q dice venoso normal, mapeo venoso, gp venoso(VER) hay 3 hay otros mmii solo con resultado y conclusion
+      -E  -D  -C  -Venoso de MMII 0 al 3
+
+Eco Doppler Color Arterial de Miembros  Inferiores
+    Lado Derecho y Lado izquierdo debe permitir completar con valores los siguientes atributos:
+    -ArteriaFemoral Común
+    -Arteria Femoral Superficial
+    -Arteria Poplítea
+    -Arteria Tibial Anterior
+    -Arteria Tibial Posterior.)  DUDA arterial y venoso son iguales ? pareciera..
+
+
+Cardio Resonancia (entidad creada) (terminada para revision)
+      Se debe permitir completar con datos los siguientes atributos:
+      CAVIDADES IZQUIERDAS
+      VENTRICULO IZQUIERDO
+      descripcion
+      DTDVI:  mm (index mm/M2)
+       DTSVI:  mm (index mm/M2)
+      VFD:  ml (index ml/M2)
+       VFS:  ml (index ml/M2)
+      FAc:  %
+      FEVI : %
+      Septum:  mm
+      PP:  mm
+      Masa VI: gr (index gr/m2)
+
+      PLANIMETRIA DE AI
+      Area AI: cm (index cm/m2)
+      Volumen de AI: ml (index ml/m2)
+      4 CAMARAS:    mm
+
+      CAVIDADES DERECHAS
+        VENTRICULO DERECHO
+      TAPSE LATERAL: mm
+         VFD:  ml (index ml/M2)
+         VFS:  ml (index ml/M2)
+        FEVD: %
+      Diametros:
+      Longitudinal:   cm
+      Anillo tricuspideo: cm
+      Transversal subtricuspideo:  cm
+      Transversal medio:  cm
+      TSVD:
+
+      PLANIMETRIA AURICULA DERECHA:
+      Area AD: cm (index cm/m2)
+      Volumen de AD: ml (index ml/m2)
+      4 CAMARAS:    mm
+
+
+Miembros Inferiores Arterial Patológico
+  -Médico de Cabecera.
+  -Extensión (mm).
+  -Velocidades(cm/seg).
+  -Índice pre estenosis-estenosis, estenosis (%).
+   	-Arteria Femoral Común.
+  -Arteria Femoral Superficial.
+  -Arteria Poplítea.
+  -Arteria Tibial Anterior.
+  -Arteria Tibial Posterior.
+  -Arteria Peronèa.
+  -Arteria.
+  -Flujos distales.
+  -Circulación colateral.
+  -Índice Tobillo Brazo Derecho.
+  -Índice Tobillo Brazo Izquierdo.
+
+Miembros Superiores Arterial Normal
+    -Extensión aproximada (mm).
+    -Velocidad Pico Sistólica (cm/seg).
+    -Índice de Pre-Estenosis.
+    -Estenosis (%).
+    -Flujos distales.
+    -Características.
+    - Arteria.
+
+Eco Estrés
+    -Informe 1 Normal.
+    -Informe 2 Normal.
+    -Informe Respuesta Isquémica 1.
+    -Informe 3 Infarto Sin Isquemia.
+    -Informe 4 Infarto sin isquemia.
+    -Informe 5 Estenosis Aortica Severa Asintomatica.
+    -Informe Estrés MCH.
+    -Informe Isquemia 1.
+    -Informe Insuficiencia Mitral.
+    -Informe Dobutamina Normal.
+    -Informe Dobutamina Necrosis Sin Isquemia.
+
+Venoso Normal
+faltan mas cosas
+  -Vena Safena Interna.
+  -Diámetro (mm).
+  -Vena Safena Externa.
+  -Diámetro (mm).

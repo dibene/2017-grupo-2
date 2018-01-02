@@ -55,6 +55,15 @@ class EcocardiogramaValoracionDisincronia extends Estudio
      * @ORM\Column(name="duracion_total_de_r_r", type="integer", nullable=false)
      */
     private $duracionTotalDeRR;
+    
+    public function __construct($medico,$paciente , $entityManager) {
+      parent::__construct();
+    //  $entityManager = $event->getEntityManager();
+      $configuracion = $entityManager->getRepository('AppBundle:EstudioConfiguracion')->find(15);
+      parent::setEstudioConfiguracion($configuracion);
+      parent::setPaciente($paciente);
+      parent::setMedico($medico);
+    }
 
     /**
      * Set retrasoSeptalPp

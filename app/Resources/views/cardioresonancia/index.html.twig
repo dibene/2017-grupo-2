@@ -1,16 +1,39 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Cardio Resonancia</h1>
+    <h1>Cardioresonancias list</h1>
 
     <table>
         <thead>
             <tr>
-                <th>Paciente</th>
+                <th>Id</th>
+                <th>Protocolo</th>
+                <th>Descripcionvi</th>
                 <th>Dtdvi</th>
                 <th>Dtsvi</th>
                 <th>Vfd</th>
                 <th>Vfs</th>
+                <th>Fac</th>
+                <th>Fevi</th>
+                <th>Septum</th>
+                <th>Pp</th>
+                <th>Masavi</th>
+                <th>Areaai</th>
+                <th>Volumenai</th>
+                <th>Cuatrocamarasai</th>
+                <th>Tapselateral</th>
+                <th>Vfdvd</th>
+                <th>Vfsvd</th>
+                <th>Fevd</th>
+                <th>Longitudinal</th>
+                <th>Anillotricuspideo</th>
+                <th>Transversalsubtricuspideo</th>
+                <th>Transversalmedio</th>
+                <th>Tsvd</th>
+                <th>Areaad</th>
+                <th>Volumenad</th>
+                <th>Cuatrocamarasad</th>
+                <th>Secuencias</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -18,17 +41,40 @@
         {% for cardioResonancium in cardioResonancias %}
             <tr>
                 <td><a href="{{ path('cardioresonancia_show', { 'id': cardioResonancium.id }) }}">{{ cardioResonancium.id }}</a></td>
+                <td>{{ cardioResonancium.protocolo }}</td>
+                <td>{{ cardioResonancium.descripcionVI }}</td>
                 <td>{{ cardioResonancium.dtdvi }}</td>
                 <td>{{ cardioResonancium.dtsvi }}</td>
                 <td>{{ cardioResonancium.vfd }}</td>
                 <td>{{ cardioResonancium.vfs }}</td>
+                <td>{{ cardioResonancium.fac }}</td>
+                <td>{{ cardioResonancium.fevi }}</td>
+                <td>{{ cardioResonancium.septum }}</td>
+                <td>{{ cardioResonancium.pp }}</td>
+                <td>{{ cardioResonancium.masaVI }}</td>
+                <td>{{ cardioResonancium.areaAI }}</td>
+                <td>{{ cardioResonancium.volumenAI }}</td>
+                <td>{{ cardioResonancium.cuatroCamarasAI }}</td>
+                <td>{{ cardioResonancium.tapseLateral }}</td>
+                <td>{{ cardioResonancium.vfdVD }}</td>
+                <td>{{ cardioResonancium.vfsVD }}</td>
+                <td>{{ cardioResonancium.fevd }}</td>
+                <td>{{ cardioResonancium.longitudinal }}</td>
+                <td>{{ cardioResonancium.anilloTricuspideo }}</td>
+                <td>{{ cardioResonancium.transversalSubtricuspideo }}</td>
+                <td>{{ cardioResonancium.transversalMedio }}</td>
+                <td>{{ cardioResonancium.tsvd }}</td>
+                <td>{{ cardioResonancium.areaAD }}</td>
+                <td>{{ cardioResonancium.volumenAD }}</td>
+                <td>{{ cardioResonancium.cuatroCamarasAD }}</td>
+                <td>{{ cardioResonancium.secuencias }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('cardioresonancia_show', { 'id': cardioResonancium.id }) }}">Ver</a>
+                            <a href="{{ path('cardioresonancia_show', { 'id': cardioResonancium.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('cardioresonancia_edit', { 'id': cardioResonancium.id }) }}">Modificar</a>
+                            <a href="{{ path('cardioresonancia_edit', { 'id': cardioResonancium.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -39,7 +85,7 @@
 
     <ul>
         <li>
-            <a class="btn-floating btn-large waves-effect waves-light green" href="{{ path('cardioresonancia_new') }}"><i class="material-icons">library_add</i></a>Nuevo Estudio
+            <a href="{{ path('cardioresonancia_new') }}">Create a new cardioResonancium</a>
         </li>
     </ul>
 {% endblock %}

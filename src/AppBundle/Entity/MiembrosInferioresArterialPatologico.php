@@ -43,6 +43,92 @@ class MiembrosInferioresArterialPatologico extends Estudio
     private $indicePreEstenosisEstenosis;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="arteria_femoral_comun", type="integer", nullable=false)
+     */
+    private $arteriaFemoralComun;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="arteria_femoral_superficial", type="integer", nullable=false)
+     */
+    private $arteriaFemoralSuperficial;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="arteria_poplitea", type="integer", nullable=false)
+     */
+    private $arteriaPoplitea;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="arteria_tibial_anterior", type="integer", nullable=false)
+     */
+    private $arteriaTibialAnterior;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="arteria_tibial_posterior", type="integer", nullable=false)
+     */
+    private $arteriaTibialPosterior;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="arteria_peronea", type="integer", nullable=false)
+     */
+    private $arteriaPeronea;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="arteria", type="integer", nullable=false)
+     */
+    private $arteria;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="flujos_distales", type="integer", nullable=false)
+     */
+    private $flujosDistales;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="circulacion_colateral", type="integer", nullable=false)
+     */
+    private $circulacionColateral;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="indice_tobillo_brazo_derecho", type="integer", nullable=false)
+     */
+    private $indiceTobilloBrazoDerecho;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="indice_tobillo_brazo_izquierdo", type="integer", nullable=false)
+     */
+    private $indiceTobilloBrazoIzquierdo;
+
+
+    public function __construct($medico,$paciente , $entityManager) {
+      parent::__construct();
+    //  $entityManager = $event->getEntityManager();
+      $configuracion = $entityManager->getRepository('AppBundle:EstudioConfiguracion')->find(18);
+      parent::setEstudioConfiguracion($configuracion);
+      parent::setPaciente($paciente);
+      parent::setMedico($medico);
+    }
+    /**
      * Set extension
      *
      * @param integer $extension

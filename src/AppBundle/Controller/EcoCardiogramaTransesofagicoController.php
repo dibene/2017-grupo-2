@@ -10,7 +10,7 @@ use \Datetime;
 /**
  * Ecocardiogramatransesofagico controller.
  *
- * @Route("ecocardiogramatransesofagico")
+ * @Route("estudio/ecocardiogramatransesofagico")
  */
 class EcoCardiogramaTransesofagicoController extends Controller
 {
@@ -34,15 +34,16 @@ class EcoCardiogramaTransesofagicoController extends Controller
     /**
      * Creates a new ecoCardiogramaTransesofagico entity.
      *
-     * @Route("/new/{id}", name="ecocardiogramatransesofagico_new")
+     * @Route("/new/paciente/{id}", name="ecocardiogramatransesofagico_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request, $id)
     {
-      $configuracion = $this->getDoctrine()->getManager()->getRepository('AppBundle:EstudioConfiguracion')->find($id);
       $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($id);
-      $fecha = new Datetime(date("Y-m-d"));
-        $ecoCardiogramaTransesofagico = new Ecocardiogramatransesofagico($configuracion,$paciente,$fecha);
+      $user = $this->container->get('security.context')->getToken()->getUser();
+      $medico = $this->getDoctrine()->getManager()->getRepository('AppBundle:Medico')->findOneByUsuario($user->getId());
+
+        $ecoCardiogramaTransesofagico = new Ecocardiogramatransesofagico($medico, $paciente,$this->getDoctrine()->getManager());
         $form = $this->createForm('AppBundle\Form\EcoCardiogramaTransesofagicoType', $ecoCardiogramaTransesofagico);
         $form->handleRequest($request);
 
@@ -51,11 +52,15 @@ class EcoCardiogramaTransesofagicoController extends Controller
             $em->persist($ecoCardiogramaTransesofagico);
             $em->flush();
 
-            return $this->redirectToRoute('ecocardiogramatransesofagico_show', array('id' => $ecoCardiogramaTransesofagico->getId()));
+            return $this->redirectToRoute('ecocardiogramatransesofagico_show', array('id' => $ecoCardiogramaTransesofagico->getId(),
+          'idPaciente' => $paciente->getId(),
+          'medico' => $medico,
+          'paciente' => $paciente,
+          'estudio' => $ecoCardiogramaTransesofagico));
         }
-
         return $this->render('ecocardiogramatransesofagico/new.html.twig', array(
-            'ecoCardiogramaTransesofagico' => $ecoCardiogramaTransesofagico,
+            'estudio' => $ecoCardiogramaTransesofagico,
+            'paciente' => $paciente,
             'form' => $form->createView(),
         ));
     }
@@ -63,15 +68,20 @@ class EcoCardiogramaTransesofagicoController extends Controller
     /**
      * Finds and displays a ecoCardiogramaTransesofagico entity.
      *
-     * @Route("/{id}", name="ecocardiogramatransesofagico_show")
+     * @Route("/{id}/paciente/{idPaciente}", name="ecocardiogramatransesofagico_show")
      * @Method("GET")
      */
-    public function showAction(EcoCardiogramaTransesofagico $ecoCardiogramaTransesofagico)
+    public function showAction(EcoCardiogramaTransesofagico $ecoCardiogramaTransesofagico, $idPaciente)
     {
         $deleteForm = $this->createDeleteForm($ecoCardiogramaTransesofagico);
+        $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($idPaciente);
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        $medico = $this->getDoctrine()->getManager()->getRepository('AppBundle:Medico')->findOneByUsuario($user->getId());
 
         return $this->render('ecocardiogramatransesofagico/show.html.twig', array(
-            'ecoCardiogramaTransesofagico' => $ecoCardiogramaTransesofagico,
+            'estudio' => $ecoCardiogramaTransesofagico,
+            'paciente' => $paciente,
+            'medico' => $medico,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -79,23 +89,30 @@ class EcoCardiogramaTransesofagicoController extends Controller
     /**
      * Displays a form to edit an existing ecoCardiogramaTransesofagico entity.
      *
-     * @Route("/{id}/edit", name="ecocardiogramatransesofagico_edit")
+     * @Route("/{id}/edit/paciente/{idPaciente}", name="ecocardiogramatransesofagico_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, EcoCardiogramaTransesofagico $ecoCardiogramaTransesofagico)
+    public function editAction(Request $request, EcoCardiogramaTransesofagico $ecoCardiogramaTransesofagico ,  $idPaciente)
     {
         $deleteForm = $this->createDeleteForm($ecoCardiogramaTransesofagico);
         $editForm = $this->createForm('AppBundle\Form\EcoCardiogramaTransesofagicoType', $ecoCardiogramaTransesofagico);
         $editForm->handleRequest($request);
+        $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($idPaciente);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('ecocardiogramatransesofagico_edit', array('id' => $ecoCardiogramaTransesofagico->getId()));
+            return $this->redirectToRoute('ecocardiogramatransesofagico_edit', array('id' => $ecoCardiogramaTransesofagico->getId(),
+            'estudio' => $ecoCardiogramaTransesofagico,
+            'paciente' => $paciente,
+            'idPaciente' => $paciente->getId()
+          ));
         }
 
         return $this->render('ecocardiogramatransesofagico/edit.html.twig', array(
-            'ecoCardiogramaTransesofagico' => $ecoCardiogramaTransesofagico,
+          'estudio' => $ecoCardiogramaTransesofagico,
+          'paciente' => $paciente,
+          'idPaciente' => $paciente->getId(),
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));

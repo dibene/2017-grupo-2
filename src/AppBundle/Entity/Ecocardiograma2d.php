@@ -24,301 +24,301 @@ class Ecocardiograma2d extends Estudio
     /**
      * @var text
      *
-     * @ORM\Column(name="situs", type="text", nullable=false)
+     * @ORM\Column(name="situs", type="text", nullable=true)
      */
     private $situs;
 
     /**
      * @var text
      *
-     * @ORM\Column(name="conexion_auriculoventricular", type="text", nullable=false)
+     * @ORM\Column(name="conexion_auriculoventricular", type="text", nullable=true)
      */
     private $conexionAuriculoventricular;
 
     /**
      * @var text
      *
-     * @ORM\Column(name="conexion_ventriculo_arterial", type="text", nullable=false)
+     * @ORM\Column(name="conexion_ventriculo_arterial", type="text", nullable=true)
      */
     private $conexionVentriculoArterial;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="ddvi", type="integer", nullable=false)
+     * @ORM\Column(name="ddvi", type="integer", nullable=true)
      */
     private $ddvi;
 
         /**
      * @var integer
      *
-     * @ORM\Column(name="dsvi", type="integer", nullable=false)
+     * @ORM\Column(name="dsvi", type="integer", nullable=true)
      */
     private $dsvi;
 
         /**
      * @var integer
      *
-     * @ORM\Column(name="siv", type="integer", nullable=false)
+     * @ORM\Column(name="siv", type="integer", nullable=true)
      */
     private $siv;
 
         /**
      * @var integer
      *
-     * @ORM\Column(name="pp", type="integer", nullable=false)
+     * @ORM\Column(name="pp", type="integer", nullable=true)
      */
     private $pp;
 
         /**
      * @var integer
      *
-     * @ORM\Column(name="fey", type="integer", nullable=false)
+     * @ORM\Column(name="fey", type="integer", nullable=true)
      */
     private $fey;
 
         /**
      * @var integer
      *
-     * @ORM\Column(name="al_area", type="integer", nullable=false)
+     * @ORM\Column(name="al_area", type="integer", nullable=true)
      */
     private $alArea;
 
         /**
      * @var integer
      *
-     * @ORM\Column(name="al_vol", type="integer", nullable=false)
+     * @ORM\Column(name="al_vol", type="integer", nullable=true)
      */
     private $alVol;
 
         /**
      * @var integer
      *
-     * @ORM\Column(name="aorta", type="integer", nullable=false)
+     * @ORM\Column(name="aorta", type="integer", nullable=true)
      */
     private $aorta;
 
         /**
      * @var integer
      *
-     * @ORM\Column(name="ap_vao", type="integer", nullable=false)
+     * @ORM\Column(name="ap_vao", type="integer", nullable=true)
      */
     private $apVao;
 
         /**
      * @var integer
      *
-     * @ORM\Column(name="tsvi", type="integer", nullable=false)
+     * @ORM\Column(name="tsvi", type="integer", nullable=true)
      */
     private $tsvi;
 
         /**
      * @var integer
      *
-     * @ORM\Column(name="vel_max_ao", type="integer", nullable=false)
+     * @ORM\Column(name="vel_max_ao", type="integer", nullable=true)
      */
     private $velMaxAo;
 
             /**
      * @var integer
      *
-     * @ORM\Column(name="grad_max_ao", type="integer", nullable=false)
+     * @ORM\Column(name="grad_max_ao", type="integer", nullable=true)
      */
     private $gradMaxAo;
 
             /**
      * @var integer
      *
-     * @ORM\Column(name="grad_med_ao", type="integer", nullable=false)
+     * @ORM\Column(name="grad_med_ao", type="integer", nullable=true)
      */
     private $gradMedAo;
 
             /**
      * @var integer
      *
-     * @ORM\Column(name="insuficiencia", type="integer", nullable=false)
+     * @ORM\Column(name="insuficiencia", type="integer", nullable=true)
      */
     private $insuficiencia;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="thp", type="integer", nullable=false)
+     * @ORM\Column(name="thp", type="integer", nullable=true)
      */
     private $thp;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="adt", type="integer", nullable=false)
+     * @ORM\Column(name="adt", type="integer", nullable=true)
      */
     private $adt;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="aa", type="integer", nullable=false)
+     * @ORM\Column(name="aa", type="integer", nullable=true)
      */
     private $aa;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="vel_onda_e", type="integer", nullable=false)
+     * @ORM\Column(name="vel_onda_e", type="integer", nullable=true)
      */
     private $velOndaE;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="vel_onda_a", type="integer", nullable=false)
+     * @ORM\Column(name="vel_onda_a", type="integer", nullable=true)
      */
     private $velOndaA;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="grad_medio_trasmitral", type="integer", nullable=false)
+     * @ORM\Column(name="grad_medio_trasmitral", type="integer", nullable=true)
      */
     private $gradMedioaTrasmitral;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="insuficiencia_trasmitral", type="integer", nullable=false)
+     * @ORM\Column(name="insuficiencia_trasmitral", type="integer", nullable=true)
      */
     private $insuficienciaTrasmitral;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="ore", type="integer", nullable=false)
+     * @ORM\Column(name="ore", type="integer", nullable=true)
      */
     private $ore;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="vol_regurgitante", type="integer", nullable=false)
+     * @ORM\Column(name="vol_regurgitante", type="integer", nullable=true)
      */
     private $volRegurgitante;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="dpdt", type="integer", nullable=false)
+     * @ORM\Column(name="dpdt", type="integer", nullable=true)
      */
     private $dpdt;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="vel_max_pulmonar", type="integer", nullable=false)
+     * @ORM\Column(name="vel_max_pulmonar", type="integer", nullable=true)
      */
     private $velMaxPulmonar;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="grad_max_pulmonar", type="integer", nullable=false)
+     * @ORM\Column(name="grad_max_pulmonar", type="integer", nullable=true)
      */
     private $gradMaxPulomonar;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="insuficiencia_pulmonar", type="integer", nullable=false)
+     * @ORM\Column(name="insuficiencia_pulmonar", type="integer", nullable=true)
      */
     private $insuficiencia_pulmonar;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="tpo_pico", type="integer", nullable=false)
+     * @ORM\Column(name="tpo_pico", type="integer", nullable=true)
      */
     private $tpoPico;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="qpqs", type="integer", nullable=false)
+     * @ORM\Column(name="qpqs", type="integer", nullable=true)
      */
     private $qpqs;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="insuficiencia_tricuspide", type="integer", nullable=false)
+     * @ORM\Column(name="insuficiencia_tricuspide", type="integer", nullable=true)
      */
     private $insuficienciaTricuspide;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="vel_regurgitante", type="integer", nullable=false)
+     * @ORM\Column(name="vel_regurgitante", type="integer", nullable=true)
      */
     private $velRegurgitante;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="grad_pico", type="integer", nullable=false)
+     * @ORM\Column(name="grad_pico", type="integer", nullable=true)
      */
     private $gradPico;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="pap", type="integer", nullable=false)
+     * @ORM\Column(name="pap", type="integer", nullable=true)
      */
-    private $pap; 
+    private $pap;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="pad", type="integer", nullable=false)
+     * @ORM\Column(name="pad", type="integer", nullable=true)
      */
     private $pad;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="onda_septal", type="integer", nullable=false)
+     * @ORM\Column(name="onda_septal", type="integer", nullable=true)
      */
     private $ondaSeptal;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="onda_lateral", type="integer", nullable=false)
+     * @ORM\Column(name="onda_lateral", type="integer", nullable=true)
      */
     private $ondaLateral;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="onda_e", type="integer", nullable=false)
+     * @ORM\Column(name="onda_e", type="integer", nullable=true)
      */
     private $ondaE;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="onda_a", type="integer", nullable=false)
+     * @ORM\Column(name="onda_a", type="integer", nullable=true)
      */
     private $ondaA;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="relacion_e", type="integer", nullable=false)
+     * @ORM\Column(name="relacion_e", type="integer", nullable=true)
      */
     private $relacionE;
 
                 /**
      * @var integer
      *
-     * @ORM\Column(name="onda_vd", type="integer", nullable=false)
+     * @ORM\Column(name="onda_vd", type="integer", nullable=true)
      */
     private $ondaVd;
 
@@ -328,70 +328,40 @@ class Ecocardiograma2d extends Estudio
     /**
      * @var text
      *
-     * @ORM\Column(name="ventriculoIzq_l1_c1", type="text", nullable=false)
+     * @ORM\Column(name="ventriculoIzq_l1", type="array", nullable=true)
      */
-    private $ventriculoIzqL1C1;
+    private $ventriculoIzqL1;
 
 
 
     /**
      * @var text
      *
-     * @ORM\Column(name="ventriculoIzq_l1_c2", type="text", nullable=false)
+     * @ORM\Column(name="ventriculoIzq_l2", type="array", nullable=true)
      */
-    private $ventriculoIzqL1C2;
-
+    private $ventriculoIzqL2;
 
 
     /**
      * @var text
      *
-     * @ORM\Column(name="ventriculoIzq_l2_c1", type="text", nullable=false)
+     * @ORM\Column(name="ventriculoIzq_l3", type="array", nullable=true)
      */
-    private $ventriculoIzqL2C1;
-
+    private $ventriculoIzqL3;
 
 
     /**
      * @var text
      *
-     * @ORM\Column(name="ventriculoIzq_l2_c2", type="text", nullable=false)
-     */
-    private $ventriculoIzqL2C2;
-
-        
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="ventriculoIzq_l3_c1", type="text", nullable=false)
-     */
-    private $ventriculoIzqL3C1;
-
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="ventriculoIzq_l3_c2", type="text", nullable=false)
-     */
-    private $ventriculoIzqL3C2;
-
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="ventriculoIzq_l1_imvi", type="text", nullable=false)
+     * @ORM\Column(name="ventriculoIzq_l1_imvi", type="text", nullable=true)
      */
       private $ventriculoIzqL1Imvi;
 
 
-
     /**
      * @var text
      *
-     * @ORM\Column(name="ventriculoIzq_l1_epr", type="text", nullable=false)
+     * @ORM\Column(name="ventriculoIzq_l1_epr", type="text", nullable=true)
      */
     private $ventriculoIzqL1Epr;
 
@@ -400,7 +370,7 @@ class Ecocardiograma2d extends Estudio
     /**
      * @var text
      *
-     * @ORM\Column(name="ventriculoIzq_l4_c1", type="text", nullable=false)
+     * @ORM\Column(name="ventriculoIzq_l4_c1", type="text", nullable=true)
      */
     private $ventriculoIzqL4C1;
 
@@ -409,235 +379,97 @@ class Ecocardiograma2d extends Estudio
     /**
      * @var text
      *
-     * @ORM\Column(name="raizAorta_l1_c1", type="text", nullable=false)
+     * @ORM\Column(name="raizAorta_l1", type="array", nullable=true)
      */
-    private $raizAortaL1C1;
+    private $raizAortaL1;
 
 
 
     /**
      * @var text
      *
-     * @ORM\Column(name="raizAorta_l1_c2", type="text", nullable=false)
+     * @ORM\Column(name="aorta_l1", type="array", nullable=true)
      */
-    private $raizAortaL1C2;
+    private $aortaL1;
+
+
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="aorta_l2", type="array", nullable=true)
+     */
+    private $aortaL2;
+
+
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="aorta_l3", type="array", nullable=true)
+     */
+    private $aortaL3;
+
+
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="valvula_mitral_l1", type="array", nullable=true)
+     */
+    private $valvulaMitralL1;
+
+
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="valvula_mitral_l2", type="array", nullable=true)
+     */
+    private $valvulaMitralL2;
 
 
 
     /**
      * @var text
      *
-     * @ORM\Column(name="raizAorta_l1_c3", type="text", nullable=false)
+     * @ORM\Column(name="auricula_izq_l1", type="array", nullable=true)
      */
-    private $raizAortaL1C3;
+    private $auriculaIzqL1;
+
+
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="valvula_pulmonar_l1", type="array", nullable=true)
+     */
+    private $valvulaPulmonarL1;
+
+
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="valvula_pulmonar_l2", type="array", nullable=true)
+     */
+    private $valvulaPulmonarL2;
+
+
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="valvula_tricupside_l1", type="array", nullable=true)
+     */
+    private $valvulatricuspideL1;
+
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="valvula_tricupside_l2", type="array", nullable=true)
+     */
+    private $valvulatricuspideL2;
 
 
 
     /**
      * @var text
      *
-     * @ORM\Column(name="aorta_l1_c1", type="text", nullable=false)
-     */
-    private $aortaL1C1;
-
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="aorta_l1_c2", type="text", nullable=false)
-     */
-    private $aortaL1C2;
-
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="aorta_l2_c1", type="text", nullable=false)
-     */
-    private $aortaL2C1;
-
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="aorta_l2_c2", type="text", nullable=false)
-     */
-    private $aortaL2C2;
-
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="aorta_l3_c1", type="text", nullable=false)
-     */
-    private $aortaL3C1;
-
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="aorta_l3_c2", type="text", nullable=false)
-     */
-    private $aortaL3C2;
-
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="valvula_mitral_l1_c1", type="text", nullable=false)
-     */
-    private $valvulaMitralL1C1;
-
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="valvula_mitral_l1_c2", type="text", nullable=false)
-     */
-    private $valvulaMitralL1C2;
-
-    
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="valvula_mitral_l2_c1", type="text", nullable=false)
-     */
-    private $valvulaMitralL2C1;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="valvula_mitral_l2_c2", type="text", nullable=false)
-     */
-    private $valvulaMitralL2C2;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="valvula_mitral_l2_c3", type="text", nullable=false)
-     */
-    private $valvulaMitralL2C3;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="auricula_izq_l1_c1", type="text", nullable=false)
-     */
-    private $auriculaIzqL1C1;
-
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="auricula_izq_l1_c2", type="text", nullable=false)
-     */
-    private $auriculaIzqL1C2;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="auricula_izq_l1_c3", type="text", nullable=false)
-     */
-    private $auriculaIzqL1C3;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="valvula_pulmonar_l1_c1", type="text", nullable=false)
-     */
-    private $valvulaPulmonarL1C1;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="valvula_pulmonar_l1_c2", type="text", nullable=false)
-     */
-    private $valvulaPulmonarL1C2;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="valvula_pulmonar_l2_c1", type="text", nullable=false)
-     */
-    private $valvulaPulmonarL2C1;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="valvula_pulmonar_l2_c2", type="text", nullable=false)
-     */
-    private $valvulaPulmonarL2C2;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="valvula_pulmonar_l2_c3", type="text", nullable=false)
-     */
-    private $valvulaPulmonarL2C3;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="valvula_tricupside_l1_c1", type="text", nullable=false)
-     */
-    private $valvulatricuspideL1C1;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="valvula_tricupside_l1_c2", type="text", nullable=false)
-     */
-    private $valvulatricuspideL1C2;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="valvula_tricupside_l2_c1", type="text", nullable=false)
-     */
-    private $valvulatricuspideL2C1;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="valvula_tricupside_l2_c2", type="text", nullable=false)
-     */
-    private $valvulatricuspideL2C2;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="valvula_tricupside_l2_c3", type="text", nullable=false)
-     */
-    private $valvulatricuspideL2C3;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="cavidad_derecha_l1_c1", type="text", nullable=false)
+     * @ORM\Column(name="cavidad_derecha_l1_c1", type="text", nullable=true)
      */
     private $cavidadDerechaL1C1;
 
@@ -645,7 +477,7 @@ class Ecocardiograma2d extends Estudio
     /**
      * @var text
      *
-     * @ORM\Column(name="cavidad_derecha_l1_c2", type="text", nullable=false)
+     * @ORM\Column(name="cavidad_derecha_l1_c2", type="text", nullable=true)
      */
     private $cavidadDerechaL1C2;
 
@@ -653,7 +485,7 @@ class Ecocardiograma2d extends Estudio
     /**
      * @var text
      *
-     * @ORM\Column(name="cavidad_derecha_l1_c3", type="text", nullable=false)
+     * @ORM\Column(name="cavidad_derecha_l1_c3", type="text", nullable=true)
      */
     private $cavidadDerechaL1C3;
 
@@ -661,59 +493,34 @@ class Ecocardiograma2d extends Estudio
     /**
      * @var text
      *
-     * @ORM\Column(name="vena_cava_inferior_l1_c1", type="text", nullable=false)
+     * @ORM\Column(name="vena_cava_inferior_l1", type="array", nullable=true)
      */
-    private $venaCavaInferiorL1C1;
+    private $venaCavaInferiorL1;
 
 
     /**
      * @var text
      *
-     * @ORM\Column(name="pericardio_l1_c1", type="text", nullable=false)
+     * @ORM\Column(name="pericardio_l1", type="array", nullable=true)
      */
-    private $pericardioL1C1;
-
+    private $pericardioL1;
 
     /**
      * @var text
      *
-     * @ORM\Column(name="pericardio_l1_c2", type="text", nullable=false)
+     * @ORM\Column(name="conclusion_l1", type="array", nullable=true)
      */
-    private $pericardioL1C2;
+    private $conclusionL1;
 
 
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="pericardio_l1_c3", type="text", nullable=false)
-     */
-    private $pericardioL1C3;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="conclusion_libre", type="text", nullable=false)
-     */
-    private $conclusionLibre;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="conclusion_l1_c1", type="text", nullable=false)
-     */
-    private $conclusionL1C1;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="conclusion_l1_c2", type="text", nullable=false)
-     */
-    private $conclusionL1C2;
-
-
+    public function __construct($medico,$paciente , $entityManager) {
+      parent::__construct();
+    //  $entityManager = $event->getEntityManager();
+      $configuracion = $entityManager->getRepository('AppBundle:EstudioConfiguracion')->find(12);
+      parent::setEstudioConfiguracion($configuracion);
+      parent::setPaciente($paciente);
+      parent::setMedico($medico);
+    }
 
     /**
      * Set situs
@@ -1748,147 +1555,75 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set ventriculoIzqL1C1
+     * Set ventriculoIzqL1
      *
-     * @param string $ventriculoIzqL1C1
+     * @param array $ventriculoIzqL1
      *
      * @return Ecocardiograma2d
      */
-    public function setVentriculoIzqL1C1($ventriculoIzqL1C1)
+    public function setVentriculoIzqL1($ventriculoIzqL1)
     {
-        $this->ventriculoIzqL1C1 = $ventriculoIzqL1C1;
+        $this->ventriculoIzqL1 = $ventriculoIzqL1;
 
         return $this;
     }
 
     /**
-     * Get ventriculoIzqL1C1
+     * Get ventriculoIzqL1
      *
-     * @return string
+     * @return array
      */
-    public function getVentriculoIzqL1C1()
+    public function getVentriculoIzqL1()
     {
-        return $this->ventriculoIzqL1C1;
+        return $this->ventriculoIzqL1;
     }
 
     /**
-     * Set ventriculoIzqL1C2
+     * Set ventriculoIzqL2
      *
-     * @param string $ventriculoIzqL1C2
+     * @param array $ventriculoIzqL2
      *
      * @return Ecocardiograma2d
      */
-    public function setVentriculoIzqL1C2($ventriculoIzqL1C2)
+    public function setVentriculoIzqL2($ventriculoIzqL2)
     {
-        $this->ventriculoIzqL1C2 = $ventriculoIzqL1C2;
+        $this->ventriculoIzqL2 = $ventriculoIzqL2;
 
         return $this;
     }
 
     /**
-     * Get ventriculoIzqL1C2
+     * Get ventriculoIzqL2
      *
-     * @return string
+     * @return array
      */
-    public function getVentriculoIzqL1C2()
+    public function getVentriculoIzqL2()
     {
-        return $this->ventriculoIzqL1C2;
+        return $this->ventriculoIzqL2;
     }
 
     /**
-     * Set ventriculoIzqL2C1
+     * Set ventriculoIzqL3
      *
-     * @param string $ventriculoIzqL2C1
+     * @param array $ventriculoIzqL3
      *
      * @return Ecocardiograma2d
      */
-    public function setVentriculoIzqL2C1($ventriculoIzqL2C1)
+    public function setVentriculoIzqL3($ventriculoIzqL3)
     {
-        $this->ventriculoIzqL2C1 = $ventriculoIzqL2C1;
+        $this->ventriculoIzqL3 = $ventriculoIzqL3;
 
         return $this;
     }
 
     /**
-     * Get ventriculoIzqL2C1
+     * Get ventriculoIzqL3
      *
-     * @return string
+     * @return array
      */
-    public function getVentriculoIzqL2C1()
+    public function getVentriculoIzqL3()
     {
-        return $this->ventriculoIzqL2C1;
-    }
-
-    /**
-     * Set ventriculoIzqL2C2
-     *
-     * @param string $ventriculoIzqL2C2
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setVentriculoIzqL2C2($ventriculoIzqL2C2)
-    {
-        $this->ventriculoIzqL2C2 = $ventriculoIzqL2C2;
-
-        return $this;
-    }
-
-    /**
-     * Get ventriculoIzqL2C2
-     *
-     * @return string
-     */
-    public function getVentriculoIzqL2C2()
-    {
-        return $this->ventriculoIzqL2C2;
-    }
-
-    /**
-     * Set ventriculoIzqL3C1
-     *
-     * @param string $ventriculoIzqL3C1
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setVentriculoIzqL3C1($ventriculoIzqL3C1)
-    {
-        $this->ventriculoIzqL3C1 = $ventriculoIzqL3C1;
-
-        return $this;
-    }
-
-    /**
-     * Get ventriculoIzqL3C1
-     *
-     * @return string
-     */
-    public function getVentriculoIzqL3C1()
-    {
-        return $this->ventriculoIzqL3C1;
-    }
-
-    /**
-     * Set ventriculoIzqL3C2
-     *
-     * @param string $ventriculoIzqL3C2
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setVentriculoIzqL3C2($ventriculoIzqL3C2)
-    {
-        $this->ventriculoIzqL3C2 = $ventriculoIzqL3C2;
-
-        return $this;
-    }
-
-    /**
-     * Get ventriculoIzqL3C2
-     *
-     * @return string
-     */
-    public function getVentriculoIzqL3C2()
-    {
-        return $this->ventriculoIzqL3C2;
+        return $this->ventriculoIzqL3;
     }
 
     /**
@@ -1964,651 +1699,267 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set raizAortaL1C1
+     * Set raizAortaL1
      *
-     * @param string $raizAortaL1C1
+     * @param array $raizAortaL1
      *
      * @return Ecocardiograma2d
      */
-    public function setRaizAortaL1C1($raizAortaL1C1)
+    public function setRaizAortaL1($raizAortaL1)
     {
-        $this->raizAortaL1C1 = $raizAortaL1C1;
+        $this->raizAortaL1 = $raizAortaL1;
 
         return $this;
     }
 
     /**
-     * Get raizAortaL1C1
+     * Get raizAortaL1
      *
-     * @return string
+     * @return array
      */
-    public function getRaizAortaL1C1()
+    public function getRaizAortaL1()
     {
-        return $this->raizAortaL1C1;
+        return $this->raizAortaL1;
     }
 
     /**
-     * Set raizAortaL1C2
+     * Set aortaL1
      *
-     * @param string $raizAortaL1C2
+     * @param array $aortaL1
      *
      * @return Ecocardiograma2d
      */
-    public function setRaizAortaL1C2($raizAortaL1C2)
+    public function setAortaL1($aortaL1)
     {
-        $this->raizAortaL1C2 = $raizAortaL1C2;
+        $this->aortaL1 = $aortaL1;
 
         return $this;
     }
 
     /**
-     * Get raizAortaL1C2
+     * Get aortaL1
      *
-     * @return string
+     * @return array
      */
-    public function getRaizAortaL1C2()
+    public function getAortaL1()
     {
-        return $this->raizAortaL1C2;
+        return $this->aortaL1;
     }
 
     /**
-     * Set raizAortaL1C3
+     * Set aortaL2
      *
-     * @param string $raizAortaL1C3
+     * @param array $aortaL2
      *
      * @return Ecocardiograma2d
      */
-    public function setRaizAortaL1C3($raizAortaL1C3)
+    public function setAortaL2($aortaL2)
     {
-        $this->raizAortaL1C3 = $raizAortaL1C3;
+        $this->aortaL2 = $aortaL2;
 
         return $this;
     }
 
     /**
-     * Get raizAortaL1C3
+     * Get aortaL2
      *
-     * @return string
+     * @return array
      */
-    public function getRaizAortaL1C3()
+    public function getAortaL2()
     {
-        return $this->raizAortaL1C3;
+        return $this->aortaL2;
     }
 
     /**
-     * Set aortaL1C1
+     * Set aortaL3
      *
-     * @param string $aortaL1C1
+     * @param array $aortaL3
      *
      * @return Ecocardiograma2d
      */
-    public function setAortaL1C1($aortaL1C1)
+    public function setAortaL3($aortaL3)
     {
-        $this->aortaL1C1 = $aortaL1C1;
+        $this->aortaL3 = $aortaL3;
 
         return $this;
     }
 
     /**
-     * Get aortaL1C1
+     * Get aortaL3
      *
-     * @return string
+     * @return array
      */
-    public function getAortaL1C1()
+    public function getAortaL3()
     {
-        return $this->aortaL1C1;
+        return $this->aortaL3;
     }
 
     /**
-     * Set aortaL1C2
+     * Set valvulaMitralL1
      *
-     * @param string $aortaL1C2
+     * @param array $valvulaMitralL1
      *
      * @return Ecocardiograma2d
      */
-    public function setAortaL1C2($aortaL1C2)
+    public function setValvulaMitralL1($valvulaMitralL1)
     {
-        $this->aortaL1C2 = $aortaL1C2;
+        $this->valvulaMitralL1 = $valvulaMitralL1;
 
         return $this;
     }
 
     /**
-     * Get aortaL1C2
+     * Get valvulaMitralL1
      *
-     * @return string
+     * @return array
      */
-    public function getAortaL1C2()
+    public function getValvulaMitralL1()
     {
-        return $this->aortaL1C2;
+        return $this->valvulaMitralL1;
     }
 
     /**
-     * Set aortaL2C1
+     * Set valvulaMitralL2
      *
-     * @param string $aortaL2C1
+     * @param array $valvulaMitralL2
      *
      * @return Ecocardiograma2d
      */
-    public function setAortaL2C1($aortaL2C1)
+    public function setValvulaMitralL2($valvulaMitralL2)
     {
-        $this->aortaL2C1 = $aortaL2C1;
+        $this->valvulaMitralL2 = $valvulaMitralL2;
 
         return $this;
     }
 
     /**
-     * Get aortaL2C1
+     * Get valvulaMitralL2
      *
-     * @return string
+     * @return array
      */
-    public function getAortaL2C1()
+    public function getValvulaMitralL2()
     {
-        return $this->aortaL2C1;
+        return $this->valvulaMitralL2;
     }
 
     /**
-     * Set aortaL2C2
+     * Set auriculaIzqL1
      *
-     * @param string $aortaL2C2
+     * @param array $auriculaIzqL1
      *
      * @return Ecocardiograma2d
      */
-    public function setAortaL2C2($aortaL2C2)
+    public function setAuriculaIzqL1($auriculaIzqL1)
     {
-        $this->aortaL2C2 = $aortaL2C2;
+        $this->auriculaIzqL1 = $auriculaIzqL1;
 
         return $this;
     }
 
     /**
-     * Get aortaL2C2
+     * Get auriculaIzqL1
      *
-     * @return string
+     * @return array
      */
-    public function getAortaL2C2()
+    public function getAuriculaIzqL1()
     {
-        return $this->aortaL2C2;
+        return $this->auriculaIzqL1;
     }
 
     /**
-     * Set aortaL3C1
+     * Set valvulaPulmonarL1
      *
-     * @param string $aortaL3C1
+     * @param array $valvulaPulmonarL1
      *
      * @return Ecocardiograma2d
      */
-    public function setAortaL3C1($aortaL3C1)
+    public function setValvulaPulmonarL1($valvulaPulmonarL1)
     {
-        $this->aortaL3C1 = $aortaL3C1;
+        $this->valvulaPulmonarL1 = $valvulaPulmonarL1;
 
         return $this;
     }
 
     /**
-     * Get aortaL3C1
+     * Get valvulaPulmonarL1
      *
-     * @return string
+     * @return array
      */
-    public function getAortaL3C1()
+    public function getValvulaPulmonarL1()
     {
-        return $this->aortaL3C1;
+        return $this->valvulaPulmonarL1;
     }
 
     /**
-     * Set aortaL3C2
+     * Set valvulaPulmonarL2
      *
-     * @param string $aortaL3C2
+     * @param array $valvulaPulmonarL2
      *
      * @return Ecocardiograma2d
      */
-    public function setAortaL3C2($aortaL3C2)
+    public function setValvulaPulmonarL2($valvulaPulmonarL2)
     {
-        $this->aortaL3C2 = $aortaL3C2;
+        $this->valvulaPulmonarL2 = $valvulaPulmonarL2;
 
         return $this;
     }
 
     /**
-     * Get aortaL3C2
+     * Get valvulaPulmonarL2
      *
-     * @return string
+     * @return array
      */
-    public function getAortaL3C2()
+    public function getValvulaPulmonarL2()
     {
-        return $this->aortaL3C2;
+        return $this->valvulaPulmonarL2;
     }
 
     /**
-     * Set valvulaMitralL1C1
+     * Set valvulatricuspideL1
      *
-     * @param string $valvulaMitralL1C1
+     * @param array $valvulatricuspideL1
      *
      * @return Ecocardiograma2d
      */
-    public function setValvulaMitralL1C1($valvulaMitralL1C1)
+    public function setValvulatricuspideL1($valvulatricuspideL1)
     {
-        $this->valvulaMitralL1C1 = $valvulaMitralL1C1;
+        $this->valvulatricuspideL1 = $valvulatricuspideL1;
 
         return $this;
     }
 
     /**
-     * Get valvulaMitralL1C1
+     * Get valvulatricuspideL1
      *
-     * @return string
+     * @return array
      */
-    public function getValvulaMitralL1C1()
+    public function getValvulatricuspideL1()
     {
-        return $this->valvulaMitralL1C1;
+        return $this->valvulatricuspideL1;
     }
 
     /**
-     * Set valvulaMitralL1C2
+     * Set valvulatricuspideL2
      *
-     * @param string $valvulaMitralL1C2
+     * @param array $valvulatricuspideL2
      *
      * @return Ecocardiograma2d
      */
-    public function setValvulaMitralL1C2($valvulaMitralL1C2)
+    public function setValvulatricuspideL2($valvulatricuspideL2)
     {
-        $this->valvulaMitralL1C2 = $valvulaMitralL1C2;
+        $this->valvulatricuspideL2 = $valvulatricuspideL2;
 
         return $this;
     }
 
     /**
-     * Get valvulaMitralL1C2
+     * Get valvulatricuspideL2
      *
-     * @return string
+     * @return array
      */
-    public function getValvulaMitralL1C2()
+    public function getValvulatricuspideL2()
     {
-        return $this->valvulaMitralL1C2;
-    }
-
-    /**
-     * Set valvulaMitralL2C1
-     *
-     * @param string $valvulaMitralL2C1
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setValvulaMitralL2C1($valvulaMitralL2C1)
-    {
-        $this->valvulaMitralL2C1 = $valvulaMitralL2C1;
-
-        return $this;
-    }
-
-    /**
-     * Get valvulaMitralL2C1
-     *
-     * @return string
-     */
-    public function getValvulaMitralL2C1()
-    {
-        return $this->valvulaMitralL2C1;
-    }
-
-    /**
-     * Set valvulaMitralL2C2
-     *
-     * @param string $valvulaMitralL2C2
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setValvulaMitralL2C2($valvulaMitralL2C2)
-    {
-        $this->valvulaMitralL2C2 = $valvulaMitralL2C2;
-
-        return $this;
-    }
-
-    /**
-     * Get valvulaMitralL2C2
-     *
-     * @return string
-     */
-    public function getValvulaMitralL2C2()
-    {
-        return $this->valvulaMitralL2C2;
-    }
-
-    /**
-     * Set valvulaMitralL2C3
-     *
-     * @param string $valvulaMitralL2C3
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setValvulaMitralL2C3($valvulaMitralL2C3)
-    {
-        $this->valvulaMitralL2C3 = $valvulaMitralL2C3;
-
-        return $this;
-    }
-
-    /**
-     * Get valvulaMitralL2C3
-     *
-     * @return string
-     */
-    public function getValvulaMitralL2C3()
-    {
-        return $this->valvulaMitralL2C3;
-    }
-
-    /**
-     * Set auriculaIzqL1C1
-     *
-     * @param string $auriculaIzqL1C1
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setAuriculaIzqL1C1($auriculaIzqL1C1)
-    {
-        $this->auriculaIzqL1C1 = $auriculaIzqL1C1;
-
-        return $this;
-    }
-
-    /**
-     * Get auriculaIzqL1C1
-     *
-     * @return string
-     */
-    public function getAuriculaIzqL1C1()
-    {
-        return $this->auriculaIzqL1C1;
-    }
-
-    /**
-     * Set auriculaIzqL1C2
-     *
-     * @param string $auriculaIzqL1C2
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setAuriculaIzqL1C2($auriculaIzqL1C2)
-    {
-        $this->auriculaIzqL1C2 = $auriculaIzqL1C2;
-
-        return $this;
-    }
-
-    /**
-     * Get auriculaIzqL1C2
-     *
-     * @return string
-     */
-    public function getAuriculaIzqL1C2()
-    {
-        return $this->auriculaIzqL1C2;
-    }
-
-    /**
-     * Set auriculaIzqL1C3
-     *
-     * @param string $auriculaIzqL1C3
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setAuriculaIzqL1C3($auriculaIzqL1C3)
-    {
-        $this->auriculaIzqL1C3 = $auriculaIzqL1C3;
-
-        return $this;
-    }
-
-    /**
-     * Get auriculaIzqL1C3
-     *
-     * @return string
-     */
-    public function getAuriculaIzqL1C3()
-    {
-        return $this->auriculaIzqL1C3;
-    }
-
-    /**
-     * Set valvulaPulmonarL1C1
-     *
-     * @param string $valvulaPulmonarL1C1
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setValvulaPulmonarL1C1($valvulaPulmonarL1C1)
-    {
-        $this->valvulaPulmonarL1C1 = $valvulaPulmonarL1C1;
-
-        return $this;
-    }
-
-    /**
-     * Get valvulaPulmonarL1C1
-     *
-     * @return string
-     */
-    public function getValvulaPulmonarL1C1()
-    {
-        return $this->valvulaPulmonarL1C1;
-    }
-
-    /**
-     * Set valvulaPulmonarL1C2
-     *
-     * @param string $valvulaPulmonarL1C2
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setValvulaPulmonarL1C2($valvulaPulmonarL1C2)
-    {
-        $this->valvulaPulmonarL1C2 = $valvulaPulmonarL1C2;
-
-        return $this;
-    }
-
-    /**
-     * Get valvulaPulmonarL1C2
-     *
-     * @return string
-     */
-    public function getValvulaPulmonarL1C2()
-    {
-        return $this->valvulaPulmonarL1C2;
-    }
-
-    /**
-     * Set valvulaPulmonarL2C1
-     *
-     * @param string $valvulaPulmonarL2C1
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setValvulaPulmonarL2C1($valvulaPulmonarL2C1)
-    {
-        $this->valvulaPulmonarL2C1 = $valvulaPulmonarL2C1;
-
-        return $this;
-    }
-
-    /**
-     * Get valvulaPulmonarL2C1
-     *
-     * @return string
-     */
-    public function getValvulaPulmonarL2C1()
-    {
-        return $this->valvulaPulmonarL2C1;
-    }
-
-    /**
-     * Set valvulaPulmonarL2C2
-     *
-     * @param string $valvulaPulmonarL2C2
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setValvulaPulmonarL2C2($valvulaPulmonarL2C2)
-    {
-        $this->valvulaPulmonarL2C2 = $valvulaPulmonarL2C2;
-
-        return $this;
-    }
-
-    /**
-     * Get valvulaPulmonarL2C2
-     *
-     * @return string
-     */
-    public function getValvulaPulmonarL2C2()
-    {
-        return $this->valvulaPulmonarL2C2;
-    }
-
-    /**
-     * Set valvulaPulmonarL2C3
-     *
-     * @param string $valvulaPulmonarL2C3
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setValvulaPulmonarL2C3($valvulaPulmonarL2C3)
-    {
-        $this->valvulaPulmonarL2C3 = $valvulaPulmonarL2C3;
-
-        return $this;
-    }
-
-    /**
-     * Get valvulaPulmonarL2C3
-     *
-     * @return string
-     */
-    public function getValvulaPulmonarL2C3()
-    {
-        return $this->valvulaPulmonarL2C3;
-    }
-
-    /**
-     * Set valvulatricuspideL1C1
-     *
-     * @param string $valvulatricuspideL1C1
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setValvulatricuspideL1C1($valvulatricuspideL1C1)
-    {
-        $this->valvulatricuspideL1C1 = $valvulatricuspideL1C1;
-
-        return $this;
-    }
-
-    /**
-     * Get valvulatricuspideL1C1
-     *
-     * @return string
-     */
-    public function getValvulatricuspideL1C1()
-    {
-        return $this->valvulatricuspideL1C1;
-    }
-
-    /**
-     * Set valvulatricuspideL1C2
-     *
-     * @param string $valvulatricuspideL1C2
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setValvulatricuspideL1C2($valvulatricuspideL1C2)
-    {
-        $this->valvulatricuspideL1C2 = $valvulatricuspideL1C2;
-
-        return $this;
-    }
-
-    /**
-     * Get valvulatricuspideL1C2
-     *
-     * @return string
-     */
-    public function getValvulatricuspideL1C2()
-    {
-        return $this->valvulatricuspideL1C2;
-    }
-
-    /**
-     * Set valvulatricuspideL2C1
-     *
-     * @param string $valvulatricuspideL2C1
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setValvulatricuspideL2C1($valvulatricuspideL2C1)
-    {
-        $this->valvulatricuspideL2C1 = $valvulatricuspideL2C1;
-
-        return $this;
-    }
-
-    /**
-     * Get valvulatricuspideL2C1
-     *
-     * @return string
-     */
-    public function getValvulatricuspideL2C1()
-    {
-        return $this->valvulatricuspideL2C1;
-    }
-
-    /**
-     * Set valvulatricuspideL2C2
-     *
-     * @param string $valvulatricuspideL2C2
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setValvulatricuspideL2C2($valvulatricuspideL2C2)
-    {
-        $this->valvulatricuspideL2C2 = $valvulatricuspideL2C2;
-
-        return $this;
-    }
-
-    /**
-     * Get valvulatricuspideL2C2
-     *
-     * @return string
-     */
-    public function getValvulatricuspideL2C2()
-    {
-        return $this->valvulatricuspideL2C2;
-    }
-
-    /**
-     * Set valvulatricuspideL2C3
-     *
-     * @param string $valvulatricuspideL2C3
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setValvulatricuspideL2C3($valvulatricuspideL2C3)
-    {
-        $this->valvulatricuspideL2C3 = $valvulatricuspideL2C3;
-
-        return $this;
-    }
-
-    /**
-     * Get valvulatricuspideL2C3
-     *
-     * @return string
-     */
-    public function getValvulatricuspideL2C3()
-    {
-        return $this->valvulatricuspideL2C3;
+        return $this->valvulatricuspideL2;
     }
 
     /**
@@ -2684,170 +2035,74 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set venaCavaInferiorL1C1
+     * Set venaCavaInferiorL1
      *
-     * @param string $venaCavaInferiorL1C1
+     * @param array $venaCavaInferiorL1
      *
      * @return Ecocardiograma2d
      */
-    public function setVenaCavaInferiorL1C1($venaCavaInferiorL1C1)
+    public function setVenaCavaInferiorL1($venaCavaInferiorL1)
     {
-        $this->venaCavaInferiorL1C1 = $venaCavaInferiorL1C1;
+        $this->venaCavaInferiorL1 = $venaCavaInferiorL1;
 
         return $this;
     }
 
     /**
-     * Get venaCavaInferiorL1C1
+     * Get venaCavaInferiorL1
      *
-     * @return string
+     * @return array
      */
-    public function getVenaCavaInferiorL1C1()
+    public function getVenaCavaInferiorL1()
     {
-        return $this->venaCavaInferiorL1C1;
+        return $this->venaCavaInferiorL1;
     }
 
     /**
-     * Set pericardioL1C1
+     * Set pericardioL1
      *
-     * @param string $pericardioL1C1
+     * @param array $pericardioL1
      *
      * @return Ecocardiograma2d
      */
-    public function setPericardioL1C1($pericardioL1C1)
+    public function setPericardioL1($pericardioL1)
     {
-        $this->pericardioL1C1 = $pericardioL1C1;
+        $this->pericardioL1 = $pericardioL1;
 
         return $this;
     }
 
     /**
-     * Get pericardioL1C1
+     * Get pericardioL1
      *
-     * @return string
+     * @return array
      */
-    public function getPericardioL1C1()
+    public function getPericardioL1()
     {
-        return $this->pericardioL1C1;
+        return $this->pericardioL1;
     }
 
     /**
-     * Set pericardioL1C2
+     * Set conclusionL1
      *
-     * @param string $pericardioL1C2
+     * @param array $conclusionL1
      *
      * @return Ecocardiograma2d
      */
-    public function setPericardioL1C2($pericardioL1C2)
+    public function setConclusionL1($conclusionL1)
     {
-        $this->pericardioL1C2 = $pericardioL1C2;
+        $this->conclusionL1 = $conclusionL1;
 
         return $this;
     }
 
     /**
-     * Get pericardioL1C2
+     * Get conclusionL1
      *
-     * @return string
+     * @return array
      */
-    public function getPericardioL1C2()
+    public function getConclusionL1()
     {
-        return $this->pericardioL1C2;
-    }
-
-    /**
-     * Set pericardioL1C3
-     *
-     * @param string $pericardioL1C3
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setPericardioL1C3($pericardioL1C3)
-    {
-        $this->pericardioL1C3 = $pericardioL1C3;
-
-        return $this;
-    }
-
-    /**
-     * Get pericardioL1C3
-     *
-     * @return string
-     */
-    public function getPericardioL1C3()
-    {
-        return $this->pericardioL1C3;
-    }
-
-    /**
-     * Set conclusionLibre
-     *
-     * @param string $conclusionLibre
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setConclusionLibre($conclusionLibre)
-    {
-        $this->conclusionLibre = $conclusionLibre;
-
-        return $this;
-    }
-
-    /**
-     * Get conclusionLibre
-     *
-     * @return string
-     */
-    public function getConclusionLibre()
-    {
-        return $this->conclusionLibre;
-    }
-
-    /**
-     * Set conclusionL1C1
-     *
-     * @param string $conclusionL1C1
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setConclusionL1C1($conclusionL1C1)
-    {
-        $this->conclusionL1C1 = $conclusionL1C1;
-
-        return $this;
-    }
-
-    /**
-     * Get conclusionL1C1
-     *
-     * @return string
-     */
-    public function getConclusionL1C1()
-    {
-        return $this->conclusionL1C1;
-    }
-
-    /**
-     * Set conclusionL1C2
-     *
-     * @param string $conclusionL1C2
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setConclusionL1C2($conclusionL1C2)
-    {
-        $this->conclusionL1C2 = $conclusionL1C2;
-
-        return $this;
-    }
-
-    /**
-     * Get conclusionL1C2
-     *
-     * @return string
-     */
-    public function getConclusionL1C2()
-    {
-        return $this->conclusionL1C2;
+        return $this->conclusionL1;
     }
 }

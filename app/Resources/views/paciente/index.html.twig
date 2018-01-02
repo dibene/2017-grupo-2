@@ -1,26 +1,25 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Pacientes</h1>
+
+
+    <h3 class="red-text">Pacientes</h3>
+    {{ form_start(form) }}
     <div class="row">
       <div class="input-field col s3">
-        <input id="firstName" type="text" name='firstName' class="validate" pattern="[A-Za-z]+" >
-        <label for="firstName">Nombre</label>
+        {{ form_row(form.nombre) }}
       </div>
       <div class="input-field col s3">
-        <input  id="lastName" type="text" name='lastName' class="validate" pattern="[A-Za-z]+" >
-        <label for="lastName">Apellido</label>
+        {{ form_row(form.apellido) }}
       </div>
       <div class="input-field col s3">
-        <input id="docNumber" type="number" name='docNumber' class="validate" min="1000000" max="1000000000" >
-        <label for="docNumber">DNI</label>
+        {{ form_row(form.dni) }}
       </div>
       <div class="col s3">
-        <button class="btn waves-effect waves-light red" type="submit" style="margin-top: 25px" >Buscar
-          <i class="material-icons right">search</i>
-        </button>
+        {{ form_row(form.buscar) }}
       </div>
     </div>
+    {{ form_end(form) }}
 
     <table class="stripped">
         <thead>
@@ -39,6 +38,7 @@
                 <th>Ver</th>
                 <th>Editar</th>
                 <th>Agregar Estudio</th>
+                <th>Ver Estudios</th>
             </tr>
         </thead>
         <tbody>
@@ -57,7 +57,8 @@
                 <td>{{ paciente.internacion }}</td>
                 <td><a class="btn-floating btn-small waves-effect waves-light blue" href="{{ path('paciente_show', { 'id': paciente.id }) }}"><i class="material-icons">zoom_in</i></a></td>
                 <td><a class="btn-floating btn-small waves-effect waves-light yellow" href="{{ path('paciente_edit', { 'id': paciente.id }) }}"><i class="material-icons">create</i></a> </td>
-                <td><a class="btn-floating btn-small waves-effect waves-light green" href="{{ path('estudio_index', { 'id': paciente.id }) }}"><i class="material-icons">add_circle_outline</i></a></td>
+                <td><a class="btn-floating btn-small waves-effect waves-light green" href="{{ path('estudio_new', { 'id': paciente.id }) }}"><i class="material-icons">add</i></a></td>
+                <td><a class="btn-floating btn-small waves-effect waves-light green" href="{{ path('estudio_index', { 'id': paciente.id }) }}"><i class="material-icons">view_list</i></a></td>
 
             </tr>
         {% endfor %}

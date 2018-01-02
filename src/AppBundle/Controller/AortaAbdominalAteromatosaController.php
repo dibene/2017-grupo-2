@@ -5,13 +5,15 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\AortaAbdominalAteromatosa;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 use \Datetime;
-
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\HttpFoundation\Response;
 /**
  * Aortaabdominalateromatosa controller.
  *
- * @Route("aortaabdominalateromatosa")
+ * @Route("estudio/aortaabdominalateromatosa")
  */
 class AortaAbdominalAteromatosaController extends Controller
 {
@@ -32,13 +34,15 @@ class AortaAbdominalAteromatosaController extends Controller
         ));
     }
 
+
+
     /**
      * Creates a new aortaAbdominalAteromatosa entity.
      *
-     * @Route("/new/{id}", name="aortaabdominalateromatosa_new")
+     * @Route("/new/paciente/{id}", name="aortaabdominalateromatosa_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request,$id)
+    public function newAction(Request $request, $id)
     {
 
         $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($id);
@@ -56,11 +60,14 @@ class AortaAbdominalAteromatosaController extends Controller
 
             return $this->redirectToRoute('aortaabdominalateromatosa_show', array('id' => $aortaAbdominalAteromatosa->getId(),
           'idPaciente' => $paciente->getId(),
+          'medico' => $medico,
+          'paciente' => $paciente,
           'estudio' => $aortaAbdominalAteromatosa));
         }
 
         return $this->render('aortaabdominalateromatosa/new.html.twig', array(
             'estudio' => $aortaAbdominalAteromatosa,
+            'paciente' => $paciente,
             'form' => $form->createView(),
         ));
     }
@@ -68,7 +75,7 @@ class AortaAbdominalAteromatosaController extends Controller
     /**
      * Finds and displays a aortaAbdominalAteromatosa entity.
      *
-     * @Route("/{id}/{idPaciente}", name="aortaabdominalateromatosa_show")
+     * @Route("/{id}/paciente/{idPaciente}", name="aortaabdominalateromatosa_show")
      * @Method("GET")
      */
     public function showAction(AortaAbdominalAteromatosa $aortaAbdominalAteromatosa , $idPaciente)
@@ -89,23 +96,30 @@ class AortaAbdominalAteromatosaController extends Controller
     /**
      * Displays a form to edit an existing aortaAbdominalAteromatosa entity.
      *
-     * @Route("/{id}/edit", name="aortaabdominalateromatosa_edit")
+     * @Route("/{id}/edit/paciente/{idPaciente}", name="aortaabdominalateromatosa_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, AortaAbdominalAteromatosa $aortaAbdominalAteromatosa)
+    public function editAction(Request $request, AortaAbdominalAteromatosa $aortaAbdominalAteromatosa ,  $idPaciente)
     {
         $deleteForm = $this->createDeleteForm($aortaAbdominalAteromatosa);
         $editForm = $this->createForm('AppBundle\Form\AortaAbdominalAteromatosaType', $aortaAbdominalAteromatosa);
         $editForm->handleRequest($request);
+        $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($idPaciente);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('aortaabdominalateromatosa_edit', array('id' => $aortaAbdominalAteromatosa->getId()));
+            return $this->redirectToRoute('aortaabdominalateromatosa_edit', array('id' => $aortaAbdominalAteromatosa->getId(),
+            'estudio' => $aortaAbdominalAteromatosa,
+            'paciente' => $paciente,
+            'idPaciente' => $paciente->getId()
+          ));
         }
 
         return $this->render('aortaabdominalateromatosa/edit.html.twig', array(
-            'aortaAbdominalAteromatosa' => $aortaAbdominalAteromatosa,
+            'estudio' => $aortaAbdominalAteromatosa,
+            'paciente' => $paciente,
+            'idPaciente' => $paciente->getId(),
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));

@@ -51,8 +51,40 @@ class AppFixtures extends Fixture
           'link' => 'ecodopplercolorvenmiemsup'),
           array('id' => 11 ,
             'nombre' => 'Endarterectomia' ,
-          'link' => 'endarterectomia')
+          'link' => 'endarterectomia'),
+          array('id' => 12 ,
+            'nombre' => 'Ecocardiograma 2D y Doppler Color' ,
+          'link' => 'ecocardiograma2d'),
+          array('id' => 17 ,
+            'nombre' => 'Cardio Resonancia' ,
+          'link' => 'cardioresonancia')
         );
+
+        //ESTUDIOS
+        // - TODO seguridad poner todos los estudios en /estudio/nombre del estudio asi se puede restringir el /estudio
+        // BASICOS -> SOLO TIENEN LOS SIGUIENTES ATRIBUTOS: PACIENTE (ID) - FECHA_ALTA (SYSDATE) - OBSERVACIÓN (STRING) - DIAGNOSTICO_FINAL (STRING)
+        // 1 Aorta Abdominal Ateromatosa  ->
+        // 2 Aorta Abdominal.
+        // 3 Eco Doppler Color Arterial de Miembros Superiores. (base)     -Eco_Dopp_Color_Art_Miem_Sup
+        // 4 Eco Doppler Color de Miembro Inferior Derecho.			           -Eco_Dopp_Color_Miem_Inf_Der
+        // 5 Eco Doppler Color de Arterias Renales.						             -Eco_Doppler_Color_Art_Renales
+        // 6 Eco Doppler Color Venoso de Miembros Superiores.              -Eco_Doppler_Color_Ven_Miem_Sup
+        // 7 EcoCardiograma con Inyección de Solución Salina Agitada.      -EcoCardiograma_Iny_Sol_Sal_Agit.
+        // 8 EcoCardiograma Transesofágico.								                 -EcoCardiograma_Transesofágico
+        // 9 Eco Doppler Color Arterial de Miembro Inferior Derecho.       -Eco_Doppler_Color_Art_Miem_Inf_Der
+        // 10 Eco Doppler Color Arterial de Miembro Inferior Izquierdo.    -Eco_Doppler_Color_Art_Miem_Inf_Izq
+        // 11 Endarterectomia.
+
+        // 12 Ecocardiograma 2D y Doppler Color
+        // 13 Eco Doppler Vasos de Cuello
+        // 14 Eco Doppler Color Venoso de Miembros Inferiores
+        // 15 EcoCardiograma para Valoración de Disincronía
+        // 16 Eco Doppler Color Arterial de Miembros Inferiores
+        // 17 Cardio Resonancia
+        // 18 Miembros Inferiores Arterial Patológico
+        // 19 Miembros Superiores Arterial Normal
+        // 20 Eco Estrés
+        // 21 Venoso Normal
 
         foreach ($estudiosconfiguraciones as $configuracion) {
           $estudioConfiguracion =  new EstudioConfiguracion ();
@@ -80,7 +112,7 @@ class AppFixtures extends Fixture
           $manager->persist($esp);
         }
         //pacientes
-        for ($i=0; $i < 10; $i++) {
+        for ($i=0; $i < 20; $i++) {
           $paciente = new Paciente();
           $paciente->setObraSocial('obraSocial');
           $paciente->setNombre('nombre'.$i);

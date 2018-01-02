@@ -1,47 +1,231 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Estudio: {{ cardioresonancia.estudioConfiguracion.nombre }}</h1>
+<div class="row col s12">
+  <br><a class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " href="{{ path('estudio_index', { 'id': paciente.id }) }}">Volver a estudios del paciente: <b>{{paciente.nombre}} </b> </a>
+  <br><a class="btn waves-effect waves-light blue" style="margin-left:10px; margin-bottom:20px; " href="{{ path('estudio_pdf' , { 'id': estudio.id , 'idPaciente': estudio.getPaciente().id} ) }}">imprimir</b> </a>
+  <br>
+  <div class="container col s12 center-align" >
+    <div class="z-depth-1 grey lighten-4 row left-align col s12" style="display: inline-block; margin: 50px; padding: 32px 48px 50px 48px; border: 1px solid #EEE;">
 
+<h3  class="red-text"> Estudio {{ estudio.estudioConfiguracion.nombre }}</h3>
+
+<h4> Datos del Medico </h4>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Matricula</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ medico.nombre }}</td>
+      <td>{{ medico.apellido }}</td>
+      <td>{{ medico.matricula }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4> Datos del Paciente </h4>
+<table class="stripped">
+    <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Dni</th>
+          <th>Direccion</th>
+          <th>Sexo</th>
+          <th>Nacionalidad</th>
+          <th>Localidad</th>
+          <th>Fecha de Nacimiento</th>
+            <th>Obra Social</th>
+            <th>Fecha de Ingreso</th>
+            <th>Internacion</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>{{ paciente.nombre }}</td>
+          <td>{{ paciente.apellido }}</td>
+          <td>{{ paciente.dni }}</td>
+          <td>{{ paciente.direccion }}</td>
+          <td>{{ paciente.sexo }}</td>
+          <td>{{ paciente.nacionalidad }}</td>
+          <td>{{ paciente.localidad }}</td>
+          <td>{% if paciente.fechaNacimiento %}{{ paciente.fechaNacimiento|date('Y-m-d') }}{% endif %}</td>
+            <td>{{ paciente.obraSocial }}</td>
+            <td>{% if paciente.fechaIngreso %}{{ paciente.fechaIngreso|date('Y-m-d') }}{% endif %}</td>
+            <td>{{ paciente.internacion }}</td>
+        </tr>
+    </tbody>
+</table>
+<h3  class="red-text"> Resultados </h3>
+
+<table>
+    <tbody>
+
+        <tr>
+            <th>Conclusion</th>
+            <td>{{ estudio.conclusion }}</td>
+        </tr>
+        <tr>
+            <th>Fecha alta</th>
+            <td>{% if estudio.fechaAlta %}{{ estudio.fechaAlta|date('Y-m-d') }}{% endif %}</td>
+        </tr>
+        <tr>
+            <th>Resultado</th>
+            <td>{{   estudio.resultado  }}</td>
+        </tr>
+    </tbody>
+</table>
     <table>
         <tbody>
+          <tr >
+            <th><h4 class="red-text">PROTOCOLO DE LA TÉCNICA</h4></th>
+          </tr>
             <tr>
-                <th>Paciente</th>
-                <td>{{ cardioResonancium.id }}</td>
+                <th>Protocolo</th>
+                <td>{{ estudio.protocolo }}</td>
+            </tr>
+            <tr >
+            <th>  <h4 class="red-text">CAVIDADES IZQUIERDAS</h4></th>
+            </tr>
+            <tr >
+            <th>  <h5 class="red-text">VENTRICULO IZQUIERDO</h5></th>
+            </tr>
+            <tr>
+                <th>Descripcionvi</th>
+                <td>{{ estudio.descripcionVI }}</td>
             </tr>
             <tr>
                 <th>Dtdvi</th>
-                <td>{{ cardioResonancium.dtdvi }}</td>
+                <td>{{ estudio.dtdvi }}</td>
             </tr>
             <tr>
                 <th>Dtsvi</th>
-                <td>{{ cardioResonancium.dtsvi }}</td>
+                <td>{{ estudio.dtsvi }}</td>
             </tr>
             <tr>
                 <th>Vfd</th>
-                <td>{{ cardioResonancium.vfd }}</td>
+                <td>{{ estudio.vfd }}</td>
             </tr>
             <tr>
                 <th>Vfs</th>
-                <td>{{ cardioResonancium.vfs }}</td>
+                <td>{{ estudio.vfs }}</td>
+            </tr>
+            <tr>
+                <th>Fac</th>
+                <td>{{ estudio.fac }}</td>
+            </tr>
+            <tr>
+                <th>Fevi</th>
+                <td>{{ estudio.fevi }}</td>
+            </tr>
+            <tr>
+                <th>Septum</th>
+                <td>{{ estudio.septum }}</td>
+            </tr>
+            <tr>
+                <th>Pp</th>
+                <td>{{ estudio.pp }}</td>
+            </tr>
+            <tr>
+                <th>Masavi</th>
+                <td>{{ estudio.masaVI }}</td>
+            </tr>
+            <tr >
+            <th>  <h5 class="red-text">PLANIMETRIA DE AI</h5></th>
+            </tr>
+            <tr>
+                <th>Areaai</th>
+                <td>{{ estudio.areaAI }}</td>
+            </tr>
+            <tr>
+                <th>Volumenai</th>
+                <td>{{ estudio.volumenAI }}</td>
+            </tr>
+            <tr>
+                <th>Cuatrocamarasai</th>
+                <td>{{ estudio.cuatroCamarasAI }}</td>
+            </tr>
+            <tr >
+              <th><h4 class="red-text">CAVIDADES DERECHAS</h4></th>
+            </tr>
+            <tr >
+              <th><h5 class="red-text">VENTRICULO DERECHO</h5></th>
+            </tr>
+            <tr>
+                <th>Tapselateral</th>
+                <td>{{ estudio.tapseLateral }}</td>
+            </tr>
+            <tr>
+                <th>Vfdvd</th>
+                <td>{{ estudio.vfdVD }}</td>
+            </tr>
+            <tr>
+                <th>Vfsvd</th>
+                <td>{{ estudio.vfsVD }}</td>
+            </tr>
+            <tr>
+                <th>Fevd</th>
+                <td>{{ estudio.fevd }}</td>
+            </tr>
+            <tr >
+              <th><h6 class="red-text">Diametros</h6></th>
+            </tr>
+            <tr>
+                <th>Longitudinal</th>
+                <td>{{ estudio.longitudinal }}</td>
+            </tr>
+            <tr>
+                <th>Anillotricuspideo</th>
+                <td>{{ estudio.anilloTricuspideo }}</td>
+            </tr>
+            <tr>
+                <th>Transversalsubtricuspideo</th>
+                <td>{{ estudio.transversalSubtricuspideo }}</td>
+            </tr>
+            <tr>
+                <th>Transversalmedio</th>
+                <td>{{ estudio.transversalMedio }}</td>
+            </tr>
+            <tr>
+                <th>Tsvd</th>
+                <td>{{ estudio.tsvd }}</td>
+            </tr>
+            <tr >
+              <th><h5 class="red-text">PLANIMETRIA AURICULA DERECHA:</h5></th>
+            </tr>
+            <tr>
+                <th>Areaad</th>
+                <td>{{ estudio.areaAD }}</td>
+            </tr>
+            <tr>
+                <th>Volumenad</th>
+                <td>{{ estudio.volumenAD }}</td>
+            </tr>
+            <tr>
+                <th>Cuatrocamarasad</th>
+                <td>{{ estudio.cuatroCamarasAD }}</td>
+            </tr>
+            <tr>
+                <th>Secuencias</th>
+                <td>{{ estudio.secuencias }}</td>
             </tr>
         </tbody>
     </table>
-
+</div>
+</div>
+</div>
     <ul>
-
         <li>
-            <a href="{{ path('estudio_index', { 'id': cardioresonancia_index.paciente.id }) }}">Volver al Paciente</a>
+          <a class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px;" href="{{ path('estudio_index', { 'id': paciente.id }) }}">Volver a estudios del paciente: <b>{{paciente.nombre}} </b> </a>
         </li>
         <li>
-            <a href="{{ path('estudio_edit', { 'id': cardioresonancia_index.id }) }}">Modificar</a>
+          <a class="btn waves-effect waves-light yellow" style="margin-left:10px; margin-bottom:20px;" href="{{ path('cardioresonancia_edit', { 'id': estudio.id ,'idPaciente': paciente.id }) }}">Modificar</a>
         </li>
 
-
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
     </ul>
 {% endblock %}

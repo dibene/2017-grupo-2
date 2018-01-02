@@ -50,52 +50,29 @@
                 <th>Ondaa</th>
                 <th>Relacione</th>
                 <th>Ondavd</th>
-                <th>Ventriculoizql1c1</th>
-                <th>Ventriculoizql1c2</th>
-                <th>Ventriculoizql2c1</th>
-                <th>Ventriculoizql2c2</th>
-                <th>Ventriculoizql3c1</th>
-                <th>Ventriculoizql3c2</th>
+                <th>Ventriculoizql1</th>
+                <th>Ventriculoizql2</th>
+                <th>Ventriculoizql3</th>
                 <th>Ventriculoizql1imvi</th>
                 <th>Ventriculoizql1epr</th>
                 <th>Ventriculoizql4c1</th>
-                <th>Raizaortal1c1</th>
-                <th>Raizaortal1c2</th>
-                <th>Raizaortal1c3</th>
-                <th>Aortal1c1</th>
-                <th>Aortal1c2</th>
-                <th>Aortal2c1</th>
-                <th>Aortal2c2</th>
-                <th>Aortal3c1</th>
-                <th>Aortal3c2</th>
-                <th>Valvulamitrall1c1</th>
-                <th>Valvulamitrall1c2</th>
-                <th>Valvulamitrall2c1</th>
-                <th>Valvulamitrall2c2</th>
-                <th>Valvulamitrall2c3</th>
-                <th>Auriculaizql1c1</th>
-                <th>Auriculaizql1c2</th>
-                <th>Auriculaizql1c3</th>
-                <th>Valvulapulmonarl1c1</th>
-                <th>Valvulapulmonarl1c2</th>
-                <th>Valvulapulmonarl2c1</th>
-                <th>Valvulapulmonarl2c2</th>
-                <th>Valvulapulmonarl2c3</th>
-                <th>Valvulatricuspidel1c1</th>
-                <th>Valvulatricuspidel1c2</th>
-                <th>Valvulatricuspidel2c1</th>
-                <th>Valvulatricuspidel2c2</th>
-                <th>Valvulatricuspidel2c3</th>
+                <th>Raizaortal1</th>
+                <th>Aortal1</th>
+                <th>Aortal2</th>
+                <th>Aortal3</th>
+                <th>Valvulamitrall1</th>
+                <th>Valvulamitrall2</th>
+                <th>Auriculaizql1</th>
+                <th>Valvulapulmonarl1</th>
+                <th>Valvulapulmonarl2</th>
+                <th>Valvulatricuspidel1</th>
+                <th>Valvulatricuspidel2</th>
                 <th>Cavidadderechal1c1</th>
                 <th>Cavidadderechal1c2</th>
                 <th>Cavidadderechal1c3</th>
-                <th>Venacavainferiorl1c1</th>
-                <th>Pericardiol1c1</th>
-                <th>Pericardiol1c2</th>
-                <th>Pericardiol1c3</th>
-                <th>Conclusionlibre</th>
-                <th>Conclusionl1c1</th>
-                <th>Conclusionl1c2</th>
+                <th>Venacavainferiorl1</th>
+                <th>Pericardiol1</th>
+                <th>Conclusionl1</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -146,52 +123,29 @@
                 <td>{{ ecocardiograma2d.ondaA }}</td>
                 <td>{{ ecocardiograma2d.relacionE }}</td>
                 <td>{{ ecocardiograma2d.ondaVd }}</td>
-                <td>{{ ecocardiograma2d.ventriculoIzqL1C1 }}</td>
-                <td>{{ ecocardiograma2d.ventriculoIzqL1C2 }}</td>
-                <td>{{ ecocardiograma2d.ventriculoIzqL2C1 }}</td>
-                <td>{{ ecocardiograma2d.ventriculoIzqL2C2 }}</td>
-                <td>{{ ecocardiograma2d.ventriculoIzqL3C1 }}</td>
-                <td>{{ ecocardiograma2d.ventriculoIzqL3C2 }}</td>
+                <td>{% if ecocardiograma2d.ventriculoIzqL1 %}{{ ecocardiograma2d.ventriculoIzqL1|join(', ') }}{% endif %}</td>
+                <td>{% if ecocardiograma2d.ventriculoIzqL2 %}{{ ecocardiograma2d.ventriculoIzqL2|join(', ') }}{% endif %}</td>
+                <td>{% if ecocardiograma2d.ventriculoIzqL3 %}{{ ecocardiograma2d.ventriculoIzqL3|join(', ') }}{% endif %}</td>
                 <td>{{ ecocardiograma2d.ventriculoIzqL1Imvi }}</td>
                 <td>{{ ecocardiograma2d.ventriculoIzqL1Epr }}</td>
                 <td>{{ ecocardiograma2d.ventriculoIzqL4C1 }}</td>
-                <td>{{ ecocardiograma2d.raizAortaL1C1 }}</td>
-                <td>{{ ecocardiograma2d.raizAortaL1C2 }}</td>
-                <td>{{ ecocardiograma2d.raizAortaL1C3 }}</td>
-                <td>{{ ecocardiograma2d.aortaL1C1 }}</td>
-                <td>{{ ecocardiograma2d.aortaL1C2 }}</td>
-                <td>{{ ecocardiograma2d.aortaL2C1 }}</td>
-                <td>{{ ecocardiograma2d.aortaL2C2 }}</td>
-                <td>{{ ecocardiograma2d.aortaL3C1 }}</td>
-                <td>{{ ecocardiograma2d.aortaL3C2 }}</td>
-                <td>{{ ecocardiograma2d.valvulaMitralL1C1 }}</td>
-                <td>{{ ecocardiograma2d.valvulaMitralL1C2 }}</td>
-                <td>{{ ecocardiograma2d.valvulaMitralL2C1 }}</td>
-                <td>{{ ecocardiograma2d.valvulaMitralL2C2 }}</td>
-                <td>{{ ecocardiograma2d.valvulaMitralL2C3 }}</td>
-                <td>{{ ecocardiograma2d.auriculaIzqL1C1 }}</td>
-                <td>{{ ecocardiograma2d.auriculaIzqL1C2 }}</td>
-                <td>{{ ecocardiograma2d.auriculaIzqL1C3 }}</td>
-                <td>{{ ecocardiograma2d.valvulaPulmonarL1C1 }}</td>
-                <td>{{ ecocardiograma2d.valvulaPulmonarL1C2 }}</td>
-                <td>{{ ecocardiograma2d.valvulaPulmonarL2C1 }}</td>
-                <td>{{ ecocardiograma2d.valvulaPulmonarL2C2 }}</td>
-                <td>{{ ecocardiograma2d.valvulaPulmonarL2C3 }}</td>
-                <td>{{ ecocardiograma2d.valvulatricuspideL1C1 }}</td>
-                <td>{{ ecocardiograma2d.valvulatricuspideL1C2 }}</td>
-                <td>{{ ecocardiograma2d.valvulatricuspideL2C1 }}</td>
-                <td>{{ ecocardiograma2d.valvulatricuspideL2C2 }}</td>
-                <td>{{ ecocardiograma2d.valvulatricuspideL2C3 }}</td>
+                <td>{% if ecocardiograma2d.raizAortaL1 %}{{ ecocardiograma2d.raizAortaL1|join(', ') }}{% endif %}</td>
+                <td>{% if ecocardiograma2d.aortaL1 %}{{ ecocardiograma2d.aortaL1|join(', ') }}{% endif %}</td>
+                <td>{% if ecocardiograma2d.aortaL2 %}{{ ecocardiograma2d.aortaL2|join(', ') }}{% endif %}</td>
+                <td>{% if ecocardiograma2d.aortaL3 %}{{ ecocardiograma2d.aortaL3|join(', ') }}{% endif %}</td>
+                <td>{% if ecocardiograma2d.valvulaMitralL1 %}{{ ecocardiograma2d.valvulaMitralL1|join(', ') }}{% endif %}</td>
+                <td>{% if ecocardiograma2d.valvulaMitralL2 %}{{ ecocardiograma2d.valvulaMitralL2|join(', ') }}{% endif %}</td>
+                <td>{% if ecocardiograma2d.auriculaIzqL1 %}{{ ecocardiograma2d.auriculaIzqL1|join(', ') }}{% endif %}</td>
+                <td>{% if ecocardiograma2d.valvulaPulmonarL1 %}{{ ecocardiograma2d.valvulaPulmonarL1|join(', ') }}{% endif %}</td>
+                <td>{% if ecocardiograma2d.valvulaPulmonarL2 %}{{ ecocardiograma2d.valvulaPulmonarL2|join(', ') }}{% endif %}</td>
+                <td>{% if ecocardiograma2d.valvulatricuspideL1 %}{{ ecocardiograma2d.valvulatricuspideL1|join(', ') }}{% endif %}</td>
+                <td>{% if ecocardiograma2d.valvulatricuspideL2 %}{{ ecocardiograma2d.valvulatricuspideL2|join(', ') }}{% endif %}</td>
                 <td>{{ ecocardiograma2d.cavidadDerechaL1C1 }}</td>
                 <td>{{ ecocardiograma2d.cavidadDerechaL1C2 }}</td>
                 <td>{{ ecocardiograma2d.cavidadDerechaL1C3 }}</td>
-                <td>{{ ecocardiograma2d.venaCavaInferiorL1C1 }}</td>
-                <td>{{ ecocardiograma2d.pericardioL1C1 }}</td>
-                <td>{{ ecocardiograma2d.pericardioL1C2 }}</td>
-                <td>{{ ecocardiograma2d.pericardioL1C3 }}</td>
-                <td>{{ ecocardiograma2d.conclusionLibre }}</td>
-                <td>{{ ecocardiograma2d.conclusionL1C1 }}</td>
-                <td>{{ ecocardiograma2d.conclusionL1C2 }}</td>
+                <td>{% if ecocardiograma2d.venaCavaInferiorL1 %}{{ ecocardiograma2d.venaCavaInferiorL1|join(', ') }}{% endif %}</td>
+                <td>{% if ecocardiograma2d.pericardioL1 %}{{ ecocardiograma2d.pericardioL1|join(', ') }}{% endif %}</td>
+                <td>{% if ecocardiograma2d.conclusionL1 %}{{ ecocardiograma2d.conclusionL1|join(', ') }}{% endif %}</td>
                 <td>
                     <ul>
                         <li>
