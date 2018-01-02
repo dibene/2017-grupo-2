@@ -79,3 +79,13 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+
+knp_snappy:
+    pdf:
+        enabled:    true
+        binary:     "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe\""
+        options:    
+            no-outline: true
+            page-size: A4
+            # Recommended to set UTF-8 as default encoding :)
+            encoding: UTF-8

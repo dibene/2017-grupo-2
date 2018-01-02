@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+
+<head>
+	Esto es un PDF de PRUEBA
+</head>
+
+<body>
+	El resultado del estudio de Prueba es: 
+	<li>
+	{% for item in estudio %}
+		<ul>
+			{{ item }}
+		</ul>
+	{% endfor %}
+	</li>
+</body>
