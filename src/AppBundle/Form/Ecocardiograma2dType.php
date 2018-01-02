@@ -67,8 +67,14 @@ class Ecocardiograma2dType extends AbstractType
         'multiple' => true,
         'attr' => array('class' => 'ventriculoIzqL1C1'),
         ))
-      ->add('ventriculoIzqL1Imvi')->add('ventriculoIzqL1Epr')->add('ventriculoIzqL4C1')
-
+      ->add('ventriculoIzqL1Imvi')->add('ventriculoIzqL1Epr')
+      ->add('ventriculoIzqL4C1', ChoiceType::class, array(
+      'choices' => array(
+        'la motilidad parietal esta conservada en todos los segmentos.' => 'la motilidad parietal esta conservada en todos los segmentos.',
+        'libre' => 'libre'),
+        'multiple' => true,
+      'attr' => array('class' => 'ventriculoIzqL4C1'),
+      ))
         ->add('raizAortaL1', ChoiceType::class, array(
         'choices' => array(
           'dimensiones normales' => 'dimensiones normales',

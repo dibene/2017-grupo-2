@@ -464,7 +464,66 @@ class Ecocardiograma2d extends Estudio
      */
     private $valvulatricuspideL2;
 
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="cavidad_derecha_l1_c1c", type="text", nullable=true)
+     */
+    private $cavidadDerechaL1C1c;
 
+
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="cavidad_derecha_l1_c2c", type="text", nullable=true)
+     */
+    private $cavidadDerechaL1C2c;
+
+
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="cavidad_derecha_l1_c3c", type="text", nullable=true)
+     */
+    private $cavidadDerechaL1C3c;
+
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="cavidad_derecha_l1_c4c", type="text", nullable=true)
+     */
+    private $cavidadDerechaL1C4c;
+
+
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="cavidad_derecha_l1_c5c", type="text", nullable=true)
+     */
+    private $cavidadDerechaL1C5c;
+
+
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="cavidad_derecha_l1_c6c", type="text", nullable=true)
+     */
+    private $cavidadDerechaL1C6c;
+
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="cavidad_derecha_l1_c7c", type="text", nullable=true)
+     */
+    private $cavidadDerechaL1C7c;
+
+
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="cavidad_derecha_l1_c8c", type="text", nullable=true)
+     */
+    private $cavidadDerechaL1C8c;
 
     /**
      * @var text
@@ -489,6 +548,43 @@ class Ecocardiograma2d extends Estudio
      */
     private $cavidadDerechaL1C3;
 
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="cavidad_derecha_l1_c4", type="text", nullable=true)
+     */
+    private $cavidadDerechaL1C4;
+
+
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="cavidad_derecha_l1_c5", type="text", nullable=true)
+     */
+    private $cavidadDerechaL1C5;
+
+
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="cavidad_derecha_l1_c6", type="text", nullable=true)
+     */
+    private $cavidadDerechaL1C6;
+
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="cavidad_derecha_l1_c7", type="text", nullable=true)
+     */
+    private $cavidadDerechaL1C7;
+
+
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="cavidad_derecha_l1_c8", type="text", nullable=true)
+     */
+    private $cavidadDerechaL1C8;
 
     /**
      * @var text
