@@ -4,23 +4,26 @@ namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 
 /**
- * Estudio controller.
+ * Demo controller.
  *
  * @Route("pdf")
  */
 
 
-class DefaultController extends Controller
+class SandBoxController extends Controller
 {
 
      /**
      * PDF.
      *
      *  @Route("/", name="pdf")
-     * 
+     *  @Method("GET")
      */
 
     public function indexAction()
