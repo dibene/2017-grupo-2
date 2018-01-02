@@ -43,12 +43,7 @@
         </tbody>
     </table>
 
-    <h4 class="red-text">Estudios para agregar</h4>
-    <ul>
-    {% for estudio in nombreEstudios %}
-    <li>
-    <a href="/{{estudio.link}}/new/paciente/{{paciente.id}}">{{estudio.nombre}}</a>
-    </li>
-    {% endfor %}
-    </ul>
+    <h4 class="red-text">Estudios para agregar
+<a class="btn-floating btn-small waves-effect waves-light green" href="{{ path('estudio_new', { 'id': paciente.id }) }}"><i class="material-icons">add</i></a>
+</h4>
 {% endblock %}
