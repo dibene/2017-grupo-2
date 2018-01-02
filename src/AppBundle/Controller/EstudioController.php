@@ -38,8 +38,10 @@ class EstudioController extends Controller
 
       $snappy = $this->get('knp_snappy.pdf');
       $filename = 'estudio';
+
       $link = $estudio->getEstudioConfiguracion()->getLink().'/estudioPDF.html.twig';
-      $html = $this->render($link, array(
+
+      $html = $this->renderView($link, array(
         'id' => $estudio->getId(),
         'idPaciente' => $paciente->getId(),
         'estudio' => $estudio,
@@ -196,8 +198,6 @@ class EstudioController extends Controller
      * @Route("/{id}/edit", name="estudio_edit")
      * @Method({"GET", "POST"})
      */
-
-
     public function editAction(Request $request, Estudio $estudio)
     {
         $deleteForm = $this->createDeleteForm($estudio);

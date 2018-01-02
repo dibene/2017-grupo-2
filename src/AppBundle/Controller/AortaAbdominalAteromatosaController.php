@@ -17,44 +17,6 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class AortaAbdominalAteromatosaController extends Controller
 {
-
-    /**
-     * Lists all aortaAbdominalAteromatosa entities.
-     *
-     * @Route("/{id}/pdf/paciente/{idPaciente}", name="aortaabdominalateromatosa_pdf")
-     * @Method("GET")
-     */
-    public function pdfAction(AortaAbdominalAteromatosa $aortaAbdominalAteromatosa , $idPaciente)
-    {
-
-      $deleteForm = $this->createDeleteForm($aortaAbdominalAteromatosa);
-      $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($idPaciente);
-      $user = $this->container->get('security.context')->getToken()->getUser();
-      $medico = $this->getDoctrine()->getManager()->getRepository('AppBundle:Medico')->findOneByUsuario($user->getId());
-
-
-        $snappy = $this->get('knp_snappy.pdf');
-        $filename = 'estudio';
-
-        // use absolute path !
-        $view = $this->renderView('aortaabdominalateromatosa/print.html.twig', array(
-            'estudio' => $aortaAbdominalAteromatosa,
-            'paciente' => $paciente,
-            'medico' => $medico,
-            'delete_form' => $deleteForm->createView(),
-        ));
-
-        return new Response(
-            $snappy->getOutputFromHtml($view),
-            200,
-            array(
-                'Content-Type'          => 'application/pdf',
-                'Content-Disposition'   => 'inline; filename="'.$filename.'.pdf"'
-            )
-        );
-    }
-
-
     /**
      * Lists all aortaAbdominalAteromatosa entities.
      *
