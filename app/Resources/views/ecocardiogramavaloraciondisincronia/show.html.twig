@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Ecocardiogramavaloraciondisincronium</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ ecocardiogramaValoracionDisincronium.id }}</td>
+            </tr>
+            <tr>
+                <th>Retrasoseptalpp</th>
+                <td>{{ ecocardiogramaValoracionDisincronium.retrasoSeptalPp }}</td>
+            </tr>
+            <tr>
+                <th>Tiempoalpicosistolico</th>
+                <td>{{ ecocardiogramaValoracionDisincronium.tiempoAlPicoSistolico }}</td>
+            </tr>
+            <tr>
+                <th>Tiempoalpicodedeformacion</th>
+                <td>{{ ecocardiogramaValoracionDisincronium.tiempoAlPicoDeDeformacion }}</td>
+            </tr>
+            <tr>
+                <th>Diferenciaentrelosperiodospreeyectivos</th>
+                <td>{{ ecocardiogramaValoracionDisincronium.diferenciaEntreLosPeriodosPreEyectivos }}</td>
+            </tr>
+            <tr>
+                <th>Duraciontotalderr</th>
+                <td>{{ ecocardiogramaValoracionDisincronium.duracionTotalDeRR }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('ecocardiogramavaloraciondisincronia_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('ecocardiogramavaloraciondisincronia_edit', { 'id': ecocardiogramaValoracionDisincronium.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

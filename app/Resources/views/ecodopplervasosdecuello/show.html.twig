@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Ecodopplervasosdecuello</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ ecoDopplerVasosDeCuello.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ ecoDopplerVasosDeCuello.nombre }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('ecodopplervasosdecuello_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('ecodopplervasosdecuello_edit', { 'id': ecoDopplerVasosDeCuello.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

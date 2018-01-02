@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Ecocardiogramavaloraciondisincronias list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Retrasoseptalpp</th>
+                <th>Tiempoalpicosistolico</th>
+                <th>Tiempoalpicodedeformacion</th>
+                <th>Diferenciaentrelosperiodospreeyectivos</th>
+                <th>Duraciontotalderr</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ecocardiogramaValoracionDisincronium in ecocardiogramaValoracionDisincronias %}
+            <tr>
+                <td><a href="{{ path('ecocardiogramavaloraciondisincronia_show', { 'id': ecocardiogramaValoracionDisincronium.id }) }}">{{ ecocardiogramaValoracionDisincronium.id }}</a></td>
+                <td>{{ ecocardiogramaValoracionDisincronium.retrasoSeptalPp }}</td>
+                <td>{{ ecocardiogramaValoracionDisincronium.tiempoAlPicoSistolico }}</td>
+                <td>{{ ecocardiogramaValoracionDisincronium.tiempoAlPicoDeDeformacion }}</td>
+                <td>{{ ecocardiogramaValoracionDisincronium.diferenciaEntreLosPeriodosPreEyectivos }}</td>
+                <td>{{ ecocardiogramaValoracionDisincronium.duracionTotalDeRR }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('ecocardiogramavaloraciondisincronia_show', { 'id': ecocardiogramaValoracionDisincronium.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('ecocardiogramavaloraciondisincronia_edit', { 'id': ecocardiogramaValoracionDisincronium.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('ecocardiogramavaloraciondisincronia_new') }}">Create a new ecocardiogramaValoracionDisincronium</a>
+        </li>
+    </ul>
+{% endblock %}
