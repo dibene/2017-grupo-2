@@ -11,6 +11,8 @@ use Symfony\Component\Form\Extension\Core\Type\SearchType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Estudio controller.
@@ -19,6 +21,42 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
  */
 class EstudioController extends Controller
 {
+
+  /**
+   * Lists all aortaAbdominalAteromatosa entities.
+   *
+   * @Route("/{id}/pdf/paciente/{idPaciente}", name="estudio_pdf")
+   * @Method("GET")
+   */
+  public function pdfAction(Estudio $estudio , $idPaciente)
+  {
+
+    $deleteForm = $this->createDeleteForm($estudio);
+    $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($idPaciente);
+    $user = $this->container->get('security.context')->getToken()->getUser();
+    $medico = $this->getDoctrine()->getManager()->getRepository('AppBundle:Medico')->findOneByUsuario($user->getId());
+
+      $snappy = $this->get('knp_snappy.pdf');
+      $filename = 'estudio';
+      $link = $estudio->getEstudioConfiguracion()->getLink().'/estudioPDF.html.twig';
+      $html = $this->render($link, array(
+        'id' => $estudio->getId(),
+        'idPaciente' => $paciente->getId(),
+        'estudio' => $estudio,
+        'paciente' => $paciente,
+        'medico' => $medico,
+      ));
+
+      return new Response(
+          $snappy->getOutputFromHtml($html),
+          200,
+          array(
+              'Content-Type'          => 'application/pdf',
+              'Content-Disposition'   => 'inline; filename="'.$filename.'.pdf"'
+          )
+      );
+  }
+
     /**
      * Lists all estudio entities.
      *
