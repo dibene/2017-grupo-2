@@ -66,6 +66,11 @@
 
 
         <div>
+    {% for flashMessage in app.session.flashbag.get('mensaje') %}
+      <div class="alert alert-success" role="alert">
+        <div class="container">{{flashMessage}} </div>
+      </div>
+    {% endfor %}
           {% block body %}
           {% block fos_user_content %}{% endblock %}
           {% endblock %}
