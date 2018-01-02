@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Ecodopplervasosdecuellos list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ecoDopplerVasosDeCuello in ecoDopplerVasosDeCuellos %}
+            <tr>
+                <td><a href="{{ path('ecodopplervasosdecuello_show', { 'id': ecoDopplerVasosDeCuello.id }) }}">{{ ecoDopplerVasosDeCuello.id }}</a></td>
+                <td>{{ ecoDopplerVasosDeCuello.nombre }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('ecodopplervasosdecuello_show', { 'id': ecoDopplerVasosDeCuello.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('ecodopplervasosdecuello_edit', { 'id': ecoDopplerVasosDeCuello.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('ecodopplervasosdecuello_new') }}">Create a new ecoDopplerVasosDeCuello</a>
+        </li>
+    </ul>
+{% endblock %}

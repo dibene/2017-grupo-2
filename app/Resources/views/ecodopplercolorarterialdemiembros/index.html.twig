@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Ecodopplercolorarterialdemiembros list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Arteriafemoralcomun</th>
+                <th>Arteriafemoralsuperficial</th>
+                <th>Arteriapoplitea</th>
+                <th>Arteriatibialanterior</th>
+                <th>Arteriatibialposterior</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ecoDopplerColorArterialDeMiembro in ecoDopplerColorArterialDeMiembros %}
+            <tr>
+                <td><a href="{{ path('ecodopplercolorarterialdemiembros_show', { 'id': ecoDopplerColorArterialDeMiembro.id }) }}">{{ ecoDopplerColorArterialDeMiembro.id }}</a></td>
+                <td>{{ ecoDopplerColorArterialDeMiembro.arteriafemoralComun }}</td>
+                <td>{{ ecoDopplerColorArterialDeMiembro.arteriaFemoralSuperficial }}</td>
+                <td>{{ ecoDopplerColorArterialDeMiembro.arteriaPoplitea }}</td>
+                <td>{{ ecoDopplerColorArterialDeMiembro.arteriaTibialAnterior }}</td>
+                <td>{{ ecoDopplerColorArterialDeMiembro.arteriaTibialPosterior }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('ecodopplercolorarterialdemiembros_show', { 'id': ecoDopplerColorArterialDeMiembro.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('ecodopplercolorarterialdemiembros_edit', { 'id': ecoDopplerColorArterialDeMiembro.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('ecodopplercolorarterialdemiembros_new') }}">Create a new ecoDopplerColorArterialDeMiembro</a>
+        </li>
+    </ul>
+{% endblock %}

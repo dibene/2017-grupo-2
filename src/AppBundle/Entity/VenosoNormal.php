@@ -31,9 +31,9 @@ class VenosoNormal extends Estudio
     /**
      * @var integer
      *
-     * @ORM\Column(name="diametro", type="integer", nullable=false)
+     * @ORM\Column(name="diametro_VSI", type="integer", nullable=false)
      */
-    private $diametro;
+    private $diametroVSI;
 
     /**
      * @var integer
@@ -41,6 +41,13 @@ class VenosoNormal extends Estudio
      * @ORM\Column(name="vena_safena_externa", type="integer", nullable=false)
      */
     private $venaSafenaExterna;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="diametro_VSE", type="integer", nullable=false)
+     */
+    private $diametroVSE;
 
     public function __construct($medico,$paciente , $entityManager) {
       parent::__construct();

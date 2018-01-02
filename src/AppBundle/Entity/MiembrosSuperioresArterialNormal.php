@@ -41,6 +41,35 @@ class MiembrosSuperioresArterialNormal extends Estudio
      * @ORM\Column(name="indice_de_pre_estenosis", type="integer", nullable=false)
      */
     private $indiceDePreEstenosis;
+
+     /**
+     * @var integer
+     *
+     * @ORM\Column(name="flujos_distales", type="integer", nullable=false)
+     */
+    private $flujosDistales;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="estenosis", type="integer", nullable=false)
+     */
+    private $estenosis;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="caracteristicas", type="integer", nullable=false)
+     */
+    private $caracteristicas;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="arteria", type="integer", nullable=false)
+     */
+    private $arteria;
+
     public function __construct($medico,$paciente , $entityManager) {
       parent::__construct();
     //  $entityManager = $event->getEntityManager();

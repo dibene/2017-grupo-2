@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Ecoestre</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ ecoEstre.id }}</td>
+            </tr>
+            <tr>
+                <th>Informe1normal</th>
+                <td>{{ ecoEstre.informe1Normal }}</td>
+            </tr>
+            <tr>
+                <th>Informe2normal</th>
+                <td>{{ ecoEstre.informe2Normal }}</td>
+            </tr>
+            <tr>
+                <th>Informerespuestaisquemica1</th>
+                <td>{{ ecoEstre.informeRespuestaIsquemica1 }}</td>
+            </tr>
+            <tr>
+                <th>Informe3infartosinisquemia</th>
+                <td>{{ ecoEstre.informe3InfartoSinIsquemia }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('ecoestres_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('ecoestres_edit', { 'id': ecoEstre.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
