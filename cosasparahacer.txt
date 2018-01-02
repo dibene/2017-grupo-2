@@ -13,6 +13,7 @@ en general
       perfiles de usuario?
 
 duda
+habria
   habria q sacarlo  7. El sistema debe permitir deshabilitar el acceso al sistema por parte de un Médico. (desahbilitar el sitio?)
     listar los Médicos , solo para administrador o los medicos tambien pueden verlo?
      busqueda por fecha de un estudio => en lista de pacientes buscar por fecha de estudios ? medio incoerente, y si fuera en lsita de estudios ? tendria q haber lista de estudios de todos los estudios ? :S

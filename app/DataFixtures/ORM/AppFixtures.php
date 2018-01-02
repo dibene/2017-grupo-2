@@ -55,6 +55,9 @@ class AppFixtures extends Fixture
           array('id' => 12 ,
             'nombre' => 'Ecocardiograma 2D y Doppler Color' ,
           'link' => 'ecocardiograma2d'),
+          array('id' => 13 ,
+            'nombre' => 'Eco Doppler Vasos De Cuello' ,
+          'link' => 'ecodopplervasosdecuello'),
           array('id' => 17 ,
             'nombre' => 'Cardio Resonancia' ,
           'link' => 'cardioresonancia')
