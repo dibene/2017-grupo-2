@@ -2,6 +2,11 @@
 
 {% block body %}
 
+    {% for flashMessage in app.session.flashbag.get('mensaje') %}
+      <div class="alert alert-success" role="alert">
+        <div class="container">{{flashMessage}} </div>
+      </div>
+    {% endfor %}
 
     <h3 class="red-text">Pacientes</h3>
     {{ form_start(form) }}

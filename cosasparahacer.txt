@@ -1,5 +1,6 @@
 en general
  -falta paginar
+ -agregar todos los mensajes de creacion exitosamente (pacientes, medicos, estudios, etc)
 
 -sobre usuarios
   -falta
