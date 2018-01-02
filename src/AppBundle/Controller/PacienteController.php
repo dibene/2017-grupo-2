@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\SearchType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use  Doctrine \ ORM \ Tools \ Pagination \ Paginator ;
 /**
  * Paciente controller.
  *
@@ -78,6 +79,8 @@ class PacienteController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($paciente);
             $em->flush();
+
+            $this->addFlash('mensaje', 'El Paciente Ha Sido Creado Exitosamente');
 
             return $this->redirectToRoute('paciente_show', array('id' => $paciente->getId()));
         }
