@@ -5,7 +5,8 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\VenosoNormal;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Venosonormal controller.
@@ -34,12 +35,16 @@ class VenosoNormalController extends Controller
     /**
      * Creates a new venosoNormal entity.
      *
-     * @Route("/new", name="venosonormal_new")
+     * @Route("/new/paciente/{id}", name="venosonormal_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, $id)
     {
-        $venosoNormal = new Venosonormal();
+        $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($id);
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        $medico = $this->getDoctrine()->getManager()->getRepository('AppBundle:Medico')->findOneByUsuario($user->getId());
+
+        $venosoNormal = new VenosoNormal($medico, $paciente,$this->getDoctrine()->getManager());
         $form = $this->createForm('AppBundle\Form\VenosoNormalType', $venosoNormal);
         $form->handleRequest($request);
 
@@ -48,11 +53,17 @@ class VenosoNormalController extends Controller
             $em->persist($venosoNormal);
             $em->flush();
 
-            return $this->redirectToRoute('venosonormal_show', array('id' => $venosoNormal->getId()));
+            return $this->redirectToRoute('venosonormal_show', array(
+                'id' => $venosoNormal->getId(),
+                'idPaciente' => $paciente->getId(),
+                'medico' => $medico,
+                'paciente' => $paciente,
+                'estudio' => $venosoNormal));
         }
 
         return $this->render('venosonormal/new.html.twig', array(
-            'venosoNormal' => $venosoNormal,
+            'estudio' => $venosoNormal,
+            'paciente' => $paciente,
             'form' => $form->createView(),
         ));
     }

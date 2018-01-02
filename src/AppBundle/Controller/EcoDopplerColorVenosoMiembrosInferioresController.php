@@ -53,7 +53,8 @@ class EcoDopplerColorVenosoMiembrosInferioresController extends Controller
             $em->persist($ecoDopplerColorVenosoMiembrosInferiore);
             $em->flush();
 
-            return $this->redirectToRoute('ecodopplercolorvenosomiembrosinferiores_show', array('id' => $ecoDopplerColorVenosoMiembrosInferiore->getId(),
+            return $this->redirectToRoute('ecodopplercolorvenosomiembrosinferiores_show', array(
+                'id' => $ecoDopplerColorVenosoMiembrosInferiore->getId(),
                 'idPaciente' => $paciente->getId(),
                 'medico' => $medico,
                 'paciente' => $paciente,
