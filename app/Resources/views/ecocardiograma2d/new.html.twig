@@ -151,30 +151,53 @@
 {{ form_row(form.valvulatricuspideL2) }}
 
 <p class="red-text  "> CAVIDADES DERECHAS:</p>
-<br>
-1- de dimensiones y formas normales.
-<br>
-2- levemente dilatadas (diámetro longitudinal de VD ( mm):……../diámetro
-medioventricular: …….., y basal:……./Area de Ad (cm2):………)
-<br>
-3- moderadamente dilatadas (diámetro longitudinal de VD ( mm):……../diámetro
-medioventricular: …….., y basal:……./Area de Ad (cm2):………)
-<br>
-4- Severamente dilatadas (diámetro longitudinal de VD ( mm):……../diámetro
-medioventricular: …….., y basal:……./Area de Ad (cm2):………)
-<br>
-5- Vd dilatado e hipertrófico (diámetro longitudinal de VD ( mm):……../diámetro
-medioventricular: …….., y basal:……./Area de Ad (cm2):………)
-<br>
-6-función sistólica de Vd conservada (TAPSE (mm):……)
-<br>
-7-deterioro de la función sistólica de Vd (TAPSE (mm): ……)
-<br>
-8-libre……..
-<br>
-{{ form_row(form.cavidadDerechaL1C1) }}
-{{ form_row(form.cavidadDerechaL1C2) }}
-{{ form_row(form.cavidadDerechaL1C3) }}
+
+
+<table >
+
+  <tr>
+    <td>{{ form_row(form.cavidadDerechaL1C1c) }}</td>
+    <td>{{ form_row(form.cavidadDerechaL1C1) }}</td>
+  </tr>
+
+  <tr>
+    <td>{{ form_row(form.cavidadDerechaL1C2c) }}</td>
+    <td>{{ form_row(form.cavidadDerechaL1C2) }}</td>
+  </tr>
+
+  <tr>
+    <td>{{ form_row(form.cavidadDerechaL1C3c) }}</td>
+    <td>{{ form_row(form.cavidadDerechaL1C3) }}</td>
+  </tr>
+
+  <tr>
+    <td>{{ form_row(form.cavidadDerechaL1C4c) }}</td>
+    <td>{{ form_row(form.cavidadDerechaL1C4) }}</td>
+  </tr>
+
+  <tr>
+    <td>{{ form_row(form.cavidadDerechaL1C5c) }}</td>
+    <td>{{ form_row(form.cavidadDerechaL1C5) }}</td>
+  </tr>
+
+  <tr>
+    <td>{{ form_row(form.cavidadDerechaL1C6c) }}</td>
+    <td>{{ form_row(form.cavidadDerechaL1C6) }}</td>
+  </tr>
+
+  <tr>
+    <td>{{ form_row(form.cavidadDerechaL1C7c) }}</td>
+    <td>{{ form_row(form.cavidadDerechaL1C7) }}</td>
+  </tr>
+
+  <tr>
+    <td>{{ form_row(form.cavidadDerechaL1C8c) }}</td>
+    <td>{{ form_row(form.cavidadDerechaL1C8) }}</td>
+  </tr>
+
+
+</table>
+
 
 <p class="red-text  ">VENA CAVA INFERIOR </p>
 {{ form_row(form.venaCavaInferiorL1) }}

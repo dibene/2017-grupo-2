@@ -79,7 +79,6 @@ class EcoDopplerColorVenosoMiembrosInferioresController extends Controller
         $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($idPaciente);
         $user = $this->container->get('security.context')->getToken()->getUser();
         $medico = $this->getDoctrine()->getManager()->getRepository('AppBundle:Medico')->findOneByUsuario($user->getId());
-
         return $this->render('ecodopplercolorvenosomiembrosinferiores/show.html.twig', array(
             'estudio' => $ecoDopplerColorVenosoMiembrosInferiore,
             'paciente' => $paciente,
