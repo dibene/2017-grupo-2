@@ -20,23 +20,24 @@
     </div>
     {{ form_end(form) }}
 
-    Total records: {{pagination.getTotalItemCount}}
+    Total Pacientes: {{pagination.getTotalItemCount}}
 
     <table class="stripped">
         <thead>
 
             <tr>
-              <th> {{knp_pagination_sortable(pagination, 'nombre', 'u.nombre')}} </th>
-              <th> {{knp_pagination_sortable(pagination, 'apellido', 'u.apellido')}} </th>
-              <th> {{knp_pagination_sortable(pagination, 'dni', 'u.dni')}} </th>
-              <th> {{knp_pagination_sortable(pagination, 'direccion', 'u.direccion')}} </th>
-              <th> {{knp_pagination_sortable(pagination, 'sexo', 'u.sexo')}} </th>
-              <th> {{knp_pagination_sortable(pagination, 'nacionalidad', 'u.nacionalidad')}} </th>
-              <th> {{knp_pagination_sortable(pagination, 'localidad', 'u.localidad')}} </th>
-              <th> {{knp_pagination_sortable(pagination, 'fechaNacimiento', 'u.fechaNacimiento')}} </th>
-              <th> {{knp_pagination_sortable(pagination, 'fechaIngreso', 'u.fechaIngreso')}} </th>
-              <th> {{knp_pagination_sortable(pagination, 'internacion', 'u.internacion')}} </th>
-              <th>Ver Estudios</th>
+              <th> {{knp_pagination_sortable(pagination, 'Nombre', 'u.nombre')}} </th>
+              <th> {{knp_pagination_sortable(pagination, 'Apellido', 'u.apellido')}} </th>
+              <th> {{knp_pagination_sortable(pagination, 'DNI', 'u.dni')}} </th>
+              <th> {{knp_pagination_sortable(pagination, 'Dirección', 'u.direccion')}} </th>
+              <th> {{knp_pagination_sortable(pagination, 'Sexo', 'u.sexo')}} </th>
+              <th> {{knp_pagination_sortable(pagination, 'Nacionalidad', 'u.nacionalidad')}} </th>
+              <th> {{knp_pagination_sortable(pagination, 'Localidad', 'u.localidad')}} </th>
+              <th> {{knp_pagination_sortable(pagination, 'Fecha Nacimiento', 'u.fechaNacimiento')}} </th>
+              <th> {{knp_pagination_sortable(pagination, 'Fecha Ingreso', 'u.fechaIngreso')}} </th>
+              <th> {{knp_pagination_sortable(pagination, 'Obrac Social', 'u.obraSocial')}} </th>
+              <th> {{knp_pagination_sortable(pagination, 'Internación', 'u.internacion')}} </th>
+              <th>Opciones</th>
             </tr>
 
        
@@ -69,6 +70,7 @@
     <div class="navigation">
       {{knp_pagination_render(pagination)}}
     </div>
+
 
     <ul>
         <li>
