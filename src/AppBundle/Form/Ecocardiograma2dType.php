@@ -68,14 +68,11 @@ class Ecocardiograma2dType extends AbstractType
         'multiple' => true,
         'attr' => array('class' => 'ventriculoIzqL1C1'),
         ))
-      ->add('ventriculoIzqL1Imvi')->add('ventriculoIzqL1Epr')
-      ->add('ventriculoIzqL4C1', ChoiceType::class, array(
-      'choices' => array(
-        'la motilidad parietal esta conservada en todos los segmentos.' => 'la motilidad parietal esta conservada en todos los segmentos.',
-        'libre' => 'libre'),
-        'multiple' => true,
-      'attr' => array('class' => 'ventriculoIzqL4C1'),
-      ))
+      ->add('ventriculoIzqL1Imvi','text')->add('ventriculoIzqL1Epr','text')
+      ->add('ventriculoIzqL4C1','text', array('attr'=> array('value' => 'la motilidad parietal esta conservada en todos los segmentos.')))
+      // falta el libre
+
+
         ->add('raizAortaL1', ChoiceType::class, array(
         'choices' => array(
           'dimensiones normales' => 'dimensiones normales',
@@ -220,7 +217,7 @@ class Ecocardiograma2dType extends AbstractType
         'multiple' => true,
         'attr' => array('class' => 'ventriculoIzqL1C1'),
         ))
-      
+
         ->add('cavidadDerechaL1C1','text', array('attr'=> array('value' => 'de dimensiones y formas normales.')))
         ->add('cavidadDerechaL1C2','text', array('attr'=> array('value' => 'levemente dilatadas (diámetro longitudinal de VD ( mm):……../diámetro
         medioventricular: …….., y basal:……./Area de Ad (cm2):………)')))
@@ -233,14 +230,14 @@ class Ecocardiograma2dType extends AbstractType
         ->add('cavidadDerechaL1C6','text', array('attr'=> array('value' => 'función sistólica de Vd conservada (TAPSE (mm):……)')))
         ->add('cavidadDerechaL1C7','text', array('attr'=> array('value' => 'deterioro de la función sistólica de Vd (TAPSE (mm): ……)')))
         ->add('cavidadDerechaL1C8','text', array('attr'=> array('value' => 'libre……..')))
-        ->add('cavidadDerechaL1C1c', CheckboxType::class, array('label' => ' '))
-        ->add('cavidadDerechaL1C2c', CheckboxType::class, array('label' => ' '))
-        ->add('cavidadDerechaL1C3c', CheckboxType::class, array('label' => ' '))
-        ->add('cavidadDerechaL1C4c', CheckboxType::class, array('label' => ' '))
-        ->add('cavidadDerechaL1C5c', CheckboxType::class, array('label' => ' '))
-        ->add('cavidadDerechaL1C6c', CheckboxType::class, array('label' => ' '))
-        ->add('cavidadDerechaL1C7c', CheckboxType::class, array('label' => ' '))
-        ->add('cavidadDerechaL1C8c', CheckboxType::class, array('label' => ' '))
+        ->add('cavidadDerechaL1C1c', CheckboxType::class, array('label' => ' ' , 'required' => false))
+        ->add('cavidadDerechaL1C2c', CheckboxType::class, array('label' => ' ', 'required' => false))
+        ->add('cavidadDerechaL1C3c', CheckboxType::class, array('label' => ' ', 'required' => false))
+        ->add('cavidadDerechaL1C4c', CheckboxType::class, array('label' => ' ', 'required' => false))
+        ->add('cavidadDerechaL1C5c', CheckboxType::class, array('label' => ' ', 'required' => false))
+        ->add('cavidadDerechaL1C6c', CheckboxType::class, array('label' => ' ', 'required' => false))
+        ->add('cavidadDerechaL1C7c', CheckboxType::class, array('label' => ' ', 'required' => false))
+        ->add('cavidadDerechaL1C8c', CheckboxType::class, array('label' => ' ', 'required' => false))
 
         ->add('venaCavaInferiorL1', ChoiceType::class, array(
         'choices' => array(

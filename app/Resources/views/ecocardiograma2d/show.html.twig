@@ -336,18 +336,55 @@ tabla 3: Valores Doppler Tisular
             <p class="red-text  "> CAVIDADES DERECHAS:</p>
           </td>
         </tr>
+        {% if estudio.cavidadDerechaL1C1c %}
             <tr>
-                <td>Cavidadderechal1c1</td>
+                <td>opcion 1</td>
                 <td>{{ estudio.cavidadDerechaL1C1 }}</td>
             </tr>
+        {% endif %}
+        {% if estudio.cavidadDerechaL1C2c %}
             <tr>
-                <td>Cavidadderechal1c2</td>
+                <td>opcion 2</td>
                 <td>{{ estudio.cavidadDerechaL1C2 }}</td>
             </tr>
+        {% endif %}
+        {% if estudio.cavidadDerechaL1C3c %}
             <tr>
-                <td>Cavidadderechal1c3</td>
+                <td>opcion 3</td>
                 <td>{{ estudio.cavidadDerechaL1C3 }}</td>
             </tr>
+        {% endif %}
+        {% if estudio.cavidadDerechaL1C4c %}
+            <tr>
+                <td>opcion 4</td>
+                <td>{{ estudio.cavidadDerechaL1C4 }}</td>
+            </tr>
+        {% endif %}
+        {% if estudio.cavidadDerechaL1C5c %}
+            <tr>
+                <td>opcion 5</td>
+                <td>{{ estudio.cavidadDerechaL1C5 }}</td>
+            </tr>
+        {% endif %}
+        {% if estudio.cavidadDerechaL1C6c %}
+            <tr>
+                <td>opcion 6</td>
+                <td>{{ estudio.cavidadDerechaL1C6 }}</td>
+            </tr>
+        {% endif %}
+        {% if estudio.cavidadDerechaL1C7c %}
+            <tr>
+                <td>opcion 7</td>
+                <td>{{ estudio.cavidadDerechaL1C7 }}</td>
+            </tr>
+        {% endif %}
+        {% if estudio.cavidadDerechaL1C8c %}
+            <tr>
+                <td>opcion 8</td>
+                <td>{{ estudio.cavidadDerechaL1C8 }}</td>
+            </tr>
+        {% endif %}
+
             <tr>
               <td>
             <p class="red-text  ">VENA CAVA INFERIOR </p>
