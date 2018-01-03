@@ -39,7 +39,7 @@ class EcocardiogramaValoracionDisincroniaController extends Controller
      */
     public function newAction(Request $request)
     {
-        $ecocardiogramaValoracionDisincronium = new Ecocardiogramavaloraciondisincronium();
+        $ecocardiogramaValoracionDisincronium = new EcocardiogramaValoracionDisincronia();
         $form = $this->createForm('AppBundle\Form\EcocardiogramaValoracionDisincroniaType', $ecocardiogramaValoracionDisincronium);
         $form->handleRequest($request);
 
