@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * Paciente
  *
  * @ORM\Table(name="paciente")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\PacienteRepository")
  */
 class Paciente extends Persona
 {

@@ -2,12 +2,6 @@
 
 {% block body %}
 
-    {% for flashMessage in app.session.flashbag.get('mensaje') %}
-      <div class="alert alert-success" role="alert">
-        <div class="container">{{flashMessage}} </div>
-      </div>
-    {% endfor %}
-
     <h3 class="red-text">Pacientes</h3>
     {{ form_start(form) }}
     <div class="row">
@@ -26,28 +20,29 @@
     </div>
     {{ form_end(form) }}
 
+    Total records: {{pagination.getTotalItemCount}}
+
     <table class="stripped">
         <thead>
+
             <tr>
-              <th>Nombre</th>
-              <th>Apellido</th>
-              <th>Dni</th>
-              <th>Direccion</th>
-              <th>Sexo</th>
-              <th>Nacionalidad</th>
-              <th>Localidad</th>
-              <th>Fecha de Nacimiento</th>
-                <th>Obra Social</th>
-                <th>Fecha de Ingreso</th>
-                <th>Internacion</th>
-                <th>Ver</th>
-                <th>Editar</th>
-                <th>Agregar Estudio</th>
-                <th>Ver Estudios</th>
+              <th> {{knp_pagination_sortable(pagination, 'nombre', 'u.nombre')}} </th>
+              <th> {{knp_pagination_sortable(pagination, 'apellido', 'u.apellido')}} </th>
+              <th> {{knp_pagination_sortable(pagination, 'dni', 'u.dni')}} </th>
+              <th> {{knp_pagination_sortable(pagination, 'direccion', 'u.direccion')}} </th>
+              <th> {{knp_pagination_sortable(pagination, 'sexo', 'u.sexo')}} </th>
+              <th> {{knp_pagination_sortable(pagination, 'nacionalidad', 'u.nacionalidad')}} </th>
+              <th> {{knp_pagination_sortable(pagination, 'localidad', 'u.localidad')}} </th>
+              <th> {{knp_pagination_sortable(pagination, 'fechaNacimiento', 'u.fechaNacimiento')}} </th>
+              <th> {{knp_pagination_sortable(pagination, 'fechaIngreso', 'u.fechaIngreso')}} </th>
+              <th> {{knp_pagination_sortable(pagination, 'internacion', 'u.internacion')}} </th>
+              <th>Ver Estudios</th>
             </tr>
+
+       
         </thead>
         <tbody>
-        {% for paciente in pacientes %}
+        {% for paciente in pagination.items %}
             <tr>
               <td>{{ paciente.nombre }}</td>
               <td>{{ paciente.apellido }}</td>
@@ -69,6 +64,11 @@
         {% endfor %}
         </tbody>
     </table>
+
+    {# MUESTRA EL NAVEGADOR #}
+    <div class="navigation">
+      {{knp_pagination_render(pagination)}}
+    </div>div>
 
     <ul>
         <li>

@@ -26,8 +26,9 @@ class PacienteController extends Controller
     public function indexAction(Request $request)
     {
       $em = $this->getDoctrine()->getManager();
-      $pacientes = $em->getRepository('AppBundle:Paciente')->findAll();
-      $form = $this->createFormBuilder($pacientes)
+      //$pacientes = $em->getRepository('AppBundle:Paciente')->findAll(); 
+
+       $form = $this->createFormBuilder()
         ->add('nombre', SearchType::class , array('required'   => false))
         ->add('apellido', SearchType::class , array('required'   => false))
         ->add('dni', SearchType::class , array('required'   => false))
@@ -55,10 +56,19 @@ class PacienteController extends Controller
           }else {
             $pacientes = array();
           }
+        }else{//Primera vez que entra
+            $pacientes = $em->getRepository('AppBundle:Paciente')->findForPaginator();             
         }
 
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $pacientes, $request->query->getInt('page', 1), 
+            3
+        );
+
+
         return $this->render('paciente/index.html.twig', array(
-            'pacientes' => $pacientes,
+            'pagination' => $pagination,
             'form' => $form->createView()
         ));
     }
