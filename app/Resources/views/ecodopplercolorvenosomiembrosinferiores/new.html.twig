@@ -1,16 +1,90 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Ecodopplercolorvenosomiembrosinferiore creation</h1>
+<div class="row col s12">
+  <br><a class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " href="{{ path('estudio_index', { 'id': paciente.id }) }}">Volver a estudios del paciente: <b>{{paciente.nombre}} </b> </a>
+  <br><a class="btn waves-effect waves-light red lighten-1" style="margin-left:10px; margin-bottom:20px;"  href="{{ path('estudio_new', { 'id': paciente.id }) }}">Volver a la lista de estudios para agregar al paciente: <b>{{paciente.nombre}} </b> </a>
+
+  <div class="container col s12 center-align" >
+
+    <div class="z-depth-1 grey lighten-4 row left-align col s12" style="display: inline-block; margin: 50px; padding: 32px 48px 50px 48px; border: 1px solid #EEE;">
+      <h5 class="red-text center-align ">Nuevo Estudio {{ estudio.estudioConfiguracion.nombre }}</h5>
+      <br>
+      <a id="mmii0"class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " value="carot"> MMII 0 </a>
+      <a id="mmii1" class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " >MMII  1 </a>
+      <a id="mmii2" class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " >MMII  2 </a>
+      <a id="mmii3" class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " >MMII  3 </a>
+
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+    {{ form_row(form.motivoSolicitud) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('ecodopplercolorvenosomiembrosinferiores_index') }}">Back to the list</a>
-        </li>
-    </ul>
+    {{ form_row(form.resultado , { 'id': 'resultado' } ) }}
+
+    {{ form_row(form.conclusion) }}
+        <input class="btn waves-effect waves-light red" type="submit" value="Crear" />
+    {{ form_end(form) }}
+    </div>
+  </div>
+</div>
+
+<br><a class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " href="{{ path('estudio_index', { 'id': paciente.id }) }}">Volver a estudios del paciente: <b>{{paciente.nombre}} </b> </a>
+<br><a class="btn waves-effect waves-light red lighten-1" style="margin-left:10px; margin-bottom:20px;"  href="{{ path('estudio_new', { 'id': paciente.id }) }}">Volver a la lista de estudios para agregar al paciente: <b>{{paciente.nombre}} </b> </a>
+
 {% endblock %}
+{% block javascripts %}
+{{parent()}}
+
+  <script type="text/javascript">
+
+window.onload = function(){
+var refResultado = document.getElementById("resultado");
+   var refmmii0 = document.getElementById("mmii0");
+   var refmmii1 = document.getElementById("mmii1");
+   var refmmii2 = document.getElementById("mmii2");
+   var refmmii3 = document.getElementById("mmii3");
+
+    refmmii0.onclick = function() {
+        refResultado.value = "";
+    }
+
+    refmmii1.onclick = function() {
+        refResultado.value =
+        "\nSe exploró el sistema venoso de ambos miembros inferiores, visualizando las venas femoral común,\n"+
+        "safena interna, femoral superficial, femoral profunda y poplitea, hallando leve engrosamiento parietal\n"+
+        "y diámetros venosos normales.\n"+
+        "El sistema venoso profundo de ambos miembros inferiores se halla permeable en todo su trayecto,\n"+
+        "sin evidencia de imágenes que sugieran trombosis.\n"+
+        "El análisis de la onda espectral mostró un flujo anterógrado basal normal e insuficiencia en las venas\n"+
+        "proximales, a predominio femoral común izquierda.\n"+
+        "La maniobra de compresión manual en pantorrilla para evaluar permeabilidad del sistema venoso\n"+
+        "distal bilateral, fue estimada como normal.";
+    }
+    refmmii2.onclick = function() {
+        refResultado.value =
+        "\nSe exploró el sistema venoso de ambos miembros inferiores; visualizando las venas femoral común,\n"+
+        "safena interna ,femoral superficial, femoral profunda y poplitea, hallando leve engrosamiento parietal\n"+
+        "y dilatación venosa a nivel de\n"+
+        "El sistema venoso profundo de ambos miembros inferiores se halla permeable en todo su trayecto,\n"+
+        "sin evidencias de imágenes que sugieran trombosis.\n"+
+        "El análisis de la onda espectral mostró un flujo anterógrado basal normal. La indicación de maniobra\n"+
+        "de Valsalva evidenció signos de insuficiencia en vena femoral común y cayado de safena interna.\n"+
+        "La maniobra de compresión manual en pantorrilla para evaluar permeabilidad del sistema venoso\n"+
+        "distal bilateral, fue estimada como normal.";
+    }
+    refmmii3.onclick = function() {
+        refResultado.value =
+        "\nSe exploró el sistema venoso de ambos miembros inferiores; visualizando las venas femoral común,\n"+
+        "safena interna, femoral superficial, femoral profunda y poplitea, hallando leve engrosamiento parietal\n"+
+        "y dilatación venosa a nivel de\n"+
+        "En el sistema venoso profundo de ambos miembros inferiores se hallaron imágenes que sugieran\n"+
+        "trombosis a nivel de las venas:\n"+
+        "La maniobra de compresión manual en pantorrilla para evaluar permeabilidad del sistema venoso\n"+
+        "distal derecho o izquierdo, fue estimada como anormal.";
+    }
+};
+
+  </script>
+
+{% endblock %}
+

@@ -117,7 +117,8 @@ class AortaAbdominalController extends Controller
           'estudio' => $aortaAbdominal,
           'paciente' => $paciente,
           'idPaciente' => $paciente->getId(),
-            'delete_form' => $deleteForm->createView(),
+          'edit_form' => $editForm->createView(),
+          'delete_form' => $deleteForm->createView(), 
         ));
     }
 

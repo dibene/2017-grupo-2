@@ -28,6 +28,7 @@
               {% if is_granted('ROLE_MEDICO') %}
                 <li><a href="/paciente">Pacientes</a></li>
                 <li><a href="/estudio/realizados">Estudios Realizados</a></li>
+                <li><a href="/estadisticas">Estadisticas</a></li>
               {% endif %}
                 <!-- link al perfil solo si esta logueado -->
                 <li><a href="/profile"> {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} </a> </li>
@@ -82,7 +83,7 @@
           <div class="footer-copyright red lighten">
             <div class="container">
               Hospital  San Martín.
-              <a class="grey-text text-lighten-4 right">Sistema de Gestión de Estudios Cardiológicos Ingenieria de Software Aplicada 2018 cr</a>
+              <a class="grey-text text-lighten-4 right">Sistema de Gestión de Estudios Cardiológicos Ingenieria de Software Aplicada 2018</a>
             </div>
           </div>
         </footer>

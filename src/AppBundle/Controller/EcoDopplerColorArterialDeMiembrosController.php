@@ -39,7 +39,7 @@ class EcoDopplerColorArterialDeMiembrosController extends Controller
      */
     public function newAction(Request $request)
     {
-        $ecoDopplerColorArterialDeMiembro = new Ecodopplercolorarterialdemiembro();
+        $ecoDopplerColorArterialDeMiembro = new EcoDopplerColorArterialDeMiembros();
         $form = $this->createForm('AppBundle\Form\EcoDopplerColorArterialDeMiembrosType', $ecoDopplerColorArterialDeMiembro);
         $form->handleRequest($request);
 

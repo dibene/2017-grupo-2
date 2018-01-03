@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="eco_doppler_color_venoso_miembros_inferiores")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\EcoDopplerColorVenosoMiembrosInferioresRepository")
  */
-class EcoDopplerColorVenosoMiembrosInferiores
+class EcoDopplerColorVenosoMiembrosInferiores extends Estudio
 {
     /**
      * @var int
@@ -22,16 +22,6 @@ class EcoDopplerColorVenosoMiembrosInferiores
     private $id;
 
 
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
     public function __construct($medico,$paciente , $entityManager) {
       parent::__construct();
         //  $entityManager = $event->getEntityManager();
@@ -42,4 +32,3 @@ class EcoDopplerColorVenosoMiembrosInferiores
     }
 
 }
-

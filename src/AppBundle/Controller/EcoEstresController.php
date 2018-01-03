@@ -39,7 +39,7 @@ class EcoEstresController extends Controller
      */
     public function newAction(Request $request)
     {
-        $ecoEstre = new Ecoestre();
+        $ecoEstre = new EcoEstres();
         $form = $this->createForm('AppBundle\Form\EcoEstresType', $ecoEstre);
         $form->handleRequest($request);
 
