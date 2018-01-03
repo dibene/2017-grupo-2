@@ -63,8 +63,7 @@ class PacienteController extends Controller
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
             $pacientes, $request->query->getInt('page', 1), 
-            3
-        );
+            5 );
 
 
         return $this->render('paciente/index.html.twig', array(
