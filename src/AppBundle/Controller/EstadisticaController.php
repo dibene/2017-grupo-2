@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 class EstadisticaController extends Controller
 {
     /**
-     * @Route("/estadisticas", name="homepage")
+     * @Route("/estadisticas", name="estadisticas_index")
      */
     public function indexAction(Request $request)
     {
