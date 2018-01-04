@@ -5,8 +5,11 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\EcocardiogramaValoracionDisincronia;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
-
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
+use \Datetime;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\HttpFoundation\Response;
 /**
  * Ecocardiogramavaloraciondisincronium controller.
  *
@@ -34,12 +37,16 @@ class EcocardiogramaValoracionDisincroniaController extends Controller
     /**
      * Creates a new ecocardiogramaValoracionDisincronium entity.
      *
-     * @Route("/new", name="ecocardiogramavaloraciondisincronia_new")
+     * @Route("/new/paciente/{id}", name="ecocardiogramavaloraciondisincronia_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, $id)
     {
-        $ecocardiogramaValoracionDisincronium = new EcocardiogramaValoracionDisincronia();
+            $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($id);
+            $user = $this->container->get('security.context')->getToken()->getUser();
+            $medico = $this->getDoctrine()->getManager()->getRepository('AppBundle:Medico')->findOneByUsuario($user->getId());
+
+        $ecocardiogramaValoracionDisincronium = new EcocardiogramaValoracionDisincronia($medico, $paciente,$this->getDoctrine()->getManager());
         $form = $this->createForm('AppBundle\Form\EcocardiogramaValoracionDisincroniaType', $ecocardiogramaValoracionDisincronium);
         $form->handleRequest($request);
 
@@ -48,11 +55,16 @@ class EcocardiogramaValoracionDisincroniaController extends Controller
             $em->persist($ecocardiogramaValoracionDisincronium);
             $em->flush();
 
-            return $this->redirectToRoute('ecocardiogramavaloraciondisincronia_show', array('id' => $ecocardiogramaValoracionDisincronium->getId()));
+            return $this->redirectToRoute('ecocardiogramavaloraciondisincronia_show', array('id' => $ecocardiogramaValoracionDisincronium->getId(),
+          'idPaciente' => $paciente->getId(),
+          'medico' => $medico,
+          'paciente' => $paciente,
+          'estudio' => $ecocardiogramaValoracionDisincronium));
         }
 
         return $this->render('ecocardiogramavaloraciondisincronia/new.html.twig', array(
-            'ecocardiogramaValoracionDisincronium' => $ecocardiogramaValoracionDisincronium,
+            'estudio' => $ecocardiogramaValoracionDisincronium,
+                        'paciente' => $paciente,
             'form' => $form->createView(),
         ));
     }
@@ -60,15 +72,20 @@ class EcocardiogramaValoracionDisincroniaController extends Controller
     /**
      * Finds and displays a ecocardiogramaValoracionDisincronium entity.
      *
-     * @Route("/{id}", name="ecocardiogramavaloraciondisincronia_show")
+     * @Route("/{id}/paciente/{idPaciente}",  name="ecocardiogramavaloraciondisincronia_show")
      * @Method("GET")
      */
-    public function showAction(EcocardiogramaValoracionDisincronia $ecocardiogramaValoracionDisincronium)
+    public function showAction(EcocardiogramaValoracionDisincronia $ecocardiogramaValoracionDisincronium, $idPaciente)
     {
         $deleteForm = $this->createDeleteForm($ecocardiogramaValoracionDisincronium);
+        $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($idPaciente);
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        $medico = $this->getDoctrine()->getManager()->getRepository('AppBundle:Medico')->findOneByUsuario($user->getId());
 
         return $this->render('ecocardiogramavaloraciondisincronia/show.html.twig', array(
-            'ecocardiogramaValoracionDisincronium' => $ecocardiogramaValoracionDisincronium,
+            'estudio' => $ecocardiogramaValoracionDisincronium,
+            'paciente' => $paciente,
+            'medico' => $medico,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -76,22 +93,29 @@ class EcocardiogramaValoracionDisincroniaController extends Controller
     /**
      * Displays a form to edit an existing ecocardiogramaValoracionDisincronium entity.
      *
-     * @Route("/{id}/edit", name="ecocardiogramavaloraciondisincronia_edit")
+     * @Route("/{id}/edit/paciente/{idPaciente}", name="ecocardiogramavaloraciondisincronia_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, EcocardiogramaValoracionDisincronia $ecocardiogramaValoracionDisincronium)
+    public function editAction(Request $request, EcocardiogramaValoracionDisincronia $ecocardiogramaValoracionDisincronium,  $idPaciente)
     {
         $deleteForm = $this->createDeleteForm($ecocardiogramaValoracionDisincronium);
         $editForm = $this->createForm('AppBundle\Form\EcocardiogramaValoracionDisincroniaType', $ecocardiogramaValoracionDisincronium);
         $editForm->handleRequest($request);
+        $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($idPaciente);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('ecocardiogramavaloraciondisincronia_edit', array('id' => $ecocardiogramaValoracionDisincronium->getId()));
+            return $this->redirectToRoute('ecocardiogramavaloraciondisincronia_edit', array('id' => $ecocardiogramaValoracionDisincronium->getId(),
+            'estudio' => $aortaAbdominalAteromatosa,
+            'paciente' => $paciente,
+            'idPaciente' => $paciente->getId()
+          ));
         }
 
         return $this->render('ecocardiogramavaloraciondisincronia/edit.html.twig', array(
+        'paciente' => $paciente,
+        'idPaciente' => $paciente->getId(),
             'ecocardiogramaValoracionDisincronium' => $ecocardiogramaValoracionDisincronium,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

@@ -5,6 +5,8 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class EcoDopplerColorArterialDeMiembrosType extends AbstractType
 {
@@ -13,7 +15,13 @@ class EcoDopplerColorArterialDeMiembrosType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('arteriafemoralComun')->add('arteriaFemoralSuperficial')->add('arteriaPoplitea')->add('arteriaTibialAnterior')->add('arteriaTibialPosterior');
+        $builder
+        ->add('motivoSolicitud', EntityType::class, array(
+          'class' => 'AppBundle:MotivoSolicitud',
+          'choice_label' => 'nombre'))
+        ->add('resultado')
+        ->add('conclusion')
+        ->add('arteriafemoralComun')->add('arteriaFemoralSuperficial')->add('arteriaPoplitea')->add('arteriaTibialAnterior')->add('arteriaTibialPosterior');
     }/**
      * {@inheritdoc}
      */

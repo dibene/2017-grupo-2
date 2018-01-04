@@ -1,0 +1,44 @@
+{# default Sliding pagination control implementation #}
+
+{% if pageCount > 1 %}
+<div class="pagination" style="text-align: center;">
+  <ul class="pagination">
+
+    {% if first is defined and current != first %}
+        <span class="first">
+          <li class="waves-effect">  <a href="{{ path(route, query|merge({(pageParameterName): first})) }}"><i class="material-icons" style="width: 10px;">chevron_left</i><i class="material-icons" style="width: 10px;">chevron_left</i></a><li>
+        </span>
+    {% endif %}
+
+    {% if previous is defined %}
+        <span class="previous">
+          <li class="waves-effect">  <a href="{{ path(route, query|merge({(pageParameterName): previous})) }}"><i class="material-icons">chevron_left</i></a><li>
+        </span>
+    {% endif %}
+
+    {% for page in pagesInRange %}
+        {% if page != current %}
+            <span class="page">
+              <li class="waves-effect">  <a href="{{ path(route, query|merge({(pageParameterName): page})) }}">{{ page }}</a> <li>
+            </span>
+        {% else %}
+          <span class="current">  <li class="active red"> <a> {{ page }} </a> </li></span>
+        {% endif %}
+
+    {% endfor %}
+
+    {% if next is defined %}
+        <span class="next">
+        <li class="waves-effect"><a href="{{ path(route, query|merge({(pageParameterName): next})) }}"><i class="material-icons">chevron_right</i></a><li>
+        </span>
+    {% endif %}
+
+    {% if last is defined and current != last %}
+        <span class="last">
+        <li class="waves-effect" style="right: 20px;"><a href="{{ path(route, query|merge({(pageParameterName): last})) }}"><i class="material-icons" style="width: 10px;">chevron_right</i><i class="material-icons" style="width: 10px;">chevron_right</i></a><li>
+        </span>
+    {% endif %}
+
+    </ul>
+</div>
+{% endif %}

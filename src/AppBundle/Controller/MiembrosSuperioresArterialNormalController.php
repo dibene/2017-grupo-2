@@ -5,8 +5,11 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\MiembrosSuperioresArterialNormal;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
-
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
+use \Datetime;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\HttpFoundation\Response;
 /**
  * Miembrossuperioresarterialnormal controller.
  *
@@ -34,12 +37,16 @@ class MiembrosSuperioresArterialNormalController extends Controller
     /**
      * Creates a new miembrosSuperioresArterialNormal entity.
      *
-     * @Route("/new", name="miembrossuperioresarterialnormal_new")
+     * @Route("/new/paciente/{id}", name="miembrossuperioresarterialnormal_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, $id)
     {
-        $miembrosSuperioresArterialNormal = new Miembrossuperioresarterialnormal();
+            $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($id);
+            $user = $this->container->get('security.context')->getToken()->getUser();
+            $medico = $this->getDoctrine()->getManager()->getRepository('AppBundle:Medico')->findOneByUsuario($user->getId());
+
+        $miembrosSuperioresArterialNormal = new Miembrossuperioresarterialnormal($medico, $paciente,$this->getDoctrine()->getManager());
         $form = $this->createForm('AppBundle\Form\MiembrosSuperioresArterialNormalType', $miembrosSuperioresArterialNormal);
         $form->handleRequest($request);
 
@@ -48,11 +55,16 @@ class MiembrosSuperioresArterialNormalController extends Controller
             $em->persist($miembrosSuperioresArterialNormal);
             $em->flush();
 
-            return $this->redirectToRoute('miembrossuperioresarterialnormal_show', array('id' => $miembrosSuperioresArterialNormal->getId()));
+            return $this->redirectToRoute('miembrossuperioresarterialnormal_show', array('id' => $miembrosSuperioresArterialNormal->getId(),
+          'idPaciente' => $paciente->getId(),
+          'medico' => $medico,
+          'paciente' => $paciente,
+          'estudio' => $miembrosSuperioresArterialNormal));
         }
 
         return $this->render('miembrossuperioresarterialnormal/new.html.twig', array(
-            'miembrosSuperioresArterialNormal' => $miembrosSuperioresArterialNormal,
+            'estudio' => $miembrosSuperioresArterialNormal,
+                        'paciente' => $paciente,
             'form' => $form->createView(),
         ));
     }
@@ -60,15 +72,20 @@ class MiembrosSuperioresArterialNormalController extends Controller
     /**
      * Finds and displays a miembrosSuperioresArterialNormal entity.
      *
-     * @Route("/{id}", name="miembrossuperioresarterialnormal_show")
+     * @Route("/{id}/paciente/{idPaciente}",  name="miembrossuperioresarterialnormal_show")
      * @Method("GET")
      */
-    public function showAction(MiembrosSuperioresArterialNormal $miembrosSuperioresArterialNormal)
+    public function showAction(MiembrosSuperioresArterialNormal $miembrosSuperioresArterialNormal, $idPaciente)
     {
         $deleteForm = $this->createDeleteForm($miembrosSuperioresArterialNormal);
+        $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($idPaciente);
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        $medico = $this->getDoctrine()->getManager()->getRepository('AppBundle:Medico')->findOneByUsuario($user->getId());
 
         return $this->render('miembrossuperioresarterialnormal/show.html.twig', array(
-            'miembrosSuperioresArterialNormal' => $miembrosSuperioresArterialNormal,
+            'estudio' => $miembrosSuperioresArterialNormal,
+            'paciente' => $paciente,
+            'medico' => $medico,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -76,22 +93,29 @@ class MiembrosSuperioresArterialNormalController extends Controller
     /**
      * Displays a form to edit an existing miembrosSuperioresArterialNormal entity.
      *
-     * @Route("/{id}/edit", name="miembrossuperioresarterialnormal_edit")
+     * @Route("/{id}/edit/paciente/{idPaciente}", name="miembrossuperioresarterialnormal_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, MiembrosSuperioresArterialNormal $miembrosSuperioresArterialNormal)
+    public function editAction(Request $request, MiembrosSuperioresArterialNormal $miembrosSuperioresArterialNormal,  $idPaciente)
     {
         $deleteForm = $this->createDeleteForm($miembrosSuperioresArterialNormal);
         $editForm = $this->createForm('AppBundle\Form\MiembrosSuperioresArterialNormalType', $miembrosSuperioresArterialNormal);
         $editForm->handleRequest($request);
+        $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($idPaciente);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('miembrossuperioresarterialnormal_edit', array('id' => $miembrosSuperioresArterialNormal->getId()));
+            return $this->redirectToRoute('miembrossuperioresarterialnormal_edit', array('id' => $miembrosSuperioresArterialNormal->getId(),
+            'estudio' => $aortaAbdominalAteromatosa,
+            'paciente' => $paciente,
+            'idPaciente' => $paciente->getId()
+          ));
         }
 
         return $this->render('miembrossuperioresarterialnormal/edit.html.twig', array(
+        'paciente' => $paciente,
+        'idPaciente' => $paciente->getId(),
             'miembrosSuperioresArterialNormal' => $miembrosSuperioresArterialNormal,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

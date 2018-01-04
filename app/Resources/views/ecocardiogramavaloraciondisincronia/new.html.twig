@@ -1,16 +1,46 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Ecocardiogramavaloraciondisincronium creation</h1>
+<div class="row col s12">
+  <br><a class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " href="{{ path('estudio_index', { 'id': paciente.id }) }}">Volver a estudios del paciente: <b>{{paciente.nombre}} </b> </a>
+  <br><a class="btn waves-effect waves-light red lighten-1" style="margin-left:10px; margin-bottom:20px;"  href="{{ path('estudio_new', { 'id': paciente.id }) }}">Volver a la lista de estudios para agregar al paciente: <b>{{paciente.nombre}} </b> </a>
+
+  <div class="container col s12 center-align" >
+
+    <div class="z-depth-1 grey lighten-4 row left-align col s12" style="display: inline-block; margin: 50px; padding: 32px 48px 50px 48px; border: 1px solid #EEE;">
+      <h5 class="red-text center-align ">Nuevo Estudio {{ estudio.estudioConfiguracion.nombre }}</h5>
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+    {{ form_row(form.motivoSolicitud) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('ecocardiogramavaloraciondisincronia_index') }}">Back to the list</a>
-        </li>
-    </ul>
+    {{ form_row(form.resultado) }}
+
+    {{ form_row(form.conclusion) }}
+
+    <h4  class="red-text">Indicadores de discincronía Intraventricular izquierda: </h4>
+  <div class="row" style="">
+<div class="col s3" style="margin-top: 25px; margin-right: -80px;">Modo M: retraso septal-PP:</div> <div class="col s2">{{ form_row(form.retrasoSeptalPp) }}</div> <div class="col s4" style="margin-top: 25px;">(indicador de discincronía un valor > 130 ms).</div>
+  </div>
+  <div class="row"style="">
+<div class="col s8" style="margin-top: 25px;">    Doppler pulsado tisular (DTcolor): valoración del tiempo al pico sistólico (Onda S) entre  septum-pared lateral</div> <div class="col s2">{{ form_row(form.tiempoAlPicoSistolico) }}</div> <div class="col s2" style="margin-top: 25px;">( + > 65 ms).</div>
+  </div>
+    Doppler pulsado tisular (DTcolor): valoración del tiempo al pico sistólico (Onda S) entre  septum-pared lateral
+    Speckle tracking radial: valoración del tiempo al pico de deformación en segmentos opuestos: {{ form_row(form.tiempoAlPicoDeDeformacion) }} (+ > 130 ms)<br>
+
+    <h4  class="red-text">Indicadores de discincronía Interventricular:</h4>
+    La  diferencia entre los periodos preeyectivos de ambos ventrículos fue de block {{ form_row(form.diferenciaEntreLosPeriodosPreEyectivos) }} , considerándose discincronía interventricular un valor > a 40 ms o la presencia de PPEy VI > 140 ms.<br>
+
+    <h4  class="red-text">Indicadores de alteración en la secuencia auriculo-ventricular: </h4>
+    Se valoró la duración del llenado diastólico en relación a la duración total del R-R, siendo de {{ form_row(form.duracionTotalDeRR) }} , considerándose asincronía AV,  una relación < 40%, o bien la superposición delas ondas diastólicas.<br>
+
+
+        <input class="btn waves-effect waves-light red" type="submit" value="Crear" />
+    {{ form_end(form) }}
+    </div>
+  </div>
+</div>
+
+<br><a class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " href="{{ path('estudio_index', { 'id': paciente.id }) }}">Volver a estudios del paciente: <b>{{paciente.nombre}} </b> </a>
+<br><a class="btn waves-effect waves-light red lighten-1" style="margin-left:10px; margin-bottom:20px;"  href="{{ path('estudio_new', { 'id': paciente.id }) }}">Volver a la lista de estudios para agregar al paciente: <b>{{paciente.nombre}} </b> </a>
+
 {% endblock %}

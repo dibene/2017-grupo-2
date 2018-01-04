@@ -5,6 +5,8 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class MiembrosSuperioresArterialNormalType extends AbstractType
 {
@@ -13,7 +15,13 @@ class MiembrosSuperioresArterialNormalType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('extension')->add('velocidadPicoSistolica')->add('indiceDePreEstenosis')->add('flujosDistales')->add('estenosis')->add('caracteristicas')->add('arteria');
+        $builder
+        ->add('motivoSolicitud', EntityType::class, array(
+          'class' => 'AppBundle:MotivoSolicitud',
+          'choice_label' => 'nombre'))
+        ->add('resultado')
+        ->add('conclusion')
+        ->add('extension')->add('velocidadPicoSistolica')->add('indiceDePreEstenosis')->add('flujosDistales')->add('estenosis')->add('caracteristicas')->add('arteria');
     }/**
      * {@inheritdoc}
      */
