@@ -28,17 +28,15 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('ecoestres_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('ecoestres_edit', { 'id': ecoEstre.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+  </div>
+</div>
+</div>
+  <ul>
+      <li>
+        <a class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " href="{{ path('estudio_index', { 'id': paciente.id }) }}">Volver a estudios del paciente: <b>{{paciente.nombre}} </b> </a>
+      </li>
+      <li>
+        <a class="btn waves-effect waves-light yellow" style="margin-left:10px; margin-bottom:20px;" href="{{ path(estudio.getEstudioConfiguracion().link~'_edit', { 'id': estudio.id , 'idPaciente': paciente.id }) }}">Modificar</a>
+      </li>
+  </ul>
 {% endblock %}

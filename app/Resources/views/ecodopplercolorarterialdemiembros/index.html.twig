@@ -7,11 +7,16 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Arteriafemoralcomun</th>
-                <th>Arteriafemoralsuperficial</th>
-                <th>Arteriapoplitea</th>
-                <th>Arteriatibialanterior</th>
-                <th>Arteriatibialposterior</th>
+                <th>Arteriafemoralcomunizq</th>
+                <th>Arteriafemoralsuperficializq</th>
+                <th>Arteriapopliteaizq</th>
+                <th>Arteriatibialanteriorizq</th>
+                <th>Arteriatibialposteriorizq</th>
+                <th>Arteriafemoralcomunder</th>
+                <th>Arteriafemoralsuperficialder</th>
+                <th>Arteriapopliteader</th>
+                <th>Arteriatibialanteriorder</th>
+                <th>Arteriatibialposteriorder</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -19,11 +24,16 @@
         {% for ecoDopplerColorArterialDeMiembro in ecoDopplerColorArterialDeMiembros %}
             <tr>
                 <td><a href="{{ path('ecodopplercolorarterialdemiembros_show', { 'id': ecoDopplerColorArterialDeMiembro.id }) }}">{{ ecoDopplerColorArterialDeMiembro.id }}</a></td>
-                <td>{{ ecoDopplerColorArterialDeMiembro.arteriafemoralComun }}</td>
-                <td>{{ ecoDopplerColorArterialDeMiembro.arteriaFemoralSuperficial }}</td>
-                <td>{{ ecoDopplerColorArterialDeMiembro.arteriaPoplitea }}</td>
-                <td>{{ ecoDopplerColorArterialDeMiembro.arteriaTibialAnterior }}</td>
-                <td>{{ ecoDopplerColorArterialDeMiembro.arteriaTibialPosterior }}</td>
+                <td>{{ ecoDopplerColorArterialDeMiembro.arteriafemoralComunIzq }}</td>
+                <td>{{ ecoDopplerColorArterialDeMiembro.arteriaFemoralSuperficialIzq }}</td>
+                <td>{{ ecoDopplerColorArterialDeMiembro.arteriaPopliteaIzq }}</td>
+                <td>{{ ecoDopplerColorArterialDeMiembro.arteriaTibialAnteriorIzq }}</td>
+                <td>{{ ecoDopplerColorArterialDeMiembro.arteriaTibialPosteriorIzq }}</td>
+                <td>{{ ecoDopplerColorArterialDeMiembro.arteriafemoralComunDer }}</td>
+                <td>{{ ecoDopplerColorArterialDeMiembro.arteriaFemoralSuperficialDer }}</td>
+                <td>{{ ecoDopplerColorArterialDeMiembro.arteriaPopliteaDer }}</td>
+                <td>{{ ecoDopplerColorArterialDeMiembro.arteriaTibialAnteriorDer }}</td>
+                <td>{{ ecoDopplerColorArterialDeMiembro.arteriaTibialPosteriorDer }}</td>
                 <td>
                     <ul>
                         <li>

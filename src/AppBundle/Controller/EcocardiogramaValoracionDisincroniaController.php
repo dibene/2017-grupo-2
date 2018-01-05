@@ -107,7 +107,7 @@ class EcocardiogramaValoracionDisincroniaController extends Controller
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('ecocardiogramavaloraciondisincronia_edit', array('id' => $ecocardiogramaValoracionDisincronium->getId(),
-            'estudio' => $aortaAbdominalAteromatosa,
+            'estudio' => $ecocardiogramaValoracionDisincronium,
             'paciente' => $paciente,
             'idPaciente' => $paciente->getId()
           ));
@@ -116,7 +116,7 @@ class EcocardiogramaValoracionDisincroniaController extends Controller
         return $this->render('ecocardiogramavaloraciondisincronia/edit.html.twig', array(
         'paciente' => $paciente,
         'idPaciente' => $paciente->getId(),
-            'ecocardiogramaValoracionDisincronium' => $ecocardiogramaValoracionDisincronium,
+            'estudio' => $ecocardiogramaValoracionDisincronium,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));

@@ -107,7 +107,7 @@ class EcoDopplerColorArterialDeMiembrosController extends Controller
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('ecodopplercolorarterialdemiembros_edit', array('id' => $ecoDopplerColorArterialDeMiembro->getId(),
-            'estudio' => $aortaAbdominalAteromatosa,
+            'estudio' => $ecoDopplerColorArterialDeMiembro,
             'paciente' => $paciente,
             'idPaciente' => $paciente->getId()
           ));
@@ -116,7 +116,7 @@ class EcoDopplerColorArterialDeMiembrosController extends Controller
         return $this->render('ecodopplercolorarterialdemiembros/edit.html.twig', array(
         'paciente' => $paciente,
         'idPaciente' => $paciente->getId(),
-            'ecoDopplerColorArterialDeMiembro' => $ecoDopplerColorArterialDeMiembro,
+            'estudio' => $ecoDopplerColorArterialDeMiembro,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
