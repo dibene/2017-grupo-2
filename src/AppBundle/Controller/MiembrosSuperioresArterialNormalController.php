@@ -64,7 +64,7 @@ class MiembrosSuperioresArterialNormalController extends Controller
 
         return $this->render('miembrossuperioresarterialnormal/new.html.twig', array(
             'estudio' => $miembrosSuperioresArterialNormal,
-                        'paciente' => $paciente,
+            'paciente' => $paciente,
             'form' => $form->createView(),
         ));
     }
@@ -107,7 +107,7 @@ class MiembrosSuperioresArterialNormalController extends Controller
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('miembrossuperioresarterialnormal_edit', array('id' => $miembrosSuperioresArterialNormal->getId(),
-            'estudio' => $aortaAbdominalAteromatosa,
+            'estudio' => $miembrosSuperioresArterialNormal,
             'paciente' => $paciente,
             'idPaciente' => $paciente->getId()
           ));
@@ -116,7 +116,7 @@ class MiembrosSuperioresArterialNormalController extends Controller
         return $this->render('miembrossuperioresarterialnormal/edit.html.twig', array(
         'paciente' => $paciente,
         'idPaciente' => $paciente->getId(),
-            'miembrosSuperioresArterialNormal' => $miembrosSuperioresArterialNormal,
+            'estudio' => $miembrosSuperioresArterialNormal,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));

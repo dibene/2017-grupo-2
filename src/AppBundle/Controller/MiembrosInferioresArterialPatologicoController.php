@@ -107,7 +107,7 @@ class MiembrosInferioresArterialPatologicoController extends Controller
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('miembrosinferioresarterialpatologico_edit', array('id' => $miembrosInferioresArterialPatologico->getId(),
-            'estudio' => $aortaAbdominalAteromatosa,
+            'estudio' => $miembrosInferioresArterialPatologico,
             'paciente' => $paciente,
             'idPaciente' => $paciente->getId()
           ));
@@ -116,7 +116,7 @@ class MiembrosInferioresArterialPatologicoController extends Controller
         return $this->render('miembrosinferioresarterialpatologico/edit.html.twig', array(
         'paciente' => $paciente,
         'idPaciente' => $paciente->getId(),
-            'miembrosInferioresArterialPatologico' => $miembrosInferioresArterialPatologico,
+            'estudio' => $miembrosInferioresArterialPatologico,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));

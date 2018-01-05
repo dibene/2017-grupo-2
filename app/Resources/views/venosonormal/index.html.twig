@@ -7,10 +7,14 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Venasafenainterna</th>
-                <th>Diametrovsi</th>
-                <th>Venasafenaexterna</th>
-                <th>Diametrovse</th>
+                <th>Venasafenainternaizq</th>
+                <th>Diametrovsiizq</th>
+                <th>Venasafenaexternaizq</th>
+                <th>Diametrovseizq</th>
+                <th>Venasafenainternader</th>
+                <th>Diametrovsider</th>
+                <th>Venasafenaexternader</th>
+                <th>Diametrovseder</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -18,10 +22,14 @@
         {% for venosoNormal in venosoNormals %}
             <tr>
                 <td><a href="{{ path('venosonormal_show', { 'id': venosoNormal.id }) }}">{{ venosoNormal.id }}</a></td>
-                <td>{{ venosoNormal.venaSafenaInterna }}</td>
-                <td>{{ venosoNormal.diametroVSI }}</td>
-                <td>{{ venosoNormal.venaSafenaExterna }}</td>
-                <td>{{ venosoNormal.diametroVSE }}</td>
+                <td>{{ venosoNormal.venaSafenaInternaIzq }}</td>
+                <td>{{ venosoNormal.diametroVSIIzq }}</td>
+                <td>{{ venosoNormal.venaSafenaExternaIzq }}</td>
+                <td>{{ venosoNormal.diametroVSEIzq }}</td>
+                <td>{{ venosoNormal.venaSafenaInternaDer }}</td>
+                <td>{{ venosoNormal.diametroVSIDer }}</td>
+                <td>{{ venosoNormal.venaSafenaExternaDer }}</td>
+                <td>{{ venosoNormal.diametroVSEDer }}</td>
                 <td>
                     <ul>
                         <li>

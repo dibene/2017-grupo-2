@@ -14,8 +14,9 @@
         {{ form_widget(form) }}
         <input class="btn waves-effect waves-light red" type="submit" value="Crear" />
     {{ form_end(form) }}
-    </div>
+
   </div>
+</div>
 </div>
 <br><a class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " href="{{ path('estudio_index', { 'id': paciente.id }) }}">Volver a estudios del paciente: <b>{{paciente.nombre}} </b> </a>
 <br><a class="btn waves-effect waves-light red lighten-1" style="margin-left:10px; margin-bottom:20px;"  href="{{ path('estudio_new', { 'id': paciente.id }) }}">Volver a la lista de estudios para agregar al paciente: <b>{{paciente.nombre}} </b> </a>

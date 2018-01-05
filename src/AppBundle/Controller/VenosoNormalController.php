@@ -71,15 +71,20 @@ class VenosoNormalController extends Controller
     /**
      * Finds and displays a venosoNormal entity.
      *
-     * @Route("/{id}", name="venosonormal_show")
+     * @Route("/{id}/paciente/{idPaciente}", name="venosonormal_show")
      * @Method("GET")
      */
-    public function showAction(VenosoNormal $venosoNormal)
+    public function showAction(VenosoNormal $venosoNormal, $idPaciente )
     {
         $deleteForm = $this->createDeleteForm($venosoNormal);
+        $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($idPaciente);
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        $medico = $this->getDoctrine()->getManager()->getRepository('AppBundle:Medico')->findOneByUsuario($user->getId());
 
         return $this->render('venosonormal/show.html.twig', array(
-            'venosoNormal' => $venosoNormal,
+            'estudio' => $venosoNormal,
+            'paciente' => $paciente,
+            'medico' => $medico,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -87,23 +92,30 @@ class VenosoNormalController extends Controller
     /**
      * Displays a form to edit an existing venosoNormal entity.
      *
-     * @Route("/{id}/edit", name="venosonormal_edit")
+     * @Route("/{id}/edit/paciente/{idPaciente}", name="venosonormal_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, VenosoNormal $venosoNormal)
+    public function editAction(Request $request, VenosoNormal $venosoNormal, $idPaciente)
     {
         $deleteForm = $this->createDeleteForm($venosoNormal);
         $editForm = $this->createForm('AppBundle\Form\VenosoNormalType', $venosoNormal);
         $editForm->handleRequest($request);
+        $paciente = $this->getDoctrine()->getManager()->getRepository('AppBundle:Paciente')->find($idPaciente);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('venosonormal_edit', array('id' => $venosoNormal->getId()));
+            return $this->redirectToRoute('venosonormal_edit', array('id' => $venosoNormal->getId(),
+            'estudio' => $venosoNormal,
+            'paciente' => $paciente,
+            'idPaciente' => $paciente->getId()
+          ));
         }
 
         return $this->render('venosonormal/edit.html.twig', array(
-            'venosoNormal' => $venosoNormal,
+            'estudio' => $venosoNormal,
+            'paciente' => $paciente,
+            'idPaciente' => $paciente->getId(),
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
