@@ -18,20 +18,28 @@
     {{ form_row(form.conclusion) }}
 
     <h4  class="red-text">Indicadores de discincronía Intraventricular izquierda: </h4>
-  <div class="row" style="">
+  <div class="row" style="margin-bottom:0px;">
 <div class="col s3" style="margin-top: 25px; margin-right: -80px;">Modo M: retraso septal-PP:</div> <div class="col s2">{{ form_row(form.retrasoSeptalPp) }}</div> <div class="col s4" style="margin-top: 25px;">(indicador de discincronía un valor > 130 ms).</div>
   </div>
-  <div class="row"style="">
+  <div class="row" style="margin-bottom:0px; ">
 <div class="col s8" style="margin-top: 25px;">    Doppler pulsado tisular (DTcolor): valoración del tiempo al pico sistólico (Onda S) entre  septum-pared lateral</div> <div class="col s2">{{ form_row(form.tiempoAlPicoSistolico) }}</div> <div class="col s2" style="margin-top: 25px;">( + > 65 ms).</div>
   </div>
-    Doppler pulsado tisular (DTcolor): valoración del tiempo al pico sistólico (Onda S) entre  septum-pared lateral
-    Speckle tracking radial: valoración del tiempo al pico de deformación en segmentos opuestos: {{ form_row(form.tiempoAlPicoDeDeformacion) }} (+ > 130 ms)<br>
+
+    <div class="row" style="margin-bottom:0px; ">
+  <div class="col s7" style="margin-top: 25px;"> Speckle tracking radial: valoración del tiempo al pico de deformación en segmentos opuestos:</div> <div class="col s3">{{ form_row(form.tiempoAlPicoDeDeformacion) }}</div> <div class="col s2" style="margin-top: 25px;">(+ > 130 ms)</div>
+    </div>
 
     <h4  class="red-text">Indicadores de discincronía Interventricular:</h4>
-    La  diferencia entre los periodos preeyectivos de ambos ventrículos fue de block {{ form_row(form.diferenciaEntreLosPeriodosPreEyectivos) }} , considerándose discincronía interventricular un valor > a 40 ms o la presencia de PPEy VI > 140 ms.<br>
+    <div class="row" style="margin-bottom:0px; ">
+  <div class="col s7" style="margin-top: 25px;"> La  diferencia entre los periodos preeyectivos de ambos ventrículos fue de block </div> <div class="col s3">{{ form_row(form.diferenciaEntreLosPeriodosPreEyectivos) }} </div> <div class="col s2" style="margin-top: 25px;"> </div>
+    </div>
+      considerándose discincronía interventricular un valor > a 40 ms o la presencia de PPEy VI > 140 ms.<br>
 
     <h4  class="red-text">Indicadores de alteración en la secuencia auriculo-ventricular: </h4>
-    Se valoró la duración del llenado diastólico en relación a la duración total del R-R, siendo de {{ form_row(form.duracionTotalDeRR) }} , considerándose asincronía AV,  una relación < 40%, o bien la superposición delas ondas diastólicas.<br>
+    <div class="row" style="margin-bottom:0px; ">
+  <div class="col s7" style="margin-top: 25px;"> Se valoró la duración del llenado diastólico en relación a la duración total del R-R, siendo de </div> <div class="col s3">     {{ form_row(form.duracionTotalDeRR) }} </div> <div class="col s2" style="margin-top: 25px;"> ms,</div>
+    </div>
+    considerándose asincronía AV,  una relación < 40%, o bien la superposición delas ondas diastólicas.<br><br>
 
 
         <input class="btn waves-effect waves-light red" type="submit" value="Crear" />
