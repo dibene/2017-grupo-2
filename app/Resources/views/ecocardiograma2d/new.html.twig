@@ -21,8 +21,8 @@
     {{ form_row(form.conexionVentriculoArterial) }}
 
     <table style="width:50%;   border: 1px solid black;">
-      tabla 1: valores bidimensionales
 
+<h6 class="red-text">Tabla 1: valores bidimensionales</h6>
       <thead>
       </thead>
       <tbody>
@@ -32,8 +32,8 @@
         </tr>
       </tbody>
     </table>
+<h6 class="red-text">Tabla 2: Valores Doppel</h6>
 
-    tabla 2: Valores Doppel
     <table style="width:75%;   border: 1px solid black;">
       <thead>
       </thead>
@@ -84,7 +84,7 @@
       </tbody>
     </table>
 
-    tabla 3: Valores Doppler Tisular
+    <h6 class="red-text">Tabla 3: Valores Doppler Tisular</h6>
     <table style="width:50%;   border: 1px solid black;">
       <thead>
       </thead>
@@ -126,107 +126,62 @@
         {{ form_row(form.ventriculoIzqL4C1) }}
 
 <p class="red-text  "> RAIZ DE AORTA: </p>
-{{ form_row(form.raizAortaL1) }}
+{{ form_row(form.raizAortaL1, { 'id': 'raizAortaL1' } ) }}
+{{ form_row(form.raizAortaL1Libre , { 'id': 'raizAortaL1Libre' } ) }}
+{{ form_row(form.raizAortaL1c2 , { 'id': 'raizAortaL1c2' } ) }}
+{{ form_row(form.raizAortaL1c1 , { 'id': 'raizAortaL1c1' } ) }}
 
 <p class="red-text  "> AORTA: </p>
-{{ form_row(form.aortaL1) }}
-{{ form_row(form.aortaL2) }}
-{{ form_row(form.aortaL3) }}
+{{ form_row(form.aortaL1, { 'id': 'aortaL1' } ) }}
+{{ form_row(form.aortaL1Libre , { 'id': 'aortaL1Libre' } ) }}
+
+{{ form_row(form.aortaL2, { 'id': 'aortaL2' } ) }}
+{{ form_row(form.aortaL2c2 , { 'id': 'aortaL2c2' } ) }}
+{{ form_row(form.aortaL2c1 , { 'id': 'aortaL2c1' } ) }}
+
+{{ form_row(form.aortaL3, { 'id': 'aortaL3' } ) }}
+{{ form_row(form.aortaL3Libre , { 'id': 'aortaL3Libre' } ) }}
 
 <p class="red-text  "> VALVULA MITRAL:</p>
-{{ form_row(form.valvulaMitralL1) }}
-{{ form_row(form.valvulaMitralL2) }}
+{{ form_row(form.valvulaMitralL1, { 'id': 'valvulaMitralL1' } ) }}
+{{ form_row(form.valvulaMitralL1Libre , { 'id': 'valvulaMitralL1Libre' } ) }}
+{{ form_row(form.valvulaMitralL2, { 'id': 'valvulaMitralL2' } ) }}
+{{ form_row(form.valvulaMitralL2Libre , { 'id': 'valvulaMitralL2Libre' } ) }}
 
 <p class="red-text  ">AURICULA IZQUIERDA </p>
-{{ form_row(form.auriculaIzqL1) }}
+{{ form_row(form.auriculaIzqL1, { 'id': 'auriculaIzqL1' } ) }}
+{{ form_row(form.auriculaIzqL1Libre , { 'id': 'auriculaIzqL1Libre' } ) }}
 
 <p class="red-text  ">VALVULA PULMONAR </p>
-{{ form_row(form.valvulaPulmonarL1) }}
-{{ form_row(form.valvulaPulmonarL2) }}
+{{ form_row(form.valvulaPulmonarL1, { 'id': 'valvulaPulmonarL1' } ) }}
+{{ form_row(form.valvulaPulmonarL1Libre , { 'id': 'valvulaPulmonarL1Libre' } ) }}
+{{ form_row(form.valvulaPulmonarL2, { 'id': 'valvulaPulmonarL2' } ) }}
+{{ form_row(form.valvulaPulmonarL2Libre , { 'id': 'valvulaPulmonarL2Libre' } ) }}
 
 <p class="red-text  ">VALVULA TRICUSPIDE </p>
-{{ form_row(form.valvulatricuspideL1) }}
-{{ form_row(form.valvulatricuspideL2) }}
+{{ form_row(form.valvulatricuspideL1, { 'id': 'valvulatricuspideL1' } ) }}
+{{ form_row(form.valvulatricuspideL1Libre , { 'id': 'valvulatricuspideL1Libre' } ) }}
+{{ form_row(form.valvulatricuspideL1c1 , { 'id': 'valvulatricuspideL1c1' } ) }}
+
+{{ form_row(form.valvulatricuspideL2, { 'id': 'valvulatricuspideL2' } ) }}
+{{ form_row(form.valvulatricuspideL2Libre , { 'id': 'valvulatricuspideL2Libre' } ) }}
 
 <p class="red-text  "> CAVIDADES DERECHAS:</p>
-
-<div class="row">
-  <div class="col s1" style="padding-top:30px;padding-left:60px;">
-    {{ form_row(form.cavidadDerechaL1C1c) }}
-  </div>
-  <div class="col s10">
-   {{ form_row(form.cavidadDerechaL1C1) }}
-  </div>
-</div>
-
-<div class="row" style="margin-bottom:0px">
-  <div class="col s1" style="padding-top:30px; padding-left:60px; ">
-    {{ form_row(form.cavidadDerechaL1C2c) }}
-  </div>
-  <div class="col s10" style="margin-bottom:0px;">
-      {{ form_row(form.cavidadDerechaL1C2) }}
-  </div>
-</div>
-
-<div class="row" style="margin-bottom:0px;">
-  <div class="col s1" style="padding-top:30px; padding-left:60px; ">
-    {{ form_row(form.cavidadDerechaL1C3c) }}
-  </div>
-  <div class="col s10" style="margin-bottom:0px;">
-      {{ form_row(form.cavidadDerechaL1C3) }}
-  </div>
-</div>
-
-<div class="row">
-  <div class="col s1" style="padding-top:30px;padding-left:60px;">
-    {{ form_row(form.cavidadDerechaL1C4c) }}
-  </div>
-  <div class="col s10">
-      {{ form_row(form.cavidadDerechaL1C4) }}
-  </div>
-</div>
-
-<div class="row">
-  <div class="col s1" style="padding-top:30px;padding-left:60px;">
-    {{ form_row(form.cavidadDerechaL1C5c) }}
-  </div>
-  <div class="col s10">
-      {{ form_row(form.cavidadDerechaL1C5) }}
-  </div>
-</div>
-
-<div class="row">
-  <div class="col s1" style="padding-top:30px;padding-left:60px;">
-    {{ form_row(form.cavidadDerechaL1C6c) }}
-  </div>
-  <div class="col s10">
-      {{ form_row(form.cavidadDerechaL1C6) }}
-  </div>
-</div>
-
-<div class="row">
-  <div class="col s1" style="padding-top:30px;padding-left:60px;">
-    {{ form_row(form.cavidadDerechaL1C7c) }}
-  </div>
-  <div class="col s10">
-      {{ form_row(form.cavidadDerechaL1C7) }}
-  </div>
-</div>
-
-<div class="row">
-  <div class="col s1" style="padding-top:30px;padding-left:60px;">
-    {{ form_row(form.cavidadDerechaL1C8c) }}
-  </div>
-  <div class="col s10">
-      {{ form_row(form.cavidadDerechaL1C8) }}
-  </div>
-</div>
+{{ form_row(form.cavidadDerechaL1, { 'id': 'cavidadDerechaL1' } ) }}
+{{ form_row(form.cavidadDerechaL1c1, { 'id': 'cavidadDerechaL1c1' } ) }}
+{{ form_row(form.cavidadDerechaL1c2, { 'id': 'cavidadDerechaL1c2' } ) }}
+{{ form_row(form.cavidadDerechaL1c3, { 'id': 'cavidadDerechaL1c3' } ) }}
+{{ form_row(form.cavidadDerechaL1c4, { 'id': 'cavidadDerechaL1c4' } ) }}
+{{ form_row(form.cavidadDerechaL1c5, { 'id': 'cavidadDerechaL1c5' } ) }}
+{{ form_row(form.cavidadDerechaL1c6, { 'id': 'cavidadDerechaL1c6' } ) }}
+{{ form_row(form.cavidadDerechaL1Libre, { 'id': 'cavidadDerechaL1Libre' } ) }}
 
 <p class="red-text  ">VENA CAVA INFERIOR </p>
 {{ form_row(form.venaCavaInferiorL1) }}
 
 <p class="red-text  "> PERICARDIO</p>
-{{ form_row(form.pericardioL1) }}
+{{ form_row(form.pericardioL1, { 'id': 'pericardioL1' } ) }}
+{{ form_row(form.pericardioL1Libre, { 'id': 'pericardioL1Libre' } ) }}
 
 <p class="red-text  "> CONCLUSIONES</p>
 {{ form_row(form.conclusionL1) }}
@@ -245,44 +200,205 @@
 {{parent()}}
 <script type="text/javascript">
 $(document).ready(function() {
+  // descubre los campos seleccionados
+  function selectAttHidden(selectId,campos,textos){
+    $(selectId).on('change', function () {
+      var value = $(selectId).val();
+      for (i = 0; i < campos.length; i++){
+        var ref = document.getElementById(campos[i]);
+        if ( jQuery.inArray(textos[i], value) !== -1){
+          ref.setAttribute("type", "text");
+        }else {
+          ref.setAttribute("type", "hidden");
+        }
+      }
+    }).material_select();
+    return 0;
+  }
 
-  var x = document.getElementsByClassName("row");
-var i;
-for (i = 0; i < x.length; i++) {
-    x[i].style.marginBottom = "0px";
-}
-          var last_valid_selection = null;
-          $('.3opciones').change(function(event) {
-            if ($(this).val().length > 3) {
-              alert('puedes seleccionar solo 3 opciones');
-              $(this).val(last_valid_selection);
-            } else {
-              last_valid_selection = $(this).val();
-            }
-          });
-        });
-        $(document).ready(function() {
-                  var last_valid_selection = null;
-                  $('.2opciones').change(function(event) {
-                    if ($(this).val().length > 2) {
-                      alert('puedes seleccionar solo 2 opciones');
-                      $(this).val(last_valid_selection);
-                    } else {
-                      last_valid_selection = $(this).val();
-                    }
-                  });
-                });
-                $(document).ready(function() {
-                          var last_valid_selection = null;
-                          $('.1opcion').change(function(event) {
-                            if ($(this).val().length > 1) {
-                              alert('puedes seleccionar solo 1 opcion');
-                              $(this).val(last_valid_selection);
-                            } else {
-                              last_valid_selection = $(this).val();
-                            }
-                          });
-                        });
-                </script>
+  var campos = [
+    "raizAortaL1Libre",
+    "raizAortaL1c1",
+    "raizAortaL1c2"
+  ];
+  var textos = [
+    "%libre%",
+    "%c1%",
+    "%c2%"
+  ];
+  var selectId = "#raizAortaL1";
+  selectAttHidden(selectId,campos,textos);
+
+  var campos = [
+    "aortaL1Libre"
+  ];
+  var textos = [
+    "%libre%"
+  ];
+  var selectId = "#aortaL1";
+  selectAttHidden(selectId,campos,textos);
+
+  var campos = [
+    "aortaL2c1",
+    "aortaL2c2"
+  ];
+  var textos = [
+    "%c1%",
+    "%c2%"
+  ];
+  var selectId = "#aortaL2";
+  selectAttHidden(selectId,campos,textos);
+
+  var campos = [
+    "aortaL3Libre"
+  ];
+  var textos = [
+    "%libre%"
+  ];
+  var selectId = "#aortaL3";
+  selectAttHidden(selectId,campos,textos);
+
+  var campos = [
+    "valvulaMitralL1Libre"
+  ];
+  var textos = [
+    "%libre%"
+  ];
+  var selectId = "#valvulaMitralL1";
+  selectAttHidden(selectId,campos,textos);
+
+  var campos = [
+    "valvulaMitralL2Libre"
+  ];
+  var textos = [
+    "%libre%"
+  ];
+  var selectId = "#valvulaMitralL2";
+  selectAttHidden(selectId,campos,textos);
+
+  var campos = [
+    "auriculaIzqL1Libre"
+  ];
+  var textos = [
+    "%libre%"
+  ];
+  var selectId = "#auriculaIzqL1";
+  selectAttHidden(selectId,campos,textos);
+
+  var campos = [
+    "valvulaPulmonarL1Libre"
+  ];
+  var textos = [
+    "%libre%"
+  ];
+  var selectId = "#valvulaPulmonarL1";
+  selectAttHidden(selectId,campos,textos);
+
+  var campos = [
+    "valvulaPulmonarL2Libre"
+  ];
+  var textos = [
+    "%libre%"
+  ];
+  var selectId = "#valvulaPulmonarL2";
+  selectAttHidden(selectId,campos,textos);
+
+  var campos = [
+    "valvulatricuspideL1Libre",
+    "valvulatricuspideL1c1"
+  ];
+  var textos = [
+    "%libre%",
+    "%c1%"
+  ];
+  var selectId = "#valvulatricuspideL1";
+  selectAttHidden(selectId,campos,textos);
+
+  var campos = [
+    "valvulatricuspideL2Libre"
+  ];
+  var textos = [
+    "%libre%"
+  ];
+  var selectId = "#valvulatricuspideL2";
+  selectAttHidden(selectId,campos,textos);
+
+  var campos = [
+    "cavidadDerechaL1c1",
+    "cavidadDerechaL1c2",
+    "cavidadDerechaL1c3",
+    "cavidadDerechaL1c4",
+    "cavidadDerechaL1c5",
+    "cavidadDerechaL1c6",
+    "cavidadDerechaL1Libre"
+  ];
+  var textos = [
+    "%c1%",
+    "%c2%",
+    "%c3%",
+    "%c4%",
+    "%c5%",
+    "%c6%",
+    "%libre%"
+  ];
+  var selectId = "#cavidadDerechaL1";
+  selectAttHidden(selectId,campos,textos);
+
+  var campos = [
+    "pericardioL1Libre"
+  ];
+  var textos = [
+    "%libre%"
+  ];
+  var selectId = "#pericardioL1";
+  selectAttHidden(selectId,campos,textos);
+
+});
+
+
+  $(document).ready(function() {
+    var x = document.getElementsByClassName("row");
+    var i;
+    for (i = 0; i < x.length; i++) {
+      x[i].style.marginBottom = "0px";
+    }
+  });
+
+  $(document).ready(function() {
+    var last_valid_selection = null;
+    $('.3opciones').change(function(event) {
+      if ($(this).val().length > 3) {
+        alert('puedes seleccionar solo 3 opciones');
+        $(this).val(last_valid_selection);
+      } else {
+        last_valid_selection = $(this).val();
+      }
+    });
+  });
+
+  $(document).ready(function() {
+    var last_valid_selection = null;
+    $('.2opciones').change(function(event) {
+      if ($(this).val().length > 2) {
+        alert('puedes seleccionar solo 2 opciones');
+        $(this).val(last_valid_selection);
+      } else {
+        last_valid_selection = $(this).val();
+      }
+    });
+  });
+
+  $(document).ready(function() {
+    var last_valid_selection = null;
+    $('.1opcion').change(function(event) {
+      if ($(this).val().length > 1) {
+        alert('puedes seleccionar solo 1 opcion');
+        $(this).val(last_valid_selection);
+      } else {
+        last_valid_selection = $(this).val();
+      }
+    });
+  });
+</script>
 
       {% endblock %}

@@ -80,25 +80,25 @@ swiftmailer:
     password: '%mailer_password%'
     spool: { type: memory }
 
-
-knp_snappy:
-    pdf:
-        enabled:    true
-        binary:     "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe\""
-        options:
-            no-outline: true
-            page-size: A4
-            encoding: UTF-8
-
+# 
 # knp_snappy:
-#    temporary_folder: %kernel.cache_dir%/snappy
-#    pdf:
-#        enabled:    true
-#        binary:     /usr/bin/wkhtmltopdf
-#        options:
+#     pdf:
+#         enabled:    true
+#         binary:     "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe\""
+#         options:
 #             no-outline: true
 #             page-size: A4
 #             encoding: UTF-8
+
+knp_snappy:
+   temporary_folder: %kernel.cache_dir%/snappy
+   pdf:
+       enabled:    true
+       binary:     /usr/bin/wkhtmltopdf
+       options:
+            no-outline: true
+            page-size: A4
+            encoding: UTF-8
 
 
 # knp_paginatorBundle
@@ -113,6 +113,6 @@ knp_paginator:
         filter_field_name: filterField  # filter field query parameter name
         filter_value_name: filterValue  # filter value query paameter name
     template:
-        pagination: '@AppBundle/Resources/views/Pagination/sliding.html.twig'     # sliding pagination controls template                                    
+        pagination: '@AppBundle/Resources/views/Pagination/sliding.html.twig'     # sliding pagination controls template
         sortable: '@KnpPaginator/Pagination/sortable_link.html.twig' # sort link template
         filtration: '@KnpPaginator/Pagination/filtration.html.twig'  # filters template

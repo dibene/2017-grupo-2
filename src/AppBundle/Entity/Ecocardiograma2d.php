@@ -383,7 +383,23 @@ class Ecocardiograma2d extends Estudio
      */
     private $raizAortaL1;
 
+    /**
+     * @var text
+     *
+     */
+    private $raizAortaL1Libre;
 
+    /**
+     * @var text
+     *
+     */
+    private $raizAortaL1c1;
+
+    /**
+     * @var text
+     *
+     */
+    private $raizAortaL1c2;
 
     /**
      * @var text
@@ -391,7 +407,7 @@ class Ecocardiograma2d extends Estudio
      * @ORM\Column(name="aorta_l1", type="array", nullable=true)
      */
     private $aortaL1;
-
+    private $aortaL1Libre;
 
     /**
      * @var text
@@ -400,7 +416,8 @@ class Ecocardiograma2d extends Estudio
      */
     private $aortaL2;
 
-
+    private $aortaL2c1;
+    private $aortaL2c2;
     /**
      * @var text
      *
@@ -408,14 +425,14 @@ class Ecocardiograma2d extends Estudio
      */
     private $aortaL3;
 
-
+    private $aortaL3Libre;
     /**
      * @var text
      *
      * @ORM\Column(name="valvula_mitral_l1", type="array", nullable=true)
      */
     private $valvulaMitralL1;
-
+    private $valvulaMitralL1Libre;
 
     /**
      * @var text
@@ -423,7 +440,7 @@ class Ecocardiograma2d extends Estudio
      * @ORM\Column(name="valvula_mitral_l2", type="array", nullable=true)
      */
     private $valvulaMitralL2;
-
+    private $valvulaMitralL2Libre;
 
 
     /**
@@ -432,7 +449,7 @@ class Ecocardiograma2d extends Estudio
      * @ORM\Column(name="auricula_izq_l1", type="array", nullable=true)
      */
     private $auriculaIzqL1;
-
+    private $auriculaIzqL1Libre;
 
     /**
      * @var text
@@ -440,7 +457,7 @@ class Ecocardiograma2d extends Estudio
      * @ORM\Column(name="valvula_pulmonar_l1", type="array", nullable=true)
      */
     private $valvulaPulmonarL1;
-
+    private $valvulaPulmonarL1Libre;
 
     /**
      * @var text
@@ -448,7 +465,7 @@ class Ecocardiograma2d extends Estudio
      * @ORM\Column(name="valvula_pulmonar_l2", type="array", nullable=true)
      */
     private $valvulaPulmonarL2;
-
+    private $valvulaPulmonarL2Libre;
 
     /**
      * @var text
@@ -456,6 +473,8 @@ class Ecocardiograma2d extends Estudio
      * @ORM\Column(name="valvula_tricupside_l1", type="array", nullable=true)
      */
     private $valvulatricuspideL1;
+    private $valvulatricuspideL1Libre;
+    private $valvulatricuspideL1c1;
 
     /**
      * @var text
@@ -463,128 +482,63 @@ class Ecocardiograma2d extends Estudio
      * @ORM\Column(name="valvula_tricupside_l2", type="array", nullable=true)
      */
     private $valvulatricuspideL2;
+    private $valvulatricuspideL2Libre;
+
+
+
+/**
+ * @var text
+ *
+ * @ORM\Column(name="cavidad_derecha_l1", type="array", nullable=true)
+ */
+private $cavidadDerechaL1;
 
     /**
      * @var text
      *
-     * @ORM\Column(name="cavidad_derecha_l1_c1c", type="boolean", nullable=true)
      */
-    private $cavidadDerechaL1C1c;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="cavidad_derecha_l1_c2c", type="boolean", nullable=true)
-     */
-    private $cavidadDerechaL1C2c;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="cavidad_derecha_l1_c3c", type="boolean", nullable=true)
-     */
-    private $cavidadDerechaL1C3c;
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="cavidad_derecha_l1_c4c", type="boolean", nullable=true)
-     */
-    private $cavidadDerechaL1C4c;
+    private $cavidadDerechaL1c1;
 
 
     /**
      * @var text
      *
-     * @ORM\Column(name="cavidad_derecha_l1_c5c", type="boolean", nullable=true)
      */
-    private $cavidadDerechaL1C5c;
+    private $cavidadDerechaL1c2;
 
 
     /**
      * @var text
      *
-     * @ORM\Column(name="cavidad_derecha_l1_c6c", type="boolean", nullable=true)
      */
-    private $cavidadDerechaL1C6c;
+    private $cavidadDerechaL1c3;
 
     /**
      * @var text
      *
-     * @ORM\Column(name="cavidad_derecha_l1_c7c", type="boolean", nullable=true)
      */
-    private $cavidadDerechaL1C7c;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="cavidad_derecha_l1_c8c", type="boolean", nullable=true)
-     */
-    private $cavidadDerechaL1C8c;
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="cavidad_derecha_l1_c1", type="text", nullable=true)
-     */
-    private $cavidadDerechaL1C1;
+    private $cavidadDerechaL1c4;
 
 
     /**
      * @var text
      *
-     * @ORM\Column(name="cavidad_derecha_l1_c2", type="text", nullable=true)
      */
-    private $cavidadDerechaL1C2;
+    private $cavidadDerechaL1c5;
 
 
     /**
      * @var text
      *
-     * @ORM\Column(name="cavidad_derecha_l1_c3", type="text", nullable=true)
      */
-    private $cavidadDerechaL1C3;
+    private $cavidadDerechaL1c6;
 
     /**
      * @var text
      *
-     * @ORM\Column(name="cavidad_derecha_l1_c4", type="text", nullable=true)
      */
-    private $cavidadDerechaL1C4;
+    private $cavidadDerechaL1Libre;
 
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="cavidad_derecha_l1_c5", type="text", nullable=true)
-     */
-    private $cavidadDerechaL1C5;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="cavidad_derecha_l1_c6", type="text", nullable=true)
-     */
-    private $cavidadDerechaL1C6;
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="cavidad_derecha_l1_c7", type="text", nullable=true)
-     */
-    private $cavidadDerechaL1C7;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="cavidad_derecha_l1_c8", type="text", nullable=true)
-     */
-    private $cavidadDerechaL1C8;
 
     /**
      * @var text
@@ -600,7 +554,7 @@ class Ecocardiograma2d extends Estudio
      * @ORM\Column(name="pericardio_l1", type="array", nullable=true)
      */
     private $pericardioL1;
-
+    private $pericardioL1Libre;
     /**
      * @var text
      *
@@ -618,12 +572,30 @@ class Ecocardiograma2d extends Estudio
       parent::setMedico($medico);
     }
 
+
+    // elimina el elemento elegido en el select y lo remplaza por el ingresado en el campo
+        private function limpiarLista(&$lista,$elemento){
+          if (($key = array_search($elemento, $lista)) !== false) {
+            unset($lista[$key]);
+          }
+        }
+
     /**
-     * Set situs
+     * Get the value of Situs
      *
-     * @param string $situs
+     * @return text
+     */
+    public function getSitus()
+    {
+        return $this->situs;
+    }
+
+    /**
+     * Set the value of Situs
      *
-     * @return Ecocardiograma2d
+     * @param text situs
+     *
+     * @return self
      */
     public function setSitus($situs)
     {
@@ -633,21 +605,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Get situs
+     * Get the value of Conexion Auriculoventricular
      *
-     * @return string
+     * @return text
      */
-    public function getSitus()
+    public function getConexionAuriculoventricular()
     {
-        return $this->situs;
+        return $this->conexionAuriculoventricular;
     }
 
     /**
-     * Set conexionAuriculoventricular
+     * Set the value of Conexion Auriculoventricular
      *
-     * @param string $conexionAuriculoventricular
+     * @param text conexionAuriculoventricular
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
     public function setConexionAuriculoventricular($conexionAuriculoventricular)
     {
@@ -657,21 +629,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Get conexionAuriculoventricular
+     * Get the value of Conexion Ventriculo Arterial
      *
-     * @return string
+     * @return text
      */
-    public function getConexionAuriculoventricular()
+    public function getConexionVentriculoArterial()
     {
-        return $this->conexionAuriculoventricular;
+        return $this->conexionVentriculoArterial;
     }
 
     /**
-     * Set conexionVentriculoArterial
+     * Set the value of Conexion Ventriculo Arterial
      *
-     * @param string $conexionVentriculoArterial
+     * @param text conexionVentriculoArterial
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
     public function setConexionVentriculoArterial($conexionVentriculoArterial)
     {
@@ -681,31 +653,7 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Get conexionVentriculoArterial
-     *
-     * @return string
-     */
-    public function getConexionVentriculoArterial()
-    {
-        return $this->conexionVentriculoArterial;
-    }
-
-    /**
-     * Set ddvi
-     *
-     * @param integer $ddvi
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setDdvi($ddvi)
-    {
-        $this->ddvi = $ddvi;
-
-        return $this;
-    }
-
-    /**
-     * Get ddvi
+     * Get the value of Ddvi
      *
      * @return integer
      */
@@ -715,21 +663,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set dsvi
+     * Set the value of Ddvi
      *
-     * @param integer $dsvi
+     * @param integer ddvi
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setDsvi($dsvi)
+    public function setDdvi($ddvi)
     {
-        $this->dsvi = $dsvi;
+        $this->ddvi = $ddvi;
 
         return $this;
     }
 
     /**
-     * Get dsvi
+     * Get the value of Dsvi
      *
      * @return integer
      */
@@ -739,21 +687,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set siv
+     * Set the value of Dsvi
      *
-     * @param integer $siv
+     * @param integer dsvi
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setSiv($siv)
+    public function setDsvi($dsvi)
     {
-        $this->siv = $siv;
+        $this->dsvi = $dsvi;
 
         return $this;
     }
 
     /**
-     * Get siv
+     * Get the value of Siv
      *
      * @return integer
      */
@@ -763,21 +711,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set pp
+     * Set the value of Siv
      *
-     * @param integer $pp
+     * @param integer siv
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setPp($pp)
+    public function setSiv($siv)
     {
-        $this->pp = $pp;
+        $this->siv = $siv;
 
         return $this;
     }
 
     /**
-     * Get pp
+     * Get the value of Pp
      *
      * @return integer
      */
@@ -787,21 +735,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set fey
+     * Set the value of Pp
      *
-     * @param integer $fey
+     * @param integer pp
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setFey($fey)
+    public function setPp($pp)
     {
-        $this->fey = $fey;
+        $this->pp = $pp;
 
         return $this;
     }
 
     /**
-     * Get fey
+     * Get the value of Fey
      *
      * @return integer
      */
@@ -811,21 +759,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set alArea
+     * Set the value of Fey
      *
-     * @param integer $alArea
+     * @param integer fey
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setAlArea($alArea)
+    public function setFey($fey)
     {
-        $this->alArea = $alArea;
+        $this->fey = $fey;
 
         return $this;
     }
 
     /**
-     * Get alArea
+     * Get the value of Al Area
      *
      * @return integer
      */
@@ -835,21 +783,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set alVol
+     * Set the value of Al Area
      *
-     * @param integer $alVol
+     * @param integer alArea
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setAlVol($alVol)
+    public function setAlArea($alArea)
     {
-        $this->alVol = $alVol;
+        $this->alArea = $alArea;
 
         return $this;
     }
 
     /**
-     * Get alVol
+     * Get the value of Al Vol
      *
      * @return integer
      */
@@ -859,21 +807,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set aorta
+     * Set the value of Al Vol
      *
-     * @param integer $aorta
+     * @param integer alVol
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setAorta($aorta)
+    public function setAlVol($alVol)
     {
-        $this->aorta = $aorta;
+        $this->alVol = $alVol;
 
         return $this;
     }
 
     /**
-     * Get aorta
+     * Get the value of Aorta
      *
      * @return integer
      */
@@ -883,21 +831,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set apVao
+     * Set the value of Aorta
      *
-     * @param integer $apVao
+     * @param integer aorta
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setApVao($apVao)
+    public function setAorta($aorta)
     {
-        $this->apVao = $apVao;
+        $this->aorta = $aorta;
 
         return $this;
     }
 
     /**
-     * Get apVao
+     * Get the value of Ap Vao
      *
      * @return integer
      */
@@ -907,21 +855,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set tsvi
+     * Set the value of Ap Vao
      *
-     * @param integer $tsvi
+     * @param integer apVao
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setTsvi($tsvi)
+    public function setApVao($apVao)
     {
-        $this->tsvi = $tsvi;
+        $this->apVao = $apVao;
 
         return $this;
     }
 
     /**
-     * Get tsvi
+     * Get the value of Tsvi
      *
      * @return integer
      */
@@ -931,21 +879,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set velMaxAo
+     * Set the value of Tsvi
      *
-     * @param integer $velMaxAo
+     * @param integer tsvi
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setVelMaxAo($velMaxAo)
+    public function setTsvi($tsvi)
     {
-        $this->velMaxAo = $velMaxAo;
+        $this->tsvi = $tsvi;
 
         return $this;
     }
 
     /**
-     * Get velMaxAo
+     * Get the value of Vel Max Ao
      *
      * @return integer
      */
@@ -955,21 +903,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set gradMaxAo
+     * Set the value of Vel Max Ao
      *
-     * @param integer $gradMaxAo
+     * @param integer velMaxAo
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setGradMaxAo($gradMaxAo)
+    public function setVelMaxAo($velMaxAo)
     {
-        $this->gradMaxAo = $gradMaxAo;
+        $this->velMaxAo = $velMaxAo;
 
         return $this;
     }
 
     /**
-     * Get gradMaxAo
+     * Get the value of Grad Max Ao
      *
      * @return integer
      */
@@ -979,21 +927,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set gradMedAo
+     * Set the value of Grad Max Ao
      *
-     * @param integer $gradMedAo
+     * @param integer gradMaxAo
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setGradMedAo($gradMedAo)
+    public function setGradMaxAo($gradMaxAo)
     {
-        $this->gradMedAo = $gradMedAo;
+        $this->gradMaxAo = $gradMaxAo;
 
         return $this;
     }
 
     /**
-     * Get gradMedAo
+     * Get the value of Grad Med Ao
      *
      * @return integer
      */
@@ -1003,21 +951,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set insuficiencia
+     * Set the value of Grad Med Ao
      *
-     * @param integer $insuficiencia
+     * @param integer gradMedAo
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setInsuficiencia($insuficiencia)
+    public function setGradMedAo($gradMedAo)
     {
-        $this->insuficiencia = $insuficiencia;
+        $this->gradMedAo = $gradMedAo;
 
         return $this;
     }
 
     /**
-     * Get insuficiencia
+     * Get the value of Insuficiencia
      *
      * @return integer
      */
@@ -1027,21 +975,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set thp
+     * Set the value of Insuficiencia
      *
-     * @param integer $thp
+     * @param integer insuficiencia
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setThp($thp)
+    public function setInsuficiencia($insuficiencia)
     {
-        $this->thp = $thp;
+        $this->insuficiencia = $insuficiencia;
 
         return $this;
     }
 
     /**
-     * Get thp
+     * Get the value of Thp
      *
      * @return integer
      */
@@ -1051,21 +999,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set adt
+     * Set the value of Thp
      *
-     * @param integer $adt
+     * @param integer thp
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setAdt($adt)
+    public function setThp($thp)
     {
-        $this->adt = $adt;
+        $this->thp = $thp;
 
         return $this;
     }
 
     /**
-     * Get adt
+     * Get the value of Adt
      *
      * @return integer
      */
@@ -1075,21 +1023,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set aa
+     * Set the value of Adt
      *
-     * @param integer $aa
+     * @param integer adt
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setAa($aa)
+    public function setAdt($adt)
     {
-        $this->aa = $aa;
+        $this->adt = $adt;
 
         return $this;
     }
 
     /**
-     * Get aa
+     * Get the value of Aa
      *
      * @return integer
      */
@@ -1099,21 +1047,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set velOndaE
+     * Set the value of Aa
      *
-     * @param integer $velOndaE
+     * @param integer aa
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setVelOndaE($velOndaE)
+    public function setAa($aa)
     {
-        $this->velOndaE = $velOndaE;
+        $this->aa = $aa;
 
         return $this;
     }
 
     /**
-     * Get velOndaE
+     * Get the value of Vel Onda
      *
      * @return integer
      */
@@ -1123,21 +1071,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set velOndaA
+     * Set the value of Vel Onda
      *
-     * @param integer $velOndaA
+     * @param integer velOndaE
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setVelOndaA($velOndaA)
+    public function setVelOndaE($velOndaE)
     {
-        $this->velOndaA = $velOndaA;
+        $this->velOndaE = $velOndaE;
 
         return $this;
     }
 
     /**
-     * Get velOndaA
+     * Get the value of Vel Onda
      *
      * @return integer
      */
@@ -1147,21 +1095,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set gradMedioaTrasmitral
+     * Set the value of Vel Onda
      *
-     * @param integer $gradMedioaTrasmitral
+     * @param integer velOndaA
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setGradMedioaTrasmitral($gradMedioaTrasmitral)
+    public function setVelOndaA($velOndaA)
     {
-        $this->gradMedioaTrasmitral = $gradMedioaTrasmitral;
+        $this->velOndaA = $velOndaA;
 
         return $this;
     }
 
     /**
-     * Get gradMedioaTrasmitral
+     * Get the value of Grad Medioa Trasmitral
      *
      * @return integer
      */
@@ -1171,21 +1119,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set insuficienciaTrasmitral
+     * Set the value of Grad Medioa Trasmitral
      *
-     * @param integer $insuficienciaTrasmitral
+     * @param integer gradMedioaTrasmitral
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setInsuficienciaTrasmitral($insuficienciaTrasmitral)
+    public function setGradMedioaTrasmitral($gradMedioaTrasmitral)
     {
-        $this->insuficienciaTrasmitral = $insuficienciaTrasmitral;
+        $this->gradMedioaTrasmitral = $gradMedioaTrasmitral;
 
         return $this;
     }
 
     /**
-     * Get insuficienciaTrasmitral
+     * Get the value of Insuficiencia Trasmitral
      *
      * @return integer
      */
@@ -1195,21 +1143,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set ore
+     * Set the value of Insuficiencia Trasmitral
      *
-     * @param integer $ore
+     * @param integer insuficienciaTrasmitral
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setOre($ore)
+    public function setInsuficienciaTrasmitral($insuficienciaTrasmitral)
     {
-        $this->ore = $ore;
+        $this->insuficienciaTrasmitral = $insuficienciaTrasmitral;
 
         return $this;
     }
 
     /**
-     * Get ore
+     * Get the value of Ore
      *
      * @return integer
      */
@@ -1219,21 +1167,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set volRegurgitante
+     * Set the value of Ore
      *
-     * @param integer $volRegurgitante
+     * @param integer ore
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setVolRegurgitante($volRegurgitante)
+    public function setOre($ore)
     {
-        $this->volRegurgitante = $volRegurgitante;
+        $this->ore = $ore;
 
         return $this;
     }
 
     /**
-     * Get volRegurgitante
+     * Get the value of Vol Regurgitante
      *
      * @return integer
      */
@@ -1243,21 +1191,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set dpdt
+     * Set the value of Vol Regurgitante
      *
-     * @param integer $dpdt
+     * @param integer volRegurgitante
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setDpdt($dpdt)
+    public function setVolRegurgitante($volRegurgitante)
     {
-        $this->dpdt = $dpdt;
+        $this->volRegurgitante = $volRegurgitante;
 
         return $this;
     }
 
     /**
-     * Get dpdt
+     * Get the value of Dpdt
      *
      * @return integer
      */
@@ -1267,21 +1215,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set velMaxPulmonar
+     * Set the value of Dpdt
      *
-     * @param integer $velMaxPulmonar
+     * @param integer dpdt
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setVelMaxPulmonar($velMaxPulmonar)
+    public function setDpdt($dpdt)
     {
-        $this->velMaxPulmonar = $velMaxPulmonar;
+        $this->dpdt = $dpdt;
 
         return $this;
     }
 
     /**
-     * Get velMaxPulmonar
+     * Get the value of Vel Max Pulmonar
      *
      * @return integer
      */
@@ -1291,21 +1239,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set gradMaxPulomonar
+     * Set the value of Vel Max Pulmonar
      *
-     * @param integer $gradMaxPulomonar
+     * @param integer velMaxPulmonar
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setGradMaxPulomonar($gradMaxPulomonar)
+    public function setVelMaxPulmonar($velMaxPulmonar)
     {
-        $this->gradMaxPulomonar = $gradMaxPulomonar;
+        $this->velMaxPulmonar = $velMaxPulmonar;
 
         return $this;
     }
 
     /**
-     * Get gradMaxPulomonar
+     * Get the value of Grad Max Pulomonar
      *
      * @return integer
      */
@@ -1315,21 +1263,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set insuficienciaPulmonar
+     * Set the value of Grad Max Pulomonar
      *
-     * @param integer $insuficienciaPulmonar
+     * @param integer gradMaxPulomonar
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setInsuficienciaPulmonar($insuficienciaPulmonar)
+    public function setGradMaxPulomonar($gradMaxPulomonar)
     {
-        $this->insuficiencia_pulmonar = $insuficienciaPulmonar;
+        $this->gradMaxPulomonar = $gradMaxPulomonar;
 
         return $this;
     }
 
     /**
-     * Get insuficienciaPulmonar
+     * Get the value of Insuficiencia Pulmonar
      *
      * @return integer
      */
@@ -1339,21 +1287,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set tpoPico
+     * Set the value of Insuficiencia Pulmonar
      *
-     * @param integer $tpoPico
+     * @param integer insuficiencia_pulmonar
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setTpoPico($tpoPico)
+    public function setInsuficienciaPulmonar($insuficiencia_pulmonar)
     {
-        $this->tpoPico = $tpoPico;
+        $this->insuficiencia_pulmonar = $insuficiencia_pulmonar;
 
         return $this;
     }
 
     /**
-     * Get tpoPico
+     * Get the value of Tpo Pico
      *
      * @return integer
      */
@@ -1363,21 +1311,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set qpqs
+     * Set the value of Tpo Pico
      *
-     * @param integer $qpqs
+     * @param integer tpoPico
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setQpqs($qpqs)
+    public function setTpoPico($tpoPico)
     {
-        $this->qpqs = $qpqs;
+        $this->tpoPico = $tpoPico;
 
         return $this;
     }
 
     /**
-     * Get qpqs
+     * Get the value of Qpqs
      *
      * @return integer
      */
@@ -1387,21 +1335,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set insuficienciaTricuspide
+     * Set the value of Qpqs
      *
-     * @param integer $insuficienciaTricuspide
+     * @param integer qpqs
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setInsuficienciaTricuspide($insuficienciaTricuspide)
+    public function setQpqs($qpqs)
     {
-        $this->insuficienciaTricuspide = $insuficienciaTricuspide;
+        $this->qpqs = $qpqs;
 
         return $this;
     }
 
     /**
-     * Get insuficienciaTricuspide
+     * Get the value of Insuficiencia Tricuspide
      *
      * @return integer
      */
@@ -1411,21 +1359,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set velRegurgitante
+     * Set the value of Insuficiencia Tricuspide
      *
-     * @param integer $velRegurgitante
+     * @param integer insuficienciaTricuspide
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setVelRegurgitante($velRegurgitante)
+    public function setInsuficienciaTricuspide($insuficienciaTricuspide)
     {
-        $this->velRegurgitante = $velRegurgitante;
+        $this->insuficienciaTricuspide = $insuficienciaTricuspide;
 
         return $this;
     }
 
     /**
-     * Get velRegurgitante
+     * Get the value of Vel Regurgitante
      *
      * @return integer
      */
@@ -1435,21 +1383,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set gradPico
+     * Set the value of Vel Regurgitante
      *
-     * @param integer $gradPico
+     * @param integer velRegurgitante
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setGradPico($gradPico)
+    public function setVelRegurgitante($velRegurgitante)
     {
-        $this->gradPico = $gradPico;
+        $this->velRegurgitante = $velRegurgitante;
 
         return $this;
     }
 
     /**
-     * Get gradPico
+     * Get the value of Grad Pico
      *
      * @return integer
      */
@@ -1459,21 +1407,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set pap
+     * Set the value of Grad Pico
      *
-     * @param integer $pap
+     * @param integer gradPico
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setPap($pap)
+    public function setGradPico($gradPico)
     {
-        $this->pap = $pap;
+        $this->gradPico = $gradPico;
 
         return $this;
     }
 
     /**
-     * Get pap
+     * Get the value of Pap
      *
      * @return integer
      */
@@ -1483,21 +1431,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set pad
+     * Set the value of Pap
      *
-     * @param integer $pad
+     * @param integer pap
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setPad($pad)
+    public function setPap($pap)
     {
-        $this->pad = $pad;
+        $this->pap = $pap;
 
         return $this;
     }
 
     /**
-     * Get pad
+     * Get the value of Pad
      *
      * @return integer
      */
@@ -1507,21 +1455,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set ondaSeptal
+     * Set the value of Pad
      *
-     * @param integer $ondaSeptal
+     * @param integer pad
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setOndaSeptal($ondaSeptal)
+    public function setPad($pad)
     {
-        $this->ondaSeptal = $ondaSeptal;
+        $this->pad = $pad;
 
         return $this;
     }
 
     /**
-     * Get ondaSeptal
+     * Get the value of Onda Septal
      *
      * @return integer
      */
@@ -1531,21 +1479,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set ondaLateral
+     * Set the value of Onda Septal
      *
-     * @param integer $ondaLateral
+     * @param integer ondaSeptal
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setOndaLateral($ondaLateral)
+    public function setOndaSeptal($ondaSeptal)
     {
-        $this->ondaLateral = $ondaLateral;
+        $this->ondaSeptal = $ondaSeptal;
 
         return $this;
     }
 
     /**
-     * Get ondaLateral
+     * Get the value of Onda Lateral
      *
      * @return integer
      */
@@ -1555,21 +1503,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set ondaE
+     * Set the value of Onda Lateral
      *
-     * @param integer $ondaE
+     * @param integer ondaLateral
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setOndaE($ondaE)
+    public function setOndaLateral($ondaLateral)
     {
-        $this->ondaE = $ondaE;
+        $this->ondaLateral = $ondaLateral;
 
         return $this;
     }
 
     /**
-     * Get ondaE
+     * Get the value of Onda
      *
      * @return integer
      */
@@ -1579,21 +1527,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set ondaA
+     * Set the value of Onda
      *
-     * @param integer $ondaA
+     * @param integer ondaE
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setOndaA($ondaA)
+    public function setOndaE($ondaE)
     {
-        $this->ondaA = $ondaA;
+        $this->ondaE = $ondaE;
 
         return $this;
     }
 
     /**
-     * Get ondaA
+     * Get the value of Onda
      *
      * @return integer
      */
@@ -1603,21 +1551,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set relacionE
+     * Set the value of Onda
      *
-     * @param integer $relacionE
+     * @param integer ondaA
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setRelacionE($relacionE)
+    public function setOndaA($ondaA)
     {
-        $this->relacionE = $relacionE;
+        $this->ondaA = $ondaA;
 
         return $this;
     }
 
     /**
-     * Get relacionE
+     * Get the value of Relacion
      *
      * @return integer
      */
@@ -1627,21 +1575,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set ondaVd
+     * Set the value of Relacion
      *
-     * @param integer $ondaVd
+     * @param integer relacionE
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setOndaVd($ondaVd)
+    public function setRelacionE($relacionE)
     {
-        $this->ondaVd = $ondaVd;
+        $this->relacionE = $relacionE;
 
         return $this;
     }
 
     /**
-     * Get ondaVd
+     * Get the value of Onda Vd
      *
      * @return integer
      */
@@ -1651,11 +1599,35 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Set ventriculoIzqL1
+     * Set the value of Onda Vd
      *
-     * @param array $ventriculoIzqL1
+     * @param integer ondaVd
      *
-     * @return Ecocardiograma2d
+     * @return self
+     */
+    public function setOndaVd($ondaVd)
+    {
+        $this->ondaVd = $ondaVd;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Ventriculo Izq
+     *
+     * @return text
+     */
+    public function getVentriculoIzqL1()
+    {
+        return $this->ventriculoIzqL1;
+    }
+
+    /**
+     * Set the value of Ventriculo Izq
+     *
+     * @param text ventriculoIzqL1
+     *
+     * @return self
      */
     public function setVentriculoIzqL1($ventriculoIzqL1)
     {
@@ -1665,21 +1637,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Get ventriculoIzqL1
+     * Get the value of Ventriculo Izq
      *
-     * @return array
+     * @return text
      */
-    public function getVentriculoIzqL1()
+    public function getVentriculoIzqL2()
     {
-        return $this->ventriculoIzqL1;
+        return $this->ventriculoIzqL2;
     }
 
     /**
-     * Set ventriculoIzqL2
+     * Set the value of Ventriculo Izq
      *
-     * @param array $ventriculoIzqL2
+     * @param text ventriculoIzqL2
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
     public function setVentriculoIzqL2($ventriculoIzqL2)
     {
@@ -1689,21 +1661,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Get ventriculoIzqL2
+     * Get the value of Ventriculo Izq
      *
-     * @return array
+     * @return text
      */
-    public function getVentriculoIzqL2()
+    public function getVentriculoIzqL3()
     {
-        return $this->ventriculoIzqL2;
+        return $this->ventriculoIzqL3;
     }
 
     /**
-     * Set ventriculoIzqL3
+     * Set the value of Ventriculo Izq
      *
-     * @param array $ventriculoIzqL3
+     * @param text ventriculoIzqL3
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
     public function setVentriculoIzqL3($ventriculoIzqL3)
     {
@@ -1713,21 +1685,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Get ventriculoIzqL3
+     * Get the value of Ventriculo Izq Imvi
      *
-     * @return array
+     * @return text
      */
-    public function getVentriculoIzqL3()
+    public function getVentriculoIzqL1Imvi()
     {
-        return $this->ventriculoIzqL3;
+        return $this->ventriculoIzqL1Imvi;
     }
 
     /**
-     * Set ventriculoIzqL1Imvi
+     * Set the value of Ventriculo Izq Imvi
      *
-     * @param string $ventriculoIzqL1Imvi
+     * @param text ventriculoIzqL1Imvi
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
     public function setVentriculoIzqL1Imvi($ventriculoIzqL1Imvi)
     {
@@ -1737,21 +1709,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Get ventriculoIzqL1Imvi
+     * Get the value of Ventriculo Izq Epr
      *
-     * @return string
+     * @return text
      */
-    public function getVentriculoIzqL1Imvi()
+    public function getVentriculoIzqL1Epr()
     {
-        return $this->ventriculoIzqL1Imvi;
+        return $this->ventriculoIzqL1Epr;
     }
 
     /**
-     * Set ventriculoIzqL1Epr
+     * Set the value of Ventriculo Izq Epr
      *
-     * @param string $ventriculoIzqL1Epr
+     * @param text ventriculoIzqL1Epr
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
     public function setVentriculoIzqL1Epr($ventriculoIzqL1Epr)
     {
@@ -1761,21 +1733,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Get ventriculoIzqL1Epr
+     * Get the value of Ventriculo Izq
      *
-     * @return string
+     * @return text
      */
-    public function getVentriculoIzqL1Epr()
+    public function getVentriculoIzqL4C1()
     {
-        return $this->ventriculoIzqL1Epr;
+        return $this->ventriculoIzqL4C1;
     }
 
     /**
-     * Set ventriculoIzqL4C1
+     * Set the value of Ventriculo Izq
      *
-     * @param string $ventriculoIzqL4C1
+     * @param text ventriculoIzqL4C1
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
     public function setVentriculoIzqL4C1($ventriculoIzqL4C1)
     {
@@ -1785,21 +1757,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Get ventriculoIzqL4C1
+     * Get the value of Raiz Aorta
      *
-     * @return string
+     * @return text
      */
-    public function getVentriculoIzqL4C1()
+    public function getRaizAortaL1()
     {
-        return $this->ventriculoIzqL4C1;
+        return $this->raizAortaL1;
     }
 
     /**
-     * Set raizAortaL1
+     * Set the value of Raiz Aorta
      *
-     * @param array $raizAortaL1
+     * @param text raizAortaL1
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
     public function setRaizAortaL1($raizAortaL1)
     {
@@ -1809,21 +1781,86 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Get raizAortaL1
+     * Get the value of Raiz Aorta Libre
      *
-     * @return array
+     * @return text
      */
-    public function getRaizAortaL1()
+     public function setRaizAortaL1Libre($raizAortaL1Libre)
+     {
+         array_push($this->raizAortaL1, $raizAortaL1Libre);
+         $del_val='%libre%';
+         $this->limpiarLista($this->raizAortaL1,$del_val);
+         return $this;
+     }
+     /**
+      * Get the value of Raiz Aorta Libre
+      *
+      * @return text
+      */
+      public function setRaizAortaL1c1($raizAortaL1c1)
+      {
+          array_push($this->raizAortaL1, $raizAortaL1c1);
+          $del_val='%c1%';
+          $this->limpiarLista($this->raizAortaL1,$del_val);
+          return $this;
+      }
+      /**
+       * Get the value of Raiz Aorta Libre
+       *
+       * @return text
+       */
+       public function setRaizAortaL1c2($raizAortaL1c2)
+       {
+           array_push($this->raizAortaL1, $raizAortaL1c2);
+           $del_val='%c2%';
+           $this->limpiarLista($this->raizAortaL1,$del_val);
+           return $this;
+       }
+       /**
+        * Get the value of Raiz Aorta
+        *
+        * @return text
+        */
+       public function getRaizAortaL1Libre()
+       {
+           return $this->raizAortaL1Libre;
+       }
+    /**
+     * Get the value of Raiz Aorta
+     *
+     * @return text
+     */
+    public function getRaizAortaL1c1()
     {
-        return $this->raizAortaL1;
+        return $this->raizAortaL1c1;
     }
 
     /**
-     * Set aortaL1
+     * Get the value of Raiz Aorta
      *
-     * @param array $aortaL1
+     * @return text
+     */
+    public function getRaizAortaL1c2()
+    {
+        return $this->raizAortaL1c2;
+    }
+
+    /**
+     * Get the value of Aorta
      *
-     * @return Ecocardiograma2d
+     * @return text
+     */
+    public function getAortaL1()
+    {
+        return $this->aortaL1;
+    }
+
+    /**
+     * Set the value of Aorta
+     *
+     * @param text aortaL1
+     *
+     * @return self
      */
     public function setAortaL1($aortaL1)
     {
@@ -1833,21 +1870,47 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Get aortaL1
+     * Get the value of Aorta Libre
      *
-     * @return array
+     * @return mixed
      */
-    public function getAortaL1()
+    public function getAortaL1Libre()
     {
-        return $this->aortaL1;
+        return $this->aortaL1Libre;
     }
 
     /**
-     * Set aortaL2
+     * Set the value of Aorta Libre
      *
-     * @param array $aortaL2
+     * @param mixed aortaL1Libre
      *
-     * @return Ecocardiograma2d
+     * @return self
+     */
+    public function setAortaL1Libre($aortaL1Libre)
+    {
+        $this->aortaL1Libre = $aortaL1Libre;
+        array_push($this->aortaL1, $aortaL1Libre);
+        $del_val='%libre%';
+        $this->limpiarLista($this->aortaL1,$del_val);
+        return $this;
+    }
+
+    /**
+     * Get the value of Aorta
+     *
+     * @return text
+     */
+    public function getAortaL2()
+    {
+        return $this->aortaL2;
+    }
+
+    /**
+     * Set the value of Aorta
+     *
+     * @param text aortaL2
+     *
+     * @return self
      */
     public function setAortaL2($aortaL2)
     {
@@ -1857,21 +1920,73 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Get aortaL2
+     * Get the value of Aorta
      *
-     * @return array
+     * @return mixed
      */
-    public function getAortaL2()
+    public function getAortaL2c1()
     {
-        return $this->aortaL2;
+        return $this->aortaL2c1;
     }
 
     /**
-     * Set aortaL3
+     * Set the value of Aorta
      *
-     * @param array $aortaL3
+     * @param mixed aortaL2c1
      *
-     * @return Ecocardiograma2d
+     * @return self
+     */
+    public function setAortaL2c1($aortaL2c1)
+    {
+        $this->aortaL2c1 = $aortaL2c1;
+        array_push($this->aortaL2, $aortaL2c1);
+        $del_val='%c1%';
+        $this->limpiarLista($this->aortaL2,$del_val);
+        return $this;
+    }
+
+    /**
+     * Get the value of Aorta
+     *
+     * @return mixed
+     */
+    public function getAortaL2c2()
+    {
+        return $this->aortaL2c2;
+    }
+
+    /**
+     * Set the value of Aorta
+     *
+     * @param mixed aortaL2c2
+     *
+     * @return self
+     */
+    public function setAortaL2c2($aortaL2c2)
+    {
+        $this->aortaL2c2 = $aortaL2c2;
+        array_push($this->aortaL2, $aortaL2c2);
+        $del_val='%c2%';
+        $this->limpiarLista($this->aortaL2,$del_val);
+        return $this;
+    }
+
+    /**
+     * Get the value of Aorta
+     *
+     * @return text
+     */
+    public function getAortaL3()
+    {
+        return $this->aortaL3;
+    }
+
+    /**
+     * Set the value of Aorta
+     *
+     * @param text aortaL3
+     *
+     * @return self
      */
     public function setAortaL3($aortaL3)
     {
@@ -1881,21 +1996,47 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Get aortaL3
+     * Get the value of Aorta Libre
      *
-     * @return array
+     * @return mixed
      */
-    public function getAortaL3()
+    public function getAortaL3Libre()
     {
-        return $this->aortaL3;
+        return $this->aortaL3Libre;
     }
 
     /**
-     * Set valvulaMitralL1
+     * Set the value of Aorta Libre
      *
-     * @param array $valvulaMitralL1
+     * @param mixed aortaL3Libre
      *
-     * @return Ecocardiograma2d
+     * @return self
+     */
+    public function setAortaL3Libre($aortaL3Libre)
+    {
+        $this->aortaL3Libre = $aortaL3Libre;
+        array_push($this->aortaL3, $aortaL3Libre);
+        $del_val='%libre%';
+        $this->limpiarLista($this->aortaL3,$del_val);
+        return $this;
+    }
+
+    /**
+     * Get the value of Valvula Mitral
+     *
+     * @return text
+     */
+    public function getValvulaMitralL1()
+    {
+        return $this->valvulaMitralL1;
+    }
+
+    /**
+     * Set the value of Valvula Mitral
+     *
+     * @param text valvulaMitralL1
+     *
+     * @return self
      */
     public function setValvulaMitralL1($valvulaMitralL1)
     {
@@ -1905,21 +2046,47 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Get valvulaMitralL1
+     * Get the value of Valvula Mitral Libre
      *
-     * @return array
+     * @return mixed
      */
-    public function getValvulaMitralL1()
+    public function getValvulaMitralL1Libre()
     {
-        return $this->valvulaMitralL1;
+        return $this->valvulaMitralL1Libre;
     }
 
     /**
-     * Set valvulaMitralL2
+     * Set the value of Valvula Mitral Libre
      *
-     * @param array $valvulaMitralL2
+     * @param mixed valvulaMitralL1Libre
      *
-     * @return Ecocardiograma2d
+     * @return self
+     */
+    public function setValvulaMitralL1Libre($valvulaMitralL1Libre)
+    {
+        $this->valvulaMitralL1Libre = $valvulaMitralL1Libre;
+        array_push($this->valvulaMitralL1, $valvulaMitralL1Libre);
+        $del_val='%libre%';
+        $this->limpiarLista($this->valvulaMitralL1,$del_val);
+        return $this;
+    }
+
+    /**
+     * Get the value of Valvula Mitral
+     *
+     * @return text
+     */
+    public function getValvulaMitralL2()
+    {
+        return $this->valvulaMitralL2;
+    }
+
+    /**
+     * Set the value of Valvula Mitral
+     *
+     * @param text valvulaMitralL2
+     *
+     * @return self
      */
     public function setValvulaMitralL2($valvulaMitralL2)
     {
@@ -1929,21 +2096,47 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Get valvulaMitralL2
+     * Get the value of Valvula Mitral Libre
      *
-     * @return array
+     * @return mixed
      */
-    public function getValvulaMitralL2()
+    public function getValvulaMitralL2Libre()
     {
-        return $this->valvulaMitralL2;
+        return $this->valvulaMitralL2Libre;
     }
 
     /**
-     * Set auriculaIzqL1
+     * Set the value of Valvula Mitral Libre
      *
-     * @param array $auriculaIzqL1
+     * @param mixed valvulaMitralL2Libre
      *
-     * @return Ecocardiograma2d
+     * @return self
+     */
+    public function setValvulaMitralL2Libre($valvulaMitralL2Libre)
+    {
+        $this->valvulaMitralL2Libre = $valvulaMitralL2Libre;
+        array_push($this->valvulaMitralL2, $valvulaMitralL2Libre);
+        $del_val='%libre%';
+        $this->limpiarLista($this->valvulaMitralL2,$del_val);
+        return $this;
+    }
+
+    /**
+     * Get the value of Auricula Izq
+     *
+     * @return text
+     */
+    public function getAuriculaIzqL1()
+    {
+        return $this->auriculaIzqL1;
+    }
+
+    /**
+     * Set the value of Auricula Izq
+     *
+     * @param text auriculaIzqL1
+     *
+     * @return self
      */
     public function setAuriculaIzqL1($auriculaIzqL1)
     {
@@ -1953,21 +2146,47 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Get auriculaIzqL1
+     * Get the value of Auricula Izq Libre
      *
-     * @return array
+     * @return mixed
      */
-    public function getAuriculaIzqL1()
+    public function getAuriculaIzqL1Libre()
     {
-        return $this->auriculaIzqL1;
+        return $this->auriculaIzqL1Libre;
     }
 
     /**
-     * Set valvulaPulmonarL1
+     * Set the value of Auricula Izq Libre
      *
-     * @param array $valvulaPulmonarL1
+     * @param mixed auriculaIzqL1Libre
      *
-     * @return Ecocardiograma2d
+     * @return self
+     */
+    public function setAuriculaIzqL1Libre($auriculaIzqL1Libre)
+    {
+        $this->auriculaIzqL1Libre = $auriculaIzqL1Libre;
+        array_push($this->auriculaIzqL1, $auriculaIzqL1Libre);
+        $del_val='%libre%';
+        $this->limpiarLista($this->auriculaIzqL1,$del_val);
+        return $this;
+    }
+
+    /**
+     * Get the value of Valvula Pulmonar
+     *
+     * @return text
+     */
+    public function getValvulaPulmonarL1()
+    {
+        return $this->valvulaPulmonarL1;
+    }
+
+    /**
+     * Set the value of Valvula Pulmonar
+     *
+     * @param text valvulaPulmonarL1
+     *
+     * @return self
      */
     public function setValvulaPulmonarL1($valvulaPulmonarL1)
     {
@@ -1977,21 +2196,47 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Get valvulaPulmonarL1
+     * Get the value of Valvula Pulmonar Libre
      *
-     * @return array
+     * @return mixed
      */
-    public function getValvulaPulmonarL1()
+    public function getValvulaPulmonarL1Libre()
     {
-        return $this->valvulaPulmonarL1;
+        return $this->valvulaPulmonarL1Libre;
     }
 
     /**
-     * Set valvulaPulmonarL2
+     * Set the value of Valvula Pulmonar Libre
      *
-     * @param array $valvulaPulmonarL2
+     * @param mixed valvulaPulmonarL1Libre
      *
-     * @return Ecocardiograma2d
+     * @return self
+     */
+    public function setValvulaPulmonarL1Libre($valvulaPulmonarL1Libre)
+    {
+        $this->valvulaPulmonarL1Libre = $valvulaPulmonarL1Libre;
+        array_push($this->valvulaPulmonarL1, $valvulaPulmonarL1Libre);
+        $del_val='%libre%';
+        $this->limpiarLista($this->valvulaPulmonarL1,$del_val);
+        return $this;
+    }
+
+    /**
+     * Get the value of Valvula Pulmonar
+     *
+     * @return text
+     */
+    public function getValvulaPulmonarL2()
+    {
+        return $this->valvulaPulmonarL2;
+    }
+
+    /**
+     * Set the value of Valvula Pulmonar
+     *
+     * @param text valvulaPulmonarL2
+     *
+     * @return self
      */
     public function setValvulaPulmonarL2($valvulaPulmonarL2)
     {
@@ -2001,21 +2246,47 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Get valvulaPulmonarL2
+     * Get the value of Valvula Pulmonar Libre
      *
-     * @return array
+     * @return mixed
      */
-    public function getValvulaPulmonarL2()
+    public function getValvulaPulmonarL2Libre()
     {
-        return $this->valvulaPulmonarL2;
+        return $this->valvulaPulmonarL2Libre;
     }
 
     /**
-     * Set valvulatricuspideL1
+     * Set the value of Valvula Pulmonar Libre
      *
-     * @param array $valvulatricuspideL1
+     * @param mixed valvulaPulmonarL2Libre
      *
-     * @return Ecocardiograma2d
+     * @return self
+     */
+    public function setValvulaPulmonarL2Libre($valvulaPulmonarL2Libre)
+    {
+        $this->valvulaPulmonarL2Libre = $valvulaPulmonarL2Libre;
+        array_push($this->valvulaPulmonarL2, $valvulaPulmonarL2Libre);
+        $del_val='%libre%';
+        $this->limpiarLista($this->valvulaPulmonarL2,$del_val);
+        return $this;
+    }
+
+    /**
+     * Get the value of Valvulatricuspide
+     *
+     * @return text
+     */
+    public function getValvulatricuspideL1()
+    {
+        return $this->valvulatricuspideL1;
+    }
+
+    /**
+     * Set the value of Valvulatricuspide
+     *
+     * @param text valvulatricuspideL1
+     *
+     * @return self
      */
     public function setValvulatricuspideL1($valvulatricuspideL1)
     {
@@ -2025,21 +2296,73 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Get valvulatricuspideL1
+     * Get the value of Valvulatricuspide Libre
      *
-     * @return array
+     * @return mixed
      */
-    public function getValvulatricuspideL1()
+    public function getValvulatricuspideL1Libre()
     {
-        return $this->valvulatricuspideL1;
+        return $this->valvulatricuspideL1Libre;
     }
 
     /**
-     * Set valvulatricuspideL2
+     * Set the value of Valvulatricuspide Libre
      *
-     * @param array $valvulatricuspideL2
+     * @param mixed valvulatricuspideL1Libre
      *
-     * @return Ecocardiograma2d
+     * @return self
+     */
+    public function setValvulatricuspideL1Libre($valvulatricuspideL1Libre)
+    {
+        $this->valvulatricuspideL1Libre = $valvulatricuspideL1Libre;
+        array_push($this->valvulatricuspideL1, $valvulatricuspideL1Libre);
+        $del_val='%libre%';
+        $this->limpiarLista($this->valvulatricuspideL1,$del_val);
+        return $this;
+    }
+
+    /**
+     * Get the value of Valvulatricuspide
+     *
+     * @return mixed
+     */
+    public function getValvulatricuspideL1c1()
+    {
+        return $this->valvulatricuspideL1c1;
+    }
+
+    /**
+     * Set the value of Valvulatricuspide
+     *
+     * @param mixed valvulatricuspideL1c1
+     *
+     * @return self
+     */
+    public function setValvulatricuspideL1c1($valvulatricuspideL1c1)
+    {
+        $this->valvulatricuspideL1c1 = $valvulatricuspideL1c1;
+        array_push($this->valvulatricuspideL1, $valvulatricuspideL1c1);
+        $del_val='%c1%';
+        $this->limpiarLista($this->valvulatricuspideL1,$del_val);
+        return $this;
+    }
+
+    /**
+     * Get the value of Valvulatricuspide
+     *
+     * @return text
+     */
+    public function getValvulatricuspideL2()
+    {
+        return $this->valvulatricuspideL2;
+    }
+
+    /**
+     * Set the value of Valvulatricuspide
+     *
+     * @param text valvulatricuspideL2
+     *
+     * @return self
      */
     public function setValvulatricuspideL2($valvulatricuspideL2)
     {
@@ -2049,93 +2372,254 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Get valvulatricuspideL2
+     * Get the value of Valvulatricuspide Libre
      *
-     * @return array
+     * @return mixed
      */
-    public function getValvulatricuspideL2()
+    public function getValvulatricuspideL2Libre()
     {
-        return $this->valvulatricuspideL2;
+        return $this->valvulatricuspideL2Libre;
     }
 
     /**
-     * Set cavidadDerechaL1C1
+     * Set the value of Valvulatricuspide Libre
      *
-     * @param string $cavidadDerechaL1C1
+     * @param mixed valvulatricuspideL2Libre
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setCavidadDerechaL1C1($cavidadDerechaL1C1)
+    public function setValvulatricuspideL2Libre($valvulatricuspideL2Libre)
     {
-        $this->cavidadDerechaL1C1 = $cavidadDerechaL1C1;
+        $this->valvulatricuspideL2Libre = $valvulatricuspideL2Libre;
+        array_push($this->valvulatricuspideL2, $valvulatricuspideL2Libre);
+        $del_val='%libre%';
+        $this->limpiarLista($this->valvulatricuspideL2,$del_val);
+        return $this;
+    }
+
+    /**
+     * Get the value of Cavidad Derecha
+     *
+     * @return text
+     */
+    public function getCavidadDerechaL1()
+    {
+        return $this->cavidadDerechaL1;
+    }
+
+    /**
+     * Set the value of Cavidad Derecha
+     *
+     * @param text cavidadDerechaL1
+     *
+     * @return self
+     */
+    public function setCavidadDerechaL1($cavidadDerechaL1)
+    {
+        $this->cavidadDerechaL1 = $cavidadDerechaL1;
 
         return $this;
     }
 
     /**
-     * Get cavidadDerechaL1C1
+     * Get the value of Cavidad Derecha
      *
-     * @return string
+     * @return text
      */
-    public function getCavidadDerechaL1C1()
+    public function getCavidadDerechaL1c1()
     {
-        return $this->cavidadDerechaL1C1;
+        return $this->cavidadDerechaL1c1;
     }
 
     /**
-     * Set cavidadDerechaL1C2
+     * Set the value of Cavidad Derecha
      *
-     * @param string $cavidadDerechaL1C2
+     * @param text cavidadDerechaL1c1
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setCavidadDerechaL1C2($cavidadDerechaL1C2)
+    public function setCavidadDerechaL1c1($cavidadDerechaL1c1)
     {
-        $this->cavidadDerechaL1C2 = $cavidadDerechaL1C2;
-
+        $this->cavidadDerechaL1c1 = $cavidadDerechaL1c1;
+        array_push($this->cavidadDerechaL1, $cavidadDerechaL1c1);
+        $del_val='%c1%';
+        $this->limpiarLista($this->cavidadDerechaL1,$del_val);
         return $this;
     }
 
     /**
-     * Get cavidadDerechaL1C2
+     * Get the value of Cavidad Derecha
      *
-     * @return string
+     * @return text
      */
-    public function getCavidadDerechaL1C2()
+    public function getCavidadDerechaL1c2()
     {
-        return $this->cavidadDerechaL1C2;
+        return $this->cavidadDerechaL1c2;
     }
 
     /**
-     * Set cavidadDerechaL1C3
+     * Set the value of Cavidad Derecha
      *
-     * @param string $cavidadDerechaL1C3
+     * @param text cavidadDerechaL1c2
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
-    public function setCavidadDerechaL1C3($cavidadDerechaL1C3)
+    public function setCavidadDerechaL1c2($cavidadDerechaL1c2)
     {
-        $this->cavidadDerechaL1C3 = $cavidadDerechaL1C3;
-
+        $this->cavidadDerechaL1c2 = $cavidadDerechaL1c2;
+        array_push($this->cavidadDerechaL1, $cavidadDerechaL1c2);
+        $del_val='%c2%';
+        $this->limpiarLista($this->cavidadDerechaL1,$del_val);
         return $this;
     }
 
     /**
-     * Get cavidadDerechaL1C3
+     * Get the value of Cavidad Derecha
      *
-     * @return string
+     * @return text
      */
-    public function getCavidadDerechaL1C3()
+    public function getCavidadDerechaL1c3()
     {
-        return $this->cavidadDerechaL1C3;
+        return $this->cavidadDerechaL1c3;
     }
 
     /**
-     * Set venaCavaInferiorL1
+     * Set the value of Cavidad Derecha
      *
-     * @param array $venaCavaInferiorL1
+     * @param text cavidadDerechaL1c3
      *
-     * @return Ecocardiograma2d
+     * @return self
+     */
+    public function setCavidadDerechaL1c3($cavidadDerechaL1c3)
+    {
+        $this->cavidadDerechaL1c3 = $cavidadDerechaL1c3;
+        array_push($this->cavidadDerechaL1, $cavidadDerechaL1c3);
+        $del_val='%c3%';
+        $this->limpiarLista($this->cavidadDerechaL1,$del_val);
+        return $this;
+    }
+
+    /**
+     * Get the value of Cavidad Derecha
+     *
+     * @return text
+     */
+    public function getCavidadDerechaL1c4()
+    {
+        return $this->cavidadDerechaL1c4;
+    }
+
+    /**
+     * Set the value of Cavidad Derecha
+     *
+     * @param text cavidadDerechaL1c4
+     *
+     * @return self
+     */
+    public function setCavidadDerechaL1c4($cavidadDerechaL1c4)
+    {
+        $this->cavidadDerechaL1c4 = $cavidadDerechaL1c4;
+        array_push($this->cavidadDerechaL1, $cavidadDerechaL1c4);
+        $del_val='%c4%';
+        $this->limpiarLista($this->cavidadDerechaL1,$del_val);
+        return $this;
+    }
+
+    /**
+     * Get the value of Cavidad Derecha
+     *
+     * @return text
+     */
+    public function getCavidadDerechaL1c5()
+    {
+        return $this->cavidadDerechaL1c5;
+    }
+
+    /**
+     * Set the value of Cavidad Derecha
+     *
+     * @param text cavidadDerechaL1c5
+     *
+     * @return self
+     */
+    public function setCavidadDerechaL1c5($cavidadDerechaL1c5)
+    {
+        $this->cavidadDerechaL1c5 = $cavidadDerechaL1c5;
+        array_push($this->cavidadDerechaL1, $cavidadDerechaL1c5);
+        $del_val='%c5%';
+        $this->limpiarLista($this->cavidadDerechaL1,$del_val);
+        return $this;
+    }
+
+    /**
+     * Get the value of Cavidad Derecha
+     *
+     * @return text
+     */
+    public function getCavidadDerechaL1c6()
+    {
+        return $this->cavidadDerechaL1c6;
+    }
+
+    /**
+     * Set the value of Cavidad Derecha
+     *
+     * @param text cavidadDerechaL1c6
+     *
+     * @return self
+     */
+    public function setCavidadDerechaL1c6($cavidadDerechaL1c6)
+    {
+        $this->cavidadDerechaL1c6 = $cavidadDerechaL1c6;
+        array_push($this->cavidadDerechaL1, $cavidadDerechaL1c6);
+        $del_val='%c6%';
+        $this->limpiarLista($this->cavidadDerechaL1,$del_val);
+        return $this;
+    }
+
+    /**
+     * Get the value of Cavidad Derecha Libre
+     *
+     * @return text
+     */
+      public function getCavidadDerechaL1Libre()
+    {
+
+        return $this->cavidadDerechaL1Libre;
+    }
+
+    /**
+     * Set the value of Cavidad Derecha Libre
+     *
+     * @param text cavidadDerechaL1Libre
+     *
+     * @return self
+     */
+    public function setCavidadDerechaL1Libre( $cavidadDerechaL1Libre)
+    {
+        $this->cavidadDerechaL1Libre = $cavidadDerechaL1Libre;
+        array_push($this->cavidadDerechaL1, $cavidadDerechaL1Libre);
+        $del_val='%libre%';
+        $this->limpiarLista($this->cavidadDerechaL1,$del_val);
+        return $this;
+    }
+
+    /**
+     * Get the value of Vena Cava Inferior
+     *
+     * @return text
+     */
+    public function getVenaCavaInferiorL1()
+    {
+        return $this->venaCavaInferiorL1;
+    }
+
+    /**
+     * Set the value of Vena Cava Inferior
+     *
+     * @param text venaCavaInferiorL1
+     *
+     * @return self
      */
     public function setVenaCavaInferiorL1($venaCavaInferiorL1)
     {
@@ -2145,21 +2629,21 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Get venaCavaInferiorL1
+     * Get the value of Pericardio
      *
-     * @return array
+     * @return text
      */
-    public function getVenaCavaInferiorL1()
+    public function getPericardioL1()
     {
-        return $this->venaCavaInferiorL1;
+        return $this->pericardioL1;
     }
 
     /**
-     * Set pericardioL1
+     * Set the value of Pericardio
      *
-     * @param array $pericardioL1
+     * @param text pericardioL1
      *
-     * @return Ecocardiograma2d
+     * @return self
      */
     public function setPericardioL1($pericardioL1)
     {
@@ -2169,21 +2653,47 @@ class Ecocardiograma2d extends Estudio
     }
 
     /**
-     * Get pericardioL1
+     * Get the value of Pericardio Libre
      *
-     * @return array
+     * @return mixed
      */
-    public function getPericardioL1()
+    public function getPericardioL1Libre()
     {
-        return $this->pericardioL1;
+        return $this->pericardioL1Libre;
     }
 
     /**
-     * Set conclusionL1
+     * Set the value of Pericardio Libre
      *
-     * @param array $conclusionL1
+     * @param mixed pericardioL1Libre
      *
-     * @return Ecocardiograma2d
+     * @return self
+     */
+    public function setPericardioL1Libre($pericardioL1Libre)
+    {
+        $this->pericardioL1Libre = $pericardioL1Libre;
+        array_push($this->pericardioL1, $pericardioL1Libre);
+        $del_val='%libre%';
+        $this->limpiarLista($this->pericardioL1,$del_val);
+        return $this;
+    }
+
+    /**
+     * Get the value of Conclusion
+     *
+     * @return text
+     */
+    public function getConclusionL1()
+    {
+        return $this->conclusionL1;
+    }
+
+    /**
+     * Set the value of Conclusion
+     *
+     * @param text conclusionL1
+     *
+     * @return self
      */
     public function setConclusionL1($conclusionL1)
     {
@@ -2192,325 +2702,4 @@ class Ecocardiograma2d extends Estudio
         return $this;
     }
 
-    /**
-     * Get conclusionL1
-     *
-     * @return array
-     */
-    public function getConclusionL1()
-    {
-        return $this->conclusionL1;
-    }
-
-    /**
-     * Set cavidadDerechaL1C1c
-     *
-     * @param boolean $cavidadDerechaL1C1c
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setCavidadDerechaL1C1c($cavidadDerechaL1C1c)
-    {
-        $this->cavidadDerechaL1C1c = $cavidadDerechaL1C1c;
-
-        return $this;
-    }
-
-    /**
-     * Get cavidadDerechaL1C1c
-     *
-     * @return boolean
-     */
-    public function getCavidadDerechaL1C1c()
-    {
-        return $this->cavidadDerechaL1C1c;
-    }
-
-    /**
-     * Set cavidadDerechaL1C2c
-     *
-     * @param boolean $cavidadDerechaL1C2c
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setCavidadDerechaL1C2c($cavidadDerechaL1C2c)
-    {
-        $this->cavidadDerechaL1C2c = $cavidadDerechaL1C2c;
-
-        return $this;
-    }
-
-    /**
-     * Get cavidadDerechaL1C2c
-     *
-     * @return boolean
-     */
-    public function getCavidadDerechaL1C2c()
-    {
-        return $this->cavidadDerechaL1C2c;
-    }
-
-    /**
-     * Set cavidadDerechaL1C3c
-     *
-     * @param boolean $cavidadDerechaL1C3c
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setCavidadDerechaL1C3c($cavidadDerechaL1C3c)
-    {
-        $this->cavidadDerechaL1C3c = $cavidadDerechaL1C3c;
-
-        return $this;
-    }
-
-    /**
-     * Get cavidadDerechaL1C3c
-     *
-     * @return boolean
-     */
-    public function getCavidadDerechaL1C3c()
-    {
-        return $this->cavidadDerechaL1C3c;
-    }
-
-    /**
-     * Set cavidadDerechaL1C4c
-     *
-     * @param boolean $cavidadDerechaL1C4c
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setCavidadDerechaL1C4c($cavidadDerechaL1C4c)
-    {
-        $this->cavidadDerechaL1C4c = $cavidadDerechaL1C4c;
-
-        return $this;
-    }
-
-    /**
-     * Get cavidadDerechaL1C4c
-     *
-     * @return boolean
-     */
-    public function getCavidadDerechaL1C4c()
-    {
-        return $this->cavidadDerechaL1C4c;
-    }
-
-    /**
-     * Set cavidadDerechaL1C5c
-     *
-     * @param boolean $cavidadDerechaL1C5c
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setCavidadDerechaL1C5c($cavidadDerechaL1C5c)
-    {
-        $this->cavidadDerechaL1C5c = $cavidadDerechaL1C5c;
-
-        return $this;
-    }
-
-    /**
-     * Get cavidadDerechaL1C5c
-     *
-     * @return boolean
-     */
-    public function getCavidadDerechaL1C5c()
-    {
-        return $this->cavidadDerechaL1C5c;
-    }
-
-    /**
-     * Set cavidadDerechaL1C6c
-     *
-     * @param boolean $cavidadDerechaL1C6c
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setCavidadDerechaL1C6c($cavidadDerechaL1C6c)
-    {
-        $this->cavidadDerechaL1C6c = $cavidadDerechaL1C6c;
-
-        return $this;
-    }
-
-    /**
-     * Get cavidadDerechaL1C6c
-     *
-     * @return boolean
-     */
-    public function getCavidadDerechaL1C6c()
-    {
-        return $this->cavidadDerechaL1C6c;
-    }
-
-    /**
-     * Set cavidadDerechaL1C7c
-     *
-     * @param boolean $cavidadDerechaL1C7c
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setCavidadDerechaL1C7c($cavidadDerechaL1C7c)
-    {
-        $this->cavidadDerechaL1C7c = $cavidadDerechaL1C7c;
-
-        return $this;
-    }
-
-    /**
-     * Get cavidadDerechaL1C7c
-     *
-     * @return boolean
-     */
-    public function getCavidadDerechaL1C7c()
-    {
-        return $this->cavidadDerechaL1C7c;
-    }
-
-    /**
-     * Set cavidadDerechaL1C8c
-     *
-     * @param boolean $cavidadDerechaL1C8c
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setCavidadDerechaL1C8c($cavidadDerechaL1C8c)
-    {
-        $this->cavidadDerechaL1C8c = $cavidadDerechaL1C8c;
-
-        return $this;
-    }
-
-    /**
-     * Get cavidadDerechaL1C8c
-     *
-     * @return boolean
-     */
-    public function getCavidadDerechaL1C8c()
-    {
-        return $this->cavidadDerechaL1C8c;
-    }
-
-    /**
-     * Set cavidadDerechaL1C4
-     *
-     * @param string $cavidadDerechaL1C4
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setCavidadDerechaL1C4($cavidadDerechaL1C4)
-    {
-        $this->cavidadDerechaL1C4 = $cavidadDerechaL1C4;
-
-        return $this;
-    }
-
-    /**
-     * Get cavidadDerechaL1C4
-     *
-     * @return string
-     */
-    public function getCavidadDerechaL1C4()
-    {
-        return $this->cavidadDerechaL1C4;
-    }
-
-    /**
-     * Set cavidadDerechaL1C5
-     *
-     * @param string $cavidadDerechaL1C5
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setCavidadDerechaL1C5($cavidadDerechaL1C5)
-    {
-        $this->cavidadDerechaL1C5 = $cavidadDerechaL1C5;
-
-        return $this;
-    }
-
-    /**
-     * Get cavidadDerechaL1C5
-     *
-     * @return string
-     */
-    public function getCavidadDerechaL1C5()
-    {
-        return $this->cavidadDerechaL1C5;
-    }
-
-    /**
-     * Set cavidadDerechaL1C6
-     *
-     * @param string $cavidadDerechaL1C6
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setCavidadDerechaL1C6($cavidadDerechaL1C6)
-    {
-        $this->cavidadDerechaL1C6 = $cavidadDerechaL1C6;
-
-        return $this;
-    }
-
-    /**
-     * Get cavidadDerechaL1C6
-     *
-     * @return string
-     */
-    public function getCavidadDerechaL1C6()
-    {
-        return $this->cavidadDerechaL1C6;
-    }
-
-    /**
-     * Set cavidadDerechaL1C7
-     *
-     * @param string $cavidadDerechaL1C7
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setCavidadDerechaL1C7($cavidadDerechaL1C7)
-    {
-        $this->cavidadDerechaL1C7 = $cavidadDerechaL1C7;
-
-        return $this;
-    }
-
-    /**
-     * Get cavidadDerechaL1C7
-     *
-     * @return string
-     */
-    public function getCavidadDerechaL1C7()
-    {
-        return $this->cavidadDerechaL1C7;
-    }
-
-    /**
-     * Set cavidadDerechaL1C8
-     *
-     * @param string $cavidadDerechaL1C8
-     *
-     * @return Ecocardiograma2d
-     */
-    public function setCavidadDerechaL1C8($cavidadDerechaL1C8)
-    {
-        $this->cavidadDerechaL1C8 = $cavidadDerechaL1C8;
-
-        return $this;
-    }
-
-    /**
-     * Get cavidadDerechaL1C8
-     *
-     * @return string
-     */
-    public function getCavidadDerechaL1C8()
-    {
-        return $this->cavidadDerechaL1C8;
-    }
 }

@@ -383,7 +383,23 @@ class Ecocardiograma2d extends Estudio
      */
     private $raizAortaL1;
 
+    /**
+     * @var text
+     *
+     */
+    private $raizAortaL1Libre;
 
+    /**
+     * @var text
+     *
+     */
+    private $raizAortaL1c1;
+
+    /**
+     * @var text
+     *
+     */
+    private $raizAortaL1c2;
 
     /**
      * @var text
@@ -391,7 +407,7 @@ class Ecocardiograma2d extends Estudio
      * @ORM\Column(name="aorta_l1", type="array", nullable=true)
      */
     private $aortaL1;
-
+    private $aortaL1Libre;
 
     /**
      * @var text
@@ -400,7 +416,8 @@ class Ecocardiograma2d extends Estudio
      */
     private $aortaL2;
 
-
+    private $aortaL2c1;
+    private $aortaL2c2;
     /**
      * @var text
      *
@@ -408,14 +425,14 @@ class Ecocardiograma2d extends Estudio
      */
     private $aortaL3;
 
-
+    private $aortaL3Libre;
     /**
      * @var text
      *
      * @ORM\Column(name="valvula_mitral_l1", type="array", nullable=true)
      */
     private $valvulaMitralL1;
-
+    private $valvulaMitralL1Libre;
 
     /**
      * @var text
@@ -423,7 +440,7 @@ class Ecocardiograma2d extends Estudio
      * @ORM\Column(name="valvula_mitral_l2", type="array", nullable=true)
      */
     private $valvulaMitralL2;
-
+    private $valvulaMitralL2Libre;
 
 
     /**
@@ -432,7 +449,7 @@ class Ecocardiograma2d extends Estudio
      * @ORM\Column(name="auricula_izq_l1", type="array", nullable=true)
      */
     private $auriculaIzqL1;
-
+    private $auriculaIzqL1Libre;
 
     /**
      * @var text
@@ -440,7 +457,7 @@ class Ecocardiograma2d extends Estudio
      * @ORM\Column(name="valvula_pulmonar_l1", type="array", nullable=true)
      */
     private $valvulaPulmonarL1;
-
+    private $valvulaPulmonarL1Libre;
 
     /**
      * @var text
@@ -448,7 +465,7 @@ class Ecocardiograma2d extends Estudio
      * @ORM\Column(name="valvula_pulmonar_l2", type="array", nullable=true)
      */
     private $valvulaPulmonarL2;
-
+    private $valvulaPulmonarL2Libre;
 
     /**
      * @var text
@@ -456,6 +473,8 @@ class Ecocardiograma2d extends Estudio
      * @ORM\Column(name="valvula_tricupside_l1", type="array", nullable=true)
      */
     private $valvulatricuspideL1;
+    private $valvulatricuspideL1Libre;
+    private $valvulatricuspideL1c1;
 
     /**
      * @var text
@@ -463,128 +482,63 @@ class Ecocardiograma2d extends Estudio
      * @ORM\Column(name="valvula_tricupside_l2", type="array", nullable=true)
      */
     private $valvulatricuspideL2;
+    private $valvulatricuspideL2Libre;
+
+
+
+/**
+ * @var text
+ *
+ * @ORM\Column(name="cavidad_derecha_l1", type="array", nullable=true)
+ */
+private $cavidadDerechaL1;
 
     /**
      * @var text
      *
-     * @ORM\Column(name="cavidad_derecha_l1_c1c", type="boolean", nullable=true)
      */
-    private $cavidadDerechaL1C1c;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="cavidad_derecha_l1_c2c", type="boolean", nullable=true)
-     */
-    private $cavidadDerechaL1C2c;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="cavidad_derecha_l1_c3c", type="boolean", nullable=true)
-     */
-    private $cavidadDerechaL1C3c;
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="cavidad_derecha_l1_c4c", type="boolean", nullable=true)
-     */
-    private $cavidadDerechaL1C4c;
+    private $cavidadDerechaL1c1;
 
 
     /**
      * @var text
      *
-     * @ORM\Column(name="cavidad_derecha_l1_c5c", type="boolean", nullable=true)
      */
-    private $cavidadDerechaL1C5c;
+    private $cavidadDerechaL1c2;
 
 
     /**
      * @var text
      *
-     * @ORM\Column(name="cavidad_derecha_l1_c6c", type="boolean", nullable=true)
      */
-    private $cavidadDerechaL1C6c;
+    private $cavidadDerechaL1c3;
 
     /**
      * @var text
      *
-     * @ORM\Column(name="cavidad_derecha_l1_c7c", type="boolean", nullable=true)
      */
-    private $cavidadDerechaL1C7c;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="cavidad_derecha_l1_c8c", type="boolean", nullable=true)
-     */
-    private $cavidadDerechaL1C8c;
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="cavidad_derecha_l1_c1", type="text", nullable=true)
-     */
-    private $cavidadDerechaL1C1;
+    private $cavidadDerechaL1c4;
 
 
     /**
      * @var text
      *
-     * @ORM\Column(name="cavidad_derecha_l1_c2", type="text", nullable=true)
      */
-    private $cavidadDerechaL1C2;
+    private $cavidadDerechaL1c5;
 
 
     /**
      * @var text
      *
-     * @ORM\Column(name="cavidad_derecha_l1_c3", type="text", nullable=true)
      */
-    private $cavidadDerechaL1C3;
+    private $cavidadDerechaL1c6;
 
     /**
      * @var text
      *
-     * @ORM\Column(name="cavidad_derecha_l1_c4", type="text", nullable=true)
      */
-    private $cavidadDerechaL1C4;
+    private $cavidadDerechaL1Libre;
 
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="cavidad_derecha_l1_c5", type="text", nullable=true)
-     */
-    private $cavidadDerechaL1C5;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="cavidad_derecha_l1_c6", type="text", nullable=true)
-     */
-    private $cavidadDerechaL1C6;
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="cavidad_derecha_l1_c7", type="text", nullable=true)
-     */
-    private $cavidadDerechaL1C7;
-
-
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="cavidad_derecha_l1_c8", type="text", nullable=true)
-     */
-    private $cavidadDerechaL1C8;
 
     /**
      * @var text
@@ -600,7 +554,7 @@ class Ecocardiograma2d extends Estudio
      * @ORM\Column(name="pericardio_l1", type="array", nullable=true)
      */
     private $pericardioL1;
-
+    private $pericardioL1Libre;
     /**
      * @var text
      *
@@ -2200,5 +2154,112 @@ class Ecocardiograma2d extends Estudio
     public function getConclusionL1()
     {
         return $this->conclusionL1;
+    }
+
+
+    /**
+     * Get raizAortaL1Libre
+     *
+     * @return string
+     */
+    public function getRaizAortaL1Libre()
+    {
+        return $this->raizAortaL1Libre;
+    }
+
+    /**
+     * Get raizAortaL1c1
+     *
+     * @return string
+     */
+    public function getRaizAortaL1c1()
+    {
+        return $this->raizAortaL1c1;
+    }
+
+    /**
+     * Get raizAortaL1c2
+     *
+     * @return string
+     */
+    public function getRaizAortaL1c2()
+    {
+        return $this->raizAortaL1c2;
+    }
+    /**
+     * Set raizAortaL1Libre
+     *
+     * @param string $raizAortaL1Libre
+     *
+     * @return Ecocardiograma2d
+     */
+    public function setRaizAortaL1Libre($raizAortaL1Libre)
+    {
+        array_push($this->raizAortaL1, $raizAortaL1Libre);
+        $del_val='%libre%';
+        $this->limpiarLista($this->raizAortaL1,$del_val);
+        return $this;
+    }
+
+
+    /**
+     * Set raizAortaL1c1
+     *
+     * @param string $raizAortaL1c1
+     *
+     * @return Ecocardiograma2d
+     */
+    public function setRaizAortaL1c1($raizAortaL1c1)
+    {
+        array_push($this->raizAortaL1, $raizAortaL1c1);
+        $del_val='%Anillo (mm):  P. Sinusal:  Unión ST:  Tubular:  %';
+        $this->limpiarLista($this->raizAortaL1,$del_val);
+        return $this;
+    }
+
+    /**
+     * Set raizAortaL1c2
+     *
+     * @param string $raizAortaL1c2
+     *
+     * @return Ecocardiograma2d
+     */
+    public function setRaizAortaL1c2($raizAortaL1c2)
+    {
+        array_push($this->raizAortaL1, $raizAortaL1c2);
+        $del_val='%disección, originada a ….mm del plano del anillo%';
+        $this->limpiarLista($this->raizAortaL1,$del_val);
+        return $this;
+    }
+
+    // elimina el elemento elegido en el select y lo remplaza por el ingresado en el campo
+        private function limpiarLista(&$lista,$elemento){
+          if (($key = array_search($elemento, $lista)) !== false) {
+            unset($lista[$key]);
+          }
+        }
+
+    /**
+     * Set cavidadDerechaL1
+     *
+     * @param array $cavidadDerechaL1
+     *
+     * @return Ecocardiograma2d
+     */
+    public function setCavidadDerechaL1($cavidadDerechaL1)
+    {
+        $this->cavidadDerechaL1 = $cavidadDerechaL1;
+
+        return $this;
+    }
+
+    /**
+     * Get cavidadDerechaL1
+     *
+     * @return array
+     */
+    public function getCavidadDerechaL1()
+    {
+        return $this->cavidadDerechaL1;
     }
 }
