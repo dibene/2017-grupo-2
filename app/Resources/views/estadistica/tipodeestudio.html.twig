@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<p>informe desde: {{ fdesde|date('Y-m-d') }} hasta: {{fhasta|date('Y-m-d')}}</p>
+{% for r in res %}
+{{r.nombre}}
+{{r.cantidad}}
+<br>
+{% endfor %}
+total Estudios = {{totalEstudios}}
+
+{% endblock %}

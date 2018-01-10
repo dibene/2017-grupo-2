@@ -80,9 +80,6 @@ class AppFixtures extends Fixture
           array('id' => 20 ,
             'nombre' => 'EcoEstres' ,
           'link' => 'ecoestres'),
-          array('id' => 21 ,
-            'nombre' => 'Venoso Normal' ,
-          'link' => 'venosonormal'),
           array('id' => 22 ,
             'nombre' => 'Cardiopatías Congénitas del Adulto' ,
           'link' => 'cardiopatiascongenitas')
@@ -111,7 +108,6 @@ class AppFixtures extends Fixture
         // 18 Miembros Inferiores Arterial Patológico
         // 19 Miembros Superiores Arterial Normal
         // 20 Eco Estrés
-        // 21 Venoso Normal
         // 22 Cardiopatías Congénitas del Adulto
 
         foreach ($estudiosconfiguraciones as $configuracion) {
