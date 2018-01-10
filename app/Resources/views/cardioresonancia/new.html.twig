@@ -11,7 +11,46 @@
       <h5 class="red-text center-align ">Nuevo Estudio {{ estudio.estudioConfiguracion.nombre }}</h5>
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
+    {{ form_row(form.motivoSolicitud) }}
+    {{ form_row(form.resultado) }}
+    {{ form_row(form.conclusion) }}
+    PROTOCOLO DE LA TÉCNICA
+    {{ form_row(form.protocolo) }}
+    CAVIDADES IZQUIERDAS
+    VENTRICULO IZQUIERDO
+    {{ form_row(form.descripcionVI) }}
+    {{ form_row(form.dtdvi) }}
+    {{ form_row(form.dtsvi) }}
+    {{ form_row(form.vfd) }}
+    {{ form_row(form.vfs) }}
+    {{ form_row(form.fac) }}
+    {{ form_row(form.fevi) }}
+    {{ form_row(form.septum) }}
+    {{ form_row(form.pp) }}
+    {{ form_row(form.masaVI) }}
+    PLANIMETRIA DE AI
+    {{ form_row(form.areaAI) }}
+    {{ form_row(form.volumenAI) }}
+    {{ form_row(form.cuatroCamarasAI) }}
+    CAVIDADES DERECHAS
+    VENTRICULO DERECHO
+    {{ form_row(form.tapseLateral) }}
+    {{ form_row(form.vfdVD) }}
+    {{ form_row(form.vfsVD) }}
+    {{ form_row(form.fevd) }}
+    Diametros:
+    {{ form_row(form.longitudinal) }}
+    {{ form_row(form.anilloTricuspideo) }}
+    {{ form_row(form.transversalSubtricuspideo) }}
+    {{ form_row(form.transversalMedio) }}
+    {{ form_row(form.tsvd) }}
+    PLANIMETRIA AURICULA DERECHA:
+    {{ form_row(form.areaAD) }}
+    {{ form_row(form.volumenAD) }}
+    {{ form_row(form.cuatroCamarasAD) }}
+    {{ form_row(form.secuencias) }}
+    {{ form_row(form.grupoDiagnostico) }}
+    {{ form_row(form.internacion) }}
         <input class="btn waves-effect waves-light red" type="submit" value="Crear" />
     {{ form_end(form) }}
     </div>

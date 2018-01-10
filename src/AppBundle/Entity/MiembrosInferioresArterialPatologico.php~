@@ -22,103 +22,88 @@ class MiembrosInferioresArterialPatologico extends Estudio
     private $id;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="extension", type="integer", nullable=false)
+     * @ORM\Column(name="arteria_femoral_comun_izq", type="integer", nullable=false)
      */
-    private $extension;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="velocidades", type="integer", nullable=false)
-     */
-    private $velocidades;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="indice_pre_estenosis_estenosis", type="integer", nullable=false)
-     */
-    private $indicePreEstenosisEstenosis;
+    private $arteriaFemoralComunIzq;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="arteria_femoral_comun", type="integer", nullable=false)
+     * @ORM\Column(name="arteria_femoral_superficial_izq", type="integer", nullable=false)
      */
-    private $arteriaFemoralComun;
+    private $arteriaFemoralSuperficialIzq;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="arteria_femoral_superficial", type="integer", nullable=false)
+     * @ORM\Column(name="arteria_poplitea_izq", type="integer", nullable=false)
      */
-    private $arteriaFemoralSuperficial;
+    private $arteriaPopliteaIzq;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="arteria_poplitea", type="integer", nullable=false)
+     * @ORM\Column(name="arteria_tibial_anterior_izq", type="integer", nullable=false)
      */
-    private $arteriaPoplitea;
+    private $arteriaTibialAnteriorIzq;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="arteria_tibial_anterior", type="integer", nullable=false)
+     * @ORM\Column(name="arteria_tibial_posterior_izq", type="integer", nullable=false)
      */
-    private $arteriaTibialAnterior;
+    private $arteriaTibialPosteriorIzq;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="arteria_tibial_posterior", type="integer", nullable=false)
+     * @ORM\Column(name="arteria_peronea_izq", type="integer", nullable=false)
      */
-    private $arteriaTibialPosterior;
+    private $arteriaPeroneaIzq;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="arteria_peronea", type="integer", nullable=false)
+     * @ORM\Column(name="arteria_femoral_comun_der", type="integer", nullable=false)
      */
-    private $arteriaPeronea;
+    private $arteriaFemoralComunDer;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="arteria", type="integer", nullable=false)
+     * @ORM\Column(name="arteria_femoral_superficial_der", type="integer", nullable=false)
      */
-    private $arteria;
+    private $arteriaFemoralSuperficialDer;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="flujos_distales", type="integer", nullable=false)
+     * @ORM\Column(name="arteria_poplitea_der", type="integer", nullable=false)
      */
-    private $flujosDistales;
+    private $arteriaPopliteaDer;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="circulacion_colateral", type="integer", nullable=false)
+     * @ORM\Column(name="arteria_tibial_anterior_der", type="integer", nullable=false)
      */
-    private $circulacionColateral;
+    private $arteriaTibialAnteriorDer;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="indice_tobillo_brazo_derecho", type="integer", nullable=false)
+     * @ORM\Column(name="arteria_tibial_posterior_der", type="integer", nullable=false)
      */
-    private $indiceTobilloBrazoDerecho;
+    private $arteriaTibialPosteriorDer;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="indice_tobillo_brazo_izquierdo", type="integer", nullable=false)
+     * @ORM\Column(name="arteria_peronea_der", type="integer", nullable=false)
      */
-    private $indiceTobilloBrazoIzquierdo;
-
+    private $arteriaPeroneaDer;
 
     public function __construct($medico,$paciente , $entityManager) {
       parent::__construct();
@@ -128,72 +113,4 @@ class MiembrosInferioresArterialPatologico extends Estudio
       parent::setPaciente($paciente);
       parent::setMedico($medico);
     }
-    /**
-     * Set extension
-     *
-     * @param integer $extension
-     * @return MiembrosInferioresArterialPatologico
-     */
-    public function setExtension($extension)
-    {
-        $this->extension = $extension;
-
-        return $this;
-    }
-
-    /**
-     * Get extension
-     *
-     * @return integer
-     */
-    public function getExtension()
-    {
-        return $this->extension;
-    }
-
-    /**
-     * Set velocidades
-     *
-     * @param integer $velocidades
-     * @return MiembrosInferioresArterialPatologico
-     */
-    public function setVelocidades($velocidades)
-    {
-        $this->velocidades = $velocidades;
-
-        return $this;
-    }
-
-    /**
-     * Get velocidades
-     *
-     * @return integer
-     */
-    public function getVelocidades()
-    {
-        return $this->velocidades;
-    }
-
-    /**
-     * Set indicePreEstenosisEstenosis
-     *
-     * @param integer $indicePreEstenosisEstenosis
-     * @return MiembrosInferioresArterialPatologico
-     */
-    public function setIndicePreEstenosisEstenosis($indicePreEstenosisEstenosis)
-    {
-        $this->indicePreEstenosisEstenosis = $indicePreEstenosisEstenosis;
-
-        return $this;
-    }
-
-    /**
-     * Get indicePreEstenosisEstenosis
-     *
-     * @return integer
-     */
-    public function getIndicePreEstenosisEstenosis()
-    {
-        return $this->indicePreEstenosisEstenosis;
-    }
-}
+  }

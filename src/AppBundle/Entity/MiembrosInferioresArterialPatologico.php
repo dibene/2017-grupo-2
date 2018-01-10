@@ -22,103 +22,88 @@ class MiembrosInferioresArterialPatologico extends Estudio
     private $id;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="extension", type="integer", nullable=false)
+     * @ORM\Column(name="arteria_femoral_comun_izq", type="text", length=65535, nullable=false)
      */
-    private $extension;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="velocidades", type="integer", nullable=false)
-     */
-    private $velocidades;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="indice_pre_estenosis_estenosis", type="integer", nullable=false)
-     */
-    private $indicePreEstenosisEstenosis;
+    private $arteriaFemoralComunIzq;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="arteria_femoral_comun", type="integer", nullable=false)
+     * @ORM\Column(name="arteria_femoral_superficial_izq", type="text", length=65535, nullable=false)
      */
-    private $arteriaFemoralComun;
+    private $arteriaFemoralSuperficialIzq;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="arteria_femoral_superficial", type="integer", nullable=false)
+     * @ORM\Column(name="arteria_poplitea_izq", type="text", length=65535, nullable=false)
      */
-    private $arteriaFemoralSuperficial;
+    private $arteriaPopliteaIzq;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="arteria_poplitea", type="integer", nullable=false)
+     * @ORM\Column(name="arteria_tibial_anterior_izq", type="text", length=65535, nullable=false)
      */
-    private $arteriaPoplitea;
+    private $arteriaTibialAnteriorIzq;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="arteria_tibial_anterior", type="integer", nullable=false)
+     * @ORM\Column(name="arteria_tibial_posterior_izq", type="text", length=65535, nullable=false)
      */
-    private $arteriaTibialAnterior;
+    private $arteriaTibialPosteriorIzq;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="arteria_tibial_posterior", type="integer", nullable=false)
+     * @ORM\Column(name="arteria_peronea_izq", type="text", length=65535, nullable=false)
      */
-    private $arteriaTibialPosterior;
+    private $arteriaPeroneaIzq;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="arteria_peronea", type="integer", nullable=false)
+     * @ORM\Column(name="arteria_femoral_comun_der", type="text", length=65535, nullable=false)
      */
-    private $arteriaPeronea;
+    private $arteriaFemoralComunDer;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="arteria", type="integer", nullable=false)
+     * @ORM\Column(name="arteria_femoral_superficial_der", type="text", length=65535, nullable=false)
      */
-    private $arteria;
+    private $arteriaFemoralSuperficialDer;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="flujos_distales", type="integer", nullable=false)
+     * @ORM\Column(name="arteria_poplitea_der", type="text", length=65535, nullable=false)
      */
-    private $flujosDistales;
+    private $arteriaPopliteaDer;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="circulacion_colateral", type="integer", nullable=false)
+     * @ORM\Column(name="arteria_tibial_anterior_der", type="text", length=65535, nullable=false)
      */
-    private $circulacionColateral;
+    private $arteriaTibialAnteriorDer;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="indice_tobillo_brazo_derecho", type="integer", nullable=false)
+     * @ORM\Column(name="arteria_tibial_posterior_der", type="text", length=65535, nullable=false)
      */
-    private $indiceTobilloBrazoDerecho;
+    private $arteriaTibialPosteriorDer;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="indice_tobillo_brazo_izquierdo", type="integer", nullable=false)
+     * @ORM\Column(name="arteria_peronea_der", type="text", length=65535, nullable=false)
      */
-    private $indiceTobilloBrazoIzquierdo;
-
+    private $arteriaPeroneaDer;
 
     public function __construct($medico,$paciente , $entityManager) {
       parent::__construct();
@@ -128,336 +113,292 @@ class MiembrosInferioresArterialPatologico extends Estudio
       parent::setPaciente($paciente);
       parent::setMedico($medico);
     }
+
     /**
-     * Set extension
+     * Set arteriaFemoralComunIzq
      *
-     * @param integer $extension
+     * @param integer $arteriaFemoralComunIzq
+     *
      * @return MiembrosInferioresArterialPatologico
      */
-    public function setExtension($extension)
+    public function setArteriaFemoralComunIzq($arteriaFemoralComunIzq)
     {
-        $this->extension = $extension;
+        $this->arteriaFemoralComunIzq = $arteriaFemoralComunIzq;
 
         return $this;
     }
 
     /**
-     * Get extension
+     * Get arteriaFemoralComunIzq
      *
      * @return integer
      */
-    public function getExtension()
+    public function getArteriaFemoralComunIzq()
     {
-        return $this->extension;
+        return $this->arteriaFemoralComunIzq;
     }
 
     /**
-     * Set velocidades
+     * Set arteriaFemoralSuperficialIzq
      *
-     * @param integer $velocidades
+     * @param integer $arteriaFemoralSuperficialIzq
+     *
      * @return MiembrosInferioresArterialPatologico
      */
-    public function setVelocidades($velocidades)
+    public function setArteriaFemoralSuperficialIzq($arteriaFemoralSuperficialIzq)
     {
-        $this->velocidades = $velocidades;
+        $this->arteriaFemoralSuperficialIzq = $arteriaFemoralSuperficialIzq;
 
         return $this;
     }
 
     /**
-     * Get velocidades
+     * Get arteriaFemoralSuperficialIzq
      *
      * @return integer
      */
-    public function getVelocidades()
+    public function getArteriaFemoralSuperficialIzq()
     {
-        return $this->velocidades;
+        return $this->arteriaFemoralSuperficialIzq;
     }
 
     /**
-     * Set indicePreEstenosisEstenosis
+     * Set arteriaPopliteaIzq
      *
-     * @param integer $indicePreEstenosisEstenosis
+     * @param integer $arteriaPopliteaIzq
+     *
      * @return MiembrosInferioresArterialPatologico
      */
-    public function setIndicePreEstenosisEstenosis($indicePreEstenosisEstenosis)
+    public function setArteriaPopliteaIzq($arteriaPopliteaIzq)
     {
-        $this->indicePreEstenosisEstenosis = $indicePreEstenosisEstenosis;
+        $this->arteriaPopliteaIzq = $arteriaPopliteaIzq;
 
         return $this;
     }
 
     /**
-     * Get indicePreEstenosisEstenosis
+     * Get arteriaPopliteaIzq
      *
      * @return integer
      */
-    public function getIndicePreEstenosisEstenosis()
+    public function getArteriaPopliteaIzq()
     {
-        return $this->indicePreEstenosisEstenosis;
+        return $this->arteriaPopliteaIzq;
     }
 
     /**
-     * Set arteriaFemoralComun
+     * Set arteriaTibialAnteriorIzq
      *
-     * @param integer $arteriaFemoralComun
+     * @param integer $arteriaTibialAnteriorIzq
      *
      * @return MiembrosInferioresArterialPatologico
      */
-    public function setArteriaFemoralComun($arteriaFemoralComun)
+    public function setArteriaTibialAnteriorIzq($arteriaTibialAnteriorIzq)
     {
-        $this->arteriaFemoralComun = $arteriaFemoralComun;
+        $this->arteriaTibialAnteriorIzq = $arteriaTibialAnteriorIzq;
 
         return $this;
     }
 
     /**
-     * Get arteriaFemoralComun
+     * Get arteriaTibialAnteriorIzq
      *
      * @return integer
      */
-    public function getArteriaFemoralComun()
+    public function getArteriaTibialAnteriorIzq()
     {
-        return $this->arteriaFemoralComun;
+        return $this->arteriaTibialAnteriorIzq;
     }
 
     /**
-     * Set arteriaFemoralSuperficial
+     * Set arteriaTibialPosteriorIzq
      *
-     * @param integer $arteriaFemoralSuperficial
+     * @param integer $arteriaTibialPosteriorIzq
      *
      * @return MiembrosInferioresArterialPatologico
      */
-    public function setArteriaFemoralSuperficial($arteriaFemoralSuperficial)
+    public function setArteriaTibialPosteriorIzq($arteriaTibialPosteriorIzq)
     {
-        $this->arteriaFemoralSuperficial = $arteriaFemoralSuperficial;
+        $this->arteriaTibialPosteriorIzq = $arteriaTibialPosteriorIzq;
 
         return $this;
     }
 
     /**
-     * Get arteriaFemoralSuperficial
+     * Get arteriaTibialPosteriorIzq
      *
      * @return integer
      */
-    public function getArteriaFemoralSuperficial()
+    public function getArteriaTibialPosteriorIzq()
     {
-        return $this->arteriaFemoralSuperficial;
+        return $this->arteriaTibialPosteriorIzq;
     }
 
     /**
-     * Set arteriaPoplitea
+     * Set arteriaPeroneaIzq
      *
-     * @param integer $arteriaPoplitea
+     * @param integer $arteriaPeroneaIzq
      *
      * @return MiembrosInferioresArterialPatologico
      */
-    public function setArteriaPoplitea($arteriaPoplitea)
+    public function setArteriaPeroneaIzq($arteriaPeroneaIzq)
     {
-        $this->arteriaPoplitea = $arteriaPoplitea;
+        $this->arteriaPeroneaIzq = $arteriaPeroneaIzq;
 
         return $this;
     }
 
     /**
-     * Get arteriaPoplitea
+     * Get arteriaPeroneaIzq
      *
      * @return integer
      */
-    public function getArteriaPoplitea()
+    public function getArteriaPeroneaIzq()
     {
-        return $this->arteriaPoplitea;
+        return $this->arteriaPeroneaIzq;
     }
 
     /**
-     * Set arteriaTibialAnterior
+     * Set arteriaFemoralComunDer
      *
-     * @param integer $arteriaTibialAnterior
+     * @param integer $arteriaFemoralComunDer
      *
      * @return MiembrosInferioresArterialPatologico
      */
-    public function setArteriaTibialAnterior($arteriaTibialAnterior)
+    public function setArteriaFemoralComunDer($arteriaFemoralComunDer)
     {
-        $this->arteriaTibialAnterior = $arteriaTibialAnterior;
+        $this->arteriaFemoralComunDer = $arteriaFemoralComunDer;
 
         return $this;
     }
 
     /**
-     * Get arteriaTibialAnterior
+     * Get arteriaFemoralComunDer
      *
      * @return integer
      */
-    public function getArteriaTibialAnterior()
+    public function getArteriaFemoralComunDer()
     {
-        return $this->arteriaTibialAnterior;
+        return $this->arteriaFemoralComunDer;
     }
 
     /**
-     * Set arteriaTibialPosterior
+     * Set arteriaFemoralSuperficialDer
      *
-     * @param integer $arteriaTibialPosterior
+     * @param integer $arteriaFemoralSuperficialDer
      *
      * @return MiembrosInferioresArterialPatologico
      */
-    public function setArteriaTibialPosterior($arteriaTibialPosterior)
+    public function setArteriaFemoralSuperficialDer($arteriaFemoralSuperficialDer)
     {
-        $this->arteriaTibialPosterior = $arteriaTibialPosterior;
+        $this->arteriaFemoralSuperficialDer = $arteriaFemoralSuperficialDer;
 
         return $this;
     }
 
     /**
-     * Get arteriaTibialPosterior
+     * Get arteriaFemoralSuperficialDer
      *
      * @return integer
      */
-    public function getArteriaTibialPosterior()
+    public function getArteriaFemoralSuperficialDer()
     {
-        return $this->arteriaTibialPosterior;
+        return $this->arteriaFemoralSuperficialDer;
     }
 
     /**
-     * Set arteriaPeronea
+     * Set arteriaPopliteaDer
      *
-     * @param integer $arteriaPeronea
+     * @param integer $arteriaPopliteaDer
      *
      * @return MiembrosInferioresArterialPatologico
      */
-    public function setArteriaPeronea($arteriaPeronea)
+    public function setArteriaPopliteaDer($arteriaPopliteaDer)
     {
-        $this->arteriaPeronea = $arteriaPeronea;
+        $this->arteriaPopliteaDer = $arteriaPopliteaDer;
 
         return $this;
     }
 
     /**
-     * Get arteriaPeronea
+     * Get arteriaPopliteaDer
      *
      * @return integer
      */
-    public function getArteriaPeronea()
+    public function getArteriaPopliteaDer()
     {
-        return $this->arteriaPeronea;
+        return $this->arteriaPopliteaDer;
     }
 
     /**
-     * Set arteria
+     * Set arteriaTibialAnteriorDer
      *
-     * @param integer $arteria
+     * @param integer $arteriaTibialAnteriorDer
      *
      * @return MiembrosInferioresArterialPatologico
      */
-    public function setArteria($arteria)
+    public function setArteriaTibialAnteriorDer($arteriaTibialAnteriorDer)
     {
-        $this->arteria = $arteria;
+        $this->arteriaTibialAnteriorDer = $arteriaTibialAnteriorDer;
 
         return $this;
     }
 
     /**
-     * Get arteria
+     * Get arteriaTibialAnteriorDer
      *
      * @return integer
      */
-    public function getArteria()
+    public function getArteriaTibialAnteriorDer()
     {
-        return $this->arteria;
+        return $this->arteriaTibialAnteriorDer;
     }
 
     /**
-     * Set flujosDistales
+     * Set arteriaTibialPosteriorDer
      *
-     * @param integer $flujosDistales
+     * @param integer $arteriaTibialPosteriorDer
      *
      * @return MiembrosInferioresArterialPatologico
      */
-    public function setFlujosDistales($flujosDistales)
+    public function setArteriaTibialPosteriorDer($arteriaTibialPosteriorDer)
     {
-        $this->flujosDistales = $flujosDistales;
+        $this->arteriaTibialPosteriorDer = $arteriaTibialPosteriorDer;
 
         return $this;
     }
 
     /**
-     * Get flujosDistales
+     * Get arteriaTibialPosteriorDer
      *
      * @return integer
      */
-    public function getFlujosDistales()
+    public function getArteriaTibialPosteriorDer()
     {
-        return $this->flujosDistales;
+        return $this->arteriaTibialPosteriorDer;
     }
 
     /**
-     * Set circulacionColateral
+     * Set arteriaPeroneaDer
      *
-     * @param integer $circulacionColateral
+     * @param integer $arteriaPeroneaDer
      *
      * @return MiembrosInferioresArterialPatologico
      */
-    public function setCirculacionColateral($circulacionColateral)
+    public function setArteriaPeroneaDer($arteriaPeroneaDer)
     {
-        $this->circulacionColateral = $circulacionColateral;
+        $this->arteriaPeroneaDer = $arteriaPeroneaDer;
 
         return $this;
     }
 
     /**
-     * Get circulacionColateral
+     * Get arteriaPeroneaDer
      *
      * @return integer
      */
-    public function getCirculacionColateral()
+    public function getArteriaPeroneaDer()
     {
-        return $this->circulacionColateral;
-    }
-
-    /**
-     * Set indiceTobilloBrazoDerecho
-     *
-     * @param integer $indiceTobilloBrazoDerecho
-     *
-     * @return MiembrosInferioresArterialPatologico
-     */
-    public function setIndiceTobilloBrazoDerecho($indiceTobilloBrazoDerecho)
-    {
-        $this->indiceTobilloBrazoDerecho = $indiceTobilloBrazoDerecho;
-
-        return $this;
-    }
-
-    /**
-     * Get indiceTobilloBrazoDerecho
-     *
-     * @return integer
-     */
-    public function getIndiceTobilloBrazoDerecho()
-    {
-        return $this->indiceTobilloBrazoDerecho;
-    }
-
-    /**
-     * Set indiceTobilloBrazoIzquierdo
-     *
-     * @param integer $indiceTobilloBrazoIzquierdo
-     *
-     * @return MiembrosInferioresArterialPatologico
-     */
-    public function setIndiceTobilloBrazoIzquierdo($indiceTobilloBrazoIzquierdo)
-    {
-        $this->indiceTobilloBrazoIzquierdo = $indiceTobilloBrazoIzquierdo;
-
-        return $this;
-    }
-
-    /**
-     * Get indiceTobilloBrazoIzquierdo
-     *
-     * @return integer
-     */
-    public function getIndiceTobilloBrazoIzquierdo()
-    {
-        return $this->indiceTobilloBrazoIzquierdo;
+        return $this->arteriaPeroneaDer;
     }
 }

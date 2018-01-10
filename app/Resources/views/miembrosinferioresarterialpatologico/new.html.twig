@@ -11,7 +11,27 @@
       <h5 class="red-text center-align ">Nuevo Estudio {{ estudio.estudioConfiguracion.nombre }}</h5>
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
+
+    {{ form_row(form.motivoSolicitud) }}
+    {{ form_row(form.resultado) }}
+    {{ form_row(form.conclusion) }}
+    <p class="red-text">Miembro inferior derecho</p>
+    {{ form_row(form.arteriaFemoralComunDer) }}
+    {{ form_row(form.arteriaFemoralSuperficialDer) }}
+    {{ form_row(form.arteriaPopliteaDer) }}
+    {{ form_row(form.arteriaTibialAnteriorDer) }}
+    {{ form_row(form.arteriaTibialPosteriorDer) }}
+    {{ form_row(form.arteriaPeroneaDer) }}
+    <p class="red-text">Miembro inferior izquierdo</p>
+    {{ form_row(form.arteriaFemoralComunIzq) }}
+    {{ form_row(form.arteriaFemoralSuperficialIzq) }}
+    {{ form_row(form.arteriaPopliteaIzq) }}
+    {{ form_row(form.arteriaTibialAnteriorIzq) }}
+    {{ form_row(form.arteriaTibialPosteriorIzq) }}
+    {{ form_row(form.arteriaPeroneaIzq) }}
+
+    {{ form_row(form.grupoDiagnostico) }}
+    {{ form_row(form.internacion) }}
         <input class="btn waves-effect waves-light red" type="submit" value="Crear" />
     {{ form_end(form) }}
     </div>

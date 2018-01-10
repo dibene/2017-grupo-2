@@ -1,13 +1,8 @@
-{% extends 'base.html.twig' %}
-
-{% block body %}
-<div class="row col s12">
-  <br><a class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " href="{{ path('estudio_index', { 'id': paciente.id }) }}">Volver a estudios del paciente: <b>{{paciente.nombre}} </b> </a>
-  <br><a class="btn waves-effect waves-light blue" style="margin-left:10px; margin-bottom:20px; " href="{{ path('estudio_pdf' , { 'id': estudio.id , 'idPaciente': estudio.getPaciente().id} ) }}">imprimir</b> </a>
-  <br>
-  <div class="container col s12 center-align" >
-    <div class="z-depth-1 grey lighten-4 row left-align col s12" style="display: inline-block; margin: 50px; padding: 32px 48px 50px 48px; border: 1px solid #EEE;">
-
+<head>
+  <title> Resultado de {{ estudio.estudioConfiguracion.nombre }} </title>
+  <meta charset="UTF-8" />
+</head>
+<body>
       <h3  class="red-text"> Estudio {{ estudio.estudioConfiguracion.nombre }}</h3>
 
       <h4  class="red-text"> Datos del Medico </h4>
@@ -24,7 +19,7 @@
 
 
       <h4  class="red-text"> Datos del Paciente </h4>
-      <table style="width:25%;">
+      <table style="width:40%;">
         <tr>
           <td><b>Nombre: </b></td>
           <td>{{ paciente.nombre }}</td>
@@ -84,7 +79,7 @@
             <td>{{   estudio.resultado  }}</td>
         </tr>
     </tbody>
-    <table style="width:25%;">
+    <table style="width:40%;">
         <tbody>
           <tr >
             <th><h4 class="red-text">PROTOCOLO DE LA TÉCNICA</h4></th>
@@ -220,16 +215,4 @@
             </tr>
         </tbody>
     </table>
-</div>
-</div>
-</div>
-    <ul>
-        <li>
-          <a class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px;" href="{{ path('estudio_index', { 'id': paciente.id }) }}">Volver a estudios del paciente: <b>{{paciente.nombre}} </b> </a>
-        </li>
-        <li>
-          <a class="btn waves-effect waves-light yellow" style="margin-left:10px; margin-bottom:20px;" href="{{ path(estudio.getEstudioConfiguracion().link~'_edit', { 'id': estudio.id , 'idPaciente': paciente.id }) }}">Modificar</a>
-        </li>
-
-    </ul>
-{% endblock %}
+</body>

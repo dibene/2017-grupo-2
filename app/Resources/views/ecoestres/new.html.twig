@@ -8,10 +8,35 @@
   <div class="container col s12 center-align" >
 
     <div class="z-depth-1 grey lighten-4 row left-align col s12" style="display: inline-block; margin: 50px; padding: 32px 48px 50px 48px; border: 1px solid #EEE;">
-      <h5 class="red-text center-align ">Nuevo Estudio {{ estudio.estudioConfiguracion.nombre }}</h5>
+      <h5 class="red-text center-align ">Nuevo Estudio {{ estudio.estudioConfiguracion.nombre }}</h5> <br>
+<div class="row">
+<div class="col s6">
+  <a id="info1" class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " >Informe 1 Normal.</a><br>
+  <a id="info2" class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " >Informe 2 Normal.</a><br>
+  <a id="info3" class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " >Informe Respuesta Isquémica 1.</a><br>
+  <a id="info4" class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " >Informe 3 Infarto Sin Isquemia.</a><br>
+  <a id="info5" class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " >Informe 4 Infarto sin isquemia.</a><br>
+  <a id="info6" class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " >Informe 5 Estenosis Aortica Severa Asintomatica.</a><br>
+</div>
+<div class="col s6">
+  <a id="info7" class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " >Informe Estrés MCH.</a><br>
+  <a id="info8" class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " >Informe Isquemia 1.</a><br>
+  <a id="info9" class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " >Informe Insuficiencia Mitral.</a><br>
+  <a id="info10" class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " >Informe Dobutamina Normal.</a><br>
+  <a id="info11" class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " >Informe Dobutamina Necrosis Sin Isquemia.</a><br>
+</div>
+</div>
+
+
+
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
+    {{ form_row(form.motivoSolicitud) }}
+    {{ form_row(form.resultado , { 'id': 'resultado' } ) }}
+    {{ form_row(form.conclusion, { 'id': 'conclusion' } ) }}
+    {{ form_row(form.grupoDiagnostico) }}
+    {{ form_row(form.internacion) }}
+
         <input class="btn waves-effect waves-light red" type="submit" value="Crear" />
     {{ form_end(form) }}
     </div>
@@ -20,5 +45,142 @@
 
 <br><a class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " href="{{ path('estudio_index', { 'id': paciente.id }) }}">Volver a estudios del paciente: <b>{{paciente.nombre}} </b> </a>
 <br><a class="btn waves-effect waves-light red lighten-1" style="margin-left:10px; margin-bottom:20px;"  href="{{ path('estudio_new', { 'id': paciente.id }) }}">Volver a la lista de estudios para agregar al paciente: <b>{{paciente.nombre}} </b> </a>
+
+{% endblock %}
+
+
+{% block javascripts %}
+{{parent()}}
+
+  <script type="text/javascript">
+
+window.onload = function(){
+var refResultado = document.getElementById("resultado");
+var refConclusion = document.getElementById("conclusion");
+   var info1 = document.getElementById("info1");
+   var info2 = document.getElementById("info2");
+   var info3 = document.getElementById("info3");
+   var info4 = document.getElementById("info4");
+   var info5 = document.getElementById("info5");
+   var info6 = document.getElementById("info6");
+   var info7 = document.getElementById("info7");
+   var info8 = document.getElementById("info8");
+   var info9 = document.getElementById("info9");
+   var info10 = document.getElementById("info10");
+   var info11 = document.getElementById("info11");
+
+    info1.onclick = function() {
+        refResultado.value ="El paciente se mantuvo asintomático, con normal comportamiento de la presión arterial y\n"+
+        "el registro ECG durante todo el ejercicio. La prueba se detuvo por agotamiento habiendo\n"+
+        "alcanzado el % de la FC máxima.\n"+
+        "Motilidad segmentaria en reposo, intra y post esfuerzo dentro de límites normales.";
+        refConclusion.value ="Ecocardiograma de ejercicio sin evidencias de isquemia miocárdica.";
+    }
+    info2.onclick = function() {
+        refResultado.value ="Prueba ergométrica suficiente, detenida por agotamiento muscular, luego de alcanzar el\n"+
+        "% de la FCTM. No se observaron alteraciones del segmento ST. Sin arritmias. El\n"+
+        "paciente se mantuvo asintomático para angor y disnea. Comportamiento normal de la TA.\n"+
+        "Eco basal: VI de dimensiones normales, con motilidad segmentaria y función sistólica\n"+
+        "conservadas.\n"+
+        "Eco de esfuerzo: Aumento normal de la motilidad en todas las paredes.";
+        refConclusion.value ="Ecocardiograma de ejercicio sin evidencias de isquemia miocárdica.";
+    }
+    info3.onclick = function() {
+        refResultado.value ="El paciente se mantuvo asintomático, sin cambios en el ECG durante la prueba que fue\n"+
+        "suficiente y se detuvo por agotamiento luego de haber alcanzado el % de la FC máxima teorica\n"+
+        "Eco basal: Motilidad segmentaria y función sistólica conservadas.\n"+
+        "Eco de esfuerzo: Hipocinesia septal apical, ápex y anterior medio-apical.";
+        refConclusion.value ="Ecocardiograma de ejercicio que mostró isquemia en el territorio de la DA.";
+    }
+    info4.onclick = function() {
+        refResultado.value ="El paciente se mantuvo asintomático, sin cambios en el ECG durante la prueba que fue\n"+
+        "suficiente y se detuvo por agotamiento luego de haber alcanzado el % de la FC máxima teorica\n"+
+        "Eco basal: Acinesia inferior medio-basal. FE VI : 55%.\n"+
+        "Eco de esfuerzo: Persistencia de las alteraciones descriptas en el reposo. Aumento\n"+
+        "normal de la motilidad en el resto de las paredes. FE VI: 60%.";
+        refConclusion.value ="Ecocardiograma de ejercicio que mostró necrosis de cara inferior del VI, sin desarrollo de nuevas áreas de isquemia miocárdica.";
+    }
+    info5.onclick = function() {
+        refResultado.value ="El paciente se mantuvo asintomático, sin cambios en el ECG durante la prueba que fue\n"+
+        "suficiente y se detuvo por agotamiento luego de haber alcanzado el % de la FC máxima teorica\n"+
+        "Eco basal: Acinesia septal apical, ápex y anterior apical. FE VI: 46%.\n"+
+        "Eco de esfuerzo: Persistencia de las alteraciones descriptas en el reposo. Aumento\n"+
+        "normal de la motilidad en el resto de las paredes. FE VI: 55%.";
+        refConclusion.value ="Ecocardiograma de ejercicio que mostró necrosis apical del VI, sin evidencias de isquemia miocárdica.";
+    }
+    info6.onclick = function() {
+        refResultado.value ="El paciente se mantuvo asintomático, sin cambios en el ECG durante la prueba que fue\n"+
+        "suficiente y se detuvo por agotamiento luego de haber alcanzado el % de la FC máxima teorica\n"+
+        "Eco basal: EAo severa. Gradiente máximo de 70 mmHg y medio de 50 mmHg. Motilidad\n"+
+        "segmentaria y función sistólica conservadas. FE: 66%.\n"+
+        "Eco de esfuerzo: Aumento normal de la motilidad en todas las paredes. Gradiente máximo\n"+
+        "de 95 mmHg y medio de 60 mmHg. FE: 72%.";
+        refConclusion.value ="Ecocardiograma de ejercicio en paciente con EAo severa asintomática.\n"+
+        "Incremento normal de los gradientes. Aumento normal de la TA. No presento\n"+
+        "arritmias. No refirió síntomas durante los x minutos que duro la prueba Buena\n"+
+        "capacidad funcional. Sin evidencias de isquemia miocárdica.";
+    }
+    info7.onclick = function() {
+        refResultado.value ="El paciente se mantuvo asintomático, sin cambios en el ECG durante la prueba que fue\n"+
+        "suficiente y se detuvo por agotamiento luego de haber alcanzado el % de la FC máxima teorica\n"+
+        "Eco basal: Forma mixta con hipertrofia medio-apical que compromete el TIV. Espesor\n"+
+        "maximo de 19 mm a nivel septal medio. Gradiente máximo de 20 mmHg a nivel del TSVI y\n"+
+        "medio-ventricular. Motilidad segmentaria y función sistólica conservadas.\n"+
+        "Eco de esfuerzo: Aumento normal de la motilidad en todas las paredes. Sin cambios en el\n"+
+        "gradiente maximo obtenido.";
+        refConclusion.value ="Ecocardiograma de ejercicio en paciente con MCH sin obstrucción\n"+
+        "significativa en reposo y en el esfuerzo. Comportamiento normal de la TA. Sin\n"+
+        "arritmias ventriculares complejas. CF funcional normal ante el esfuerzo realizado.";
+    }
+    info8.onclick = function() {
+        refResultado.value ="El paciente se mantuvo asintomático, sin cambios en el ECG durante la prueba que fue\n"+
+        "suficiente y se detuvo por agotamiento luego de haber alcanzado el % de la FC máxima teorica\n"+
+        "Eco basal: Motilidad segmentaria y función sistólica conservadas.\n"+
+        "Eco de esfuerzo: Hipocinesia inferior medio-basal.";
+        refConclusion.value ="Ecocardiograma de ejercicio que mostró isquemia en cara inferior.";
+    }
+    info9.onclick = function() {
+        refResultado.value ="Ecocardiograma de ejercicio en paciente con IM moderada post-plastica.\n"+
+        "El paciente se mantuvo asintomático y se detuvo por agotamiento luego de haber\n"+
+        "alcanzado el 70% de la FC máxima teórica. Se observaron EV frecuentes y 1 episodio de\n"+
+        "dupla ventricular.\n"+
+        "Eco basal: DTD 57 mm, DTS 34 mm, FE: 65%. IM moderada, jet central. FSVD normal.\n"+
+        "ORE: 0,34 cm2. PAPs de 35 mmHg. Motilidad segmentaria y función sistólica\n"+
+        "conservadas. FE: 66%.\n"+
+        "Eco de esfuerzo: IM moderada-severa. ORE: 0,39 cm2. PAPs de 45 mmHg. Aumento\n"+
+        "normal de la motilidad en todas las paredes. FEVI: 72%. Respuesta normal del VD por\n"+
+        "DTI.";
+        refConclusion.value ="Ecocardiograma de ejercicio en paciente con IM severa asintomática.\n"+
+        "Sin cambios de la IM con el esfuerzo. Presión arterial pulmonar normal en reposo e\n"+
+        "incremento normal con el esfuerzo. PAPs máxima medida: 40 mmHg. EV frecuente y\n"+
+        "una dupla durante el esfuerzo. No refirió síntomas durante los minutos que duró la\n"+
+        "prueba. Buena capacidad funcional. Sin evidencias de isquemia miocárdica.";
+    }
+    info10.onclick = function() {
+        refResultado.value ="Se obtuvieron imágenes en distintos planos en reposo, con dosis crescientes de\n"+
+        "dobutamina y en la fase de recuperación.\n"+
+        "Se llegó al % de la FCTM y el paciente se mantuvo asintomático. No se evidenciaron\n"+
+        "alteraciones del segmento ST, ni arritmias. Comportamiento normal de la TA.\n"+
+        "Eco en reposo: Motilidad segmentaria y función sistólica del VI conservada. FE: 56%.\n"+
+        "Dosis altas de DBT (..mg/kg/min): Aumento normal de la motilidad segmentaria en todas\n"+
+        "las paredes. FE: 68%.";
+        refConclusion.value ="Ecocardiograma de estrés con dobutamina sin evidencias de isquemia miocárdica.";
+    }
+    info11.onclick = function() {
+        refResultado.value ="Se obtuvieron imágenes en distintos planos en reposo, con dosis crescientes de\n"+
+        "dobutamina y en la fase de recuperación.\n"+
+        "Se llegó al % de la FCTM y el paciente se mantuvo asintomático. No se evidenciaron\n"+
+        "alteraciones del segmento ST, ni arritmias. Comportamiento normal de la TA.\n"+
+        "Eco en reposo: Acinesia septal apical, ápex y anterior apical. Motilidad segmentaria\n"+
+        "normal en el resto de las paredes. FE: 47%.\n"+
+        "Bajas dosis de DBT: persistencia de las alteraciones descriptas en el reposo con aumento\n"+
+        "normal de la motilidad en el resto de las paredes.\n"+
+        "Dosis altas de DBT (..mg/kg/min): Persistencia de la acinesia septo-apical y aumento\n"+
+        "normal de la motilidad segmentaria en el resto de los segmentos. FE: 56%.";
+        refConclusion.value ="Ecocardiograma de estrés con dobutamina que mostró necrosis septo-apical, sin evidencias de isquemia miocárdica.";
+    }
+};
+
+  </script>
 
 {% endblock %}

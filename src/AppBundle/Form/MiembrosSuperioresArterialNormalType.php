@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class MiembrosSuperioresArterialNormalType extends AbstractType
 {
@@ -19,9 +20,22 @@ class MiembrosSuperioresArterialNormalType extends AbstractType
         ->add('motivoSolicitud', EntityType::class, array(
           'class' => 'AppBundle:MotivoSolicitud',
           'choice_label' => 'nombre'))
-        ->add('resultado')
-        ->add('conclusion')
-        ->add('extension')->add('velocidadPicoSistolica')->add('indiceDePreEstenosis')->add('flujosDistales')->add('estenosis')->add('caracteristicas')->add('arteria')
+          ->add('resultado', TextareaType::class , array(
+          'attr' => array('style'=> 'height:150px'),
+          'data' => '
+          Se visualizaron sucesivamente las arterias subclavia proximal y distal, axilar, humeral, proximal
+          y a nivel del pliegue del codo, cubital y radial derecha e izquierda.
+          Arteria subclavia derecha : presenta ateroma Hipoecoico/hiperecoico de bordes
+          regulares/irregulares con extension aproximada de .....mm que genera velocidad pico
+          sistolica de ....... cm/seg. indice pre-estenosis de ......, correspondiendo a estenosis del .....
+          % .
+          Los flujos distales evaluados a nivel de arterias................... son de caracteristicas...............
+            '))
+          ->add('conclusion', TextareaType::class , array(
+          'attr' => array('style'=> 'height:50px'),
+          'data' => '
+          Se observó evidencia de obstrucciones significativas en arteria ………………………...
+          '))
         ->add('grupoDiagnostico', EntityType::class, array(
           'class' => 'AppBundle:GrupoDiagnostico',
           'choice_label' => 'nombre',

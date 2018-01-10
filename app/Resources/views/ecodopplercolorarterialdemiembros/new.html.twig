@@ -11,7 +11,31 @@
       <h5 class="red-text center-align ">Nuevo Estudio {{ estudio.estudioConfiguracion.nombre }}</h5>
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
+
+    {{ form_row(form.motivoSolicitud) }}
+
+    {{ form_row(form.resultado) }}
+
+    {{ form_row(form.conclusion) }}
+
+  <p>  Se exploraron en ambos miembros inferiores, visualizando las arterias femoral común, femoral</p>
+    <p>superficial, femoral profunda, poplitea y tibiales anterior y posterior.</p>
+    <td><h5 class="red-text">LADO IZQUIERDO:</h5></td>
+
+    {{ form_row(form.arteriafemoralComunIzq) }}
+  {{ form_row(form.arteriaFemoralSuperficialIzq) }}
+  {{ form_row(form.arteriaPopliteaIzq) }}
+  {{ form_row(form.arteriaTibialAnteriorIzq) }}
+  {{ form_row(form.arteriaTibialPosteriorIzq) }}
+  <td><h5 class="red-text">LADO DERECHO:</h5></td>
+  {{ form_row(form.arteriafemoralComunDer) }}
+  {{ form_row(form.arteriaFemoralSuperficialDer) }}
+  {{ form_row(form.arteriaPopliteaDer) }}
+  {{ form_row(form.arteriaTibialAnteriorDer) }}
+  {{ form_row(form.arteriaTibialPosteriorDer) }}
+
+  {{ form_row(form.grupoDiagnostico) }}
+    {{ form_row(form.internacion) }}
         <input class="btn waves-effect waves-light red" type="submit" value="Crear" />
     {{ form_end(form) }}
     </div>

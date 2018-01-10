@@ -10,7 +10,6 @@
     <div class="z-depth-1 grey lighten-4 row left-align col s12" style="display: inline-block; margin: 50px; padding: 32px 48px 50px 48px; border: 1px solid #EEE;">
       <h5 class="red-text center-align ">Nuevo Estudio {{ estudio.estudioConfiguracion.nombre }}</h5>
       <br>
-      <a id="mmii0"class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " value="carot"> MMII 0 </a>
       <a id="mmii1" class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " >MMII  1 </a>
       <a id="mmii2" class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " >MMII  2 </a>
       <a id="mmii3" class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " >MMII  3 </a>
@@ -20,8 +19,9 @@
     {{ form_row(form.motivoSolicitud) }}
 
     {{ form_row(form.resultado , { 'id': 'resultado' } ) }}
-
     {{ form_row(form.conclusion) }}
+    {{ form_row(form.grupoDiagnostico) }}
+    {{ form_row(form.internacion) }}
         <input class="btn waves-effect waves-light red" type="submit" value="Crear" />
     {{ form_end(form) }}
     </div>
@@ -32,6 +32,7 @@
 <br><a class="btn waves-effect waves-light red lighten-1" style="margin-left:10px; margin-bottom:20px;"  href="{{ path('estudio_new', { 'id': paciente.id }) }}">Volver a la lista de estudios para agregar al paciente: <b>{{paciente.nombre}} </b> </a>
 
 {% endblock %}
+
 {% block javascripts %}
 {{parent()}}
 
@@ -39,14 +40,11 @@
 
 window.onload = function(){
 var refResultado = document.getElementById("resultado");
-   var refmmii0 = document.getElementById("mmii0");
    var refmmii1 = document.getElementById("mmii1");
    var refmmii2 = document.getElementById("mmii2");
    var refmmii3 = document.getElementById("mmii3");
 
-    refmmii0.onclick = function() {
-        refResultado.value = "";
-    }
+
 
     refmmii1.onclick = function() {
         refResultado.value =
@@ -87,4 +85,3 @@ var refResultado = document.getElementById("resultado");
   </script>
 
 {% endblock %}
-
