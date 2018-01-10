@@ -23,19 +23,6 @@ class Ecocardiograma2dType extends AbstractType
           'choice_label' => 'nombre'))
         ->add('resultado')
         ->add('conclusion')
-        ->add('situs', ChoiceType::class, array(
-        'choices' => array(
-          'SOLITUS' => 'SOLITUS',
-          'INVERSUS' => 'INVERSUS',
-          'AMBIGUO' => 'AMBIGUO')))
-        ->add('conexionAuriculoventricular', ChoiceType::class, array(
-        'choices' => array(
-          'CONCORDANTE' => 'CONCORDANTE',
-          'DISCORDANTE' => 'DISCORDANTE')))
-        ->add('conexionVentriculoArterial', ChoiceType::class, array(
-        'choices' => array(
-          'CONCORDANTE' => 'CONCORDANTE',
-          'DISCORDANTE' => 'DISCORDANTE')))
         ->add('ddvi')->add('dsvi')->add('siv')->add('pp')->add('fey')->add('alArea')->add('alVol')->add('aorta')->add('apVao')->add('tsvi')
         ->add('velMaxAo')->add('gradMaxAo')->add('gradMedAo')->add('insuficiencia')->add('thp')->add('adt')->add('aa')->add('velOndaE')->add('velOndaA')->add('gradMedioaTrasmitral')->add('insuficienciaTrasmitral')->add('ore')->add('volRegurgitante')->add('dpdt')->add('velMaxPulmonar')->add('gradMaxPulomonar')->add('insuficiencia_pulmonar')->add('tpoPico')->add('qpqs')->add('insuficienciaTricuspide')->add('velRegurgitante')->add('gradPico')->add('pap')->add('pad')
         ->add('ondaSeptal')->add('ondaLateral')->add('ondaE')->add('ondaA')->add('relacionE')->add('ondaVd')
@@ -285,46 +272,17 @@ class Ecocardiograma2dType extends AbstractType
         ->add('pericardioL1Libre', HiddenType::class , array('attr' => array('value' => 'libre...') ))
 //pericardioL1Libre
 
-        ->add('conclusionL1', ChoiceType::class, array(
-        'choices' => array(
-          'Normal' => 'Normal',
-          'Cardiopatía isquémica' => 'Cardiopatía isquémica',
-          'Cardiopatía HTA' => 'Cardiopatía HTA',
-          'Miocardiopatía dilatada' => 'Miocardiopatía dilatada',
-          'Deterioro severo de la función VI' => 'Deterioro severo de la función VI',
-          'Disfunción diastólica aislada' => 'Disfunción diastólica aislada',
-          'Cardiopatía Congénita compleja' => 'Cardiopatía Congénita compleja',
-          'CIA' => 'CIA',
-          'CIV' => 'CIV',
-          'Aneurisma del Septum interauricular' => 'Aneurisma del Septum interauricular',
-          'FOP' => 'FOP',
-          'Valvulopatías derechas' => 'Valvulopatías derechas',
-          'Patología de aorta' => 'Patología de aorta',
-          'Endocarditis infecciosa' => 'Endocarditis infecciosa',
-          'Masas intracavitarias' => 'Masas intracavitarias',
-          'Hipertensión Pulmonar' => 'Hipertensión Pulmonar',
-          'Prótesis valvulares' => 'Prótesis valvulares',
-          'Dispositivos de cierre' => 'Dispositivos de cierre',
-          'Derrame pericárdico' => 'Derrame pericárdico',
-          'Taponamiento ecográfico' => 'Taponamiento ecográfico',
-          'Pericarditis constrictiva' => 'Pericarditis constrictiva',
-          'Miocardiopatía hipertrófica' => 'Miocardiopatía hipertrófica',
-          'Miocardiopatía infiltrativa' => 'Miocardiopatía infiltrativa',
-          'Tromboembolismo pulmonar' => 'Tromboembolismo pulmonar',
-          'Viabilidad (+)' => 'Viabilidad (+)',
-          'Discincronía (+)' => 'Discincronía (+)',
-          'Enfermedad Carotídea severa' => 'Enfermedad Carotídea severa',
-          'Enfermedad vascular periférica severa' => 'Enfermedad vascular periférica severa',
-          'Estenosis Aórtica' => 'Estenosis Aórtica',
-          'Insuficiencia Aórtica' => 'Insuficiencia Aórtica',
-          'Estenosis Mitral' => 'Estenosis Mitral',
-          'Insuficiencia Mitral' => 'Insuficiencia Mitral',
-          'Otras' => 'Otras'),
-        'multiple' => true,
-        'attr' => array('class' => 'ventriculoIzqL1C1'),
-      ));
+->add('grupoDiagnostico', EntityType::class, array(
+  'class' => 'AppBundle:GrupoDiagnostico',
+  'choice_label' => 'nombre',
+  'multiple' => true)
+  )
 
-    }/**
+->add('internacion', ChoiceType::class, array(
+'choices'  => array('Abulatorio' => 'Abulatorio', 'Internado' => 'Internado')));
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)

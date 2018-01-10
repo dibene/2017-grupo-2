@@ -29,6 +29,7 @@
               {% if is_granted('ROLE_MEDICO') %}
                 <li><a href="/paciente">Pacientes</a></li>
                 <li><a href="/estudio/realizados">Estudios Realizados</a></li>
+                <li><a href="{{ path('grupodiagnostico_index') }}">Grupo Diagnosticos</a></li>
                 <li><a href="/estadisticas">Estadisticas</a></li>
               {% endif %}
                 <!-- link al perfil solo si esta logueado -->

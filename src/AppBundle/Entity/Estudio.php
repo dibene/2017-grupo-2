@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use \Datetime;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Estudio
@@ -23,6 +24,13 @@ abstract class Estudio
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
+
+    /**
+     * Many estudios have Many Groups.
+     * @ORM\ManyToMany(targetEntity="GrupoDiagnostico", inversedBy="estudios")
+     * @ORM\JoinTable(name="diagnosticos_estudios")
+     */
+    private $grupoDiagnostico;
 
     /**
      * Many Features have One Product.
@@ -75,13 +83,44 @@ abstract class Estudio
      */
     private $resultado;
 
+
+        /**
+         * @var integer
+         *
+         * @ORM\Column(name="internacion", type="string", length=15, nullable=false)
+         */
+        private $internacion;
+
     public function __construct() {
 
       $fecha = new Datetime(date("Y-m-d"));
       $this->setFechaAlta($fecha);
+      $this->grupoDiagnostico = new ArrayCollection();
 
     }
 
+    /**
+    * Add estudios
+    *
+    */
+    public function addGrupoDiagnostico(GrupoDiagnostico $grupoDiagnostico)
+    {
+      $this->grupoDiagnostico[] = $grupoDiagnostico;
+    }
+
+    public function setGrupoDiagnostico($grupoDiagnostico) {
+      $this->grupoDiagnostico = $grupoDiagnostico;
+    }
+
+    /**
+    * Get estudios
+    *
+    * @return Doctrine\Common\Collections\Collection
+    */
+    public function getGrupoDiagnostico()
+    {
+      return $this->grupoDiagnostico;
+    }
 
     /**
      * Get id
@@ -259,5 +298,28 @@ abstract class Estudio
     public function getPaciente()
     {
         return $this->paciente;
+    }
+
+    /**
+     * Set internacion
+     *
+     * @param string $internacion
+     * @return Paciente
+     */
+    public function setInternacion($internacion)
+    {
+        $this->internacion = $internacion;
+
+        return $this;
+    }
+
+    /**
+     * Get internacion
+     *
+     * @return string
+     */
+    public function getInternacion()
+    {
+        return $this->internacion;
     }
 }

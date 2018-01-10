@@ -1,4 +1,8 @@
-
+<head>
+  <title> Resultado de {{ estudio.estudioConfiguracion.nombre }} </title>
+  <meta charset="UTF-8" />
+</head>
+<body>
 <h3  class="red-text"> Estudio {{ estudio.estudioConfiguracion.nombre }}</h3>
 
 <h3> Datos del Medico </h3>
@@ -7,7 +11,6 @@
     <tr>
       <th>Nombre</th>
       <th>Apellido</th>
-      <th>Matricula</th>
     </tr>
   </thead>
   <tbody>
@@ -52,7 +55,7 @@
         </tr>
     </tbody>
 </table>
-<h3  class="red-text"> Resultados </h3>
+<h3  class="red-text"> Datos del Estudio </h3>
 
     <table>
         <tbody>
@@ -71,14 +74,7 @@
             </tr>
         </tbody>
     </table>
-
-    <h4  class="red-text">Indicadores de discincronía Intraventricular izquierda: </h4>
-    Modo M: retraso septal-PP: <b>{{ estudio.retrasoSeptalPp }} ms </b> (indicador de discincronía un valor > 130 ms).
-    Doppler pulsado tisular (DTcolor): valoración del tiempo al pico sistólico (Onda S) entre  septum-pared lateral <b>{{ estudio.tiempoAlPicoSistolico }} ms</b>  ( + > 65 ms)
-    Speckle tracking radial: valoración del tiempo al pico de deformación en segmentos opuestos: <b>{{ estudio.tiempoAlPicoDeDeformacion }} ms</b> (+ > 130 ms)
-
-    <h4  class="red-text">Indicadores de discincronía Interventricular:</h4>
-    La  diferencia entre los periodos preeyectivos de ambos ventrículos fue de block <b>{{ estudio.diferenciaEntreLosPeriodosPreEyectivos }} ms</b> , considerándose discincronía interventricular un valor > a 40 ms o la presencia de PPEy VI > 140 ms.
-
-    <h4  class="red-text">Indicadores de alteración en la secuencia auriculo-ventricular: </h4>
-    Se valoró la duración del llenado diastólico en relación a la duración total del R-R, siendo de <b>{{ estudio.duracionTotalDeRR }} %</b>, considerándose asincronía AV,  una relación < 40%, o bien la superposición delas ondas diastólicas.
+    </div>
+  </div>
+</div>
+</body>

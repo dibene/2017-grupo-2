@@ -13,9 +13,9 @@ class GrupoDiagnosticoType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('descripcion')->add('nombre');
+        $builder->add('nombre');
     }
-    
+
     /**
      * {@inheritdoc}
      */

@@ -555,12 +555,6 @@ private $cavidadDerechaL1;
      */
     private $pericardioL1;
     private $pericardioL1Libre;
-    /**
-     * @var text
-     *
-     * @ORM\Column(name="conclusion_l1", type="array", nullable=true)
-     */
-    private $conclusionL1;
 
 
     public function __construct($medico,$paciente , $entityManager) {
@@ -2675,30 +2669,6 @@ private $cavidadDerechaL1;
         array_push($this->pericardioL1, $pericardioL1Libre);
         $del_val='%libre%';
         $this->limpiarLista($this->pericardioL1,$del_val);
-        return $this;
-    }
-
-    /**
-     * Get the value of Conclusion
-     *
-     * @return text
-     */
-    public function getConclusionL1()
-    {
-        return $this->conclusionL1;
-    }
-
-    /**
-     * Set the value of Conclusion
-     *
-     * @param text conclusionL1
-     *
-     * @return self
-     */
-    public function setConclusionL1($conclusionL1)
-    {
-        $this->conclusionL1 = $conclusionL1;
-
         return $this;
     }
 

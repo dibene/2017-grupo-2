@@ -209,46 +209,6 @@
     </table>
 <br><br>
 
-    <p class="red-text  "> VENTRICULO IZQUIERDO </p>
-    {% if estudio.ventriculoIzqL1 %}{{ estudio.ventriculoIzqL1|join(', \n')|nl2br }}{% endif %}<br><br>
-    {% if estudio.ventriculoIzqL2 %}{{ estudio.ventriculoIzqL2|join(', \n')|nl2br }}{% endif %}<br><br>
-    {% if estudio.ventriculoIzqL3 %}{{ estudio.ventriculoIzqL3|join(', \n')|nl2br }}{% endif %}<br><br>
-    IMVI (g/m2 de SC): {{ estudio.ventriculoIzqL1Imvi }} EPR: {{ estudio.ventriculoIzqL1Epr }} <br><br>
-    {{ estudio.ventriculoIzqL4C1 }}<br>
-
-          <p class="red-text  "> RAIZ DE AORTA: </p>
-          {% if estudio.raizAortaL1 %}{{ estudio.raizAortaL1|join(', \n')|nl2br }}{% endif %}<br><br>
-
-        <p class="red-text  "> AORTA: </p>
-         {% if estudio.aortaL1 %}{{ estudio.aortaL1|join(', \n')|nl2br }}{% endif %}<br><br>
-         {% if estudio.aortaL2 %}{{ estudio.aortaL2|join(', \n')|nl2br }}{% endif %}<br><br>
-         {% if estudio.aortaL3 %}{{ estudio.aortaL3|join(', \n')|nl2br }}{% endif %}<br><br>
-
-          <p class="red-text  "> VALVULA MITRAL:</p>
-
-         {% if estudio.valvulaMitralL1 %}{{ estudio.valvulaMitralL1|join(', \n')|nl2br }}{% endif %}<br><br>
-         {% if estudio.valvulaMitralL2 %}{{ estudio.valvulaMitralL2|join(', \n')|nl2br }}{% endif %}<br><br>
-
-          <p class="red-text  ">AURICULA IZQUIERDA </p>
-         {% if estudio.auriculaIzqL1 %}{{ estudio.auriculaIzqL1|join(', \n')|nl2br }}{% endif %}<br><br>
-
-          <p class="red-text  ">VALVULA PULMONAR </p>
-         {% if estudio.valvulaPulmonarL1 %}{{ estudio.valvulaPulmonarL1|join(', \n')|nl2br }}{% endif %}<br><br>
-         {% if estudio.valvulaPulmonarL2 %}{{ estudio.valvulaPulmonarL2|join(', \n')|nl2br }}{% endif %}<br><br>
-
-          <p class="red-text  ">VALVULA TRICUSPIDE </p>
-         {% if estudio.valvulatricuspideL1 %}{{ estudio.valvulatricuspideL1|join(', \n')|nl2br }}{% endif %}<br><br>
-         {% if estudio.valvulatricuspideL2 %}{{ estudio.valvulatricuspideL2|join(', \n')|nl2br }}{% endif %}<br><br>
-
-          <p class="red-text  "> CAVIDADES DERECHAS:</p>
-         {% if estudio.cavidadDerechaL1 %}{{ estudio.cavidadDerechaL1|join(', \n')|nl2br }}{% endif %}<br><br>
-
-          <p class="red-text  ">VENA CAVA INFERIOR </p>
-         {% if estudio.venaCavaInferiorL1 %}{{ estudio.venaCavaInferiorL1|join(', \n')|nl2br }}{% endif %}<br><br>
-
-          <p class="red-text  "> PERICARDIO</p>
-         {% if estudio.pericardioL1 %}{{ estudio.pericardioL1|join(', \n')|nl2br }}{% endif %}<br><br>
-
   </div>
 </div>
 </div>

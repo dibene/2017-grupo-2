@@ -21,7 +21,14 @@ class MiembrosInferioresArterialPatologicoType extends AbstractType
           'choice_label' => 'nombre'))
         ->add('resultado')
         ->add('conclusion')
-        ->add('extension')->add('velocidades')->add('indicePreEstenosisEstenosis')->add('arteriaFemoralComun')->add('arteriaFemoralSuperficial')->add('arteriaPoplitea')->add('arteriaTibialAnterior')->add('arteriaTibialPosterior')->add('arteriaPeronea')->add('arteria')->add('flujosDistales')->add('circulacionColateral')->add('indiceTobilloBrazoDerecho')->add('indiceTobilloBrazoIzquierdo');
+        ->add('extension')->add('velocidades')->add('indicePreEstenosisEstenosis')->add('arteriaFemoralComun')->add('arteriaFemoralSuperficial')->add('arteriaPoplitea')->add('arteriaTibialAnterior')->add('arteriaTibialPosterior')->add('arteriaPeronea')->add('arteria')->add('flujosDistales')->add('circulacionColateral')->add('indiceTobilloBrazoDerecho')->add('indiceTobilloBrazoIzquierdo')
+        ->add('grupoDiagnostico', EntityType::class, array(
+          'class' => 'AppBundle:GrupoDiagnostico',
+          'choice_label' => 'nombre',
+          'multiple' => true)
+          )
+        ->add('internacion', ChoiceType::class, array(
+        'choices'  => array('Abulatorio' => 'Abulatorio', 'Internado' => 'Internado')));
     }/**
      * {@inheritdoc}
      */

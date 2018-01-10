@@ -22,7 +22,14 @@ class EcoDopplerColorVenosoMiembrosInferioresType extends AbstractType
                 'choice_label' => 'nombre'))
               ->add('resultado', 'textarea' , array(
                 'attr' => array(  'style'=> 'height:280px')))
-              ->add('conclusion');
+                ->add('conclusion')
+                ->add('grupoDiagnostico', EntityType::class, array(
+                  'class' => 'AppBundle:GrupoDiagnostico',
+                  'choice_label' => 'nombre',
+                  'multiple' => true)
+                  )
+                ->add('internacion', ChoiceType::class, array(
+                'choices'  => array('Abulatorio' => 'Abulatorio', 'Internado' => 'Internado')));
     }
 /**
      * {@inheritdoc}

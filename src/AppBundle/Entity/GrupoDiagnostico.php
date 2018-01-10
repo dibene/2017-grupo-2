@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * GrupoDiagnostico
@@ -24,49 +25,51 @@ class GrupoDiagnostico
     /**
      * @var string
      *
-     * @ORM\Column(name="descripcion", type="string", length=255)
-     */
-    private $descripcion;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="nombre", type="string", length=255)
      */
     private $nombre;
 
+    /**
+     * Many Groups have Many estudios.
+     * @ORM\ManyToMany(targetEntity="Estudio", mappedBy="grupoDiagnostico")
+     */
+    private $estudios;
 
+    public function __construct() {
+        $this->estudios = new ArrayCollection();
+    }
+
+    /**
+    * Add estudios
+    *
+    */
+    public function addEstudio(Estudio $estudios)
+    {
+      $this->estudios[] = $estudios;
+    }
+
+    public function setEstudios($estudios) {
+      $this->estudios = $estudios;
+    }
+
+    /**
+    * Get estudios
+    *
+    * @return Doctrine\Common\Collections\Collection
+    */
+    public function getEstudios()
+    {
+      return $this->estudios;
+    }
+    
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set descripcion
-     *
-     * @param string $descripcion
-     * @return GrupoDiagnostico
-     */
-    public function setDescripcion($descripcion)
-    {
-        $this->descripcion = $descripcion;
-
-        return $this;
-    }
-
-    /**
-     * Get descripcion
-     *
-     * @return string 
-     */
-    public function getDescripcion()
-    {
-        return $this->descripcion;
     }
 
     /**
@@ -85,7 +88,7 @@ class GrupoDiagnostico
     /**
      * Get nombre
      *
-     * @return string 
+     * @return string
      */
     public function getNombre()
     {

@@ -1,8 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
-
 <div class="row col s12">
   <br><a class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " href="{{ path('estudio_index', { 'id': paciente.id }) }}">Volver a estudios del paciente: <b>{{paciente.nombre}} </b> </a>
   <br><a class="btn waves-effect waves-light blue" style="margin-left:10px; margin-bottom:20px; " href="{{ path('estudio_pdf' , { 'id': estudio.id , 'idPaciente': estudio.getPaciente().id} ) }}">imprimir</b> </a>
@@ -25,7 +23,6 @@
     <tr>
       <td>{{ medico.nombre }}</td>
       <td>{{ medico.apellido }}</td>
-      <td>{{ medico.matricula }}</td>
     </tr>
   </tbody>
 </table>
@@ -63,7 +60,8 @@
         </tr>
     </tbody>
 </table>
-<h3  class="red-text"> Resultados </h3>
+<h3  class="red-text"> Datos del Estudio </h3>
+
     <table>
         <tbody>
 
@@ -85,11 +83,12 @@
   </div>
 </div>
     <ul>
-      <li>
-        <a class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " href="{{ path('estudio_index', { 'id': paciente.id }) }}">Volver a estudios del paciente: <b>{{paciente.nombre}} </b> </a>
-      </li>
-      <li>
-        <a class="btn waves-effect waves-light yellow" style="margin-left:10px; margin-bottom:20px;" href="{{ path(estudio.getEstudioConfiguracion().link~'_edit', { 'id': estudio.id , 'idPaciente': paciente.id }) }}">Modificar</a>
-      </li>
+        <li>
+          <a class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " href="{{ path('estudio_index', { 'id': paciente.id }) }}">Volver a estudios del paciente: <b>{{paciente.nombre}} </b> </a>
+        </li>
+        <li>
+          <a class="btn waves-effect waves-light yellow" style="margin-left:10px; margin-bottom:20px;" href="{{ path(estudio.getEstudioConfiguracion().link~'_edit', { 'id': estudio.id , 'idPaciente': paciente.id }) }}">Modificar</a>
+        </li>
+
     </ul>
 {% endblock %}

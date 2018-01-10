@@ -22,7 +22,14 @@ class VenosoNormalType extends AbstractType
               'choice_label' => 'nombre'))
             ->add('resultado')
             ->add('conclusion');
-        $builder->add('venaSafenaInternaIzq')->add('diametroVSIIzq')->add('venaSafenaExternaIzq')->add('diametroVSEIzq')->add('venaSafenaInternaDer')->add('diametroVSIDer')->add('venaSafenaExternaDer')->add('diametroVSEDer');
+        $builder->add('venaSafenaInternaIzq')->add('diametroVSIIzq')->add('venaSafenaExternaIzq')->add('diametroVSEIzq')->add('venaSafenaInternaDer')->add('diametroVSIDer')->add('venaSafenaExternaDer')->add('diametroVSEDer')
+        ->add('grupoDiagnostico', EntityType::class, array(
+          'class' => 'AppBundle:GrupoDiagnostico',
+          'choice_label' => 'nombre',
+          'multiple' => true)
+          )
+        ->add('internacion', ChoiceType::class, array(
+        'choices'  => array('Abulatorio' => 'Abulatorio', 'Internado' => 'Internado')));
     }/**
      * {@inheritdoc}
      */

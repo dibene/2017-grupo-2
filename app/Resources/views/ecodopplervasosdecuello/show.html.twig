@@ -23,7 +23,6 @@
     <tr>
       <td>{{ medico.nombre }}</td>
       <td>{{ medico.apellido }}</td>
-      <td>{{ medico.matricula }}</td>
     </tr>
   </tbody>
 </table>
@@ -61,7 +60,7 @@
         </tr>
     </tbody>
 </table>
-<h3  class="red-text"> Resultados </h3>
+<h3  class="red-text"> Datos del Estudio </h3>
 
     <table>
         <tbody>
@@ -90,5 +89,6 @@
         <li>
           <a class="btn waves-effect waves-light yellow" style="margin-left:10px; margin-bottom:20px;" href="{{ path(estudio.getEstudioConfiguracion().link~'_edit', { 'id': estudio.id , 'idPaciente': paciente.id }) }}">Modificar</a>
         </li>
+
     </ul>
 {% endblock %}

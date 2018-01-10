@@ -47,7 +47,14 @@ class CardioResonanciaType extends AbstractType
         ->add('areaAD')
         ->add('volumenAD')
         ->add('cuatroCamarasAD')
-        ->add('secuencias');
+        ->add('secuencias')
+        ->add('grupoDiagnostico', EntityType::class, array(
+          'class' => 'AppBundle:GrupoDiagnostico',
+          'choice_label' => 'nombre',
+          'multiple' => true)
+          )
+        ->add('internacion', ChoiceType::class, array(
+        'choices'  => array('Abulatorio' => 'Abulatorio', 'Internado' => 'Internado')));
     }/**
      * {@inheritdoc}
      */

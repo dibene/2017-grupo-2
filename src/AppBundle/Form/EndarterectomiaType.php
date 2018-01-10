@@ -21,7 +21,14 @@ class EndarterectomiaType extends AbstractType
           'class' => 'AppBundle:MotivoSolicitud',
           'choice_label' => 'nombre'))
         ->add('resultado')
-        ->add('conclusion');
+        ->add('conclusion')
+        ->add('grupoDiagnostico', EntityType::class, array(
+          'class' => 'AppBundle:GrupoDiagnostico',
+          'choice_label' => 'nombre',
+          'multiple' => true)
+          )
+        ->add('internacion', ChoiceType::class, array(
+        'choices'  => array('Abulatorio' => 'Abulatorio', 'Internado' => 'Internado')));
     }
 
     /**

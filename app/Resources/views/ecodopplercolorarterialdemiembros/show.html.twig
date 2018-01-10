@@ -23,7 +23,6 @@
     <tr>
       <td>{{ medico.nombre }}</td>
       <td>{{ medico.apellido }}</td>
-      <td>{{ medico.matricula }}</td>
     </tr>
   </tbody>
 </table>
@@ -61,85 +60,35 @@
         </tr>
     </tbody>
 </table>
-<h3  class="red-text"> Resultados </h3>
-<table>
-    <tbody>
+<h3  class="red-text"> Datos del Estudio </h3>
 
-        <tr>
-            <th>Conclusion</th>
-            <td>{{ estudio.conclusion }}</td>
-        </tr>
-        <tr>
-            <th>Fecha alta</th>
-            <td>{% if estudio.fechaAlta %}{{ estudio.fechaAlta|date('Y-m-d') }}{% endif %}</td>
-        </tr>
-        <tr>
-            <th>Resultado</th>
-            <td>{{   estudio.resultado  }}</td>
-        </tr>
-    </tbody>
-</table>
     <table>
         <tbody>
-          <tr>
-            <td><h5 class="red-text">LADO IZQUIERDO:</h5></td>
-          </tr>
+
             <tr>
-                <th>Arteria femoral común:</th>
-                <td>{{ estudio.arteriafemoralComunIzq }}</td>
+                <th>Conclusion</th>
+                <td>{{ estudio.conclusion }}</td>
             </tr>
             <tr>
-                <th>Arteria femoral superficial:</th>
-                <td>{{ estudio.arteriaFemoralSuperficialIzq }}</td>
+                <th>Fecha alta</th>
+                <td>{% if estudio.fechaAlta %}{{ estudio.fechaAlta|date('Y-m-d') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Arteria poplitea:</th>
-                <td>{{ estudio.arteriaPopliteaIzq }}</td>
-            </tr>
-            <tr>
-                <th>Arteria tibial anterior:</th>
-                <td>{{ estudio.arteriaTibialAnteriorIzq }}</td>
-            </tr>
-            <tr>
-                <th>Arteria tibial posterior:</th>
-                <td>{{ estudio.arteriaTibialPosteriorIzq }}</td>
-            </tr>
-            <tr>
-              <td><h5 class="red-text">LADO DERECHO:</h5></td>
-            </tr>
-            <tr>
-                <th>Arteria femoral común:</th>
-                <td>{{ estudio.arteriafemoralComunDer }}</td>
-            </tr>
-            <tr>
-                <th>Arteria femoral superficial:</th>
-                <td>{{ estudio.arteriaFemoralSuperficialDer }}</td>
-            </tr>
-            <tr>
-                <th>Arteria poplitea:</th>
-                <td>{{ estudio.arteriaPopliteaDer }}</td>
-            </tr>
-            <tr>
-                <th>Arteria tibial anterior:</th>
-                <td>{{ estudio.arteriaTibialAnteriorDer }}</td>
-            </tr>
-            <tr>
-                <th>Arteria tibial posterior:</th>
-                <td>{{ estudio.arteriaTibialPosteriorDer }}</td>
+                <th>Resultado</th>
+                <td>{{   estudio.resultado  }}</td>
             </tr>
         </tbody>
     </table>
-
+    </div>
   </div>
 </div>
-</div>
-<ul>
-  <li>
-    <a class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " href="{{ path('estudio_index', { 'id': paciente.id }) }}">Volver a estudios del paciente: <b>{{paciente.nombre}} </b> </a>
-  </li>
-  <li>
-    <a class="btn waves-effect waves-light yellow" style="margin-left:10px; margin-bottom:20px;" href="{{ path(estudio.getEstudioConfiguracion().link~'_edit', { 'id': estudio.id , 'idPaciente': paciente.id }) }}">Modificar</a>
-  </li>
+    <ul>
+        <li>
+          <a class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " href="{{ path('estudio_index', { 'id': paciente.id }) }}">Volver a estudios del paciente: <b>{{paciente.nombre}} </b> </a>
+        </li>
+        <li>
+          <a class="btn waves-effect waves-light yellow" style="margin-left:10px; margin-bottom:20px;" href="{{ path(estudio.getEstudioConfiguracion().link~'_edit', { 'id': estudio.id , 'idPaciente': paciente.id }) }}">Modificar</a>
+        </li>
 
-</ul>
+    </ul>
 {% endblock %}

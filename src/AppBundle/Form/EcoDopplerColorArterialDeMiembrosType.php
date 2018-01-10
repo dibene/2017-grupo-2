@@ -23,7 +23,14 @@ class EcoDopplerColorArterialDeMiembrosType extends AbstractType
         // Se exploraron en ambos miembros inferiores, visualizando las arterias femoral común, femoral
         // superficial, femoral profunda, poplitea y tibiales anterior y posterior.
         ->add('conclusion')
-        ->add('arteriafemoralComunIzq')->add('arteriaFemoralSuperficialIzq')->add('arteriaPopliteaIzq')->add('arteriaTibialAnteriorIzq')->add('arteriaTibialPosteriorIzq')->add('arteriafemoralComunDer')->add('arteriaFemoralSuperficialDer')->add('arteriaPopliteaDer')->add('arteriaTibialAnteriorDer')->add('arteriaTibialPosteriorDer');
+        ->add('arteriafemoralComunIzq')->add('arteriaFemoralSuperficialIzq')->add('arteriaPopliteaIzq')->add('arteriaTibialAnteriorIzq')->add('arteriaTibialPosteriorIzq')->add('arteriafemoralComunDer')->add('arteriaFemoralSuperficialDer')->add('arteriaPopliteaDer')->add('arteriaTibialAnteriorDer')->add('arteriaTibialPosteriorDer')
+        ->add('grupoDiagnostico', EntityType::class, array(
+          'class' => 'AppBundle:GrupoDiagnostico',
+          'choice_label' => 'nombre',
+          'multiple' => true)
+          )
+        ->add('internacion', ChoiceType::class, array(
+        'choices'  => array('Abulatorio' => 'Abulatorio', 'Internado' => 'Internado')));
     }/**
      * {@inheritdoc}
      */

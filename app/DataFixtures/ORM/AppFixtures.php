@@ -10,6 +10,7 @@ use AppBundle\Entity\Medico;
 use AppBundle\Entity\Paciente;
 use AppBundle\Entity\Especialidad;
 use AppBundle\Entity\MotivoSolicitud;
+use AppBundle\Entity\GrupoDiagnostico;
 
 use \Datetime;
 
@@ -81,9 +82,11 @@ class AppFixtures extends Fixture
           'link' => 'ecoestres'),
           array('id' => 21 ,
             'nombre' => 'Venoso Normal' ,
-          'link' => 'venosonormal')
+          'link' => 'venosonormal'),
+          array('id' => 22 ,
+            'nombre' => 'Cardiopatías Congénitas del Adulto' ,
+          'link' => 'cardiopatiascongenitas')
         );
-
         //ESTUDIOS
         // - TODO seguridad poner todos los estudios en /estudio/nombre del estudio asi se puede restringir el /estudio
         // BASICOS -> SOLO TIENEN LOS SIGUIENTES ATRIBUTOS: PACIENTE (ID) - FECHA_ALTA (SYSDATE) - OBSERVACIÓN (STRING) - DIAGNOSTICO_FINAL (STRING)
@@ -109,6 +112,7 @@ class AppFixtures extends Fixture
         // 19 Miembros Superiores Arterial Normal
         // 20 Eco Estrés
         // 21 Venoso Normal
+        // 22 Cardiopatías Congénitas del Adulto
 
         foreach ($estudiosconfiguraciones as $configuracion) {
           $estudioConfiguracion =  new EstudioConfiguracion ();
@@ -117,6 +121,51 @@ class AppFixtures extends Fixture
           $estudioConfiguracion->setLink($configuracion['link']);
           $manager->persist($estudioConfiguracion);
         }
+
+        //grupos diagnosticos
+        $diagnosticos = array(
+          array('nombre' => 'Normal' ),
+          array('nombre' => 'Cardiopatía isquémica' ),
+          array('nombre' => 'Cardiopatía HTA' ),
+          array('nombre' => 'Miocardiopatía dilatada' ),
+          array('nombre' => 'Deterioro severo de la función VI' ),
+          array('nombre' => 'Disfunción diastólica aislada' ),
+          array('nombre' => 'Cardiopatía Congénita compleja' ),
+          array('nombre' => 'CIA' ),
+          array('nombre' => 'CIV' ),
+          array('nombre' => 'Aneurisma del Septum interauricular' ),
+          array('nombre' => 'FOP' ),
+          array('nombre' => 'Valvulopatías derechas' ),
+          array('nombre' => 'Patología de aorta' ),
+          array('nombre' => 'Endocarditis infecciosa' ),
+          array('nombre' => 'Masas intracavitarias' ),
+          array('nombre' => 'Hipertensión Pulmonar' ),
+          array('nombre' => 'Prótesis valvulares' ),
+          array('nombre' => 'Dispositivos de cierre' ),
+          array('nombre' => 'Derrame pericárdico' ),
+          array('nombre' => 'Taponamiento ecográfico' ),
+          array('nombre' => 'Pericarditis constrictiva' ),
+          array('nombre' => 'Miocardiopatía hipertrófica' ),
+          array('nombre' => 'Miocardiopatía infiltrativa' ),
+          array('nombre' => 'Tromboembolismo pulmonar' ),
+          array('nombre' => 'Viabilidad (+)' ),
+          array('nombre' => 'Discincronía (+)' ),
+          array('nombre' => 'Enfermedad Carotídea severa' ),
+          array('nombre' => 'Enfermedad vascular periférica severa' ),
+          array('nombre' => 'Estenosis Aórtica' ),
+          array('nombre' => 'Insuficiencia Aórtica' ),
+          array('nombre' => 'Estenosis Mitral' ),
+          array('nombre' => 'Insuficiencia Mitral' ),
+          array('nombre' => 'Otras' ),
+
+        );
+
+        foreach ($diagnosticos as $diagnostico) {
+          $d =  new GrupoDiagnostico();
+          $d->setNombre( $diagnostico['nombre'] );
+          $manager->persist($d);
+        }
+
 
         //especialidades de medico
         $especialidades = array(
@@ -148,7 +197,6 @@ class AppFixtures extends Fixture
           $paciente->setDireccion('dir');
           $paciente->setFechaNacimiento(new DateTime('2017-09-05'));
           $paciente->setFechaIngreso(new DateTime('2017-09-05'));
-          $paciente->setInternacion('no');
           $manager->persist($paciente);
           }
 

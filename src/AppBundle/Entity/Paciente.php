@@ -43,12 +43,6 @@ class Paciente extends Persona
      */
     private $medicoCabecera;
 
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="internacion", type="string", length=15, nullable=false)
-     */
-    private $internacion;
 
     /**
      * One paciente has Many estudios.
@@ -169,26 +163,5 @@ class Paciente extends Persona
         return $this->medicoCabecera;
     }
 
-    /**
-     * Set internacion
-     *
-     * @param string $internacion
-     * @return Paciente
-     */
-    public function setInternacion($internacion)
-    {
-        $this->internacion = $internacion;
 
-        return $this;
-    }
-
-    /**
-     * Get internacion
-     *
-     * @return string
-     */
-    public function getInternacion()
-    {
-        return $this->internacion;
-    }
 }

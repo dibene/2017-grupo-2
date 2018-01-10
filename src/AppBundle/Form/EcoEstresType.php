@@ -21,7 +21,13 @@ class EcoEstresType extends AbstractType
           'choice_label' => 'nombre'))
         ->add('resultado')
         ->add('conclusion')
-        ->add('informe1Normal')->add('informe2Normal')->add('informeRespuestaIsquemica1')->add('informe3InfartoSinIsquemia');
+        ->add('grupoDiagnostico', EntityType::class, array(
+          'class' => 'AppBundle:GrupoDiagnostico',
+          'choice_label' => 'nombre',
+          'multiple' => true)
+          )
+        ->add('internacion', ChoiceType::class, array(
+        'choices'  => array('Abulatorio' => 'Abulatorio', 'Internado' => 'Internado')));
     }/**
      * {@inheritdoc}
      */

@@ -21,7 +21,14 @@ class EcocardiogramaValoracionDisincroniaType extends AbstractType
           'choice_label' => 'nombre'))
         ->add('resultado')
         ->add('conclusion')
-        ->add('retrasoSeptalPp')->add('tiempoAlPicoSistolico')->add('tiempoAlPicoDeDeformacion')->add('diferenciaEntreLosPeriodosPreEyectivos')->add('duracionTotalDeRR');
+        ->add('retrasoSeptalPp')->add('tiempoAlPicoSistolico')->add('tiempoAlPicoDeDeformacion')->add('diferenciaEntreLosPeriodosPreEyectivos')->add('duracionTotalDeRR')
+        ->add('grupoDiagnostico', EntityType::class, array(
+          'class' => 'AppBundle:GrupoDiagnostico',
+          'choice_label' => 'nombre',
+          'multiple' => true)
+          )
+        ->add('internacion', ChoiceType::class, array(
+        'choices'  => array('Abulatorio' => 'Abulatorio', 'Internado' => 'Internado')));
     }/**
      * {@inheritdoc}
      */

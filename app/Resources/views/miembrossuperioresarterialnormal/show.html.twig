@@ -23,7 +23,6 @@
     <tr>
       <td>{{ medico.nombre }}</td>
       <td>{{ medico.apellido }}</td>
-      <td>{{ medico.matricula }}</td>
     </tr>
   </tbody>
 </table>
@@ -61,53 +60,35 @@
         </tr>
     </tbody>
 </table>
-<h3  class="red-text"> Resultados </h3>
+<h3  class="red-text"> Datos del Estudio </h3>
 
     <table>
         <tbody>
+
             <tr>
-                <th>Id</th>
-                <td>{{ estudio.id }}</td>
+                <th>Conclusion</th>
+                <td>{{ estudio.conclusion }}</td>
             </tr>
             <tr>
-                <th>Extension</th>
-                <td>{{ estudio.extension }}</td>
+                <th>Fecha alta</th>
+                <td>{% if estudio.fechaAlta %}{{ estudio.fechaAlta|date('Y-m-d') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Velocidadpicosistolica</th>
-                <td>{{ estudio.velocidadPicoSistolica }}</td>
-            </tr>
-            <tr>
-                <th>Indicedepreestenosis</th>
-                <td>{{ estudio.indiceDePreEstenosis }}</td>
-            </tr>
-            <tr>
-                <th>Flujosdistales</th>
-                <td>{{ estudio.flujosDistales }}</td>
-            </tr>
-            <tr>
-                <th>Estenosis</th>
-                <td>{{ estudio.estenosis }}</td>
-            </tr>
-            <tr>
-                <th>Caracteristicas</th>
-                <td>{{ estudio.caracteristicas }}</td>
-            </tr>
-            <tr>
-                <th>Arteria</th>
-                <td>{{ estudio.arteria }}</td>
+                <th>Resultado</th>
+                <td>{{   estudio.resultado  }}</td>
             </tr>
         </tbody>
     </table>
+    </div>
   </div>
 </div>
-</div>
-  <ul>
-      <li>
-        <a class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " href="{{ path('estudio_index', { 'id': paciente.id }) }}">Volver a estudios del paciente: <b>{{paciente.nombre}} </b> </a>
-      </li>
-      <li>
-        <a class="btn waves-effect waves-light yellow" style="margin-left:10px; margin-bottom:20px;" href="{{ path(estudio.getEstudioConfiguracion().link~'_edit', { 'id': estudio.id , 'idPaciente': paciente.id }) }}">Modificar</a>
-      </li>
-  </ul>
+    <ul>
+        <li>
+          <a class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " href="{{ path('estudio_index', { 'id': paciente.id }) }}">Volver a estudios del paciente: <b>{{paciente.nombre}} </b> </a>
+        </li>
+        <li>
+          <a class="btn waves-effect waves-light yellow" style="margin-left:10px; margin-bottom:20px;" href="{{ path(estudio.getEstudioConfiguracion().link~'_edit', { 'id': estudio.id , 'idPaciente': paciente.id }) }}">Modificar</a>
+        </li>
+
+    </ul>
 {% endblock %}
