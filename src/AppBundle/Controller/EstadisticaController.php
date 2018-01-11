@@ -8,7 +8,8 @@ use Symfony\Component\HttpFoundation\Request;
 use \Datetime;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\HttpFoundation\Response;
 /**
  * Especialidad controller.
  *
@@ -16,6 +17,105 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
  */
 class EstadisticaController extends Controller
 {
+  /**
+   *
+   * @Route("/tipodeestudiopdf/desde/{fdesde}/hasta/{fhasta}", name="tipodeestudio_pdf")
+   * @Method("GET")
+   */
+  public function tipodeestudiopdfAction($fdesde,$fhasta)
+  {
+
+      $snappy = $this->get('knp_snappy.pdf');
+      $filename = 'estadistica';
+
+      $em = $this->getDoctrine()->getManager();
+      $qb = $em->createQueryBuilder();
+      $qb->select('ec.nombre, count(e.id) as cantidad')
+          ->from('AppBundle:EstudioConfiguracion', 'ec')
+          ->leftJoin('AppBundle:Estudio', 'e', 'WITH', 'e.estudioConfiguracion = ec ')
+          ->where('e.fechaAlta >= :desde AND e.fechaAlta <= :hasta OR e.fechaAlta IS NULL ')
+          ->setParameters(array('desde'=>$fdesde,'hasta'=>$fhasta ))
+          ->groupby('ec.nombre')
+          ->getQuery();
+      $query = $qb->getQuery();
+      $res=$query->getResult();
+      $totalEstudios=0;
+      foreach ($res as $r) {
+        $totalEstudios+=$r['cantidad'];
+      }
+        // replace this example code with whatever you need
+        $html = $this->renderView('estadistica/tipodeestudioPDF.html.twig', array(
+          'fdesde' => $fdesde,
+          'fhasta' => $fhasta,
+          'res' => $res,
+          'totalEstudios' => $totalEstudios
+         ));
+
+      return new Response(
+          $snappy->getOutputFromHtml($html),
+          200,
+          array(
+              'Content-Type'          => 'application/pdf',
+              'Content-Disposition'   => 'inline; filename="'.$filename.'.pdf"'
+          )
+      );
+  }
+  /**
+   *
+   * @Route("/diagnosticopdf/desde/{fdesde}/hasta/{fhasta}", name="diagnostico_pdf")
+   * @Method("GET")
+   */
+  public function diagnosticopdfAction($fdesde,$fhasta)
+  {
+
+      $snappy = $this->get('knp_snappy.pdf');
+      $filename = 'estadistica';
+
+      $em = $this->getDoctrine()->getManager();
+      $qb = $em->createQueryBuilder();
+
+      $qb->select('d.nombre, count(e.id) as cantidad')
+          ->from('AppBundle:GrupoDiagnostico', 'd')
+          ->leftJoin('d.estudios', 'e')
+          ->where(' (e.fechaAlta >= :desde AND e.fechaAlta <= :hasta OR e.fechaAlta IS NULL )')
+          ->setParameters(array('desde'=>$fdesde,'hasta'=>$fhasta ))
+          ->groupby('d.nombre')
+          ->getQuery();
+      $query = $qb->getQuery();
+      $res=$query->getResult();
+
+      $qb = $em->createQueryBuilder();
+            $qb->select('a.id')
+                ->from('AppBundle:Estudio', 'a')
+                ->where('a.fechaAlta >= :desde AND a.fechaAlta <= :hasta ')
+                ->setParameters(array('desde'=>$fdesde,'hasta'=>$fhasta ))
+                ->getQuery();
+            $query = $qb->getQuery();
+            $estudios =$query->getResult();
+            $totalEstudios = count($estudios);
+
+      $total=0;
+      foreach ($res as $r) {
+        $total+=$r['cantidad'];
+      }
+        $html = $this->renderView('estadistica/diagnosticoPDF.html.twig', array(
+          'fdesde' => $fdesde,
+          'fhasta' => $fhasta,
+          'res' => $res,
+          'total' => $total,
+          'totalEstudios' => $totalEstudios
+         ));
+
+      return new Response(
+          $snappy->getOutputFromHtml($html),
+          200,
+          array(
+              'Content-Type'          => 'application/pdf',
+              'Content-Disposition'   => 'inline; filename="'.$filename.'.pdf"'
+          )
+      );
+  }
+
     /**
      * @Route("/", name="estadisticas_index")
      */

@@ -23,7 +23,6 @@ class EstudioController extends Controller
 {
 
   /**
-   * Lists all aortaAbdominalAteromatosa entities.
    *
    * @Route("/{id}/pdf/paciente/{idPaciente}", name="estudio_pdf")
    * @Method("GET")

@@ -1,0 +1,24 @@
+<head>
+  <title> Resultado del informe </title>
+  <meta charset="UTF-8" />
+</head>
+<body>
+<h5 class="red-text left-align ">Informe desde: <b>{{ fdesde|date('Y-m-d') }}</b> hasta: <b>{{fhasta|date('Y-m-d')}}</b></h5> <br>
+
+<table style="width:50%">
+  <tr>
+    <th>Nombre</th>
+    <th>Cantidad</th>
+  </tr>
+  {% for r in res %}
+  <tr>
+    <td>{{r.nombre}}</td>
+    <td>{{r.cantidad}}</td>
+  </tr>
+  {% endfor %}
+</table>
+<b>
+Total  = {{total}} diagnosticos
+de {{totalEstudios}} estudios
+</b>
+</body>
