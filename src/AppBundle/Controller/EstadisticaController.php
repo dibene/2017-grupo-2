@@ -1,11 +1,13 @@
 <?php
 
 namespace AppBundle\Controller;
-
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use \Datetime;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 /**
  * Especialidad controller.
@@ -28,11 +30,26 @@ class EstadisticaController extends Controller
      */
     public function tipodeestudioAction(Request $request)
     {
+      $form = $this->createFormBuilder()
+      ->add('fdesde',DateType::class , array('required' => true, 'widget' => 'single_text','attr' => array('class'=>'datepicker')))
+      ->add('fhasta',DateType::class , array('required' => true, 'widget' => 'single_text','attr' => array('class'=>'datepicker')))
+      ->add('generar', SubmitType::class ,  array( 'attr' => array('class' => 'btn waves-effect waves-light red' , 'style' => 'margin-top:40px;') ) )
+      ->getForm();
+      $form->handleRequest($request);
+
+      if ($form->isSubmitted() && $form->isValid()) {
+        // valores formulario
+        $fdesde = $form->get('fdesde')->getData();
+        $fhasta = $form->get('fhasta')->getData();
+      }else {
+        //default
+        $fhasta = new Datetime(date("Y-m-d"));
+        $fecha = date('Y-m-d');
+        $fdesde = strtotime ( '-1 month' , strtotime ( $fecha ) ) ;
+        $fdesde = new Datetime(date ( 'Y-m-d' , $fdesde ));
+      }
       $em = $this->getDoctrine()->getManager();
       $qb = $em->createQueryBuilder();
-      $factual = new Datetime(date("Y-m-d"));
-      $fdesde = new Datetime('2018-01-09');
-      $fhasta = new Datetime('2018-01-10');
       $qb->select('ec.nombre, count(e.id) as cantidad')
           ->from('AppBundle:EstudioConfiguracion', 'ec')
           ->leftJoin('AppBundle:Estudio', 'e', 'WITH', 'e.estudioConfiguracion = ec ')
@@ -48,6 +65,7 @@ class EstadisticaController extends Controller
       }
         // replace this example code with whatever you need
         return $this->render('estadistica/tipodeestudio.html.twig', array(
+          'form' => $form->createView(),
           'fdesde' => $fdesde,
           'fhasta' => $fhasta,
           'res' => $res,
@@ -57,15 +75,78 @@ class EstadisticaController extends Controller
 
     /**
      * @Route("/diagnostico", name="estadisticas_diagnostico")
+     * @Method({"GET", "POST"})
      */
     public function diagnosticoAction(Request $request)
+    {
+
+      $form = $this->createFormBuilder()
+      ->add('fdesde',DateType::class , array('required' => true, 'widget' => 'single_text','attr' => array('class'=>'datepicker')))
+      ->add('fhasta',DateType::class , array('required' => true, 'widget' => 'single_text','attr' => array('class'=>'datepicker')))
+      ->add('generar', SubmitType::class ,  array( 'attr' => array('class' => 'btn waves-effect waves-light red' , 'style' => 'margin-top:40px;') ) )
+      ->getForm();
+      $form->handleRequest($request);
+
+      if ($form->isSubmitted() && $form->isValid()) {
+        // valores formulario
+        $fdesde = $form->get('fdesde')->getData();
+        $fhasta = $form->get('fhasta')->getData();
+      }else {
+        //default
+        $fhasta = new Datetime(date("Y-m-d"));
+        $fecha = date('Y-m-d');
+        $fdesde = strtotime ( '-1 month' , strtotime ( $fecha ) ) ;
+        $fdesde = new Datetime(date ( 'Y-m-d' , $fdesde ));
+      }
+
+      $em = $this->getDoctrine()->getManager();
+      $qb = $em->createQueryBuilder();
+
+      $qb->select('d.nombre, count(e.id) as cantidad')
+          ->from('AppBundle:GrupoDiagnostico', 'd')
+          ->leftJoin('d.estudios', 'e')
+          ->where(' (e.fechaAlta >= :desde AND e.fechaAlta <= :hasta OR e.fechaAlta IS NULL )')
+          ->setParameters(array('desde'=>$fdesde,'hasta'=>$fhasta ))
+          ->groupby('d.nombre')
+          ->getQuery();
+      $query = $qb->getQuery();
+      $res=$query->getResult();
+
+      $qb = $em->createQueryBuilder();
+            $qb->select('a.id')
+                ->from('AppBundle:Estudio', 'a')
+                ->where('a.fechaAlta >= :desde AND a.fechaAlta <= :hasta ')
+                ->setParameters(array('desde'=>$fdesde,'hasta'=>$fhasta ))
+                ->getQuery();
+            $query = $qb->getQuery();
+            $estudios =$query->getResult();
+            $totalEstudios = count($estudios);
+
+      $total=0;
+      foreach ($res as $r) {
+        $total+=$r['cantidad'];
+      }
+        // replace this example code with whatever you need
+        return $this->render('estadistica/diagnostico.html.twig', array(
+          'form' => $form->createView(),
+          'fdesde' => $fdesde,
+          'fhasta' => $fhasta,
+          'res' => $res,
+          'total' => $total,
+          'totalEstudios' => $totalEstudios
+         ));
+    }
+    /**
+     * @Route("/paciente", name="estadisticas_paciente")
+     */
+    public function pacienteAction(Request $request)
     {
       $em = $this->getDoctrine()->getManager();
       $qb = $em->createQueryBuilder();
       $factual = new Datetime(date("Y-m-d"));
       $fdesde = new Datetime('2018-01-09');
       $fhasta = new Datetime('2018-01-10');
-      
+
       $qb->select('d.nombre, count(e.id) as cantidad')
           ->from('AppBundle:GrupoDiagnostico', 'd')
           ->leftJoin('d.estudios', 'e')
