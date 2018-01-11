@@ -5,9 +5,9 @@
   <div class="container col s12 center-align" >
     <div class="z-depth-1 grey lighten-4 row left-align col s12" style="display: inline-block; margin: 50px; padding: 32px 48px 50px 48px; border: 1px solid #EEE;">
     {% if is_granted('ROLE_MEDICO') %}
-    <h5 class="red-text center-align ">Ingresar Datos del Medico</h5>
+    <h5 class="red-text center-align ">Ingresar Datos del Médico</h5>
     {% else %}
-    <h5 class="red-text center-align ">Ingresar Datos del Medico</h5>
+    <h5 class="red-text center-align ">Ingresar Datos del Médico</h5>
       {{ form_start(form) }}
           {{ form_widget(form) }}
           <input class="btn waves-effect waves-light red" type="submit" value="Ingresar" />
