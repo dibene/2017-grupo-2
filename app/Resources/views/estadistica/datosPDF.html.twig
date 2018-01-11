@@ -1,0 +1,45 @@
+<head>
+  <title> Resultado del informe </title>
+  <meta charset="UTF-8" />
+</head>
+<body>
+        <h5 class="red-text left-align ">Informe desde: <b>{{ fdesde|date('Y-m-d') }}</b> hasta: <b>{{fhasta|date('Y-m-d')}}</b></h5> <br>
+<hr>
+<div class="row">
+  <div class="col s6">
+    <h6 class="red-text left-align "><b>Internaciones:</b></h6>
+    <table style="width:50%">
+      <tr>
+        <th>Nombre</th>
+        <th>Cantidad</th>
+      </tr>
+      {% for r in res %}
+      <tr>
+        <td>{{r.internacion}}</td>
+        <td>{{r.cantidad}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+  <hr>
+  <div class="col s6">
+    <h6 class="red-text left-align "><b>Localidades:</b> </h6>
+    <table style="width:50%">
+      <tr>
+        <th>Nombre</th>
+        <th>Cantidad</th>
+      </tr>
+      {% for r in res2 %}
+      <tr>
+        <td>{{r.localidad}}</td>
+        <td>{{r.cantidad}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+<hr/>
+<b>
+Total   {{totalEstudios}} estudios
+</b>
+</body>

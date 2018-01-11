@@ -116,6 +116,61 @@ class EstadisticaController extends Controller
       );
   }
 
+  /**
+   *
+   * @Route("/datospdf/desde/{fdesde}/hasta/{fhasta}", name="datos_pdf")
+   * @Method("GET")
+   */
+  public function datospdfAction($fdesde,$fhasta)
+  {
+
+      $snappy = $this->get('knp_snappy.pdf');
+      $filename = 'estadistica';
+
+      $em = $this->getDoctrine()->getManager();
+      $qb = $em->createQueryBuilder();
+      $qb->select('e.internacion, count(e.id) as cantidad')
+          ->from('AppBundle:Estudio', 'e')
+          ->where('(e.fechaAlta >= :desde AND e.fechaAlta <= :hasta OR e.fechaAlta IS NULL) ')
+          ->setParameters(array('desde'=>$fdesde,'hasta'=>$fhasta ))
+          ->groupby('e.internacion')
+          ->getQuery();
+      $query = $qb->getQuery();
+      $res=$query->getResult();
+
+
+      $qb = $em->createQueryBuilder();
+      $qb->select('p.localidad, count(e.id) as cantidad')
+          ->from('AppBundle:Estudio', 'e')
+          ->leftJoin('e.paciente', 'p')
+          ->where('(e.fechaAlta >= :desde AND e.fechaAlta <= :hasta OR e.fechaAlta IS NULL) ')
+          ->setParameters(array('desde'=>$fdesde,'hasta'=>$fhasta ))
+          ->groupby('p.localidad')
+          ->getQuery();
+      $query = $qb->getQuery();
+      $res2=$query->getResult();
+
+      $totalEstudios=0;
+      foreach ($res as $r) {
+        $totalEstudios+=$r['cantidad'];
+      }
+        // replace this example code with whatever you need
+        $html = $this->renderView('estadistica/datosPDF.html.twig', array(
+          'fdesde' => $fdesde,
+          'fhasta' => $fhasta,
+          'res' => $res,
+          'res2' => $res2,
+          'totalEstudios' => $totalEstudios
+         ));
+      return new Response(
+          $snappy->getOutputFromHtml($html),
+          200,
+          array(
+              'Content-Type'          => 'application/pdf',
+              'Content-Disposition'   => 'inline; filename="'.$filename.'.pdf"'
+          )
+      );
+  }
     /**
      * @Route("/", name="estadisticas_index")
      */
@@ -169,6 +224,67 @@ class EstadisticaController extends Controller
           'fdesde' => $fdesde,
           'fhasta' => $fhasta,
           'res' => $res,
+          'totalEstudios' => $totalEstudios
+         ));
+    }
+
+    /**
+     * @Route("/datos", name="estadisticas_datos")
+     */
+    public function datosAction(Request $request)
+    {
+      $form = $this->createFormBuilder()
+      ->add('fdesde',DateType::class , array('required' => true, 'widget' => 'single_text','attr' => array('class'=>'datepicker')))
+      ->add('fhasta',DateType::class , array('required' => true, 'widget' => 'single_text','attr' => array('class'=>'datepicker')))
+      ->add('generar', SubmitType::class ,  array( 'attr' => array('class' => 'btn waves-effect waves-light red' , 'style' => 'margin-top:40px;') ) )
+      ->getForm();
+      $form->handleRequest($request);
+
+      if ($form->isSubmitted() && $form->isValid()) {
+        // valores formulario
+        $fdesde = $form->get('fdesde')->getData();
+        $fhasta = $form->get('fhasta')->getData();
+      }else {
+        //default
+        $fhasta = new Datetime(date("Y-m-d"));
+        $fecha = date('Y-m-d');
+        $fdesde = strtotime ( '-1 month' , strtotime ( $fecha ) ) ;
+        $fdesde = new Datetime(date ( 'Y-m-d' , $fdesde ));
+      }
+      $em = $this->getDoctrine()->getManager();
+      $qb = $em->createQueryBuilder();
+      $qb->select('e.internacion, count(e.id) as cantidad')
+          ->from('AppBundle:Estudio', 'e')
+          ->where('(e.fechaAlta >= :desde AND e.fechaAlta <= :hasta OR e.fechaAlta IS NULL) ')
+          ->setParameters(array('desde'=>$fdesde,'hasta'=>$fhasta ))
+          ->groupby('e.internacion')
+          ->getQuery();
+      $query = $qb->getQuery();
+      $res=$query->getResult();
+
+
+      $qb = $em->createQueryBuilder();
+      $qb->select('p.localidad, count(e.id) as cantidad')
+          ->from('AppBundle:Estudio', 'e')
+          ->leftJoin('e.paciente', 'p')
+          ->where('(e.fechaAlta >= :desde AND e.fechaAlta <= :hasta OR e.fechaAlta IS NULL) ')
+          ->setParameters(array('desde'=>$fdesde,'hasta'=>$fhasta ))
+          ->groupby('p.localidad')
+          ->getQuery();
+      $query = $qb->getQuery();
+      $res2=$query->getResult();
+
+      $totalEstudios=0;
+      foreach ($res as $r) {
+        $totalEstudios+=$r['cantidad'];
+      }
+        // replace this example code with whatever you need
+        return $this->render('estadistica/datos.html.twig', array(
+          'form' => $form->createView(),
+          'fdesde' => $fdesde,
+          'fhasta' => $fhasta,
+          'res' => $res,
+          'res2' => $res2,
           'totalEstudios' => $totalEstudios
          ));
     }
