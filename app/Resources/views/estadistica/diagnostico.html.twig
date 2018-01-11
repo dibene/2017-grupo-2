@@ -16,7 +16,7 @@
   </div>
 </div>
 {{ form_end(form) }}
-<a class="btn waves-effect waves-light blue" style="margin-left:10px; margin-bottom:20px; " href="{{ path('diagnostico_pdf' , { 'fdesde': fdesde|date('Y-m-d') , 'fhasta':fhasta|date('Y-m-d')} ) }}">imprimir</b> </a>
+<a class="btn waves-effect waves-light blue" style="margin-left:10px; margin-bottom:20px; " href="{{ path('diagnostico_pdf' , { 'fdesde': fdesde|date('Y-m-d') , 'fhasta':fhasta|date('Y-m-d')} ) }}">Imprimir</b> </a>
 
   <div class="container col s12 center-align" >
     <div class="z-depth-1 grey lighten-4 row left-align col s12" style="display: inline-block; margin: 50px; padding: 32px 48px 50px 48px; border: 1px solid #EEE;">
@@ -35,7 +35,7 @@
   {% endfor %}
 </table>
 <b>
-Total  = {{total}} diagnosticos
+Total  = {{total}} diagnósticos
 de {{totalEstudios}} estudios
 </b>
     </div>
