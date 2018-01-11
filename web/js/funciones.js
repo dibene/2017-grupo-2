@@ -1,9 +1,11 @@
 
 $('.datepicker').pickadate({
-   selectMonths: true, // Creates a dropdown to control month
-   selectYears: 15, // Creates a dropdown of 15 years to control year,
+   selectMonths: true,
+   selectYears: 100, 
    format: 'yyyy-mm-dd',
-   closeOnSelect: false // Close upon selecting a date,
+   min: new Date((new Date()).getFullYear() - 100 , (new Date()).getMonth() , (new Date()).getDate() ),
+   max: new Date(),
+   closeOnSelect: true // Close upon selecting a date,
  });
 
 $( document ).ready(function(){

@@ -1,17 +1,22 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div>
-        <a class="btn-floating btn-large waves-effect waves-light yellow" href="{{ path('paciente_index') }}"><i class="material-icons">arrow_back</i></a>Volver al listado de Pacientes
-    </div>
-    <h1>Nuevo Paciente</h1>
+<div class="row col s12">
 
+  <br><a class="btn waves-effect waves-light red" style="margin-left:10px; margin-bottom:20px; " href="{{ path('paciente_index') }}"><i class="material-icons">arrow_back</i> Volver al listado de Pacientes </a>
+  <div class="container col s12 center-align" >
+
+    <div class="z-depth-1 grey lighten-4 row left-align col s12" style="display: inline-block; margin: 50px; padding: 32px 48px 50px 48px; border: 1px solid #EEE;">
+      <h5 class="red-text center-align ">Nuevo Paciente</h5>
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
 
-        <input type="submit" value="Crear" />
+        <input class="btn waves-effect waves-light red" type="submit" value="Crear" />
     {{ form_end(form) }}
 
+  </div>
+</div>
+</div>
 
 {% endblock %}

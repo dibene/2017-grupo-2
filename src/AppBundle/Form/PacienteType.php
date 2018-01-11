@@ -25,7 +25,7 @@ class PacienteType extends AbstractType
                 ->add('localidad')
                 ->add('obraSocial')
                 ->add('fechaIngreso', DateType::class , array('widget' => 'single_text','attr' => array('class'=>'datepicker')))
-                ->add('internacion');
+                ;
     }
 
     /**
