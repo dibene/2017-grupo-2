@@ -8,83 +8,8 @@
   <div class="container col s12 center-align" >
     <div class="z-depth-1 grey lighten-4 row left-align col s12" style="display: inline-block; margin: 50px; padding: 32px 48px 50px 48px; border: 1px solid #EEE;">
 
-      <h3  class="red-text"> Estudio {{ estudio.estudioConfiguracion.nombre }}</h3>
+      {% include 'estudio/datosPrincipales.html.twig' %}
 
-      <h4  class="red-text"> Datos del Medico </h4>
-      <table style="width:25%;">
-        <tr>
-          <td><b>Nombre: </b></td>
-          <td>{{ medico.nombre }}</td>
-        </tr>
-        <tr>
-          <td><b>Apellido: </b></td>
-          <td>{{ medico.apellido }}</td>
-        </tr>
-      </table>
-
-
-      <h4  class="red-text"> Datos del Paciente </h4>
-      <table style="width:25%;">
-        <tr>
-          <td><b>Nombre: </b></td>
-          <td>{{ paciente.nombre }}</td>
-        </tr>
-        <tr>
-          <td><b>Apellido: </b></td>
-          <td>{{ paciente.apellido }}</td>
-        </tr>
-        <tr>
-          <td><b>Dni: </b></td>
-          <td>{{ paciente.dni }}</td>
-        </tr>
-        <tr>
-          <td><b>Dirección: </b></td>
-          <td>{{ paciente.direccion }}</td>
-        </tr>
-        <tr>
-          <td><b>Sexo: </b></td>
-          <td>{{ paciente.sexo }}</td>
-        </tr>
-        <tr>
-          <td><b>Nacionalidad: </b></td>
-          <td>{{ paciente.nacionalidad }}</td>
-        </tr>
-        <tr>
-          <td><b>Localidad: </b></td>
-          <td>{{ paciente.localidad }}</td>
-        </tr>
-        <tr>
-          <td><b>Fecha de Nacimiento: </b></td>
-          <td>{% if paciente.fechaNacimiento %}{{ paciente.fechaNacimiento|date('Y-m-d') }}{% endif %}</td>
-        </tr>
-        <tr>
-          <td><b>Obra Social: </b></td>
-          <td>{{ paciente.obraSocial }}</td>
-        </tr>
-        <tr>
-          <td><b>Fecha de Ingreso: </b></td>
-          <td>{% if paciente.fechaIngreso %}{{ paciente.fechaIngreso|date('Y-m-d') }}{% endif %}</td>
-        </tr>
-      </table>
-
-      <h4  class="red-text"> Datos del Estudio </h4>
-      <table style="width:25%;">
-        <tbody>
-
-            <tr>
-                <th>Conclusión</th>
-                <td>{{ estudio.conclusion }}</td>
-            </tr>
-            <tr>
-                <th>Fecha alta</th>
-                <td>{% if estudio.fechaAlta %}{{ estudio.fechaAlta|date('Y-m-d') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Resultado</th>
-                <td>{{   estudio.resultado  }}</td>
-            </tr>
-        </tbody>
-    </table>
       <h4  class="red-text">Indicadores de discincronía Intraventricular izquierda: </h4>
       Modo M: retraso septal-PP: <b>{{ estudio.retrasoSeptalPp }} ms </b> (indicador de discincronía un valor > 130 ms).
       Doppler pulsado tisular (DTcolor): valoración del tiempo al pico sistólico (Onda S) entre  septum-pared lateral <b>{{ estudio.tiempoAlPicoSistolico }} ms</b>  ( + > 65 ms)

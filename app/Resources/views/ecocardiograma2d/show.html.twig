@@ -8,61 +8,11 @@
   <div class="container col s12 center-align" >
     <div class="z-depth-1 grey lighten-4 row left-align col s12" style="display: inline-block; margin: 50px; padding: 32px 48px 50px 48px; border: 1px solid #EEE;">
 
-      <h3  class="red-text"> Estudio {{ estudio.estudioConfiguracion.nombre }}</h3>
+      {% include 'estudio/datosPrincipales.html.twig' %}
 
-      <h4> Datos del Médico </h4>
-      <table>
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Matrícula</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{{ medico.nombre }}</td>
-            <td>{{ medico.apellido }}</td>
-          </tr>
-        </tbody>
-      </table>
+  <table style="width:50%;   border: 1px solid black;">
 
-      <h4> Datos del Paciente </h4>
-      <table class="stripped">
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Dni</th>
-            <th>Dirección</th>
-            <th>Sexo</th>
-            <th>Nacionalidad</th>
-            <th>Localidad</th>
-            <th>Fecha de Nacimiento</th>
-            <th>Obra Social</th>
-            <th>Fecha de Ingreso</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{{ paciente.nombre }}</td>
-            <td>{{ paciente.apellido }}</td>
-            <td>{{ paciente.dni }}</td>
-            <td>{{ paciente.direccion }}</td>
-            <td>{{ paciente.sexo }}</td>
-            <td>{{ paciente.nacionalidad }}</td>
-            <td>{{ paciente.localidad }}</td>
-            <td>{% if paciente.fechaNacimiento %}{{ paciente.fechaNacimiento|date('Y-m-d') }}{% endif %}</td>
-            <td>{{ paciente.obraSocial }}</td>
-            <td>{% if paciente.fechaIngreso %}{{ paciente.fechaIngreso|date('Y-m-d') }}{% endif %}</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h4> Datos del Estudio </h4>
-    <table style="width:50%;   border: 1px solid black;">
       Tabla 1: Valores Bidimensionales
-
       <thead>
       </thead>
       <tbody>

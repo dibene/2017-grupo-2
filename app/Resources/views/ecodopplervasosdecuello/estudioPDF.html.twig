@@ -3,78 +3,9 @@
   <meta charset="UTF-8" />
 </head>
 <body>
-<h3  class="red-text"> Estudio {{ estudio.estudioConfiguracion.nombre }}</h3>
 
-<h3> Datos del Medico </h3>
-<table>
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Apellido</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>{{ medico.nombre }}</td>
-      <td>{{ medico.apellido }}</td>
-      <td>{{ medico.matricula }}</td>
-    </tr>
-  </tbody>
-</table>
+{% include 'estudio/headerpdf.html.twig' %}
 
-<h3> Datos del Paciente </h3>
-<table class="stripped">
-    <thead>
-        <tr>
-          <th>Nombre</th>
-          <th>Apellido</th>
-          <th>Dni</th>
-          <th>Dirección</th>
-          <th>Sexo</th>
-          <th>Nacionalidad</th>
-          <th>Localidad</th>
-          <th>Fecha de Nacimiento</th>
-            <th>Obra Social</th>
-            <th>Fecha de Ingreso</th>
-            <th>Internación</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>{{ paciente.nombre }}</td>
-          <td>{{ paciente.apellido }}</td>
-          <td>{{ paciente.dni }}</td>
-          <td>{{ paciente.direccion }}</td>
-          <td>{{ paciente.sexo }}</td>
-          <td>{{ paciente.nacionalidad }}</td>
-          <td>{{ paciente.localidad }}</td>
-          <td>{% if paciente.fechaNacimiento %}{{ paciente.fechaNacimiento|date('Y-m-d') }}{% endif %}</td>
-            <td>{{ paciente.obraSocial }}</td>
-            <td>{% if paciente.fechaIngreso %}{{ paciente.fechaIngreso|date('Y-m-d') }}{% endif %}</td>
-            <td>{{ paciente.internacion }}</td>
-        </tr>
-    </tbody>
-</table>
-<h3  class="red-text"> Datos del Estudio </h3>
+{% include 'estudio/datosPrincipales.html.twig' %}
 
-    <table>
-        <tbody>
-
-            <tr>
-                <th>Conclusión</th>
-                <td>{{ estudio.conclusion }}</td>
-            </tr>
-            <tr>
-                <th>Fecha alta</th>
-                <td>{% if estudio.fechaAlta %}{{ estudio.fechaAlta|date('Y-m-d') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Resultado</th>
-                <td>{{   estudio.resultado  }}</td>
-            </tr>
-        </tbody>
-    </table>
-    </div>
-  </div>
-</div>
 </body>

@@ -24,10 +24,10 @@ class EstudioController extends Controller
 
   /**
    *
-   * @Route("/{id}/pdf/paciente/{idPaciente}", name="estudio_pdf")
+   * @Route("/{id}/pdf/paciente/{idPaciente}/estudio", name="estudio_pdf")
    * @Method("GET")
    */
-  public function pdfAction(Estudio $estudio , $idPaciente)
+  public function pdfAction(Request $request,Estudio $estudio , $idPaciente)
   {
 
     $deleteForm = $this->createDeleteForm($estudio);
@@ -46,6 +46,7 @@ class EstudioController extends Controller
         'estudio' => $estudio,
         'paciente' => $paciente,
         'medico' => $medico,
+        'base_dir' => $this->get('kernel')->getRootDir() . '/../web' . $request->getBasePath()
       ));
 
       return new Response(

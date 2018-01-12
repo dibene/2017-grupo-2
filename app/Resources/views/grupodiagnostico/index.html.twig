@@ -1,8 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Grupo diagnosticos</h1>
-
+<div class="row col s12">
+  <div class="container col s12 center-align" >
+    <div class="z-depth-1 grey lighten-4 row left-align col s12" style="display: inline-block; margin: 50px; padding: 32px 48px 50px 48px; border: 1px solid #EEE;">
+      <h5 class="red-text center-align ">Diagnosticos</h5>
     <table>
         <thead>
             <tr>
@@ -15,16 +17,15 @@
             <tr>
                 <td>{{ grupoDiagnostico.nombre }}</td>
                 <td>
-                            <a href="{{ path('grupodiagnostico_edit', { 'id': grupoDiagnostico.id }) }}">edit</a>
+                            <a class="btn-floating  waves-effect waves-light yellow" href="{{ path('grupodiagnostico_edit', { 'id': grupoDiagnostico.id }) }}"><i class="material-icons">edit</i></a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+</div>
+</div>
+</div>
+  <a class="btn-floating btn-large waves-effect waves-light green"  href="{{ path('grupodiagnostico_new') }}"><i class="material-icons">add</i></a> Agregar Diagnostico
 
-    <ul>
-        <li>
-            <a href="{{ path('grupodiagnostico_new') }}">Create a new grupoDiagnostico</a>
-        </li>
-    </ul>
 {% endblock %}

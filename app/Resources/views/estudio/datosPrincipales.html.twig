@@ -1,0 +1,34 @@
+
+<h3  class="red-text"> Estudio {{ estudio.estudioConfiguracion.nombre }}</h3>
+<hr>
+<h4  class="red-text"> Datos del Médico </h4>
+<b>Nombre: </b> {{ medico.nombre }} <br>
+<b>Apellido: </b>{{ medico.apellido }} <br>
+<hr>
+
+<h4  class="red-text"> Datos del Paciente </h4>
+<b>Nombre: </b>{{ paciente.nombre }}<br>
+<b>Apellido: </b>{{ paciente.apellido }}<br>
+<b>Dni: </b>{{ paciente.dni }}<br>
+<b>Dirección: </b>{{ paciente.direccion }}<br>
+<b>Sexo: </b>{{ paciente.sexo }}<br>
+<b>Nacionalidad: </b>{{ paciente.nacionalidad }}<br>
+<b>Localidad: </b>{{ paciente.localidad }}<br>
+<b>Fecha de Nacimiento: </b>{% if paciente.fechaNacimiento %}{{ paciente.fechaNacimiento|date('Y-m-d') }}{% endif %}<br>
+<b>Obra Social: </b>{{ paciente.obraSocial }}<br>
+<b>Fecha de Ingreso: </b>{% if paciente.fechaIngreso %}{{ paciente.fechaIngreso|date('Y-m-d') }}{% endif %}<br>
+<hr>
+
+<h4  class="red-text"> Datos del Estudio </h4>
+Fecha {% if estudio.fechaAlta %}{{ estudio.fechaAlta|date('Y-m-d') }}{% endif %}
+{% if estudio.conclusion %}
+<h5 class="red-text">  Conclusión </h5>
+{{ estudio.conclusion }}
+<br>
+{% endif %}
+
+{% if estudio.resultado %}
+<h5 class="red-text">  Resultado </h5>
+{{  estudio.resultado  }}
+<br>
+{% endif %}
