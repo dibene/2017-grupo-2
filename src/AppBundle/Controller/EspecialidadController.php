@@ -20,14 +20,19 @@ class EspecialidadController extends Controller
      * @Route("/", name="especialidad_index")
      * @Method("GET")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $especialidads = $em->getRepository('AppBundle:Especialidad')->findAll();
+        $especialidads = $em->getRepository('AppBundle:Especialidad')->findForPaginator();
+
+                $paginator = $this->get('knp_paginator');
+                $pagination = $paginator->paginate(
+                $especialidads, $request->query->getInt('page', 1),
+                    5 );
 
         return $this->render('especialidad/index.html.twig', array(
-            'especialidads' => $especialidads,
+          'pagination' => $pagination
         ));
     }
 
@@ -47,6 +52,7 @@ class EspecialidadController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($especialidad);
             $em->flush();
+            $this->addFlash('mensaje', 'Especialidad creado correctamente');
 
             return $this->redirectToRoute('especialidad_show', array('id' => $especialidad->getId()));
         }
@@ -87,6 +93,7 @@ class EspecialidadController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('mensaje', 'Diagnostico editado correctamente');
 
             return $this->redirectToRoute('especialidad_edit', array('id' => $especialidad->getId()));
         }

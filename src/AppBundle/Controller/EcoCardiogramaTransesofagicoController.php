@@ -51,6 +51,7 @@ class EcoCardiogramaTransesofagicoController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($ecoCardiogramaTransesofagico);
             $em->flush();
+            $this->addFlash('mensaje', 'Estudio creado correctamente');
 
             return $this->redirectToRoute('ecocardiogramatransesofagico_show', array('id' => $ecoCardiogramaTransesofagico->getId(),
           'idPaciente' => $paciente->getId(),
@@ -101,6 +102,7 @@ class EcoCardiogramaTransesofagicoController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('mensaje', 'Estudio editado correctamente');
 
             return $this->redirectToRoute('ecocardiogramatransesofagico_edit', array('id' => $ecoCardiogramaTransesofagico->getId(),
             'estudio' => $ecoCardiogramaTransesofagico,

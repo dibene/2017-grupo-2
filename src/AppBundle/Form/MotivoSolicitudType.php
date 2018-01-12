@@ -13,9 +13,9 @@ class MotivoSolicitudType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('observacion')->add('nombre');
+        $builder->add('nombre');
     }
-    
+
     /**
      * {@inheritdoc}
      */

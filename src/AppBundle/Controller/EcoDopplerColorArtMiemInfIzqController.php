@@ -51,6 +51,7 @@ class EcoDopplerColorArtMiemInfIzqController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($ecoDopplerColorArtMiemInfIzq);
             $em->flush();
+            $this->addFlash('mensaje', 'Estudio creado correctamente');
 
             return $this->redirectToRoute('ecodopplercolorartmieminfizq_show', array('id' => $ecoDopplerColorArtMiemInfIzq->getId(),
           'idPaciente' => $paciente->getId(),
@@ -102,6 +103,7 @@ class EcoDopplerColorArtMiemInfIzqController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('mensaje', 'Estudio editado correctamente');
 
             return $this->redirectToRoute('ecodopplercolorartmieminfizq_edit', array('id' => $ecoDopplerColorArtMiemInfIzq->getId(),
             'estudio' => $ecoDopplerColorArtMiemInfIzq,

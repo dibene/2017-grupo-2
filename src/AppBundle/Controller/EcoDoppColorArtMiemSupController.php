@@ -51,6 +51,7 @@ class EcoDoppColorArtMiemSupController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($ecoDoppColorArtMiemSup);
             $em->flush();
+            $this->addFlash('mensaje', 'Estudio creado correctamente');
 
             return $this->redirectToRoute('ecodoppcolorartmiemsup_show', array('id' => $ecoDoppColorArtMiemSup->getId(),
           'idPaciente' => $paciente->getId(),
@@ -102,6 +103,7 @@ class EcoDoppColorArtMiemSupController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('mensaje', 'Estudio editado correctamente');
 
             return $this->redirectToRoute('ecodoppcolorartmiemsup_edit', array('id' => $ecoDoppColorArtMiemSup->getId(),
             'estudio' => $ecoDoppColorArtMiemSup,

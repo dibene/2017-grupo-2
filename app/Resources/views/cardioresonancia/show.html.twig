@@ -11,142 +11,41 @@
       {% include 'estudio/datosPrincipales.html.twig' %}
 
 
-    <table style="width:25%;">
-        <tbody>
-          <tr >
-            <th><h4 class="red-text">PROTOCOLO DE LA TÉCNICA</h4></th>
-          </tr>
-            <tr>
-                <th>Protocolo</th>
-                <td>{{ estudio.protocolo }}</td>
-            </tr>
-            <tr >
-            <th>  <h4 class="red-text">CAVIDADES IZQUIERDAS</h4></th>
-            </tr>
-            <tr >
-            <th>  <h5 class="red-text">VENTRÍCULO IZQUIERDO</h5></th>
-            </tr>
-            <tr>
-                <th>Descripción vi</th>
-                <td>{{ estudio.descripcionVI }}</td>
-            </tr>
-            <tr>
-                <th>Dtdvi</th>
-                <td>{{ estudio.dtdvi }}</td>
-            </tr>
-            <tr>
-                <th>Dtsvi</th>
-                <td>{{ estudio.dtsvi }}</td>
-            </tr>
-            <tr>
-                <th>Vfd</th>
-                <td>{{ estudio.vfd }}</td>
-            </tr>
-            <tr>
-                <th>Vfs</th>
-                <td>{{ estudio.vfs }}</td>
-            </tr>
-            <tr>
-                <th>Fac</th>
-                <td>{{ estudio.fac }}</td>
-            </tr>
-            <tr>
-                <th>Fevi</th>
-                <td>{{ estudio.fevi }}</td>
-            </tr>
-            <tr>
-                <th>Septum</th>
-                <td>{{ estudio.septum }}</td>
-            </tr>
-            <tr>
-                <th>Pp</th>
-                <td>{{ estudio.pp }}</td>
-            </tr>
-            <tr>
-                <th>Masavi</th>
-                <td>{{ estudio.masaVI }}</td>
-            </tr>
-            <tr >
-            <th>  <h5 class="red-text">PLANIMETRÍA DE AI</h5></th>
-            </tr>
-            <tr>
-                <th>Area ai</th>
-                <td>{{ estudio.areaAI }}</td>
-            </tr>
-            <tr>
-                <th>Volumen ai</th>
-                <td>{{ estudio.volumenAI }}</td>
-            </tr>
-            <tr>
-                <th>Cuatro Cámaras ai</th>
-                <td>{{ estudio.cuatroCamarasAI }}</td>
-            </tr>
-            <tr >
-              <th><h4 class="red-text">CAVIDADES DERECHAS</h4></th>
-            </tr>
-            <tr >
-              <th><h5 class="red-text">VENTRÍCULO DERECHO</h5></th>
-            </tr>
-            <tr>
-                <th>Tapse lateral</th>
-                <td>{{ estudio.tapseLateral }}</td>
-            </tr>
-            <tr>
-                <th>Vfdvd</th>
-                <td>{{ estudio.vfdVD }}</td>
-            </tr>
-            <tr>
-                <th>Vfsvd</th>
-                <td>{{ estudio.vfsVD }}</td>
-            </tr>
-            <tr>
-                <th>Fevd</th>
-                <td>{{ estudio.fevd }}</td>
-            </tr>
-            <tr >
-              <th><h6 class="red-text">Diámetros</h6></th>
-            </tr>
-            <tr>
-                <th>Longitudinal</th>
-                <td>{{ estudio.longitudinal }}</td>
-            </tr>
-            <tr>
-                <th>Anillo Tricuspídeo</th>
-                <td>{{ estudio.anilloTricuspideo }}</td>
-            </tr>
-            <tr>
-                <th>Transversal Subtricuspídeo</th>
-                <td>{{ estudio.transversalSubtricuspideo }}</td>
-            </tr>
-            <tr>
-                <th>Transversal medio</th>
-                <td>{{ estudio.transversalMedio }}</td>
-            </tr>
-            <tr>
-                <th>Tsvd</th>
-                <td>{{ estudio.tsvd }}</td>
-            </tr>
-            <tr >
-              <th><h5 class="red-text">PLANIMETRÍA AURÍCULA DERECHA:</h5></th>
-            </tr>
-            <tr>
-                <th>Area ad</th>
-                <td>{{ estudio.areaAD }}</td>
-            </tr>
-            <tr>
-                <th>Volumen ad</th>
-                <td>{{ estudio.volumenAD }}</td>
-            </tr>
-            <tr>
-                <th>Cuatro Cámaras ad</th>
-                <td>{{ estudio.cuatroCamarasAD }}</td>
-            </tr>
-            <tr>
-                <th>Secuencias</th>
-                <td>{{ estudio.secuencias }}</td>
-            </tr>
-        </tbody>
-    </table>
+<h4 class="red-text">PROTOCOLO DE LA TÉCNICA</h4>
+{{ estudio.protocolo }}
+ <h4 class="red-text">CAVIDADES IZQUIERDAS</h4>
+  <h5 class="red-text">VENTRÍCULO IZQUIERDO</h5>
+Descripción VI: {{ estudio.descripcionVI }}
+Dtd VI: {{ estudio.dtdvi }}
+Dts VI: {{ estudio.dtsvi }}
+Vfd: {{ estudio.vfd }}
+Vfs: {{ estudio.vfs }}
+Fac: {{ estudio.fac }}
+Fe VI: {{ estudio.fevi }}
+Septum: {{ estudio.septum }}
+Pp: {{ estudio.pp }}
+Masa VI: {{ estudio.masaVI }}
+<h5 class="red-text">PLANIMETRÍA DE AI</h5>
+Area AI: {{ estudio.areaAI }}
+Volumen AI: {{ estudio.volumenAI }}
+Cuatro Cámaras AI: {{ estudio.cuatroCamarasAI }}
+<h4 class="red-text">CAVIDADES DERECHAS</h4>
+<h5 class="red-text">VENTRÍCULO DERECHO</h5>
+Tapse lateral: {{ estudio.tapseLateral }}
+Vfd VD: {{ estudio.vfdVD }}
+Vfs VD: {{ estudio.vfsVD }}
+Fe VD: {{ estudio.fevd }}
+<h6 class="red-text">Diámetros</h6>
+Longitudinal: {{ estudio.longitudinal }}
+Anillo Tricuspídeo: {{ estudio.anilloTricuspideo }}
+Transversal Subtricuspídeo: >{{ estudio.transversalSubtricuspideo }}
+Transversal medio: {{ estudio.transversalMedio }}
+Tsvd: {{ estudio.tsvd }}
+<h5 class="red-text">PLANIMETRÍA AURÍCULA DERECHA:</h5>
+Area AD: {{ estudio.areaAD }}
+Volumen AD: {{ estudio.volumenAD }}
+Cuatro Cámaras AD: {{ estudio.cuatroCamarasAD }}
+Secuencias: {{ estudio.secuencias }}
 </div>
 </div>
 </div>

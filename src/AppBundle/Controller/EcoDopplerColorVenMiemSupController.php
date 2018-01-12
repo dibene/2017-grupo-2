@@ -51,6 +51,7 @@ class EcoDopplerColorVenMiemSupController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($ecoDopplerColorVenMiemSup);
             $em->flush();
+            $this->addFlash('mensaje', 'Estudio creado correctamente');
 
             return $this->redirectToRoute('ecodopplercolorvenmiemsup_show', array('id' => $ecoDopplerColorVenMiemSup->getId(),
           'idPaciente' => $paciente->getId(),
@@ -102,6 +103,7 @@ class EcoDopplerColorVenMiemSupController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('mensaje', 'Estudio editado correctamente');
 
             return $this->redirectToRoute('ecodopplercolorvenmiemsup_edit', array('id' => $ecoDopplerColorVenMiemSup->getId(),
             'estudio' => $ecoDopplerColorVenMiemSup,

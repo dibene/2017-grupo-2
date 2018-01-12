@@ -54,6 +54,7 @@ class EcocardiogramaValoracionDisincroniaController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($ecocardiogramaValoracionDisincronium);
             $em->flush();
+            $this->addFlash('mensaje', 'Estudio creado correctamente');
 
             return $this->redirectToRoute('ecocardiogramavaloraciondisincronia_show', array('id' => $ecocardiogramaValoracionDisincronium->getId(),
           'idPaciente' => $paciente->getId(),
@@ -105,6 +106,7 @@ class EcocardiogramaValoracionDisincroniaController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('mensaje', 'Estudio editado correctamente');
 
             return $this->redirectToRoute('ecocardiogramavaloraciondisincronia_edit', array('id' => $ecocardiogramaValoracionDisincronium->getId(),
             'estudio' => $ecocardiogramaValoracionDisincronium,

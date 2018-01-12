@@ -16,7 +16,13 @@
         {% endblock %}
     </head>
     <body>
+
       <!-- nav bar -->
+      <ul id="dropdown1" class="dropdown-content">
+        <li><a href="{{ path('grupodiagnostico_index') }}">Diagnosticos</a></li>
+        <li><a href="{{ path('especialidad_index') }}">Especialidades</a></li>
+        <li><a href="{{ path('motivosolicitud_index') }}">Motivos</a></li>
+      </ul>
       <nav class="red lighten">
     		<div class="nav-fixed">
           <a href="/" class="brand-logo" >   <img style="background-color:white" src="/image/logo.png" alt="" height="65" width="90"></a>
@@ -25,17 +31,16 @@
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             {% if is_granted("IS_AUTHENTICATED_FULLY") %}
             <!-- ver si tiene permiso para ver pacientes y medicos -->
-              {% if is_granted('ROLE_ADMIN') %}
-                <li><a href="/medico">Médicos</a></li>
-              {% endif %}
               {% if is_granted('ROLE_MEDICO') %}
-                <li><a href="/paciente">Pacientes</a></li>
-                <li><a href="/estudio/realizados">Estudios Realizados</a></li>
-                <li><a href="{{ path('grupodiagnostico_index') }}">Grupo Diagnosticos</a></li>
-                <li><a href="/estadisticas">Estadísticas</a></li>
+                <li><a href="{{ path('medico_index') }}">Médicos</a></li>
+                <li><a href="{{ path('paciente_index') }}">Pacientes</a></li>
+                <li><a href="{{ path('estudio_realizados') }}">Estudios Realizados</a></li>
+                <li><a href="{{ path('estadisticas_index') }}">Estadísticas</a></li>
+                <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Configuraciones<i class="material-icons right">arrow_drop_down</i></a></li>
+
               {% endif %}
                 <!-- link al perfil solo si esta logueado -->
-                <li><a href="/profile"> {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} </a> </li>
+                <li><a href="/profile">Perfil {{ app.user.username }} </a> </li>
                 <li>
                   <a href="{{ path('fos_user_security_logout') }}">
                       {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}

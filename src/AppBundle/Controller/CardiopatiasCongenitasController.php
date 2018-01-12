@@ -51,6 +51,7 @@ class CardiopatiasCongenitasController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($cardiopatiascongenitas);
             $em->flush();
+            $this->addFlash('mensaje', 'Estudio creado correctamente');
 
             return $this->redirectToRoute('cardiopatiascongenitas_show', array('id' => $cardiopatiascongenitas->getId(),
             'idPaciente' => $paciente->getId(),
@@ -102,6 +103,7 @@ class CardiopatiasCongenitasController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('mensaje', 'Estudio editado correctamente');
 
             return $this->redirectToRoute('cardiopatiascongenitas_edit', array('id' => $cardiopatiascongenitas->getId(),
             'estudio' => $cardiopatiascongenitas,

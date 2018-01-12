@@ -52,6 +52,7 @@ class EcoCardiogramaInySolSalAgitController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($ecoCardiogramaInySolSalAgit);
             $em->flush();
+            $this->addFlash('mensaje', 'Estudio creado correctamente');
 
             return $this->redirectToRoute('ecocardiogramainysolsalagit_show', array('id' => $ecoCardiogramaInySolSalAgit->getId(),
           'idPaciente' => $paciente->getId(),
@@ -103,6 +104,7 @@ class EcoCardiogramaInySolSalAgitController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('mensaje', 'Estudio editado correctamente');
 
             return $this->redirectToRoute('ecocardiogramainysolsalagit_edit', array('id' => $ecoCardiogramaInySolSalAgit->getId(),
             'estudio' => $ecoCardiogramaInySolSalAgit,

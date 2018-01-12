@@ -106,6 +106,7 @@ class AortaAbdominalController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('mensaje', 'Estudio editado correctamente');
 
             return $this->redirectToRoute('aortaabdominal_edit', array('id' => $aortaAbdominal->getId(),
             'estudio' => $aortaAbdominal,

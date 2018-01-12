@@ -26,7 +26,7 @@ class PacienteController extends Controller
     public function indexAction(Request $request)
     {
       $em = $this->getDoctrine()->getManager();
-      //$pacientes = $em->getRepository('AppBundle:Paciente')->findAll(); 
+      //$pacientes = $em->getRepository('AppBundle:Paciente')->findAll();
 
        $form = $this->createFormBuilder()
         ->add('nombre', SearchType::class , array('required'   => false))
@@ -57,12 +57,12 @@ class PacienteController extends Controller
             $pacientes = array();
           }
         }else{//Primera vez que entra
-            $pacientes = $em->getRepository('AppBundle:Paciente')->findForPaginator();             
+            $pacientes = $em->getRepository('AppBundle:Paciente')->findForPaginator();
         }
 
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
-            $pacientes, $request->query->getInt('page', 1), 
+            $pacientes, $request->query->getInt('page', 1),
             5 );
 
 
@@ -130,6 +130,7 @@ class PacienteController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('mensaje', 'Paciente editado correctamente');
 
             return $this->redirectToRoute('paciente_edit', array('id' => $paciente->getId()));
         }

@@ -20,14 +20,18 @@ class MotivoSolicitudController extends Controller
      * @Route("/", name="motivosolicitud_index")
      * @Method("GET")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $motivoSolicituds = $em->getRepository('AppBundle:MotivoSolicitud')->findAll();
+        $motivoSolicituds = $em->getRepository('AppBundle:MotivoSolicitud')->findForPaginator();
 
+                $paginator = $this->get('knp_paginator');
+                $pagination = $paginator->paginate(
+                $motivoSolicituds, $request->query->getInt('page', 1),
+                    5 );
         return $this->render('motivosolicitud/index.html.twig', array(
-            'motivoSolicituds' => $motivoSolicituds,
+          'pagination' => $pagination
         ));
     }
 
@@ -47,6 +51,7 @@ class MotivoSolicitudController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($motivoSolicitud);
             $em->flush();
+            $this->addFlash('mensaje', 'Motivo creado correctamente');
 
             return $this->redirectToRoute('motivosolicitud_show', array('id' => $motivoSolicitud->getId()));
         }
@@ -87,6 +92,7 @@ class MotivoSolicitudController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('mensaje', 'Motivo editado correctamente');
 
             return $this->redirectToRoute('motivosolicitud_edit', array('id' => $motivoSolicitud->getId()));
         }

@@ -52,6 +52,7 @@ class Ecocardiograma2dController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($ecocardiograma2d);
             $em->flush();
+            $this->addFlash('mensaje', 'Estudio creado correctamente');
 
             return $this->redirectToRoute('ecocardiograma2d_show', array('id' => $ecocardiograma2d->getId(),
             'idPaciente' => $paciente->getId(),
@@ -103,6 +104,7 @@ class Ecocardiograma2dController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('mensaje', 'Estudio editado correctamente');
 
             return $this->redirectToRoute('ecocardiograma2d_edit', array('id' => $ecocardiograma2d->getId(),
             'estudio' => $ecocardiograma2d,

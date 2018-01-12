@@ -51,6 +51,7 @@ class EcoDopplerColorArtRenalesController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($ecoDopplerColorArtRenale);
             $em->flush();
+            $this->addFlash('mensaje', 'Estudio creado correctamente');
 
             return $this->redirectToRoute('ecodopplercolorartrenales_show', array('id' => $ecoDopplerColorArtRenale->getId(),
           'idPaciente' => $paciente->getId(),
@@ -102,6 +103,7 @@ class EcoDopplerColorArtRenalesController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('mensaje', 'Estudio editado correctamente');
 
             return $this->redirectToRoute('ecodopplercolorartrenales_edit', array('id' => $ecoDopplerColorArtRenale->getId(),
             'estudio' => $ecoDopplerColorArtRenale,

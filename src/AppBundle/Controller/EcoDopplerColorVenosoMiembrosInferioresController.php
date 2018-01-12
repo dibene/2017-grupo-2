@@ -52,6 +52,7 @@ class EcoDopplerColorVenosoMiembrosInferioresController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($ecoDopplerColorVenosoMiembrosInferiore);
             $em->flush();
+            $this->addFlash('mensaje', 'Estudio creado correctamente');
 
             return $this->redirectToRoute('ecodopplercolorvenosomiembrosinferiores_show', array(
                 'id' => $ecoDopplerColorVenosoMiembrosInferiore->getId(),
@@ -103,6 +104,7 @@ class EcoDopplerColorVenosoMiembrosInferioresController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('mensaje', 'Estudio editado correctamente');
 
             return $this->redirectToRoute('ecodopplercolorvenosomiembrosinferiores_edit', array('id' => $ecoDopplerColorVenosoMiembrosInferiore->getId(),
                 'estudio' => $ecoDopplerColorVenosoMiembrosInferiore,

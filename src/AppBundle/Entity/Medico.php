@@ -90,7 +90,7 @@ class Medico extends Persona
      * @param integer $idEspecialidad
      * @return Medico
      */
-    public function setEspecialidad($Especialidad)
+    public function setEspecialidad($especialidad)
     {
         $this->especialidad = $especialidad;
 

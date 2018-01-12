@@ -52,6 +52,7 @@ class CardioResonanciaController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($cardioResonancium);
             $em->flush();
+            $this->addFlash('mensaje', 'Estudio creado correctamente');
 
             return $this->redirectToRoute('cardioresonancia_show', array('id' => $cardioResonancium->getId(),
             'idPaciente' => $paciente->getId(),
@@ -104,6 +105,7 @@ class CardioResonanciaController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('mensaje', 'Estudio editado correctamente');
 
             return $this->redirectToRoute('cardioresonancia_edit', array('id' => $cardioResonancium->getId(),
             'estudio' => $cardioResonancium,

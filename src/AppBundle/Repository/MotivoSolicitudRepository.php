@@ -12,4 +12,11 @@ use Doctrine\ORM\EntityRepository;
  */
 class MotivoSolicitudRepository extends EntityRepository
 {
+  public function findForPaginator(){
+  $em = $this->getEntityManager();
+
+  $dql = "SELECT u FROM AppBundle:MotivoSolicitud u";
+      $motivoSolicitud = $em->createQuery($dql);
+      return $motivoSolicitud;
+    }
 }

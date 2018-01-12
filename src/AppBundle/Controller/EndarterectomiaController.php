@@ -51,6 +51,7 @@ class EndarterectomiaController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($endarterectomium);
             $em->flush();
+            $this->addFlash('mensaje', 'Estudio creado correctamente');
 
             return $this->redirectToRoute('endarterectomia_show', array('id' => $endarterectomium->getId(),
           'idPaciente' => $paciente->getId(),
@@ -102,6 +103,7 @@ class EndarterectomiaController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('mensaje', 'Estudio editado correctamente');
 
             return $this->redirectToRoute('endarterectomia_edit', array('id' => $endarterectomium->getId(),
             'estudio' => $endarterectomium,

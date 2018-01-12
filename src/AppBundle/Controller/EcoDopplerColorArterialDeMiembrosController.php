@@ -54,6 +54,7 @@ class EcoDopplerColorArterialDeMiembrosController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($ecoDopplerColorArterialDeMiembro);
             $em->flush();
+            $this->addFlash('mensaje', 'Estudio creado correctamente');
 
             return $this->redirectToRoute('ecodopplercolorarterialdemiembros_show', array('id' => $ecoDopplerColorArterialDeMiembro->getId(),
           'idPaciente' => $paciente->getId(),
@@ -105,6 +106,7 @@ class EcoDopplerColorArterialDeMiembrosController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('mensaje', 'Estudio editado correctamente');
 
             return $this->redirectToRoute('ecodopplercolorarterialdemiembros_edit', array('id' => $ecoDopplerColorArterialDeMiembro->getId(),
             'estudio' => $ecoDopplerColorArterialDeMiembro,

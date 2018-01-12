@@ -49,6 +49,8 @@ class MedicoController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($medico);
             $em->flush();
+            $this->addFlash('mensaje', 'Datos cargados correctamente');
+
             return new RedirectResponse('/profile');
             //return $this->redirectToRoute('medico_show', array('id' => $medico->getId()));
         }

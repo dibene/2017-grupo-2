@@ -54,6 +54,7 @@ class MiembrosInferioresArterialPatologicoController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($miembrosInferioresArterialPatologico);
             $em->flush();
+            $this->addFlash('mensaje', 'Estudio creado correctamente');
 
             return $this->redirectToRoute('miembrosinferioresarterialpatologico_show', array('id' => $miembrosInferioresArterialPatologico->getId(),
           'idPaciente' => $paciente->getId(),
@@ -105,6 +106,7 @@ class MiembrosInferioresArterialPatologicoController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('mensaje', 'Estudio editado correctamente');
 
             return $this->redirectToRoute('miembrosinferioresarterialpatologico_edit', array('id' => $miembrosInferioresArterialPatologico->getId(),
             'estudio' => $miembrosInferioresArterialPatologico,

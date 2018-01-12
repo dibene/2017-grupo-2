@@ -1,16 +1,20 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Grupodiagnostico creation</h1>
+<div class="row col s12">
+  <div class="container col s12 center-align" >
+    <div class="z-depth-1 grey lighten-4 row left-align col s12" style="display: inline-block; margin: 50px; padding: 32px 48px 50px 48px; border: 1px solid #EEE;">
+      <h5 class="red-text center-align ">Nueva Diagnostico</h5>
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+        <input class="btn waves-effect waves-light red" type="submit" value="Crear" />
     {{ form_end(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('grupodiagnostico_index') }}">Back to the list</a>
-        </li>
-    </ul>
+  </div>
+</div>
+</div>
+
+            <a class="btn waves-effect waves-light red" href="{{ path('grupodiagnostico_index') }}">Volver al listado de Diagnosticos</a>
+
 {% endblock %}

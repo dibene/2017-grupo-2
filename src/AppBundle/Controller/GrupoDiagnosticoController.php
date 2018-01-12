@@ -30,11 +30,11 @@ class GrupoDiagnosticoController extends Controller
 
         //$grupoDiagnosticos = $em->getRepository('AppBundle:GrupoDiagnostico')->findAll();
 
-        $grupoDiagnosticos = $em->getRepository('AppBundle:GrupoDiagnostico')->findForPaginator();  
+        $grupoDiagnosticos = $em->getRepository('AppBundle:GrupoDiagnostico')->findForPaginator();
 
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
-        $grupoDiagnosticos, $request->query->getInt('page', 1), 
+        $grupoDiagnosticos, $request->query->getInt('page', 1),
             5 );
 
         return $this->render('grupodiagnostico/index.html.twig', array(
@@ -59,6 +59,7 @@ class GrupoDiagnosticoController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($grupoDiagnostico);
             $em->flush();
+            $this->addFlash('mensaje', 'Diagnostico creado correctamente');
 
             return $this->redirectToRoute('grupodiagnostico_show', array('id' => $grupoDiagnostico->getId()));
         }
@@ -99,6 +100,7 @@ class GrupoDiagnosticoController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('mensaje', 'Diagnostico editado correctamente');
 
             return $this->redirectToRoute('grupodiagnostico_edit', array('id' => $grupoDiagnostico->getId()));
         }

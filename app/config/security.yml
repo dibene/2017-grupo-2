@@ -54,8 +54,8 @@ security:
         - { path: ^/panel_medico/, role: ROLE_MEDICO }
         - { path: ^/paciente/, role: ROLE_MEDICO }
         - { path: ^/medico/new, role: IS_AUTHENTICATED_FULLY }
-        - { path: ^/medico/, role: ROLE_ADMIN }
+        - { path: ^/medico/, role: ROLE_MEDICO }
         - { path: ^/estudio, role: ROLE_MEDICO }
-        - { path: ^/estadisticas, role: ROLE_MEDICO } 
+        - { path: ^/estadisticas, role: ROLE_MEDICO }
 
     access_denied_url: /login

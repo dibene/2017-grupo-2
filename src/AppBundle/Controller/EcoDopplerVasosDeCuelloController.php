@@ -51,6 +51,7 @@ class EcoDopplerVasosDeCuelloController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($ecoDopplerVasosDeCuello);
             $em->flush();
+            $this->addFlash('mensaje', 'Estudio creado correctamente');
 
             return $this->redirectToRoute('ecodopplervasosdecuello_show', array('id' => $ecoDopplerVasosDeCuello->getId(),
           'idPaciente' => $paciente->getId(),
@@ -102,6 +103,7 @@ class EcoDopplerVasosDeCuelloController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('mensaje', 'Estudio editado correctamente');
 
             return $this->redirectToRoute('ecodopplervasosdecuello_edit', array('id' => $ecoDopplerVasosDeCuello->getId(),
             'estudio' => $ecoDopplerVasosDeCuello,

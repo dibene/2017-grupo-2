@@ -21,14 +21,13 @@
 
 <h4  class="red-text"> Datos del Estudio </h4>
 Fecha {% if estudio.fechaAlta %}{{ estudio.fechaAlta|date('Y-m-d') }}{% endif %}
-{% if estudio.conclusion %}
-<h5 class="red-text">  Conclusión </h5>
-{{ estudio.conclusion }}
-<br>
-{% endif %}
-
 {% if estudio.resultado %}
 <h5 class="red-text">  Resultado </h5>
 {{  estudio.resultado  }}
+<br>
+{% endif %}
+{% if estudio.conclusion %}
+<h5 class="red-text">  Conclusión </h5>
+{{ estudio.conclusion }}
 <br>
 {% endif %}

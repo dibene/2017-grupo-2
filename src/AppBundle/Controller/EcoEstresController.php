@@ -54,6 +54,7 @@ class EcoEstresController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($ecoEstre);
             $em->flush();
+            $this->addFlash('mensaje', 'Estudio creado correctamente');
 
             return $this->redirectToRoute('ecoestres_show', array('id' => $ecoEstre->getId(),
           'idPaciente' => $paciente->getId(),
@@ -105,6 +106,7 @@ class EcoEstresController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('mensaje', 'Estudio editado correctamente');
 
             return $this->redirectToRoute('ecoestres_edit', array('id' => $ecoEstre->getId(),
             'estudio' => $aortaAbdominalAteromatosa,

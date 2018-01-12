@@ -54,6 +54,7 @@ class MiembrosSuperioresArterialNormalController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($miembrosSuperioresArterialNormal);
             $em->flush();
+            $this->addFlash('mensaje', 'Estudio creado correctamente');
 
             return $this->redirectToRoute('miembrossuperioresarterialnormal_show', array('id' => $miembrosSuperioresArterialNormal->getId(),
           'idPaciente' => $paciente->getId(),
@@ -105,6 +106,7 @@ class MiembrosSuperioresArterialNormalController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('mensaje', 'Estudio editado correctamente');
 
             return $this->redirectToRoute('miembrossuperioresarterialnormal_edit', array('id' => $miembrosSuperioresArterialNormal->getId(),
             'estudio' => $miembrosSuperioresArterialNormal,

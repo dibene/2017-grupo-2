@@ -51,6 +51,7 @@ class EcoDoppColorMiemInfDerController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($ecoDoppColorMiemInfDer);
             $em->flush();
+            $this->addFlash('mensaje', 'Estudio creado correctamente');
 
             return $this->redirectToRoute('ecodoppcolormieminfder_show', array('id' => $ecoDoppColorMiemInfDer->getId(),
           'idPaciente' => $paciente->getId(),
@@ -102,6 +103,7 @@ class EcoDoppColorMiemInfDerController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('mensaje', 'Estudio editado correctamente');
 
             return $this->redirectToRoute('ecodoppcolormieminfder_edit', array('id' => $ecoDoppColorMiemInfDer->getId(),
             'estudio' => $ecoDoppColorMiemInfDer,
