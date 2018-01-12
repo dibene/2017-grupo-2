@@ -24,18 +24,26 @@
 
 {{ form_end(form) }}
 
-<table class="highlight">
-    <thead>
-        <tr>
-            <th>Nombre</th>
-            <th>Paciente <br> Nombre/Apellido/DNI</th>
-            <th>Fecha alta</th>
-            <th>Ver</th>
-            <th>Editar</th>
-        </tr>
-    </thead>
+ Total Estudios: {{pagination.getTotalItemCount}}
+
+     <table class="stripped">
+        <thead>
+
+            <tr>
+              <th> {{knp_pagination_sortable(pagination, 'Nombre Estudio', 'u.nombre')}} </th>
+              <th> {{knp_pagination_sortable(pagination, 'Nombre / Apellido / DNI', 'u.dni')}} </th>
+              <th> {{knp_pagination_sortable(pagination, 'Fecha Alta', 'u.fechaAlta')}} </th>
+              <th>Opciones</th>
+            </tr>
+            </thead>
+            
+        <tbody>
+
+
+
+
     <tbody>
-    {% for estudio in estudios %}
+    {% for estudio in pagination.items %}
         <tr>
             <td><a href="{{ path(estudio.getEstudioConfiguracion().link~'_show', { 'id': estudio.id , 'idPaciente': estudio.getPaciente().id }) }}">{{ estudio.getEstudioConfiguracion().nombre }}</a></td>
             <td>{{ estudio.getPaciente().nombre }} {{ estudio.getPaciente().apellido }} {{ estudio.getPaciente().dni }}</td>
@@ -46,4 +54,12 @@
     {% endfor %}
     </tbody>
 </table>
+
+    <br>
+    {# MUESTRA EL NAVEGADOR #}
+    <div class="navigation">
+      {{knp_pagination_render(pagination)}}
+    </div>
+
+
 {% endblock %}

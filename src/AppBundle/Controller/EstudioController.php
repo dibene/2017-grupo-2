@@ -70,7 +70,7 @@ class EstudioController extends Controller
         $em = $this->getDoctrine()->getManager();
         $paciente = $em->getRepository('AppBundle:Paciente')->find($id);
         $estudios = $em->getRepository('AppBundle:Estudio')->findByPaciente($paciente);
-        $nombreEstudios = $em->getRepository('AppBundle:EstudioConfiguracion')->findAll();
+        //$nombreEstudios = $em->getRepository('AppBundle:EstudioConfiguracion')->findAll();
 
         $form = $this->createFormBuilder($estudios)
           ->add('fechaAlta',DateType::class , array('required' => false, 'widget' => 'single_text','attr' => array('class'=>'datepicker')))
@@ -95,15 +95,25 @@ class EstudioController extends Controller
             }
             $estudios = $em->getRepository('AppBundle:Estudio')->findBy($criterios);
           }else {
-            $estudios = array();
+           // $estudios = array();
           }
+        } else {#entra por primera vez
+
+
         }
+
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+        $estudios, $request->query->getInt('page', 1), 
+            5 );
 
         return $this->render('estudio/index.html.twig', array(
             'paciente' => $paciente,
-            'nombreEstudios' => $nombreEstudios,
-            'estudios' => $estudios,
+            //'nombreEstudios' => $nombreEstudios,
+            //'estudios' => $estudios,
+            'pagination'=> $pagination,
             'form' => $form->createView()
+
 
         ));
     }
@@ -148,11 +158,27 @@ class EstudioController extends Controller
             $estudios = array();
           }
         }
+
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+        $estudios, $request->query->getInt('page', 1), 
+            5 );
+
+        return $this->render('estudio/realizados.html.twig', array(
+            'medico' => $medico,
+            //'nombreEstudios' => $nombreEstudios,
+            //'estudios' => $estudios,
+            'pagination'=> $pagination,
+            'form' => $form->createView()
+
+
+/*
+
         return $this->render('estudio/realizados.html.twig', array(
             'medico' => $medico,
             'estudios' => $estudios,
             'nombreEstudios' => $nombreEstudios,
-            'form' => $form->createView()
+            'form' => $form->createView()    */
         ));
     }
 
