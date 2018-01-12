@@ -13,3 +13,8 @@ $( document ).ready(function(){
   // for HTML5 "required" attribute
   $("select[required]").css({display: "inline", height: 0, padding: 0, width: 0});
 });
+
+$('#alert_close').click(function(){
+    $( "#alert_box" ).fadeOut( "slow", function() {
+    });
+  });

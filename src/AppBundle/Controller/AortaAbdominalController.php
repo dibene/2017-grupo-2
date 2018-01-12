@@ -53,6 +53,7 @@ class AortaAbdominalController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($aortaAbdominal);
             $em->flush();
+            $this->addFlash('mensaje', 'Estudio creado correctamente');
 
             return $this->redirectToRoute('aortaabdominal_show', array('id' => $aortaAbdominal->getId(),
           'idPaciente' => $paciente->getId(),
@@ -118,7 +119,7 @@ class AortaAbdominalController extends Controller
           'paciente' => $paciente,
           'idPaciente' => $paciente->getId(),
           'edit_form' => $editForm->createView(),
-          'delete_form' => $deleteForm->createView(), 
+          'delete_form' => $deleteForm->createView(),
         ));
     }
 

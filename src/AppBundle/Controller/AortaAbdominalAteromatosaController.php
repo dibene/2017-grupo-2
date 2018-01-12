@@ -57,6 +57,7 @@ class AortaAbdominalAteromatosaController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($aortaAbdominalAteromatosa);
             $em->flush();
+            $this->addFlash('mensaje', 'Estudio creado correctamente');
 
             return $this->redirectToRoute('aortaabdominalateromatosa_show', array('id' => $aortaAbdominalAteromatosa->getId(),
           'idPaciente' => $paciente->getId(),
@@ -108,6 +109,7 @@ class AortaAbdominalAteromatosaController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('mensaje', 'Estudio editado correctamente');
 
             return $this->redirectToRoute('aortaabdominalateromatosa_edit', array('id' => $aortaAbdominalAteromatosa->getId(),
             'estudio' => $aortaAbdominalAteromatosa,
