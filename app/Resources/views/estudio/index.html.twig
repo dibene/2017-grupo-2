@@ -22,17 +22,20 @@
 
 {{ form_end(form) }}
 
-    <table class="highlight">
+  Total Pacientes: {{pagination.getTotalItemCount}}
+
+     <table class="stripped">
         <thead>
+
             <tr>
-                <th>Nombre</th>
-                <th>Fecha alta</th>
-                <th>Ver</th>
-                <th>Editar</th>
+              <th> {{knp_pagination_sortable(pagination, 'Nombre', 'u.nombre')}} </th>
+              <th> {{knp_pagination_sortable(pagination, 'Fecha Alta', 'u.fechaAlta')}} </th>
+              <th>Opciones</th>
             </tr>
-        </thead>
+            </thead>
+            
         <tbody>
-        {% for estudio in estudios %}
+        {% for estudio in pagination.items %}
             <tr>
                 <td><a href="{{ path(estudio.getEstudioConfiguracion().link~'_show', { 'id': estudio.id , 'idPaciente': paciente.id }) }}">{{ estudio.getEstudioConfiguracion().nombre }}</a></td>
                 <td>{% if estudio.fechaAlta %}{{ estudio.fechaAlta|date('Y-m-d') }}{% endif %}</td>
@@ -42,6 +45,12 @@
         {% endfor %}
         </tbody>
     </table>
+
+    <br>
+    {# MUESTRA EL NAVEGADOR #}
+    <div class="navigation">
+      {{knp_pagination_render(pagination)}}
+    </div>
 
     <h4 class="red-text">Estudios para agregar
 <a class="btn-floating btn-small waves-effect waves-light green" href="{{ path('estudio_new', { 'id': paciente.id }) }}"><i class="material-icons">add</i></a>

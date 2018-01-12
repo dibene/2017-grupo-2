@@ -5,7 +5,11 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\GrupoDiagnostico;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\Extension\Core\Type\SearchType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use  Doctrine \ ORM \ Tools \ Pagination \ Paginator ;
 
 /**
  * Grupodiagnostico controller.
@@ -20,14 +24,22 @@ class GrupoDiagnosticoController extends Controller
      * @Route("/", name="grupodiagnostico_index")
      * @Method("GET")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $grupoDiagnosticos = $em->getRepository('AppBundle:GrupoDiagnostico')->findAll();
+        //$grupoDiagnosticos = $em->getRepository('AppBundle:GrupoDiagnostico')->findAll();
+
+        $grupoDiagnosticos = $em->getRepository('AppBundle:GrupoDiagnostico')->findForPaginator();  
+
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+        $grupoDiagnosticos, $request->query->getInt('page', 1), 
+            5 );
 
         return $this->render('grupodiagnostico/index.html.twig', array(
-            'grupoDiagnosticos' => $grupoDiagnosticos,
+            //'grupoDiagnosticos' => $grupoDiagnosticos,
+            'pagination' => $pagination
         ));
     }
 

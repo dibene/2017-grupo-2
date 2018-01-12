@@ -12,4 +12,11 @@ use Doctrine\ORM\EntityRepository;
  */
 class GrupoDiagnosticoRepository extends EntityRepository
 {
+		public function findForPaginator(){
+		$em = $this->getEntityManager();
+		
+		$dql = "SELECT u FROM AppBundle:Grupodiagnostico u";
+        $grupoDiagnosticos = $em->createQuery($dql);
+        return $grupoDiagnosticos;
+	}
 }
