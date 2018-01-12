@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+<div class="container center-align" >
+  <div class="z-depth-1 grey lighten-4 row left-align" style="display: inline-block; margin: 50px; padding: 32px 48px 50px 48px; border: 1px solid #EEE;">
+
+<p>
+{{ 'resetting.check_email'|trans({'%tokenLifetime%': tokenLifetime})|nl2br }}
+</p>
+<a class='col s12 btn btn-large waves-effect red' style="margin-top:20px;" href="/login" >LOGUEARSE</a>
+
+</div>
+</div>
+
+{% endblock %}

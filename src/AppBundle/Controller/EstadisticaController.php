@@ -22,7 +22,7 @@ class EstadisticaController extends Controller
    * @Route("/tipodeestudiopdf/desde/{fdesde}/hasta/{fhasta}", name="tipodeestudio_pdf")
    * @Method("GET")
    */
-  public function tipodeestudiopdfAction($fdesde,$fhasta)
+  public function tipodeestudiopdfAction(Request $request,$fdesde,$fhasta)
   {
 
       $snappy = $this->get('knp_snappy.pdf');
@@ -48,7 +48,8 @@ class EstadisticaController extends Controller
           'fdesde' => $fdesde,
           'fhasta' => $fhasta,
           'res' => $res,
-          'totalEstudios' => $totalEstudios
+          'totalEstudios' => $totalEstudios,
+          'base_dir' => $this->get('kernel')->getRootDir() . '/../web' . $request->getBasePath()
          ));
 
       return new Response(
@@ -65,7 +66,7 @@ class EstadisticaController extends Controller
    * @Route("/diagnosticopdf/desde/{fdesde}/hasta/{fhasta}", name="diagnostico_pdf")
    * @Method("GET")
    */
-  public function diagnosticopdfAction($fdesde,$fhasta)
+  public function diagnosticopdfAction(Request $request,$fdesde,$fhasta)
   {
 
       $snappy = $this->get('knp_snappy.pdf');
@@ -103,7 +104,8 @@ class EstadisticaController extends Controller
           'fhasta' => $fhasta,
           'res' => $res,
           'total' => $total,
-          'totalEstudios' => $totalEstudios
+          'totalEstudios' => $totalEstudios,
+          'base_dir' => $this->get('kernel')->getRootDir() . '/../web' . $request->getBasePath()
          ));
 
       return new Response(
@@ -121,7 +123,7 @@ class EstadisticaController extends Controller
    * @Route("/datospdf/desde/{fdesde}/hasta/{fhasta}", name="datos_pdf")
    * @Method("GET")
    */
-  public function datospdfAction($fdesde,$fhasta)
+  public function datospdfAction(Request $request, $fdesde,$fhasta)
   {
 
       $snappy = $this->get('knp_snappy.pdf');
@@ -160,7 +162,8 @@ class EstadisticaController extends Controller
           'fhasta' => $fhasta,
           'res' => $res,
           'res2' => $res2,
-          'totalEstudios' => $totalEstudios
+          'totalEstudios' => $totalEstudios,
+          'base_dir' => $this->get('kernel')->getRootDir() . '/../web' . $request->getBasePath()
          ));
       return new Response(
           $snappy->getOutputFromHtml($html),

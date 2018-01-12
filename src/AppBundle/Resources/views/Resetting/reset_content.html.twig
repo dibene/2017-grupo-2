@@ -1,0 +1,10 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<div class="container center-align" >
+  <div class="z-depth-1 grey lighten-4 row left-align" style="display: inline-block; margin: 50px; padding: 32px 48px 50px 48px; border: 1px solid #EEE;">
+      <h5 class="red-text center-align ">Recuperar Contraseña: Actualizar</h5>
+{{ form_start(form, { 'action': path('fos_user_resetting_reset', {'token': token}), 'attr': { 'class': 'fos_user_resetting_reset' } }) }}
+    {{ form_widget(form) }}
+    <div>
+      <button class='col s12 btn btn-large waves-effect red' style="margin-top:20px;"type="submit" id="_submit" name="_submit" value="{{ 'resetting.reset.submit'|trans }}">value="{{ 'resetting.reset.submit'|trans }}"</button>
+    </div>
+{{ form_end(form) }}

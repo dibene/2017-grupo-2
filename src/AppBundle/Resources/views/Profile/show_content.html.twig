@@ -8,7 +8,12 @@
         <h4 class="red-text "> Datos del usuario</h4>
           <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
           <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
-
+          <p><a class="btn-floating btn-large waves-effect waves-light yellow" href="/profile/edit">
+              <i class="material-icons">edit</i>
+            </a>  Editar datos de usuario  </p>
+            <p><a class="btn-floating btn-large waves-effect waves-light yellow" href="/profile/change-password">
+                <i class="material-icons">edit</i>
+              </a> Cambiar Contraseña  </p>
         <div class="fos_user_user_show">
           {% if is_granted('ROLE_MEDICO') %}
           <h4 class="red-text "> Datos personales del medico</h4>
@@ -43,6 +48,9 @@
                   </tr>
               </tbody>
           </table>
+          <p><a class="btn-floating btn-large waves-effect waves-light yellow" href="{{ path('medico_edit',{ 'id':medico.id}) }}">
+              <i class="material-icons">edit</i>
+            </a>  Editar datos peronales de médico  </p>
           {% else %}
             <p><a class="btn-floating btn-large waves-effect waves-light green" href="{{ path('medico_new') }}">
                 <i class="material-icons">person_add</i>

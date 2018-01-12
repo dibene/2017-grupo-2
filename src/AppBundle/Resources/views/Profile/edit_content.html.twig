@@ -1,8 +1,16 @@
 {% trans_default_domain 'FOSUserBundle' %}
+<div class="row col s12">
+  <div class="container col s12 center-align" >
+    <div class="z-depth-1 grey lighten-4 row left-align col s12" style="display: inline-block; margin: 50px; padding: 32px 48px 50px 48px; border: 1px solid #EEE;">
+      <h3 class="red-text center-align "> Editar datos de usuario</h3>
 
 {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
     {{ form_widget(form) }}
     <div>
-        <input type="submit" value="{{ 'profile.edit.submit'|trans }}" />
+      <input class="btn waves-effect waves-light red" type="submit" value="EDITAR" />
     </div>
 {{ form_end(form) }}
+</div>
+</div>
+</div>
+<a class="btn waves-effect waves-light red" href="/profile">Volver al Perfil</a>
