@@ -36,6 +36,7 @@
               <th> {{knp_pagination_sortable(pagination, 'Fecha Nacimiento', 'u.fechaNacimiento')}} </th>
               <th> {{knp_pagination_sortable(pagination, 'Obrac Social', 'u.obraSocial')}} </th>
               <th> {{knp_pagination_sortable(pagination, 'Fecha Ingreso', 'u.fechaIngreso')}} </th>
+              <th> {{knp_pagination_sortable(pagination, 'Telefono', 'u.telefono')}} </th>
               <th> Opciones</th>
             </tr>
 
@@ -54,10 +55,10 @@
               <td>{% if paciente.fechaNacimiento %}{{ paciente.fechaNacimiento|date('Y-m-d') }}{% endif %}</td>
                 <td>{{ paciente.obraSocial }}</td>
                 <td>{% if paciente.fechaIngreso %}{{ paciente.fechaIngreso|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if paciente.telefono %}{{ paciente.telefono }}{% endif %}</td>
                 <td><a class="btn-floating btn-small waves-effect waves-light yellow" href="{{ path('paciente_edit', { 'id': paciente.id }) }}"><i class="material-icons">create</i></a> </td>
                 <td><a class="btn-floating btn-small waves-effect waves-light green" href="{{ path('estudio_new', { 'id': paciente.id }) }}"><i class="material-icons">add</i></a></td>
                 <td><a class="btn-floating btn-small waves-effect waves-light green" href="{{ path('estudio_index', { 'id': paciente.id }) }}"><i class="material-icons">view_list</i></a></td>
-
             </tr>
         {% endfor %}
         </tbody>

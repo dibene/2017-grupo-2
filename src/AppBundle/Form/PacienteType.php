@@ -22,7 +22,8 @@ class PacienteType extends AbstractType
                 ->add('sexo', ChoiceType::class, array('choices'  => array('Masculino' => 'Masculino', 'Femenino' => 'Femenino', 'Otros' => 'Otros')))
                 ->add('nacionalidad')
                 ->add('fechaNacimiento', DateType::class , array('widget' => 'single_text','attr' => array('class'=>'datepicker')))
-                ->add('localidad')
+                ->add('localidad', ChoiceType::class, array('choices'  => array('La Plata' => 'La Plata',  'Otros' => 'Otros')))
+                ->add('telefono')
                 ->add('obraSocial')
                 ->add('fechaIngreso', DateType::class , array('widget' => 'single_text','attr' => array('class'=>'datepicker')))
                 ;

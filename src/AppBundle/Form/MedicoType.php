@@ -26,6 +26,7 @@ class MedicoType extends AbstractType
          ->add('fechaNacimiento', DateType::class , array('widget' => 'single_text','attr' => array('class'=>'datepicker')))
          ->add('localidad', ChoiceType::class, array('choices'  => array('La Plata' => 'La Plata',  'Otros' => 'Otros')))
          ->add('obraSocial')
+         ->add('telefono')
          ->add('especialidad', EntityType::class, array(
                  'class' => 'AppBundle:Especialidad',
                  'choice_label' => 'nombre'))

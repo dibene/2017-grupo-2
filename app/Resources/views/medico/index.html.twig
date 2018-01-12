@@ -17,6 +17,7 @@
                 <th>Obrasocial</th>
                 <th>Matrícula</th>
                 <th>Especialidad</th>
+                <th>Telefono</th>
             </tr>
         </thead>
         <tbody>
@@ -33,6 +34,7 @@
                 <td>{{ medico.obraSocial }}</td>
                 <td>{{ medico.matricula }}</td>
                 <td>{% if medico.getEspecialidad() %}{{ medico.getEspecialidad().getNombre() }}{% endif %}</td>
+                <td>{{ medico.telefono }}</td>
             </tr>
         {% endfor %}
         </tbody>

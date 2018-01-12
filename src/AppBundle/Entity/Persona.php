@@ -81,10 +81,11 @@ abstract class Persona
     private $fechaNacimiento;
 
     /**
-     * One presona has Many telefonos.
-     * @ORM\OneToMany(targetEntity="Telefono", mappedBy="presona")
+     * @var string
+     *
+     * @ORM\Column(name="telefono", type="string", length=15, nullable=true)
      */
-     private $telefonos;
+    private $telefono;
 
      public function __construct() {
          $this->telefonos = new ArrayCollection();
@@ -121,6 +122,29 @@ abstract class Persona
     public function getNombre()
     {
         return $this->nombre;
+    }
+
+    /**
+     * Set $telefono
+     *
+     * @param string $telefono
+     * @return Persona
+     */
+    public function setTelefono($telefono)
+    {
+        $this->telefono = $telefono;
+
+        return $this;
+    }
+
+    /**
+     * Get $telefono
+     *
+     * @return string
+     */
+    public function getTelefono()
+    {
+        return $this->telefono;
     }
 
     /**

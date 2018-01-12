@@ -65,7 +65,7 @@
             {% for type, messages in app.session.flashBag.all %}
             <div class="row" id="alert_box">
               <div class="col s12 m12">
-                {% if type == 'mensaje' %}
+                {% if type == 'mensaje' or type == 'success' %}
                   <div class="card-panel white-text  teal  light-green accent-3" style="padding:5px">
                     <div class="row" style="padding:0px; margin:0px;">
                         <div class="col s12 m11">
