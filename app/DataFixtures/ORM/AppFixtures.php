@@ -180,21 +180,21 @@ class AppFixtures extends Fixture
           $esp->setObservacion($especialidad['observacion']);
           $manager->persist($esp);
         }
-        //pacientes
-        for ($i=0; $i < 20; $i++) {
-          $paciente = new Paciente();
-          $paciente->setObraSocial('obraSocial');
-          $paciente->setNombre('nombre'.$i);
-          $paciente->setApellido('apellido'.$i);
-          $paciente->setDni($i*13*13);
-          $paciente->setSexo('masculino');
-          $paciente->setNacionalidad('nac');
-          $paciente->setLocalidad('loc');
-          $paciente->setDireccion('dir');
-          $paciente->setFechaNacimiento(new DateTime('2017-09-05'));
-          $paciente->setFechaIngreso(new DateTime('2017-09-05'));
-          $manager->persist($paciente);
-          }
+        // //pacientes
+        // for ($i=0; $i < 20; $i++) {
+        //   $paciente = new Paciente();
+        //   $paciente->setObraSocial('obraSocial');
+        //   $paciente->setNombre('nombre'.$i);
+        //   $paciente->setApellido('apellido'.$i);
+        //   $paciente->setDni($i*13*13);
+        //   $paciente->setSexo('masculino');
+        //   $paciente->setNacionalidad('nac');
+        //   $paciente->setLocalidad('loc');
+        //   $paciente->setDireccion('dir');
+        //   $paciente->setFechaNacimiento(new DateTime('2017-09-05'));
+        //   $paciente->setFechaIngreso(new DateTime('2017-09-05'));
+        //   $manager->persist($paciente);
+        //   }
 
         // usuarios
         //usuario sin rol
